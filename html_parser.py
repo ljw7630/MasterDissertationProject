@@ -2,19 +2,41 @@ from __future__ import print_function
 import bs4
 import sys
 
+class SkillParser:
 
-linkedIn_url_prefix = 'http://www.linkedin.com'
-linkedin_ireland_url_prefix = 'http://ie.linkedin.com'
+	def __init__(self, file_name):
+		self.soup = bs4.BeautifulSoup(open(file_name))
+
+	def parseHTML(self):
+		number_of_pages = getNumberOfPages()
+
+	def getNumberOfPages(self):
+		pages = self.soup.findAll("a", class_="navi-page-link pager-link")
+		if pages == []:
+			return 1
+		else:
+			return int(pages[-1].string.strip())
+
+	def getSkills(self):
+		skills = []
+		lis = self.soup.findAll("li", class_="publictopics-TopicItem")
+		for li in lis:
+			skills.append(li.div.a.string.strip())
+		return skills
+
 
 # main handler, open the file, and parse each section
 
 # comment: at the moment, current experience and past experience return not the same structures and contents
 
-class html_parser:
-	def __init__(self, file_name)
+class PublicProfileParser:
+	linkedIn_url_prefix = 'http://www.linkedin.com'
+	linkedin_ireland_url_prefix = 'http://ie.linkedin.com'
+
+	def __init__(self, file_name):
 		self.soup = bs4.BeautifulSoup(open(file_name))
 		
-	def parseHtml(file_name):		
+	def parseHtml():		
 		given_name = getGivenName()
 		family_name = getFamilyName()
 		industry = getIndustry()

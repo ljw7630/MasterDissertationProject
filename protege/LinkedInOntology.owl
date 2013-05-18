@@ -34,15 +34,15 @@
   <rdf:Property rdf:about="http://dbpedia.org/ontology/language"/>
   <rdf:Property rdf:about="http://dbpedia.org/ontology/iso6392Code"/>
   <rdf:Property rdf:about="http://www.w3.org/2000/01/rdf-schema#Label"/>
-  <rdf:Property rdf:about="http://dbpedia.org/ontology/languageFamily"/>
   <rdf:Property rdf:about="http://dbpedia.org/ontology/spokenIn"/>
+  <rdf:Property rdf:about="http://dbpedia.org/ontology/languageFamily"/>
   <rdf:Property rdf:about="http://dbpedia.org/ontology/languageRegulator"/>
   <rdf:Property rdf:about="http://dbpedia.org/ontology/regionalLanguage"/>
   <rdf:Property rdf:about="http://dbpedia.org/ontology/originalLanguage"/>
+  <j.1:IMT/>
   <j.0:License rdf:about="http://creativecommons.org/licenses/by/2.0/uk/"/>
   <j.2:Text rdf:about="http://purl.org/vocab/aiiso/schema-20080925.rdf"/>
   <j.2:Text rdf:about="http://purl.org/vocab/aiiso/schema-20080925.html"/>
-  <j.1:IMT/>
   <j.1:IMT/>
 </rdf:RDF>
 
