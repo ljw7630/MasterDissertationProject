@@ -1,18 +1,69 @@
 from __future__ import print_function
 import bs4
-import sys
+from collections import defaultdict
+
+class IndustryParser:
+	_file_name = './resources/industry.html'
+
+	def getIndustries(self):
+		soup = bs4.BeautifulSoup(open(self._file_name))
+		options = soup.findAll('option')
+		option_list = []
+		for option in options[1:]:
+			option_list.append(option.string)
+		return option_list
+
+class DisciplineParser:
+	_file_name = './resources/List of academic disciplines - Wikipedia.html'
+
+	def getDisciplinesHierarchy(self):
+		soup = bs4.BeautifulSoup(open(self._file_name))
+
+		h2s = soup.findAll('h2')
+
+		h2s = h2s[2:-5]
+		disciplines = defaultdict(dict)
+		for h2 in h2s:
+			disciplines[h2.span.string] = {}
+			h3 = h2.findNext('h3')
+			while h3.findPrevious('h2') == h2:
+				disciplines[h2.span.string][h3.span.string] = {}
+				table = h3.findNext('table')
+				tds = table.findAll('td')
+				for td in tds:
+					ul = td.find('ul')
+					tmp_dicts = self.getUlDict(ul)
+					disciplines[h2.span.string][h3.span.string].update(tmp_dicts)
+				# while ul.findPrevious('h3') == h3:
+				# 	disciplines[h2.span.string][h3.span.string] = self.getUlDict(ul)
+				# 	ul = ul.findNextSibling('ul')
+				h3 = h3.findNext('h3')
+		return disciplines
+
+	def getUlDict(self, ul):
+		dicts = defaultdict(dict)
+		li = ul.find('li')
+		while True:
+			if li.a:
+				dicts[li.a.string] = {}
+			else:
+				dicts[li.string] = {}
+			if li.find('ul') is not None:
+				dicts[li.a.string] = self.getUlDict(li.ul)
+			if li.findNextSibling('li') is None:
+				break
+			li = li.findNextSibling('li')
+		return dicts
+
 
 class SkillParser:
 
 	def __init__(self, file_name):
 		self.soup = bs4.BeautifulSoup(open(file_name))
 
-	def parseHTML(self):
-		number_of_pages = getNumberOfPages()
-
 	def getNumberOfPages(self):
 		pages = self.soup.findAll("a", class_="navi-page-link pager-link")
-		if pages == []:
+		if not pages:
 			return 1
 		else:
 			return int(pages[-1].string.strip())
@@ -30,70 +81,70 @@ class SkillParser:
 # comment: at the moment, current experience and past experience return not the same structures and contents
 
 class PublicProfileParser:
-	linkedIn_url_prefix = 'http://www.linkedin.com'
-	linkedin_ireland_url_prefix = 'http://ie.linkedin.com'
+	_linkedIn_url_prefix = 'http://www.linkedin.com'
+	_linkedin_ireland_url_prefix = 'http://ie.linkedin.com'
 
 	def __init__(self, file_name):
 		self.soup = bs4.BeautifulSoup(open(file_name))
 		
-	def parseHtml():		
-		given_name = getGivenName()
-		family_name = getFamilyName()
-		industry = getIndustry()
-		headline_title = getHeadlineTitle()
-		current_experience = getCurrentExperience()
-		past_experience_list = getPastExperience()
+	def parseHtml(self):		
+		given_name = self.getGivenName()
+		family_name = self.getFamilyName()
+		industry = self.getIndustry()
+		headline_title = self.getHeadlineTitle()
+		current_experience = self.getCurrentExperience()
+		past_experience_list = self.getPastExperience()
 
-		education_list = getEducation()
-		website_list = getWebsites()
-		language_list = getLanguages()
-		skill_list = getSkillsAndExpertise()
-		education_detail_list = getEducationDetails()
-		extra_profile_list = getExtraProfile()
+		education_list = self.getEducation()
+		website_list = self.getWebsites()
+		language_list = self.getLanguages()
+		skill_list = self.getSkills()
+		education_detail_list = self.getEducationDetails()
+		extra_profile_list = self.getExtraProfiles()
 		
 		print (given_name, family_name, industry, headline_title, \
-			cpast_experience_list, past_experience_list, \
+			current_experience, past_experience_list, \
 			education_list, website_list, \
 			language_list, skill_list, education_detail_list, \
 			extra_profile_list, sep = '\n')
 
 
-	def getGivenName():
+	def getGivenName(self):
 		given_name_with_tag = self.soup.find("span", class_="given-name")
 		given_name = given_name_with_tag.string
 		return given_name
 
-	def getFamilyName():
+	def getFamilyName(self):
 		family_name_with_tag = self.soup.find("span", class_="family-name")
 		family_name = family_name_with_tag.string
 		return family_name
 
-	def getIndustry():
+	def getIndustry(self):
 		industry = self.soup.find('dd', class_='industry')
 
-		if industry != None:
+		if industry is not None:
 			industry = industry.string.strip()
 		return industry
 
-	def getHeadlineTitle():
+	def getHeadlineTitle(self):
 		headline_title_with_tag = self.soup.find("p", class_="headline-title title")
 		headline_title = headline_title_with_tag.string.strip()
 		return headline_title
 
-	def getCurrentExperience():	
+	def getCurrentExperience(self):	
 		current = self.soup.find("div", class_ = "summary-current")
 		postitle = current.find("div", class_ = "postitle")
 		job_title = postitle.h3.span.string.strip()
 		company = postitle.h4.strong
 		
 		current_experience = {}
-		
+
 		current_experience['job_title'] = job_title
-		
+
 		# this company has no hyperlink
 
-		if company.a != None:
-			company_url = linkedIn_url_prefix + company.a['href']
+		if company.a is not None:
+			company_url = self._linkedIn_url_prefix + company.a['href']
 			company_name = company.a.span.string.strip()
 			current_experience['company_url'] = company_url
 			current_experience['company_name'] = company_name
@@ -115,21 +166,21 @@ class PublicProfileParser:
 			
 		return current_experience
 
-	def getPastExperience():
+	def getPastExperience(self):
 		lis = self.soup.find("ul", class_ = "past")
 
 		past_experience_list = []
 
-		if lis != None:
+		if lis is not None:
 			lis = lis.findAll('li')
 
 			for li in lis:
 				nonempty_list = []
-				nonempty_list[:] = removeNewlineInList(li.contents)
+				nonempty_list[:] = self.removeNewlineInList(li.contents)
 				title = nonempty_list[0].string.strip()
 				company_name = nonempty_list[2].string.strip()
 				if type(nonempty_list[2]) == bs4.element.Tag:
-					company_url = linkedIn_url_prefix + nonempty_list[2]['href']
+					company_url = self._linkedIn_url_prefix + nonempty_list[2]['href']
 				else:
 					company_url = None
 
@@ -137,11 +188,11 @@ class PublicProfileParser:
 
 		return past_experience_list
 
-	def getEducation():
+	def getEducation(self):
 		ul = self.soup.find("dd", class_ = "summary-education")
 		education_list = []
 
-		if ul != None:	
+		if ul is not None:
 			lis = ul.findAll('li')
 			for li in lis:
 				if len(li.contents) == 1:
@@ -152,32 +203,32 @@ class PublicProfileParser:
 
 		return education_list
 
-	def getWebsites():
+	def getWebsites(self):
 		ul = self.soup.find("dd", class_ = "websites")
 
 		websites = []
 
-		if ul != None:
+		if ul is not None:
 			website_list = ul.findAll('li')
 
 			for website in website_list:
 				href = website.a['href']
 				name = website.a.string.strip()
 				if href.startswith('/redir'):
-					href = linkedIn_url_prefix + href
+					href = self._linkedIn_url_prefix + href
 				websites.append({'website_name':name, 'url':href})
 			
 		return websites
 
 
-	def getLanguages():
+	def getLanguages(self):
 		lis = self.soup.find("ul", class_="languages competencies")
 
 		language_list = []
 		
-		if lis != None:
+		if lis is not None:
 			languages = []
-			languages[:] = removeNewlineInList(lis)
+			languages[:] = self.removeNewlineInList(lis)
 
 			for language_tag in languages:
 				language = language_tag.h3.string
@@ -185,14 +236,14 @@ class PublicProfileParser:
 
 		return language_list
 
-	def getSkillsAndExpertise():
+	def getSkills(self):
 		skills = self.soup.find("ol", class_="skills")
 
 		skill_list = []
 
-		if skills != None:
+		if skills is not None:
 			lis = []
-			lis[:] = removeNewlineInList(skills)
+			lis[:] = self.removeNewlineInList(skills)
 			for li in lis:
 				href = li.span.a['href']
 				skill = li.span.a.string.strip()
@@ -200,11 +251,11 @@ class PublicProfileParser:
 
 		return skill_list
 		
-	def getEducationDetails():
+	def getEducationDetails(self):
 		details = self.soup.find("div", class_ = "section subsection-reorder summary-education")
 		detail_list = []
 
-		if details != None:
+		if details is not None:
 			mainDiv = details.find('div', class_ = 'content vcalendar')
 
 			divs = mainDiv.findAll('div')
@@ -221,29 +272,29 @@ class PublicProfileParser:
 
 		return detail_list
 
-	def getExtraProfile():
+	def getExtraProfiles(self):
 		profiles = self.soup.findAll('li', class_ = 'with-photo')
 
 		extra_profile_list = []
 		for profile in profiles:
 			url = profile.strong.a['href']		
 
-			if str(url).startswith(linkedin_ireland_url_prefix) == True:			
+			if str(url).startswith(self._linkedin_ireland_url_prefix):
 				name = profile.strong.a.string.strip()
 				headline_title = profile.span.string.strip()
 				extra_profile_list.append({'url': url, 'name': name, 'headline_title':headline_title})
 
 		return extra_profile_list	
 
-	def removeNewlineInList(alist):
+	def removeNewlineInList(self, alist):
 		return (value for value in alist if value != u'\n')
 
-	def getStringContentsInList(alist):
+	def getStringContentsInList(self, alist):
 		return (value.string.strip() for value in alist)
 
-def main(argv):	
-	for i in range(1, len(argv)):
-		parseHtml(argv[i])
+def main():
+    dp = DisciplineParser()
+    print(dp.getDisciplinesHierarchy())
 
 if __name__ == "__main__":
-    main(sys.argv)
+    main()

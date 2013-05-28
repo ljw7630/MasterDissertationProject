@@ -1,6 +1,5 @@
 import urllib
 from google import search
-import sys
 import string
 import html_parser
 
@@ -34,7 +33,7 @@ class PublicProfileDownloader:
 
 	# Search and Download
 	def download(self, keywords, site = _linkedin_ireland_url, num = 20, path = './user_raw/', postfix = '.htm'):
-		urls = googleSearch(keywords)
+		urls = self.googleSearch(keywords)
 		html_downloader = HTMLDownloader()
 		for url in urls:
 			file_name = url.rsplit('/', 1)[1]
