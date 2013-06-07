@@ -2,6 +2,57 @@ from __future__ import print_function
 import bs4
 from collections import defaultdict
 
+class DegreeAbbreviationParser:
+	_file_name = './resources/British degree abbreviations - Wikipedia, the free encyclopedia.html'
+
+	def __init__(self):
+		self.soup = bs4.BeautifulSoup(open(self._file_name)) 
+
+	def getBachelorDegreeAbbrs(self):
+		
+		degree_list = self.soup.find("a", text="Bachelor's degree").findNext('ul').findAll('li')
+
+		return getDegreeMapFromList(degree_list)
+
+	def getMasterDegreeAbbrs(self):
+		degree_list = self.soup.find('span',text='Postgraduate degrees', id='Postgraduate_degrees').findNext('ul').findAll('li')
+
+		postgraduate_degrees = self.getDegreeMapFromList(degree_list)
+
+		# remove duplicate 'MA'
+		degree_list = self.soup.find('span', text="Master's degrees", id='Master.27s_degrees').findNext('ul').findAll('li')[1:]
+
+		master_degress = self.getDegreeMapFromList(degree_list)
+
+		return dict(postgraduate_degrees.items() + master_degress.items())
+
+	def getDoctorDegreeAbbrs(self):
+		degree_list = self.soup.find('span',text='Junior (Professional) Doctorates', id='Junior_.28Professional.29_Doctorates').findNext('ul').findAll('li')
+
+		degree_list.extend(self.soup.find('span', text='Intermediate Doctorates', id='Intermediate_Doctorates').findNext('ul').findAll('li'))
+
+		degree_list.extend(self.soup.find('span',text='Higher Doctorates',id='Higher_Doctorates').findNext('ul').findAll('li'))
+
+		return self.getDegreeMapFromList(degree_list)
+
+	def getDegreeMapFromList(self, degree_list):
+
+		degree_map = {}
+
+		for degree in degree_list:
+			# remove hyperlink
+			while degree.a is not None:
+				degree.a.replace_with(degree.a.string)
+
+			abbreviation, name = degree.text.split('-')
+			abbreviations = abbreviation.replace(',',' ').replace(' or ',' ').replace('/',' ').split()
+			abbreviations = [abbr.strip() for abbr in abbreviations]
+			name = name.strip()
+
+			degree_map[name] = abbreviations
+		return degree_map
+
+
 class IndustryParser:
 	_file_name = './resources/industry.html'
 

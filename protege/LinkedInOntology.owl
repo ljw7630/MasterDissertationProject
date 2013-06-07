@@ -14,8 +14,9 @@
     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
   xml:base="http://scss.tcd.ie/LinkedInOntology.owl">
   <owl:Ontology rdf:about="">
-    <owl:imports rdf:resource="http://xmlns.com/foaf/0.1/"/>
+    <owl:imports rdf:resource="http://umbel.org/umbel"/>
     <owl:imports rdf:resource="http://dbpedia.org/ontology/"/>
+    <owl:imports rdf:resource="http://xmlns.com/foaf/0.1/"/>
     <owl:imports rdf:resource=""/>
   </owl:Ontology>
   <rdfs:Class rdf:about="http://xmlns.com/foaf/spec/Agent"/>
@@ -34,8 +35,8 @@
   <rdf:Property rdf:about="http://dbpedia.org/ontology/language"/>
   <rdf:Property rdf:about="http://dbpedia.org/ontology/iso6392Code"/>
   <rdf:Property rdf:about="http://www.w3.org/2000/01/rdf-schema#Label"/>
-  <rdf:Property rdf:about="http://dbpedia.org/ontology/spokenIn"/>
   <rdf:Property rdf:about="http://dbpedia.org/ontology/languageFamily"/>
+  <rdf:Property rdf:about="http://dbpedia.org/ontology/spokenIn"/>
   <rdf:Property rdf:about="http://dbpedia.org/ontology/languageRegulator"/>
   <rdf:Property rdf:about="http://dbpedia.org/ontology/regionalLanguage"/>
   <rdf:Property rdf:about="http://dbpedia.org/ontology/originalLanguage"/>

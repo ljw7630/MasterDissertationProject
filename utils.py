@@ -1,6 +1,8 @@
 import os
 import html_parser
 import pickle
+import json
+import urllib2
 
 class Utils:
 	@staticmethod
@@ -30,6 +32,15 @@ class Utils:
 					change = change+1
 				current[j] = min(add, delete, change)
 		return current[len1]
+
+	#not finish yet
+	@staticmethod
+	def getLatLngCityByName(company_name):
+		_request_url = 'http://maps.googleapis.com/maps/api/geocode/json?address=%s&sensor=false&components=country:IE'
+		address = urllib2.quote(company_name)
+		url = _request_url %address
+
+		data = json.load(urllib2.urlopen(url))
 
 if __name__ == '__main__':
 	print Utils.levenshteinDistance('abc', 'abd')
