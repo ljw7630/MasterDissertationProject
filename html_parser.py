@@ -2,36 +2,42 @@ from __future__ import print_function
 import bs4
 from collections import defaultdict
 
+
 class DegreeAbbreviationParser:
 	_file_name = './resources/British degree abbreviations - Wikipedia, the free encyclopedia.html'
 
 	def __init__(self):
-		self.soup = bs4.BeautifulSoup(open(self._file_name)) 
+		self.soup = bs4.BeautifulSoup(open(self._file_name))
 
 	def getBachelorDegreeAbbrs(self):
-		
+
 		degree_list = self.soup.find("a", text="Bachelor's degree").findNext('ul').findAll('li')
 
-		return getDegreeMapFromList(degree_list)
+		return self.getDegreeMapFromList(degree_list)
 
 	def getMasterDegreeAbbrs(self):
-		degree_list = self.soup.find('span',text='Postgraduate degrees', id='Postgraduate_degrees').findNext('ul').findAll('li')
+		degree_list = self.soup.find('span', text='Postgraduate degrees', id='Postgraduate_degrees').findNext(
+			'ul').findAll('li')
 
 		postgraduate_degrees = self.getDegreeMapFromList(degree_list)
 
 		# remove duplicate 'MA'
-		degree_list = self.soup.find('span', text="Master's degrees", id='Master.27s_degrees').findNext('ul').findAll('li')[1:]
+		degree_list = self.soup.find('span', text="Master's degrees", id='Master.27s_degrees').findNext('ul').findAll(
+			'li')[1:]
 
-		master_degress = self.getDegreeMapFromList(degree_list)
+		master_degrees = self.getDegreeMapFromList(degree_list)
 
-		return dict(postgraduate_degrees.items() + master_degress.items())
+		return dict(postgraduate_degrees.items() + master_degrees.items())
 
 	def getDoctorDegreeAbbrs(self):
-		degree_list = self.soup.find('span',text='Junior (Professional) Doctorates', id='Junior_.28Professional.29_Doctorates').findNext('ul').findAll('li')
+		degree_list = self.soup.find('span', text='Junior (Professional) Doctorates',
+		                             id='Junior_.28Professional.29_Doctorates').findNext('ul').findAll('li')
 
-		degree_list.extend(self.soup.find('span', text='Intermediate Doctorates', id='Intermediate_Doctorates').findNext('ul').findAll('li'))
+		degree_list.extend(
+			self.soup.find('span', text='Intermediate Doctorates', id='Intermediate_Doctorates').findNext('ul').findAll('li'))
 
-		degree_list.extend(self.soup.find('span',text='Higher Doctorates',id='Higher_Doctorates').findNext('ul').findAll('li'))
+		degree_list.extend(
+			self.soup.find('span', text='Higher Doctorates', id='Higher_Doctorates').findNext('ul').findAll('li'))
 
 		return self.getDegreeMapFromList(degree_list)
 
@@ -45,7 +51,7 @@ class DegreeAbbreviationParser:
 				degree.a.replace_with(degree.a.string)
 
 			abbreviation, name = degree.text.split('-')
-			abbreviations = abbreviation.replace(',',' ').replace(' or ',' ').replace('/',' ').split()
+			abbreviations = abbreviation.replace(',', ' ').replace(' or ', ' ').replace('/', ' ').split()
 			abbreviations = [abbr.strip() for abbr in abbreviations]
 			name = name.strip()
 
@@ -63,6 +69,7 @@ class IndustryParser:
 		for option in options[1:]:
 			option_list.append(option.string)
 		return option_list
+
 
 class DisciplineParser:
 	_file_name = './resources/List of academic disciplines - Wikipedia.html'
@@ -85,9 +92,6 @@ class DisciplineParser:
 					ul = td.find('ul')
 					tmp_dicts = self.getUlDict(ul)
 					disciplines[h2.span.string][h3.span.string].update(tmp_dicts)
-				# while ul.findPrevious('h3') == h3:
-				# 	disciplines[h2.span.string][h3.span.string] = self.getUlDict(ul)
-				# 	ul = ul.findNextSibling('ul')
 				h3 = h3.findNext('h3')
 		return disciplines
 
@@ -108,7 +112,6 @@ class DisciplineParser:
 
 
 class SkillParser:
-
 	def __init__(self, file_name):
 		self.soup = bs4.BeautifulSoup(open(file_name))
 
@@ -137,8 +140,8 @@ class PublicProfileParser:
 
 	def __init__(self, file_name):
 		self.soup = bs4.BeautifulSoup(open(file_name))
-		
-	def parseHtml(self):		
+
+	def parseHtml(self):
 		given_name = self.getGivenName()
 		family_name = self.getFamilyName()
 		industry = self.getIndustry()
@@ -152,13 +155,13 @@ class PublicProfileParser:
 		skill_list = self.getSkills()
 		education_detail_list = self.getEducationDetails()
 		extra_profile_list = self.getExtraProfiles()
-		
-		print (given_name, family_name, industry, headline_title, \
+
+		print(
+			given_name, family_name, industry, headline_title, \
 			current_experience, past_experience_list, \
 			education_list, website_list, \
 			language_list, skill_list, education_detail_list, \
-			extra_profile_list, sep = '\n')
-
+			extra_profile_list, sep='\n')
 
 	def getGivenName(self):
 		given_name_with_tag = self.soup.find("span", class_="given-name")
@@ -182,12 +185,12 @@ class PublicProfileParser:
 		headline_title = headline_title_with_tag.string.strip()
 		return headline_title
 
-	def getCurrentExperience(self):	
-		current = self.soup.find("div", class_ = "summary-current")
-		postitle = current.find("div", class_ = "postitle")
+	def getCurrentExperience(self):
+		current = self.soup.find("div", class_="summary-current")
+		postitle = current.find("div", class_="postitle")
 		job_title = postitle.h3.span.string.strip()
 		company = postitle.h4.strong
-		
+
 		current_experience = {}
 
 		current_experience['job_title'] = job_title
@@ -202,10 +205,10 @@ class PublicProfileParser:
 		else:
 			company_name = company.string.strip()
 			current_experience['company_name'] = company_name
-			
-		period_raw = current.find("p",class_="period")
+
+		period_raw = current.find("p", class_="period")
 		from_to = period_raw.findAll("abbr")
-		
+
 		if not from_to:
 			period = period_raw.string.strip()
 			current_experience['from'] = period
@@ -214,11 +217,11 @@ class PublicProfileParser:
 			end = from_to[1].string.strip()
 			current_experience['from'] = start
 			current_experience['to'] = end
-			
+
 		return current_experience
 
 	def getPastExperience(self):
-		lis = self.soup.find("ul", class_ = "past")
+		lis = self.soup.find("ul", class_="past")
 
 		past_experience_list = []
 
@@ -235,12 +238,13 @@ class PublicProfileParser:
 				else:
 					company_url = None
 
-				past_experience_list.append({'job_title': title, 'company_name': company_name, 'company_url': company_url } )
+				past_experience_list.append(
+					{'job_title': title, 'company_name': company_name, 'company_url': company_url})
 
 		return past_experience_list
 
 	def getEducation(self):
-		ul = self.soup.find("dd", class_ = "summary-education")
+		ul = self.soup.find("dd", class_="summary-education")
 		education_list = []
 
 		if ul is not None:
@@ -255,7 +259,7 @@ class PublicProfileParser:
 		return education_list
 
 	def getWebsites(self):
-		ul = self.soup.find("dd", class_ = "websites")
+		ul = self.soup.find("dd", class_="websites")
 
 		websites = []
 
@@ -267,16 +271,15 @@ class PublicProfileParser:
 				name = website.a.string.strip()
 				if href.startswith('/redir'):
 					href = self._linkedIn_url_prefix + href
-				websites.append({'website_name':name, 'url':href})
-			
-		return websites
+				websites.append({'website_name': name, 'url': href})
 
+		return websites
 
 	def getLanguages(self):
 		lis = self.soup.find("ul", class_="languages competencies")
 
 		language_list = []
-		
+
 		if lis is not None:
 			languages = []
 			languages[:] = self.removeNewlineInList(lis)
@@ -301,16 +304,16 @@ class PublicProfileParser:
 				skill_list.append({'skill': skill, 'url': href})
 
 		return skill_list
-		
+
 	def getEducationDetails(self):
-		details = self.soup.find("div", class_ = "section subsection-reorder summary-education")
+		details = self.soup.find("div", class_="section subsection-reorder summary-education")
 		detail_list = []
 
 		if details is not None:
-			mainDiv = details.find('div', class_ = 'content vcalendar')
+			mainDiv = details.find('div', class_='content vcalendar')
 
 			divs = mainDiv.findAll('div')
-			
+
 			for div in divs:
 				collegeTitle = div.h3.string.strip()
 				detailsEducation = div.h4.findAll('span')
@@ -324,18 +327,18 @@ class PublicProfileParser:
 		return detail_list
 
 	def getExtraProfiles(self):
-		profiles = self.soup.findAll('li', class_ = 'with-photo')
+		profiles = self.soup.findAll('li', class_='with-photo')
 
 		extra_profile_list = []
 		for profile in profiles:
-			url = profile.strong.a['href']		
+			url = profile.strong.a['href']
 
 			if str(url).startswith(self._linkedin_ireland_url_prefix):
 				name = profile.strong.a.string.strip()
 				headline_title = profile.span.string.strip()
-				extra_profile_list.append({'url': url, 'name': name, 'headline_title':headline_title})
+				extra_profile_list.append({'url': url, 'name': name, 'headline_title': headline_title})
 
-		return extra_profile_list	
+		return extra_profile_list
 
 	def removeNewlineInList(self, alist):
 		return (value for value in alist if value != u'\n')
@@ -343,9 +346,11 @@ class PublicProfileParser:
 	def getStringContentsInList(self, alist):
 		return (value.string.strip() for value in alist)
 
+
 def main():
-    dp = DisciplineParser()
-    print(dp.getDisciplinesHierarchy())
+	dp = DisciplineParser()
+	print(dp.getDisciplinesHierarchy())
+
 
 if __name__ == "__main__":
-    main()
+	main()
