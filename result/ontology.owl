@@ -1,0 +1,71 @@
+<?xml version="1.0"?>
+<rdf:RDF
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns:protege="http://protege.stanford.edu/plugins/owl/protege#"
+    xmlns:xsp="http://www.owl-ontologies.com/2005/08/07/xsp.owl#"
+    xmlns:owl="http://www.w3.org/2002/07/owl#"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+    xmlns="file:/Users/jinwu/GitHub/MasterDissertationProject/result/ontology.owl#"
+    xmlns:swrl="http://www.w3.org/2003/11/swrl#"
+    xmlns:swrlb="http://www.w3.org/2003/11/swrlb#"
+    xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+  xml:base="file:/Users/jinwu/GitHub/MasterDissertationProject/result/ontology.owl">
+  <owl:Ontology rdf:about="file:/Users/jinwu/GitHub/MasterDissertationProject/result/ontology.owl"/>
+  <rdfs:Class rdf:about="http://purl.org/vocab/aiiso/schema#College"/>
+  <rdfs:Class rdf:about="http://purl.org/vocab/aiiso/schema#School"/>
+  <owl:Class rdf:about="http://scss.tcd.ie/cs/muc/linkedin/Speciality"/>
+  <owl:Class rdf:about="http://scss.tcd.ie/cs/muc/linkedin/Degree"/>
+  <owl:Class rdf:about="http://scss.tcd.ie/cs/muc/linkedin/Education"/>
+  <owl:Class rdf:about="http://scss.tcd.ie/cs/muc/linkedin/Position"/>
+  <owl:Class rdf:about="http://scss.tcd.ie/cs/muc/linkedin/Industry"/>
+  <owl:Class rdf:about="http://scss.tcd.ie/cs/muc/linkedin/Skill"/>
+  <owl:ObjectProperty rdf:about="http://scss.tcd.ie/cs/muc/linkedin/school">
+    <rdfs:range rdf:resource="http://purl.org/vocab/aiiso/schema#School"/>
+    <rdfs:domain rdf:resource="http://scss.tcd.ie/cs/muc/linkedin/Education"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://scss.tcd.ie/cs/muc/linkedin/speciality">
+    <rdfs:range rdf:resource="http://xmlns.com/foaf/0.1/Organization"/>
+    <rdfs:domain rdf:resource="http://xmlns.com/foaf/0.1/Organization"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://scss.tcd.ie/cs/muc/linkedin/skill">
+    <rdfs:range rdf:resource="http://scss.tcd.ie/cs/muc/linkedin/Skill"/>
+    <rdfs:domain rdf:resource="http://xmlns.com/foaf/0.1/Person"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://scss.tcd.ie/cs/muc/linkedin/education">
+    <rdfs:domain rdf:resource="http://xmlns.com/foaf/0.1/Person"/>
+    <rdfs:range rdf:resource="http://scss.tcd.ie/cs/muc/linkedin/Education"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://scss.tcd.ie/cs/muc/linkedin/degree">
+    <rdfs:range rdf:resource="http://scss.tcd.ie/cs/muc/linkedin/Degree"/>
+    <rdfs:domain rdf:resource="http://scss.tcd.ie/cs/muc/linkedin/Education"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://scss.tcd.ie/cs/muc/linkedin/college">
+    <rdfs:domain rdf:resource="http://scss.tcd.ie/cs/muc/linkedin/Education"/>
+    <rdfs:range rdf:resource="http://purl.org/vocab/aiiso/schema#College"/>
+  </owl:ObjectProperty>
+  <rdf:Property rdf:about="http://scss.tcd.ie/cs/muc/linkedin/hasPosition">
+    <rdfs:range rdf:resource="http://scss.tcd.ie/cs/muc/linkedin/Position"/>
+    <rdfs:domain rdf:resource="http://xmlns.com/foaf/0.1/Organization"/>
+  </rdf:Property>
+  <rdf:Property rdf:about="http://scss.tcd.ie/cs/muc/linkedin/worksAs">
+    <rdfs:domain rdf:resource="http://xmlns.com/foaf/0.1/Person"/>
+    <rdfs:range rdf:resource="http://scss.tcd.ie/cs/muc/linkedin/Position"/>
+  </rdf:Property>
+  <rdf:Property rdf:about="http://scss.tcd.ie/cs/muc/linkedin/level">
+    <rdfs:domain rdf:resource="http://scss.tcd.ie/cs/muc/linkedin/Degree"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+  </rdf:Property>
+  <owl:DataProperty rdf:about="http://scss.tcd.ie/cs/muc/linkedin/to"/>
+  <owl:DataProperty rdf:about="http://scss.tcd.ie/cs/muc/linkedin/organizationType">
+    <rdfs:domain rdf:resource="http://xmlns.com/foaf/0.1/Organization"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </owl:DataProperty>
+  <owl:DataProperty rdf:about="http://scss.tcd.ie/cs/muc/linkedin/id">
+    <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
+    <rdfs:domain rdf:resource="http://xmlns.com/foaf/0.1/Person"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </owl:DataProperty>
+  <owl:DataProperty rdf:about="http://scss.tcd.ie/cs/muc/linkedin/from"/>
+</rdf:RDF>
+
+<!-- Created with Protege (with OWL Plugin 3.4.8, Build 629)  http://protege.stanford.edu -->
