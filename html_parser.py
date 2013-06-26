@@ -34,7 +34,8 @@ class DegreeAbbreviationParser:
 		                             id='Junior_.28Professional.29_Doctorates').findNext('ul').findAll('li')
 
 		degree_list.extend(
-			self.soup.find('span', text='Intermediate Doctorates', id='Intermediate_Doctorates').findNext('ul').findAll('li'))
+			self.soup.find('span', text='Intermediate Doctorates', id='Intermediate_Doctorates').findNext('ul').findAll(
+				'li'))
 
 		degree_list.extend(
 			self.soup.find('span', text='Higher Doctorates', id='Higher_Doctorates').findNext('ul').findAll('li'))
@@ -135,33 +136,33 @@ class SkillParser:
 # comment: at the moment, current experience and past experience return not the same structures and contents
 
 class PublicProfileParser:
-	_linkedIn_url_prefix = 'http://www.linkedin.com'
+	_linkedin_url_prefix = 'http://www.linkedin.com'
 	_linkedin_ireland_url_prefix = 'http://ie.linkedin.com'
 
 	def __init__(self, file_name):
 		self.soup = bs4.BeautifulSoup(open(file_name))
 
 	def parseHtml(self):
-		given_name = self.getGivenName()
-		family_name = self.getFamilyName()
-		industry = self.getIndustry()
-		headline_title = self.getHeadlineTitle()
-		current_experience = self.getCurrentExperience()
-		past_experience_list = self.getPastExperience()
+		self.given_name = self.getGivenName()
+		self.family_name = self.getFamilyName()
+		self.industry = self.getIndustry()
+		self.headline_title = self.getHeadlineTitle()
+		self.current_experience = self.getCurrentExperience()
+		self.past_experience_list = self.getPastExperience()
 
-		education_list = self.getEducation()
-		website_list = self.getWebsites()
-		language_list = self.getLanguages()
-		skill_list = self.getSkills()
-		education_detail_list = self.getEducationDetails()
-		extra_profile_list = self.getExtraProfiles()
+		self.education_list = self.getEducation()
+		self.website_list = self.getWebsites()
+		self.language_list = self.getLanguages()
+		self.skill_list = self.getSkills()
+		self.education_detail_list = self.getEducationDetails()
+		self.extra_profile_list = self.getExtraProfiles()
 
-		print(
-			given_name, family_name, industry, headline_title, \
-			current_experience, past_experience_list, \
-			education_list, website_list, \
-			language_list, skill_list, education_detail_list, \
-			extra_profile_list, sep='\n')
+		# print(
+		# 	given_name, family_name, industry, headline_title, \
+		# 	current_experience, past_experience_list, \
+		# 	education_list, website_list, \
+		# 	language_list, skill_list, education_detail_list, \
+		# 	extra_profile_list, sep='\n')
 
 	def getGivenName(self):
 		given_name_with_tag = self.soup.find("span", class_="given-name")
@@ -187,18 +188,18 @@ class PublicProfileParser:
 
 	def getCurrentExperience(self):
 		current = self.soup.find("div", class_="summary-current")
+		if current is None:
+			return None
 		postitle = current.find("div", class_="postitle")
 		job_title = postitle.h3.span.string.strip()
 		company = postitle.h4.strong
 
-		current_experience = {}
-
-		current_experience['job_title'] = job_title
+		current_experience = {'job_title': job_title}
 
 		# this company has no hyperlink
 
 		if company.a is not None:
-			company_url = self._linkedIn_url_prefix + company.a['href']
+			company_url = self._linkedin_url_prefix + company.a['href']
 			company_name = company.a.span.string.strip()
 			current_experience['company_url'] = company_url
 			current_experience['company_name'] = company_name
@@ -234,7 +235,7 @@ class PublicProfileParser:
 				title = nonempty_list[0].string.strip()
 				company_name = nonempty_list[2].string.strip()
 				if type(nonempty_list[2]) == bs4.element.Tag:
-					company_url = self._linkedIn_url_prefix + nonempty_list[2]['href']
+					company_url = self._linkedin_url_prefix + nonempty_list[2]['href']
 				else:
 					company_url = None
 
@@ -270,7 +271,7 @@ class PublicProfileParser:
 				href = website.a['href']
 				name = website.a.string.strip()
 				if href.startswith('/redir'):
-					href = self._linkedIn_url_prefix + href
+					href = self._linkedin_url_prefix + href
 				websites.append({'website_name': name, 'url': href})
 
 		return websites

@@ -4,6 +4,7 @@ from rdflib.namespace import Namespace, NamespaceManager, FOAF, SKOS, XSD, RDF, 
 
 class SchemaGenerator:
 	_base_uri = 'http://scss.tcd.ie/cs/muc/linkedin/'
+	_owl_time_uri = 'http://www.w3.org/2006/time#'
 
 	def __init__(self, uri=None):
 
@@ -11,10 +12,13 @@ class SchemaGenerator:
 			self._namespace_lk = Namespace(self._base_uri)
 		else:
 			self._namespace_lk = Namespace(uri)
+		self._namespace_time = Namespace(self._owl_time_uri)
 
 		self.graph = Graph()
 		namespace_manager = NamespaceManager(self.graph)
 		namespace_manager.bind('lk', self._namespace_lk, override=False)
+
+		namespace_manager.bind('owl-time', self._owl_time_uri, override=False)
 
 		self.graph.namespace_manager = namespace_manager
 		self.graph.bind('foaf', FOAF)
@@ -37,6 +41,7 @@ class SchemaGenerator:
 		self.Course = URIRef('http://purl.org/vocab/aiiso/schema#Course')
 		self.College = URIRef('http://purl.org/vocab/aiiso/schema#College')
 		self.School = URIRef('http://purl.org/vocab/aiiso/schema#School')
+		self.Interval = self._namespace_time.Interval
 
 		# properties
 		self.id = self._namespace_lk.id
@@ -76,15 +81,17 @@ class SchemaGenerator:
 		self.graph.add((self.Industry, RDF.type, self.Concept))
 
 		# define property
-		self.graph.add((self.id, RDF.type,  OWL.DataProperty))
+		self.graph.add((self.id, RDF.type,  OWL.DatatypeProperty))
 		self.graph.add((self.skill, RDF.type, OWL.ObjectProperty))
+		self.graph.add((self.works_as, RDF.type, OWL.ObjectProperty))
 		self.graph.add((self.education, RDF.type, OWL.ObjectProperty))
 		self.graph.add((self.degree, RDF.type, OWL.ObjectProperty))
 		self.graph.add((self.college, RDF.type, OWL.ObjectProperty))
 		self.graph.add((self.school, RDF.type, OWL.ObjectProperty))
-		self.graph.add((self.to_time, RDF.type, OWL.DataProperty))
-		self.graph.add((self.from_time, RDF.type, OWL.DataProperty))
-		self.graph.add((self.organization_type, RDF.type, OWL.DataProperty))
+		self.graph.add((self.to_time, RDF.type, OWL.DatatypeProperty))
+		self.graph.add((self.from_time, RDF.type, OWL.DatatypeProperty))
+		self.graph.add((self.has_position, RDF.type, OWL.ObjectProperty))
+		self.graph.add((self.organization_type, RDF.type, OWL.DatatypeProperty))
 		self.graph.add((self.speciality, RDF.type, OWL.ObjectProperty))
 
 		# define property domain and range
@@ -111,9 +118,18 @@ class SchemaGenerator:
 		self.graph.add((self.organization_type, RDFS.domain, self.Organization))
 		self.graph.add((self.organization_type, RDFS.range, XSD.string))
 
+		self.graph.add((self.from_time, RDFS.range, self.Interval))
+		self.graph.add((self.to_time, RDFS.range, self.Interval))
+
 		self.graph.close()
 
 	def saveAtFile(self, format='turtle', file_name='result/ontology.owl'):
 		f = open(file_name, 'w')
 		print >> f, self.graph.serialize(format=format)
 		f.close()
+
+
+if __name__ == "__main__":
+	sg = SchemaGenerator()
+	sg.generate()
+	sg.saveAtFile(format='xml')
