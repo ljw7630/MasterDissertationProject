@@ -1,0 +1,4967 @@
+@prefix aiiso: <http://purl.org/vocab/aiiso/schema#> .
+@prefix dbpedia-owl: <http://dbpedia.org/ontology/> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix lk: <http://scss.tcd.ie/cs/muc/linkedin/> .
+@prefix ns1: <http://dbpedia.org/property/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<http://scss.tcd.ie/cs/muc/linkedin/1IMAGE_Photography> a foaf:Organization ;
+    dbpedia-owl:formationYear "2008"^^xsd:gYear ;
+    dbpedia-owl:industry lk:Photography ;
+    lk:from 1 ;
+    lk:hasPosition _:N1df381331d024913ad33ea3efc058843 ;
+    lk:organizationType "Sole Proprietorship"^^xsd:integer ;
+    lk:to 10 .
+
+<http://scss.tcd.ie/cs/muc/linkedin/A&L_Goodbody> a foaf:Organization ;
+    dbpedia-owl:industry lk:Law_Practice ;
+    lk:from 501 ;
+    lk:hasPosition _:N9105223391b74ff282fbc84c705ab11d ;
+    lk:organizationType "Partnership"^^xsd:integer ;
+    lk:to 1000 .
+
+<http://scss.tcd.ie/cs/muc/linkedin/ACCBank_(Rabobank_International)> a foaf:Organization ;
+    dbpedia-owl:formationYear "1927"^^xsd:gYear ;
+    dbpedia-owl:industry lk:Banking ;
+    lk:from 501 ;
+    lk:hasPosition _:N043113d8f0c74a42a745aa1b5538003a ;
+    lk:organizationType "Privately Held"^^xsd:integer ;
+    lk:to 1000 .
+
+lk:AIB_Group a foaf:Organization ;
+    dbpedia-owl:industry lk:Banking ;
+    lk:from 10001 ;
+    lk:hasPosition _:N02fb5118c4fd44a399d7ba88ba98cc24 ;
+    lk:organizationType "Public Company"^^xsd:integer ;
+    lk:to 999999 .
+
+lk:ALTRAN_CIS a foaf:Organization ;
+    dbpedia-owl:formationYear "1982"^^xsd:gYear ;
+    dbpedia-owl:industry lk:Information_Technology_and_Services ;
+    lk:from 5001 ;
+    lk:hasPosition _:N599695e64efd42b2aadcd1714544f316,
+        _:Nb5924650741843dea59ee71064407f7a ;
+    lk:organizationType "Public Company"^^xsd:integer ;
+    lk:to 10000 .
+
+lk:APMC a foaf:Organization ;
+    lk:hasPosition _:N43a0bbf85e1d4ed9b3a7a02c72ca9fe7 .
+
+lk:Academic_Management_Services a foaf:Organization ;
+    dbpedia-owl:industry lk:Financial_Services ;
+    lk:from 201 ;
+    lk:hasPosition _:N72fca80eb5214f2cabbd4450cbf08d34 ;
+    lk:organizationType "Privately Held"^^xsd:integer ;
+    lk:to 500 .
+
+lk:Accenture a foaf:Organization ;
+    dbpedia-owl:formationYear "1989"^^xsd:gYear ;
+    dbpedia-owl:industry lk:Management_Consulting ;
+    lk:from 10001 ;
+    lk:hasPosition _:N58cdbe818a164da780dbc39b76fc6d1e ;
+    lk:organizationType "Public Company"^^xsd:integer ;
+    lk:to 999999 .
+
+lk:Acorn_Life a foaf:Organization ;
+    lk:hasPosition _:N30dfb59d8b74479485c3cc7793915e8a .
+
+lk:Action_Point_Technology_Group a foaf:Organization ;
+    dbpedia-owl:formationYear "2005"^^xsd:gYear ;
+    dbpedia-owl:industry lk:Information_Technology_and_Services ;
+    lk:from 11 ;
+    lk:hasPosition _:N0d0bdbca56ef4d969f26fe728b1234d3 ;
+    lk:organizationType "Privately Held"^^xsd:integer ;
+    lk:to 50 .
+
+<http://scss.tcd.ie/cs/muc/linkedin/Acumen_&_Trust> a foaf:Organization ;
+    dbpedia-owl:formationYear "1996"^^xsd:gYear ;
+    dbpedia-owl:industry lk:Financial_Services ;
+    lk:from 11 ;
+    lk:hasPosition _:N22d5733d72034c35acb8ce9f2a824be2 ;
+    lk:organizationType "Privately Held"^^xsd:integer ;
+    lk:to 50 .
+
+lk:Adecco a foaf:Organization ;
+    dbpedia-owl:formationYear "1996"^^xsd:gYear ;
+    dbpedia-owl:industry lk:Staffing_and_Recruiting ;
+    lk:from 10001 ;
+    lk:hasPosition _:N1e0933300dae4f4a8dba65de354fc490 ;
+    lk:organizationType "Public Company"^^xsd:integer ;
+    lk:to 999999 .
+
+<http://scss.tcd.ie/cs/muc/linkedin/Advanced_Social/Media_Services> a foaf:Organization ;
+    lk:hasPosition _:N3556b47b9c294df9a93af92829328db8 .
+
+lk:Airlines_and_Aviation a lk:Industry .
+
+lk:Alternative_Dispute_Resolution a lk:Industry .
+
+lk:Alternative_Medicine a lk:Industry .
+
+<http://scss.tcd.ie/cs/muc/linkedin/Amentra,_A_RedHat_Company> a foaf:Organization ;
+    lk:hasPosition _:N87723eb8b8694065a849faa0477266ea .
+
+lk:Analog_Devices a foaf:Organization ;
+    dbpedia-owl:formationYear "1965"^^xsd:gYear ;
+    dbpedia-owl:industry lk:Semiconductors ;
+    lk:from 5001 ;
+    lk:hasPosition _:Nd3c18ee386e94f8fa896308c08a275ff ;
+    lk:organizationType "Public Company"^^xsd:integer ;
+    lk:to 10000 .
+
+lk:Animation a lk:Industry .
+
+<http://scss.tcd.ie/cs/muc/linkedin/Apparel_&_Fashion> a lk:Industry .
+
+<http://scss.tcd.ie/cs/muc/linkedin/Architecture_&_Planning> a lk:Industry .
+
+lk:Arts_and_Crafts a lk:Industry .
+
+lk:Automotive a lk:Industry .
+
+lk:BAM_Civil a foaf:Organization ;
+    dbpedia-owl:formationYear "1958"^^xsd:gYear ;
+    dbpedia-owl:industry lk:Construction ;
+    lk:from 201 ;
+    lk:hasPosition _:Ncc56a6438daa4a16ab533d23f876e0bd ;
+    lk:organizationType "Privately Held"^^xsd:integer ;
+    lk:to 500 .
+
+lk:Bank_of_Ireland a foaf:Organization ;
+    dbpedia-owl:industry lk:Banking ;
+    lk:from 10001 ;
+    lk:hasPosition _:N51e738e771a34db1b629c56c07795042,
+        _:Nfb274926b047461c93f949bef9dd39af ;
+    lk:organizationType "Public Company"^^xsd:integer ;
+    lk:to 999999 .
+
+lk:Bank_of_Ireland_-_Corporate a foaf:Organization ;
+    dbpedia-owl:industry lk:Banking ;
+    lk:from 10001 ;
+    lk:hasPosition _:N5b08e6aacdda49ad827aadc1f897522a ;
+    lk:organizationType "Public Company"^^xsd:integer ;
+    lk:to 999999 .
+
+lk:BizCamp a foaf:Organization ;
+    lk:hasPosition _:Nff1060c890414d04be78becdf956b8c8 .
+
+lk:BootsJeansandLeathers.com a foaf:Organization ;
+    lk:hasPosition _:N4739e65ef4424525835774dbd3845da4 .
+
+lk:Broadcast_Media a lk:Industry .
+
+lk:Bryan_James_Brophy_Photography a foaf:Organization ;
+    dbpedia-owl:formationYear "2000"^^xsd:gYear ;
+    dbpedia-owl:industry lk:Photography ;
+    lk:from 1 ;
+    lk:hasPosition _:N5b747eef74c34722acc36702c9b5a734 ;
+    lk:organizationType "Self-Employed"^^xsd:integer ;
+    lk:to 10 .
+
+lk:Building_Materials a lk:Industry .
+
+lk:Burke_Formación a foaf:Organization ;
+    lk:hasPosition _:Neb06d8091b494751a823c31e213c650e .
+
+lk:Business_Supplies_and_Equipment a lk:Industry .
+
+<http://scss.tcd.ie/cs/muc/linkedin/C&D_Zodiac> a foaf:Organization ;
+    dbpedia-owl:industry <http://scss.tcd.ie/cs/muc/linkedin/Aviation_&_Aerospace> ;
+    lk:from 1001 ;
+    lk:hasPosition _:Nc538229b46d24141b023f5627c35823d ;
+    lk:organizationType "Public Company"^^xsd:integer ;
+    lk:to 5000 .
+
+lk:Cantor_Fitzgerald a foaf:Organization ;
+    dbpedia-owl:formationYear "1945"^^xsd:gYear ;
+    dbpedia-owl:industry lk:Financial_Services ;
+    lk:from 1001 ;
+    lk:hasPosition _:Na71b7cba17c04c8fa02581a51fbd50f6 ;
+    lk:organizationType "Privately Held"^^xsd:integer ;
+    lk:to 5000 .
+
+lk:Celtic_Advisory_International a foaf:Organization ;
+    lk:hasPosition _:Nda9ca66624a843ba98b87cacb6a38014 .
+
+lk:Chemicals a lk:Industry .
+
+lk:Choice_Hotels_Ireland a foaf:Organization ;
+    lk:hasPosition _:N0ad9f6fc0e6649ec80fe3bc52a29d9b2 .
+
+lk:Cibenix a foaf:Organization ;
+    dbpedia-owl:formationYear "2002"^^xsd:gYear ;
+    dbpedia-owl:industry lk:Telecommunications ;
+    lk:from 11 ;
+    lk:hasPosition _:Nc6e202c24c2e4d48a1f2f1a04a36da1d ;
+    lk:organizationType "Privately Held"^^xsd:integer ;
+    lk:to 50 .
+
+<http://scss.tcd.ie/cs/muc/linkedin/Civic_&_Social_Organization> a lk:Industry .
+
+lk:Cois_Tine a foaf:Organization ;
+    lk:hasPosition _:N055471c5389049a886f39dd7fff33c62 .
+
+lk:Commercial_Real_Estate a lk:Industry .
+
+lk:Commission_Junction a foaf:Organization ;
+    dbpedia-owl:formationYear "1998"^^xsd:gYear ;
+    dbpedia-owl:industry lk:Internet ;
+    lk:from 201 ;
+    lk:hasPosition _:Nbef8cbeec04449878a17eb614c231a2f ;
+    lk:organizationType "Public Company"^^xsd:integer ;
+    lk:to 500 .
+
+lk:Compupac a foaf:Organization ;
+    lk:hasPosition _:N8b84324367594aadafe2c37db55e2542 .
+
+<http://scss.tcd.ie/cs/muc/linkedin/Computer_&_Network_Security> a lk:Industry .
+
+lk:Computer_Games a lk:Industry .
+
+lk:Computer_Hardware a lk:Industry .
+
+lk:Computer_Networking a lk:Industry .
+
+lk:Consumer_Electronics a lk:Industry .
+
+lk:Consumer_Goods a lk:Industry .
+
+lk:Consumer_Services a lk:Industry .
+
+<http://scss.tcd.ie/cs/muc/linkedin/Copytype_(Ireland)_Ltd.> a foaf:Organization ;
+    lk:hasPosition _:Nad412337cdab489dbeb3b6b97eac8233 .
+
+lk:Cosmetics a lk:Industry .
+
+lk:DAVIT a foaf:Organization ;
+    dbpedia-owl:formationYear "2008"^^xsd:gYear ;
+    dbpedia-owl:industry lk:Information_Technology_and_Services ;
+    lk:from 1 ;
+    lk:hasPosition _:N0f65301ab97b47f6838adf56cff75975 ;
+    lk:organizationType "Privately Held"^^xsd:integer ;
+    lk:to 10 .
+
+lk:DDS_RSA a foaf:Organization ;
+    lk:hasPosition _:N032b70ff2ac24aa9ab37ed2f936b1938 .
+
+lk:DELL a foaf:Organization ;
+    dbpedia-owl:formationYear "1984"^^xsd:gYear ;
+    dbpedia-owl:industry lk:Information_Technology_and_Services ;
+    lk:from 10001 ;
+    lk:hasPosition _:Na0802dc55cdd4832bce4cda5b241ed41 ;
+    lk:organizationType "Public Company"^^xsd:integer ;
+    lk:to 999999 .
+
+lk:DI a foaf:Organization ;
+    lk:hasPosition _:N90ce250e380c4b82a5b088f0f50b7762,
+        _:Na8ef6ad3d0584e1c91709c8f95302594 .
+
+lk:Dairy a lk:Industry .
+
+<http://scss.tcd.ie/cs/muc/linkedin/Datamate_Global_Communications_Ltd.> a foaf:Organization ;
+    lk:hasPosition _:Ne1b23cd2e22b42e880fc5e22116a2920 .
+
+lk:David_Filip a foaf:Organization ;
+    lk:hasPosition _:Ndfa1736b305b40b0b6950e251659809d .
+
+lk:Decision_Support_Systems a foaf:Organization ;
+    dbpedia-owl:formationYear "1985"^^xsd:gYear ;
+    dbpedia-owl:industry lk:Information_Technology_and_Services ;
+    lk:from 51 ;
+    lk:hasPosition _:Nee71bb4f78e34a18aeed5108bb5c2b80 ;
+    lk:organizationType "Privately Held"^^xsd:integer ;
+    lk:to 200 .
+
+<http://scss.tcd.ie/cs/muc/linkedin/Defense_&_Space> a lk:Industry .
+
+lk:Design a lk:Industry .
+
+lk:Digital_Heritage_Ireland a foaf:Organization ;
+    dbpedia-owl:industry lk:Information_Technology_and_Services ;
+    lk:hasPosition _:N0806008aa1374a4fa8f1d94bfdfa7abe .
+
+lk:E-Learning a lk:Industry .
+
+lk:ESCRS a foaf:Organization ;
+    lk:hasPosition _:Nd5aa4131522748f1808cd17fbc7c571c .
+
+lk:Ei_Electronics a foaf:Organization ;
+    lk:hasPosition _:N688db7eea98d441094bd35e7d7f685d5 .
+
+lk:Eircell a foaf:Organization ;
+    lk:hasPosition _:N1f1ac6cfd6494bb9810e6864536be147 .
+
+lk:Eircell_Ireland a foaf:Organization ;
+    lk:hasPosition _:N5168f5b1bfe84d41ad05351315bca371 .
+
+lk:Electric_News_Net a foaf:Organization ;
+    dbpedia-owl:formationYear "1999"^^xsd:gYear ;
+    dbpedia-owl:industry lk:Marketing_and_Advertising ;
+    lk:from 1 ;
+    lk:hasPosition _:N1bd2f727594b4a07821d29bd21bca941 ;
+    lk:organizationType "Privately Held"^^xsd:integer ;
+    lk:to 10 .
+
+lk:Electrical_and_Electronic_Manufacturing a lk:Industry .
+
+lk:Electronics_company a foaf:Organization ;
+    lk:hasPosition _:N6d1afdfff56a458d964a1a5971b89df7 .
+
+lk:Enterprise_Ireland a foaf:Organization ;
+    dbpedia-owl:industry lk:International_Trade_and_Development ;
+    lk:from 501 ;
+    lk:hasPosition _:N2438ed18db734f309c926fc4bb9283ef,
+        _:N3a27a1e572f84e40aa9e077de7415ce2,
+        _:N88c9466af42a466daf1d9169685df44c,
+        _:Na14cf480e5b844bd8d0bbecb982b9542,
+        _:Ndc14a3e708ec4deb94dbbc3400e8ad26 ;
+    lk:organizationType "Government Agency"^^xsd:integer ;
+    lk:to 1000 .
+
+lk:Entertainment.ie a foaf:Organization ;
+    lk:hasPosition _:Nb49d38a8d1e74c9f84da70658e914022 .
+
+lk:Environmental_Services a lk:Industry .
+
+<http://scss.tcd.ie/cs/muc/linkedin/Ernst&Young> a foaf:Organization ;
+    dbpedia-owl:formationYear "1989"^^xsd:gYear ;
+    dbpedia-owl:industry lk:Accounting ;
+    lk:from 10001 ;
+    lk:hasPosition _:N6a0ddce74a5b49e8bbfd29cc0125b785 ;
+    lk:organizationType "Privately Held"^^xsd:integer ;
+    lk:to 999999 .
+
+lk:Events_Services a lk:Industry .
+
+lk:Executive_Office a lk:Industry .
+
+lk:FINEOS a foaf:Organization ;
+    dbpedia-owl:formationYear "1993"^^xsd:gYear ;
+    dbpedia-owl:industry lk:Computer_Software ;
+    lk:from 201 ;
+    lk:hasPosition _:N2633451efe3c491da2101e98194490cb,
+        _:Nb2ee4f827bef42d1a755ac526a95ff59 ;
+    lk:organizationType "Privately Held"^^xsd:integer ;
+    lk:to 500 .
+
+lk:Facilities_Services a lk:Industry .
+
+lk:Farming a lk:Industry .
+
+lk:Farrell_Tax_Consultants a foaf:Organization ;
+    dbpedia-owl:industry lk:Accounting ;
+    lk:from 1 ;
+    lk:hasPosition _:Na8e79ce770b9406ea4ef0f11f0ee9009 ;
+    lk:organizationType "Sole Proprietorship"^^xsd:integer ;
+    lk:to 1 .
+
+lk:Fine_Art a lk:Industry .
+
+lk:Fishery a lk:Industry .
+
+<http://scss.tcd.ie/cs/muc/linkedin/Food_&_Beverages> a lk:Industry .
+
+lk:Food_Production a lk:Industry .
+
+lk:Fund-Raising a lk:Industry .
+
+lk:Furniture a lk:Industry .
+
+lk:GSM_Association a foaf:Organization ;
+    dbpedia-owl:industry lk:Internet ;
+    lk:from 501 ;
+    lk:hasPosition _:Na202da04c5d04f03a3ef471f15972a41 ;
+    lk:organizationType "Privately Held"^^xsd:integer ;
+    lk:to 1000 .
+
+lk:Galaxy_Entertainments a foaf:Organization ;
+    lk:hasPosition _:Ne68bf7e5d0dd40358ed898682a201ebc .
+
+<http://scss.tcd.ie/cs/muc/linkedin/Gambling_&_Casinos> a lk:Industry .
+
+lk:Gazette_Newspapers a foaf:Organization ;
+    lk:hasPosition _:N06b36f40b6204f5dbd0cfc126145a20d .
+
+lk:Genio_Social_Investments a foaf:Organization ;
+    dbpedia-owl:formationYear "2008"^^xsd:gYear ;
+    dbpedia-owl:industry lk:Nonprofit_Organization_Management ;
+    lk:from 1 ;
+    lk:hasPosition _:Naf44840b049d468b85161e065ad13558 ;
+    lk:organizationType "Nonprofit"^^xsd:integer ;
+    lk:to 10 .
+
+<http://scss.tcd.ie/cs/muc/linkedin/Glass,_Ceramics_&_Concrete> a lk:Industry .
+
+lk:Goldman_Sachs a foaf:Organization ;
+    dbpedia-owl:industry lk:Investment_Banking ;
+    lk:from 10001 ;
+    lk:hasPosition _:N5ef8b2b3c7504c54aa374013b966a897 ;
+    lk:organizationType "Public Company"^^xsd:integer ;
+    lk:to 999999 .
+
+<http://scss.tcd.ie/cs/muc/linkedin/Google_Ireland_Ltd.> a foaf:Organization ;
+    dbpedia-owl:formationYear "1998"^^xsd:gYear ;
+    dbpedia-owl:industry lk:Internet ;
+    lk:from 10001 ;
+    lk:hasPosition _:N884cb51c5a9f462c8ca13139dd7acbea ;
+    lk:organizationType "Public Company"^^xsd:integer ;
+    lk:to 999999 .
+
+lk:Government_Administration a lk:Industry .
+
+lk:Government_Relations a lk:Industry .
+
+lk:Graphic_Design a lk:Industry .
+
+lk:HRM_Recruit a foaf:Organization ;
+    dbpedia-owl:formationYear "1992"^^xsd:gYear ;
+    dbpedia-owl:industry lk:Staffing_and_Recruiting ;
+    lk:from 11 ;
+    lk:hasPosition _:Nbb38029ff14d4d57a091c58328feabbb ;
+    lk:organizationType "Privately Held"^^xsd:integer ;
+    lk:to 50 .
+
+<http://scss.tcd.ie/cs/muc/linkedin/Hamill_Spence_O'Connell> a foaf:Organization ;
+    dbpedia-owl:formationYear "1971"^^xsd:gYear ;
+    dbpedia-owl:industry lk:Accounting ;
+    lk:from 11 ;
+    lk:hasPosition _:N4ec3f95a327241bab402470823695c89 ;
+    lk:organizationType "Partnership"^^xsd:integer ;
+    lk:to 50 .
+
+<http://scss.tcd.ie/cs/muc/linkedin/Health,_Wellness_and_Fitness> a lk:Industry .
+
+lk:Herbert_Smith a foaf:Organization ;
+    dbpedia-owl:formationYear "2012"^^xsd:gYear ;
+    dbpedia-owl:industry lk:Law_Practice ;
+    lk:from 1001 ;
+    lk:hasPosition _:N474b435cc814410b8dbf5967112d43fe ;
+    lk:organizationType "Partnership"^^xsd:integer ;
+    lk:to 5000 .
+
+<http://scss.tcd.ie/cs/muc/linkedin/Hospital_&_Health_Care> a lk:Industry .
+
+lk:Hospitality a lk:Industry .
+
+lk:Human_Resources a lk:Industry .
+
+lk:ICAN a foaf:Organization ;
+    dbpedia-owl:industry lk:Computer_Software ;
+    lk:from 11 ;
+    lk:hasPosition _:N6ff23905dee8463e99610ed07ccd0221 ;
+    lk:organizationType "Privately Held"^^xsd:integer ;
+    lk:to 50 .
+
+lk:ING a foaf:Organization ;
+    dbpedia-owl:industry lk:Banking ;
+    lk:from 10001 ;
+    lk:hasPosition _:N566077563867492683029b3955f80e88 ;
+    lk:organizationType "Public Company"^^xsd:integer ;
+    lk:to 999999 .
+
+lk:ING_Barings a foaf:Organization ;
+    lk:hasPosition _:N4791cae7ad354aaa8e4834786edf702b,
+        _:N5bd2815230254d6594b1a05feaff13d8,
+        _:N63d591c467644ffa9b5dde995f1b40b1 .
+
+lk:IT_Department_of_Beaumont_Hospital a foaf:Organization ;
+    lk:hasPosition _:N30396ac159934651b6c9db03726587ff .
+
+lk:ImpartX_Ltd_in_Ireland a foaf:Organization ;
+    lk:hasPosition _:Nf862b4e65d324ab09712b4f9220b1a75 .
+
+lk:Import_and_Export a lk:Industry .
+
+lk:Independent_Newspapers a foaf:Organization ;
+    dbpedia-owl:industry lk:Newspapers ;
+    lk:from 5001 ;
+    lk:hasPosition _:N0c7580fcdb714b4fbbb0bc8e475e6d0a ;
+    lk:organizationType "Privately Held"^^xsd:integer ;
+    lk:to 10000 .
+
+<http://scss.tcd.ie/cs/muc/linkedin/Individual_&_Family_Services> a lk:Industry .
+
+lk:Industrial_Automation a lk:Industry .
+
+lk:Insurance a lk:Industry .
+
+lk:Intel a foaf:Organization ;
+    dbpedia-owl:formationYear "1968"^^xsd:gYear ;
+    dbpedia-owl:industry lk:Semiconductors ;
+    lk:from 10001 ;
+    lk:hasPosition _:N8c9650de803d46b4a42e535fe2d20744 ;
+    lk:organizationType "Public Company"^^xsd:integer ;
+    lk:to 999999 .
+
+lk:Intuition a foaf:Organization ;
+    dbpedia-owl:formationYear "1983"^^xsd:gYear ;
+    dbpedia-owl:industry lk:Computer_Software ;
+    lk:from 5001 ;
+    lk:hasPosition _:Nd544f4f7406e499cabda194434ebdedd ;
+    lk:organizationType "Public Company"^^xsd:integer ;
+    lk:to 10000 .
+
+lk:Intune_Networks a foaf:Organization ;
+    dbpedia-owl:formationYear "1999"^^xsd:gYear ;
+    dbpedia-owl:industry lk:Telecommunications ;
+    lk:from 51 ;
+    lk:hasPosition _:Ndcaac6af9f7e475d94a2f7e868e8618b ;
+    lk:organizationType "Privately Held"^^xsd:integer ;
+    lk:to 200 .
+
+lk:Investment_Management a lk:Industry .
+
+lk:JasperSoft a foaf:Organization ;
+    dbpedia-owl:formationYear "2004"^^xsd:gYear ;
+    dbpedia-owl:industry lk:Computer_Software ;
+    lk:from 51 ;
+    lk:hasPosition _:Nfeeb61c9c9ee46af8bcc37d7831f22c4 ;
+    lk:organizationType "Privately Held"^^xsd:integer ;
+    lk:to 200 .
+
+lk:Jaspersoft a foaf:Organization ;
+    dbpedia-owl:formationYear "2004"^^xsd:gYear ;
+    dbpedia-owl:industry lk:Computer_Software ;
+    lk:from 51 ;
+    lk:hasPosition _:Ne3721ad1904b4dbfad13878cd440f62a ;
+    lk:organizationType "Privately Held"^^xsd:integer ;
+    lk:to 200 .
+
+lk:Judiciary a lk:Industry .
+
+lk:KBCAM a foaf:Organization ;
+    lk:hasPosition _:Nf894f44a933f4c8c9187130ad6f807a2 .
+
+lk:Kickz_AG a foaf:Organization ;
+    lk:hasPosition _:N0329f849a0c246fa9283021a06fb6d71 .
+
+lk:Kilbride_Consulting a foaf:Organization ;
+    lk:hasPosition _:N64251ba6782b4a9f833784b69f2e4713 .
+
+lk:Law_Enforcement a lk:Industry .
+
+lk:Legal_Services a lk:Industry .
+
+lk:Legislative_Office a lk:Industry .
+
+<http://scss.tcd.ie/cs/muc/linkedin/Leisure,_Travel_&_Tourism> a lk:Industry .
+
+lk:Libertas.eu a foaf:Organization ;
+    lk:hasPosition _:N9a14fbac3adf4b3899f17198b1632b64 .
+
+lk:Libertas_Ireland a foaf:Organization ;
+    lk:hasPosition _:N0743f8e713464561a9fb8917d2b546d3 .
+
+lk:Libraries a lk:Industry .
+
+lk:Lifeboat_Foundation a foaf:Organization ;
+    lk:hasPosition _:N9c4cca9bae1f41348b9a9472173bf2b2 .
+
+lk:Logistics_and_Supply_Chain a lk:Industry .
+
+<http://scss.tcd.ie/cs/muc/linkedin/Luxury_Goods_&_Jewelry> a lk:Industry .
+
+lk:MOA_BPI_GROUP a foaf:Organization ;
+    lk:hasPosition _:Nc542b69dbcca41b3a751690fea8edf0f .
+
+lk:Machinery a lk:Industry .
+
+lk:Malahide_OpenCoffee_Club a foaf:Organization ;
+    lk:hasPosition _:N6c81bd1bd8184690af49ba6a4c6f998c .
+
+lk:Maritime a lk:Industry .
+
+lk:Market_Research a lk:Industry .
+
+lk:Masaryk_University a foaf:Organization ;
+    dbpedia-owl:formationYear "1919"^^xsd:gYear ;
+    dbpedia-owl:industry lk:Higher_Education ;
+    lk:from 1001 ;
+    lk:hasPosition _:N011fe0facb1a4e759e6853742f186615 ;
+    lk:organizationType "Educational Institution"^^xsd:integer ;
+    lk:to 5000 .
+
+lk:Mechanical_or_Industrial_Engineering a lk:Industry .
+
+lk:Media_Production a lk:Industry .
+
+lk:Medical_Devices a lk:Industry .
+
+lk:Medical_Practice a lk:Industry .
+
+lk:Mental_Health_Care a lk:Industry .
+
+lk:Microsoft a foaf:Organization ;
+    dbpedia-owl:formationYear "1975"^^xsd:gYear ;
+    dbpedia-owl:industry lk:Computer_Software ;
+    lk:from 10001 ;
+    lk:hasPosition _:Na7f17394a6714632bac2f985ab2075bb ;
+    lk:organizationType "Public Company"^^xsd:integer ;
+    lk:to 999999 .
+
+lk:Military a lk:Industry .
+
+<http://scss.tcd.ie/cs/muc/linkedin/Mining_&_Metals> a lk:Industry .
+
+lk:Monster a foaf:Organization ;
+    dbpedia-owl:formationYear "1994"^^xsd:gYear ;
+    dbpedia-owl:industry lk:Internet ;
+    lk:from 1001 ;
+    lk:hasPosition _:N1bf752e84c544c1699f73d6cfa8604f6,
+        _:Ncca8c7e6d0234a348fc69df379163388 ;
+    lk:organizationType "Public Company"^^xsd:integer ;
+    lk:to 5000 .
+
+lk:Moravia_IT a foaf:Organization ;
+    dbpedia-owl:formationYear "1990"^^xsd:gYear ;
+    dbpedia-owl:industry lk:Translation_and_Localization ;
+    lk:from 501 ;
+    lk:hasPosition _:N294859048c8342e98fc5191c51167f29,
+        _:N3f86be9405e1423e9cb7243969525648,
+        _:Ncf6bde7c079a4cb286ffb265fd9a474a ;
+    lk:organizationType "Privately Held"^^xsd:integer ;
+    lk:to 1000 .
+
+lk:Motion_Pictures_and_Film a lk:Industry .
+
+lk:Museums_and_Institutions a lk:Industry .
+
+lk:NSTAR a foaf:Organization ;
+    dbpedia-owl:industry lk:Utilities ;
+    lk:from 5001 ;
+    lk:hasPosition _:N904edd71e6234436a48cb31c399054d1 ;
+    lk:organizationType "Public Company"^^xsd:integer ;
+    lk:to 10000 .
+
+lk:Nanotechnology a lk:Industry .
+
+lk:National_Grid a foaf:Organization ;
+    dbpedia-owl:formationYear "1990"^^xsd:gYear ;
+    dbpedia-owl:industry lk:Utilities ;
+    lk:from 10001 ;
+    lk:hasPosition _:N77385f4753a2485fbe95ff24782b9b13 ;
+    lk:organizationType "Public Company"^^xsd:integer ;
+    lk:to 999999 .
+
+lk:Newstalk_Radio a foaf:Organization ;
+    lk:hasPosition _:N422993b49e224ad4846ea9d73db165a5 .
+
+lk:Ninja_Ventures_Limited a foaf:Organization ;
+    lk:hasPosition _:Ndf6dd45be0864319a25f5a993c079772 .
+
+lk:Northwest_Alumni a foaf:Organization ;
+    lk:hasPosition _:Ncd79311d955b42c09ca88e10b622d15a .
+
+lk:Norwood a foaf:Organization ;
+    lk:hasPosition _:N6ef259f545b7415bb9f6e11493aee6d1 .
+
+lk:OASIS a foaf:Organization ;
+    dbpedia-owl:formationYear "1993"^^xsd:gYear ;
+    dbpedia-owl:industry lk:Information_Technology_and_Services ;
+    lk:from 11 ;
+    lk:hasPosition _:N88aeb474e05349a6b6914a8fffa250ff,
+        _:N98160dfd78b74d82b8df75bb7a41ddf3 ;
+    lk:organizationType "Nonprofit"^^xsd:integer ;
+    lk:to 50 .
+
+lk:OSIATIS a foaf:Organization ;
+    dbpedia-owl:formationYear "1999"^^xsd:gYear ;
+    dbpedia-owl:industry lk:Information_Technology_and_Services ;
+    lk:from 1001 ;
+    lk:hasPosition _:Na7932aabac394f859e7f69f6289bc7b0 ;
+    lk:organizationType "Public Company"^^xsd:integer ;
+    lk:to 5000 .
+
+lk:Oasis a foaf:Organization ;
+    dbpedia-owl:formationYear "1993"^^xsd:gYear ;
+    dbpedia-owl:industry lk:Information_Technology_and_Services ;
+    lk:from 11 ;
+    lk:hasPosition _:N0addaeef9f274c7a92250292f02e03f3 ;
+    lk:organizationType "Nonprofit"^^xsd:integer ;
+    lk:to 50 .
+
+<http://scss.tcd.ie/cs/muc/linkedin/Oil_&_Energy> a lk:Industry .
+
+lk:Opsis_Software a foaf:Organization ;
+    lk:hasPosition _:N97294140d78543dea3a29322ef8dd064 .
+
+lk:Oracle a foaf:Organization ;
+    dbpedia-owl:formationYear "1977"^^xsd:gYear ;
+    dbpedia-owl:industry lk:Information_Technology_and_Services ;
+    lk:from 10001 ;
+    lk:hasPosition _:Nae0aae8e53594bcc8141bab1b8e12f41 ;
+    lk:organizationType "Public Company"^^xsd:integer ;
+    lk:to 999999 .
+
+lk:Oracle_EMEA_Limited a foaf:Organization ;
+    dbpedia-owl:formationYear "1977"^^xsd:gYear ;
+    dbpedia-owl:industry lk:Information_Technology_and_Services ;
+    lk:from 10001 ;
+    lk:hasPosition _:Na94f8d03c8aa4d32a2ace523c01c4b91 ;
+    lk:organizationType "Public Company"^^xsd:integer ;
+    lk:to 999999 .
+
+lk:Organon_Ireland_Limited a foaf:Organization ;
+    lk:hasPosition _:N0e1453651814434ea1768d123d39bfdf .
+
+lk:Outsourcing_and_Offshoring a lk:Industry .
+
+lk:Owjo a foaf:Organization ;
+    dbpedia-owl:formationYear "2009"^^xsd:gYear ;
+    dbpedia-owl:industry lk:Internet ;
+    lk:from 11 ;
+    lk:hasPosition _:N765a4b6c3dba402490e4602814f90ab3 ;
+    lk:organizationType "Privately Held"^^xsd:integer ;
+    lk:to 50 .
+
+<http://scss.tcd.ie/cs/muc/linkedin/PC_Live!_(Mediateam)> a foaf:Organization ;
+    lk:hasPosition _:N9bf83c5dc02b482bb918b650fccd50df .
+
+lk:POLICE_ACADEMY a foaf:Organization ;
+    lk:hasPosition _:N4e5412f4b4234bdc955ed7b86c52e501 .
+
+lk:Package_and_Freight_Delivery a lk:Industry .
+
+lk:Packaging_and_Containers a lk:Industry .
+
+<http://scss.tcd.ie/cs/muc/linkedin/Paper_&_Forest_Products> a lk:Industry .
+
+lk:ParkMagic_Mobile_Solutions_Ltd a foaf:Organization ;
+    dbpedia-owl:formationYear "2005"^^xsd:gYear ;
+    dbpedia-owl:industry <http://scss.tcd.ie/cs/muc/linkedin/Transportation/Trucking/Railroad> ;
+    lk:from 1 ;
+    lk:hasPosition _:N537e011f42604c2295af2738e0885159 ;
+    lk:organizationType "Privately Held"^^xsd:integer ;
+    lk:to 10 .
+
+lk:Pathway_IT a foaf:Organization ;
+    lk:hasPosition _:N9d3189a8bfef464a9f4275c1e00f6a11 .
+
+<http://scss.tcd.ie/cs/muc/linkedin/Penn,_Schoen_&_Berland_Associates> a foaf:Organization ;
+    dbpedia-owl:formationYear "1975"^^xsd:gYear ;
+    dbpedia-owl:industry lk:Management_Consulting ;
+    lk:from 201 ;
+    lk:hasPosition _:N22ba53c222c1465090d138a6a2b836a8 ;
+    lk:organizationType "Public Company"^^xsd:integer ;
+    lk:to 500 .
+
+lk:Performing_Arts a lk:Industry .
+
+lk:Philanthropy a lk:Industry .
+
+lk:Plastics a lk:Industry .
+
+lk:Political_Organization a lk:Industry .
+
+lk:Politics.ie a foaf:Organization ;
+    dbpedia-owl:formationYear "2003"^^xsd:gYear ;
+    dbpedia-owl:industry lk:Online_Media ;
+    lk:from 1 ;
+    lk:hasPosition _:N5e6723104a794b18973cfe17cfa954b9 ;
+    lk:organizationType "Privately Held"^^xsd:integer ;
+    lk:to 10 .
+
+lk:PollDaddy.com a foaf:Organization ;
+    lk:hasPosition _:Nba80c1e5946d4cc7a54d9dae3256d3ef .
+
+lk:PrimaryPosition.com a foaf:Organization ;
+    dbpedia-owl:formationYear "2001"^^xsd:gYear ;
+    dbpedia-owl:industry lk:Internet ;
+    lk:from 1 ;
+    lk:hasPosition _:N0c83a0c0ab3547d0a47dd73853b1e31f ;
+    lk:organizationType "Privately Held"^^xsd:integer ;
+    lk:to 10 .
+
+lk:Primary_and_Secondary_Education a lk:Industry .
+
+lk:Printing a lk:Industry .
+
+<http://scss.tcd.ie/cs/muc/linkedin/Professional_Training_&_Coaching> a lk:Industry .
+
+lk:Program_Development a lk:Industry .
+
+lk:Project_Management_Ltd a foaf:Organization ;
+    lk:hasPosition _:Na8fc0bb4a52e4b758c37019c38960bd6 .
+
+lk:Prolifics a foaf:Organization ;
+    dbpedia-owl:formationYear "1978"^^xsd:gYear ;
+    dbpedia-owl:industry lk:Information_Technology_and_Services ;
+    lk:from 501 ;
+    lk:hasPosition _:N3a3e9705aa1549a4a71cd2826b637b35 ;
+    lk:organizationType "Privately Held"^^xsd:integer ;
+    lk:to 1000 .
+
+lk:Public_Relations_and_Communications a lk:Industry .
+
+lk:Public_Safety a lk:Industry .
+
+lk:Putnam_Investments a foaf:Organization ;
+    dbpedia-owl:industry lk:Financial_Services ;
+    lk:from 1001 ;
+    lk:hasPosition _:Nbf68de9bc6664a22aa4cc3cc963cc373 ;
+    lk:organizationType "Privately Held"^^xsd:integer ;
+    lk:to 5000 .
+
+lk:RCSI a foaf:Organization ;
+    dbpedia-owl:industry lk:Education_Management ;
+    lk:from 501 ;
+    lk:hasPosition _:Nee00cc6f4d6749a9ac0a0ebd51396b7a ;
+    lk:organizationType "Privately Held"^^xsd:integer ;
+    lk:to 1000 .
+
+<http://scss.tcd.ie/cs/muc/linkedin/RE/MAX_Partners> a foaf:Organization ;
+    lk:hasPosition _:N331403339c3243d49c0587ce252745af .
+
+lk:Rabobank_International_Support a foaf:Organization ;
+    lk:hasPosition _:N47bc0d0c9d754b9790c00bc8f7481781 .
+
+lk:Railroad_Manufacture a lk:Industry .
+
+lk:Ranching a lk:Industry .
+
+lk:ReadWriteWeb.com a foaf:Organization ;
+    lk:hasPosition _:N1eeaaeeb517f46a3a9efa2db2210a108 .
+
+lk:Real_Estate a lk:Industry .
+
+lk:Recreational_Facilities_and_Services a lk:Industry .
+
+lk:Religious_Institutions a lk:Industry .
+
+lk:Restaurants a lk:Industry .
+
+lk:Retail a lk:Industry .
+
+<http://scss.tcd.ie/cs/muc/linkedin/Ripple_Technologies_Ltd.> a foaf:Organization ;
+    dbpedia-owl:formationYear "2012"^^xsd:gYear ;
+    dbpedia-owl:industry lk:Internet ;
+    lk:from 1 ;
+    lk:hasPosition _:Nc8deace18d4a437f997772d4adf7b925 ;
+    lk:organizationType "Public Company"^^xsd:integer ;
+    lk:to 10 .
+
+lk:Rohm_LSI_Design_Philippines a foaf:Organization ;
+    lk:hasPosition _:Nc213f4aaa1144fff88094bfcfa52e043 .
+
+lk:SBS_Recruitment a foaf:Organization ;
+    lk:hasPosition _:N9854d3cb8e5a4ba492893c5fd9a96d05 .
+
+lk:Security_and_Investigations a lk:Industry .
+
+lk:Shipbuilding a lk:Industry .
+
+<http://scss.tcd.ie/cs/muc/linkedin/Sitelite_Inc.> a foaf:Organization ;
+    dbpedia-owl:industry lk:Information_Technology_and_Services ;
+    lk:from 51 ;
+    lk:hasPosition _:N2b0374288c0d41a09bf1220e7bb1ceb2 ;
+    lk:organizationType "Privately Held"^^xsd:integer ;
+    lk:to 200 .
+
+lk:Sligo_Business_Network a foaf:Organization ;
+    dbpedia-owl:formationYear "2006"^^xsd:gYear ;
+    dbpedia-owl:industry lk:Information_Services ;
+    lk:from 1 ;
+    lk:hasPosition _:Ndb823372de51461ea0f7f04def9da6dd ;
+    lk:organizationType "Privately Held"^^xsd:integer ;
+    lk:to 10 .
+
+lk:Speciality a <http://www.w3.org/2002/07/owl#Class> .
+
+lk:Sporting_Goods a lk:Industry .
+
+lk:Sports a lk:Industry .
+
+lk:St._John_of_God a foaf:Organization ;
+    lk:hasPosition _:N9e888443ae1342a494109c87e3c517b1 .
+
+<http://scss.tcd.ie/cs/muc/linkedin/St._John_of_God_(Kildare_Services)> a foaf:Organization ;
+    lk:hasPosition _:N7a55200a0b584802b68c45ac4b53a69f .
+
+lk:Standard_Bank_International a foaf:Organization ;
+    dbpedia-owl:industry lk:Financial_Services ;
+    lk:from 10001 ;
+    lk:hasPosition _:N072a8567d6fe40829f1b0ae80a6bb54a,
+        _:Nf593e2615fda44ee96dde4c3e62f569e ;
+    lk:organizationType "Public Company"^^xsd:integer ;
+    lk:to 999999 .
+
+lk:State_Street a foaf:Organization ;
+    dbpedia-owl:industry lk:Financial_Services ;
+    lk:from 10001 ;
+    lk:hasPosition _:N50a10a1e16744089bc80642339d4cfbc ;
+    lk:organizationType "Public Company"^^xsd:integer ;
+    lk:to 999999 .
+
+lk:Stokes_Institute a foaf:Organization ;
+    lk:hasPosition _:N71bcf44ad6df4fbeb08a48d424d33cc0 .
+
+lk:Stokes_Kennedy_Crowley a foaf:Organization ;
+    lk:hasPosition _:N52805f7d86f841adb86fcd28fd2ff5d8 .
+
+<http://scss.tcd.ie/cs/muc/linkedin/Sun_Emerald_Chinese_Newspaper,_Ireland> a foaf:Organization ;
+    dbpedia-owl:industry lk:Newspapers ;
+    lk:hasPosition _:Ne2c72eb3900e481498619dedf2ed2f84 .
+
+lk:Sunday_Business_Post a foaf:Organization ;
+    dbpedia-owl:formationYear "1989"^^xsd:gYear ;
+    dbpedia-owl:industry lk:Newspapers ;
+    lk:from 51 ;
+    lk:hasPosition _:N42bcf7f18e604c1485b5582d25f621ee ;
+    lk:organizationType "Privately Held"^^xsd:integer ;
+    lk:to 200 .
+
+lk:Supermarkets a lk:Industry .
+
+lk:Susquehanna_International_Group a foaf:Organization ;
+    dbpedia-owl:formationYear "1987"^^xsd:gYear ;
+    dbpedia-owl:industry lk:Financial_Services ;
+    lk:from 1001 ;
+    lk:hasPosition _:N24b6fc9f4e384411b820ac8bfd35b7b1 ;
+    lk:organizationType "Privately Held"^^xsd:integer ;
+    lk:to 5000 .
+
+lk:Sustainable_Energy_Ireland a foaf:Organization ;
+    dbpedia-owl:formationYear "2002"^^xsd:gYear ;
+    dbpedia-owl:industry <http://scss.tcd.ie/cs/muc/linkedin/Renewables_&_Environment> ;
+    lk:from 51 ;
+    lk:hasPosition _:Ne0221aeab1a54c5c8b0440779df511a8 ;
+    lk:organizationType "Government Agency"^^xsd:integer ;
+    lk:to 200 .
+
+lk:Sweeney_McGann_Solicitors a foaf:Organization ;
+    dbpedia-owl:formationYear "1995"^^xsd:gYear ;
+    dbpedia-owl:industry lk:Law_Practice ;
+    lk:from 11 ;
+    lk:hasPosition _:Nbde08b1c5ba94f979ae2317c45b48c4a ;
+    lk:organizationType "Partnership"^^xsd:integer ;
+    lk:to 50 .
+
+lk:Swords_Web_Design a foaf:Organization ;
+    dbpedia-owl:industry lk:Information_Technology_and_Services ;
+    lk:hasPosition _:N97da25566e1c49b491e284a05370e028 .
+
+lk:Takeda_Ireland_Limited a foaf:Organization ;
+    dbpedia-owl:industry lk:Pharmaceuticals ;
+    lk:from 201 ;
+    lk:hasPosition _:N157b6d12df99469e9d86307a813a1bfe ;
+    lk:organizationType "Privately Held"^^xsd:integer ;
+    lk:to 500 .
+
+lk:Teagasc a foaf:Organization ;
+    dbpedia-owl:formationYear "1988"^^xsd:gYear ;
+    dbpedia-owl:industry lk:Research ;
+    lk:from 1001 ;
+    lk:hasPosition _:N250f2096168f48419048cdc1f8b4376e ;
+    lk:organizationType "Government Agency"^^xsd:integer ;
+    lk:to 5000 .
+
+lk:Textiles a lk:Industry .
+
+<http://scss.tcd.ie/cs/muc/linkedin/The_Gathering_Sligo_(Sligo_Gatering)> a foaf:Organization ;
+    lk:hasPosition _:N28b8ca67c23f47e791b23f7f8c2e0aab .
+
+lk:The_Irish_Times a foaf:Organization ;
+    dbpedia-owl:industry lk:Newspapers ;
+    lk:from 201 ;
+    lk:hasPosition _:Nb2ece7d81e744f52ac9b0b14bad52e7a,
+        _:Nd06043f0dc4e45e1af50132c8742f36e ;
+    lk:organizationType "Privately Held"^^xsd:integer ;
+    lk:to 500 .
+
+lk:The_Sustainable_Energy_Authority_of_Ireland a foaf:Organization ;
+    dbpedia-owl:formationYear "2002"^^xsd:gYear ;
+    dbpedia-owl:industry <http://scss.tcd.ie/cs/muc/linkedin/Renewables_&_Environment> ;
+    lk:from 51 ;
+    lk:hasPosition _:N307275f74512475ea4e85fa92c74724e ;
+    lk:organizationType "Government Agency"^^xsd:integer ;
+    lk:to 200 .
+
+lk:Think_Tanks a lk:Industry .
+
+lk:Tobacco a lk:Industry .
+
+lk:TopDog_Web_Development a foaf:Organization ;
+    lk:hasPosition _:N5bf2d0fbd0ac4354aea3ecb369d9f1b5 .
+
+lk:Transportation_and_Trucking_and_Railroad a lk:Industry .
+
+lk:Trend_Micro a foaf:Organization ;
+    dbpedia-owl:formationYear "1988"^^xsd:gYear ;
+    dbpedia-owl:industry lk:Computer_Software ;
+    lk:from 1001 ;
+    lk:hasPosition _:N75d009b6f24841f28b00d01d45a1c982,
+        _:N9fd2860725854046b457e2b090f38475 ;
+    lk:organizationType "Public Company"^^xsd:integer ;
+    lk:to 5000 .
+
+lk:Trinity_College_Dublin a foaf:Organization ;
+    dbpedia-owl:formationYear "1592"^^xsd:gYear ;
+    dbpedia-owl:industry lk:Higher_Education ;
+    lk:from 1001 ;
+    lk:hasPosition _:Na342ccedf80c44339b88f39f27f754e5 ;
+    lk:organizationType "Educational Institution"^^xsd:integer ;
+    lk:to 5000 .
+
+lk:Ulsterbank_Investment_Managers a foaf:Organization ;
+    lk:hasPosition _:N26c0d4e1a4534928a51f6fc5f636899e .
+
+lk:University_of_Dublin a foaf:Organization ;
+    lk:hasPosition _:N2e5685846ddc4380b3b4b38af6fda617 .
+
+<http://scss.tcd.ie/cs/muc/linkedin/Venture_Capital_&_Private_Equity> a lk:Industry .
+
+lk:Veterinary a lk:Industry .
+
+lk:W3C a foaf:Organization ;
+    dbpedia-owl:formationYear "1994"^^xsd:gYear ;
+    dbpedia-owl:industry lk:Internet ;
+    lk:from 51 ;
+    lk:hasPosition _:Nbd2459ae30e5474faa7776819978deb9,
+        _:Nd238a8cfc13f4e7e9c012e6efdc8eb67 ;
+    lk:organizationType "Nonprofit"^^xsd:integer ;
+    lk:to 200 .
+
+lk:Warehousing a lk:Industry .
+
+<http://scss.tcd.ie/cs/muc/linkedin/WealthPoint_Financial_Services,_Sydney.> a foaf:Organization ;
+    lk:hasPosition _:N7ad71df539614a25843af080aa156725 .
+
+lk:Wholesale a lk:Industry .
+
+lk:William_Fry a foaf:Organization ;
+    dbpedia-owl:industry lk:Law_Practice ;
+    lk:from 201 ;
+    lk:hasPosition _:N30a26aed92e24d91bbb943ff00b0923a ;
+    lk:organizationType "Partnership"^^xsd:integer ;
+    lk:to 500 .
+
+lk:Wine_and_Spirits a lk:Industry .
+
+lk:Wireless a lk:Industry .
+
+lk:Writing_and_Editing a lk:Industry .
+
+lk:Wyeth_Medica_Ireland a foaf:Organization ;
+    dbpedia-owl:formationYear "1848"^^xsd:gYear ;
+    dbpedia-owl:industry lk:Pharmaceuticals ;
+    lk:from 10001 ;
+    lk:hasPosition _:N7868c438906f4ccf9ab9c840e2156fa2 ;
+    lk:organizationType "Public Company"^^xsd:integer ;
+    lk:to 999999 .
+
+lk:Xerox a foaf:Organization ;
+    dbpedia-owl:industry lk:Information_Technology_and_Services ;
+    lk:from 10001 ;
+    lk:hasPosition _:Ncdd42faad0394d619db92eb78b41f3b3 ;
+    lk:organizationType "Public Company"^^xsd:integer ;
+    lk:to 999999 .
+
+lk:Xilinx_Ireland a foaf:Organization ;
+    dbpedia-owl:industry lk:Semiconductors ;
+    lk:from 1001 ;
+    lk:hasPosition _:N35a85b5f037645619b8f02d3dbebea81 ;
+    lk:organizationType "Public Company"^^xsd:integer ;
+    lk:to 5000 .
+
+lk:college a <http://www.w3.org/2002/07/owl#ObjectProperty> ;
+    rdfs:domain lk:Education ;
+    rdfs:range aiiso:College .
+
+lk:davidf.org a foaf:Organization ;
+    dbpedia-owl:formationYear "2008"^^xsd:gYear ;
+    dbpedia-owl:industry lk:Information_Technology_and_Services ;
+    lk:from 1 ;
+    lk:hasPosition _:Nc4afd775750d46aa9e2674c6a6955117 ;
+    lk:organizationType "Self-Employed"^^xsd:integer ;
+    lk:to 1 .
+
+lk:degree a <http://www.w3.org/2002/07/owl#ObjectProperty> ;
+    rdfs:domain lk:Education ;
+    rdfs:range lk:Degree .
+
+lk:eScape_Software a foaf:Organization ;
+    lk:hasPosition _:Ne0ecb36e92e142bf815fafd2f778b410 .
+
+<http://scss.tcd.ie/cs/muc/linkedin/ebow,_the_art_gallery> a foaf:Organization ;
+    dbpedia-owl:formationYear "1999"^^xsd:gYear ;
+    dbpedia-owl:industry lk:Internet ;
+    lk:from 11 ;
+    lk:hasPosition _:N3affbec56b4344b7958422558d295b20 ;
+    lk:organizationType "Privately Held"^^xsd:integer ;
+    lk:to 50 .
+
+<http://scss.tcd.ie/cs/muc/linkedin/ebow,_the_digital_agency> a foaf:Organization ;
+    dbpedia-owl:formationYear "1999"^^xsd:gYear ;
+    dbpedia-owl:industry lk:Internet ;
+    lk:from 11 ;
+    lk:hasPosition _:Na9f9a945230e4a34ad30895cc770d0a4 ;
+    lk:organizationType "Privately Held"^^xsd:integer ;
+    lk:to 50 .
+
+lk:education a <http://www.w3.org/2002/07/owl#ObjectProperty> ;
+    rdfs:domain foaf:Person ;
+    rdfs:range lk:Education .
+
+lk:eightytwenty4D a foaf:Organization ;
+    dbpedia-owl:industry lk:Marketing_and_Advertising ;
+    lk:from 11 ;
+    lk:hasPosition _:Nd598ed3950184054937ea023d0b3af0b ;
+    lk:organizationType "Privately Held"^^xsd:integer ;
+    lk:to 50 .
+
+lk:from a <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+
+lk:hasPosition a <http://www.w3.org/2002/07/owl#ObjectProperty> ;
+    rdfs:domain foaf:Organization ;
+    rdfs:range lk:Position .
+
+lk:iConsult_Forschung_und_Consulting_für_Marketingentscheidungen_GmbH a foaf:Organization ;
+    lk:hasPosition _:N11047a2d275d4d9586c971e84b713f29 .
+
+lk:id a <http://www.w3.org/2002/07/owl#DatatypeProperty> ;
+    rdfs:domain foaf:Person ;
+    rdfs:range xsd:string .
+
+lk:level rdfs:domain aiiso:Course ;
+    rdfs:range xsd:integer .
+
+lk:major a <http://www.w3.org/2002/07/owl#ObjectProperty> ;
+    rdfs:domain lk:Education ;
+    rdfs:range aiiso:Course .
+
+lk:organizationType a <http://www.w3.org/2002/07/owl#DatatypeProperty> ;
+    rdfs:domain foaf:Organization ;
+    rdfs:range xsd:string .
+
+lk:school a <http://www.w3.org/2002/07/owl#ObjectProperty> ;
+    rdfs:domain lk:Education ;
+    rdfs:range aiiso:School .
+
+lk:skill a <http://www.w3.org/2002/07/owl#ObjectProperty> ;
+    rdfs:domain foaf:Person ;
+    rdfs:range lk:Skill .
+
+lk:speciality a <http://www.w3.org/2002/07/owl#ObjectProperty> ;
+    rdfs:domain foaf:Organization ;
+    rdfs:range foaf:Organization .
+
+lk:to a <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+
+lk:travelodge a foaf:Organization ;
+    lk:hasPosition _:N664bee64f3454455ba68ce6a7c16096c .
+
+lk:worksAs a <http://www.w3.org/2002/07/owl#ObjectProperty> ;
+    rdfs:domain foaf:Person ;
+    rdfs:range lk:Position .
+
+lk:AJAX a lk:Skill,
+        skos:Concept .
+
+lk:ANCA a lk:Degree ;
+    lk:level "7"^^xsd:interger .
+
+lk:ASP a lk:Skill,
+        skos:Concept .
+
+lk:Account_Management a lk:Skill,
+        skos:Concept .
+
+lk:Acquisition_Integration a lk:Skill,
+        skos:Concept .
+
+lk:Advanced_SEO a lk:Skill,
+        skos:Concept .
+
+lk:Advocacy a lk:Skill,
+        skos:Concept .
+
+lk:Aeronautics a lk:Skill,
+        skos:Concept .
+
+lk:Affiliate_Marketing a lk:Skill,
+        skos:Concept .
+
+lk:Afrikaans a dbpedia-owl:Language .
+
+lk:Agile_Software_Development a lk:Skill,
+        skos:Concept .
+
+lk:All_Honours a aiiso:Course,
+        skos:Concept .
+
+lk:American_University a aiiso:College .
+
+lk:Analog a lk:Skill,
+        skos:Concept .
+
+<http://scss.tcd.ie/cs/muc/linkedin/Analysis_&_Design> a lk:Skill,
+        skos:Concept .
+
+lk:Android a lk:Skill,
+        skos:Concept .
+
+lk:Antivirus a lk:Skill,
+        skos:Concept .
+
+lk:Apache a lk:Skill,
+        skos:Concept .
+
+lk:Asset_Management a lk:Skill,
+        skos:Concept .
+
+lk:Asset_Managment a lk:Skill,
+        skos:Concept .
+
+lk:Authoring a lk:Skill,
+        skos:Concept .
+
+lk:Automation a lk:Skill,
+        skos:Concept .
+
+<http://scss.tcd.ie/cs/muc/linkedin/Aviation_&_Aerospace> a lk:Industry .
+
+<http://scss.tcd.ie/cs/muc/linkedin/B._Sc.> a lk:Degree ;
+    lk:level "7"^^xsd:interger .
+
+<http://scss.tcd.ie/cs/muc/linkedin/BA_(mod)> a lk:Degree ;
+    lk:level "7"^^xsd:interger .
+
+lk:BComm a lk:Degree ;
+    lk:level "7"^^xsd:interger .
+
+lk:BEng a lk:Degree ;
+    lk:level "7"^^xsd:interger .
+
+<http://scss.tcd.ie/cs/muc/linkedin/BSc_(Hons)> a lk:Degree ;
+    lk:level "7"^^xsd:interger .
+
+<http://scss.tcd.ie/cs/muc/linkedin/Bachelor's_Degree> a lk:Degree ;
+    lk:level "7"^^xsd:interger .
+
+lk:Ballsbridge_College_of_Further_Education a aiiso:College .
+
+lk:Bioinformatics a lk:Skill,
+        skos:Concept .
+
+lk:Biostatistics a lk:Skill,
+        skos:Concept .
+
+lk:Biotechnology a lk:Industry,
+        lk:Skill,
+        skos:Concept .
+
+lk:Bloomberg a lk:Skill,
+        skos:Concept .
+
+lk:Bodypaint a lk:Skill,
+        skos:Concept .
+
+lk:Book_Reviews a lk:Skill,
+        skos:Concept .
+
+lk:Books a lk:Skill,
+        skos:Concept .
+
+lk:Brand_Management a lk:Skill,
+        skos:Concept .
+
+lk:Branded_Entertainment a lk:Skill,
+        skos:Concept .
+
+lk:Breaking_News a lk:Skill,
+        skos:Concept .
+
+lk:Brighton_High_School a aiiso:College .
+
+<http://scss.tcd.ie/cs/muc/linkedin/Business_&_Economics> a aiiso:Course,
+        skos:Concept .
+
+lk:Business_Continuity a lk:Skill,
+        skos:Concept .
+
+lk:Business_Management_and_Information_Technology a aiiso:Course,
+        skos:Concept .
+
+lk:Cadence_Virtuoso a lk:Skill,
+        skos:Concept .
+
+lk:Calibre a lk:Skill,
+        skos:Concept .
+
+lk:Campaigns a lk:Skill,
+        skos:Concept .
+
+lk:Cancer a lk:Skill,
+        skos:Concept .
+
+lk:Capital_Markets a lk:Industry,
+        lk:Skill,
+        skos:Concept .
+
+lk:Castleknock_College a aiiso:College .
+
+lk:Catholic_University_School a aiiso:College .
+
+lk:Cert a lk:Degree ;
+    lk:level "7"^^xsd:interger .
+
+lk:Certificate a lk:Degree ;
+    lk:level "7"^^xsd:interger .
+
+<http://scss.tcd.ie/cs/muc/linkedin/Certificate_Electronic_Commerce_&_Online_Marketing> a lk:Degree ;
+    lk:level "7"^^xsd:interger .
+
+lk:Certificate_in_Legal_Studies a lk:Degree ;
+    lk:level "7"^^xsd:interger .
+
+lk:Change_Management a lk:Skill,
+        skos:Concept .
+
+lk:Cheshire_College_of_Agriculture a aiiso:College .
+
+lk:Christian_Brothers_College a aiiso:College .
+
+lk:Civil_Engineering a lk:Industry,
+        lk:Skill,
+        skos:Concept .
+
+lk:Cluster_Analysis a lk:Skill,
+        skos:Concept .
+
+lk:Coaching a lk:Skill,
+        skos:Concept .
+
+lk:Commercial_Banking a lk:Skill,
+        skos:Concept .
+
+lk:Commercial_Leasing a lk:Skill,
+        skos:Concept .
+
+lk:Commercial_Litigation a lk:Skill,
+        skos:Concept .
+
+<http://scss.tcd.ie/cs/muc/linkedin/Communications_&_Journalism;_Communication_Theory> a aiiso:Course,
+        skos:Concept .
+
+lk:Community a lk:Skill,
+        skos:Concept .
+
+lk:Community_Development a lk:Skill,
+        skos:Concept .
+
+lk:Community_Sites a lk:Skill,
+        skos:Concept .
+
+lk:Composites a lk:Skill,
+        skos:Concept .
+
+lk:Computational_Biology a lk:Skill,
+        skos:Concept .
+
+<http://scss.tcd.ie/cs/muc/linkedin/Computer_Applications_(Information_Systems)> a aiiso:Course,
+        skos:Concept .
+
+lk:Computer_Security a lk:Skill,
+        skos:Concept .
+
+lk:Conducting_Interviews a lk:Skill,
+        skos:Concept .
+
+lk:Conveyancing a lk:Skill,
+        skos:Concept .
+
+lk:Copy_Editing a lk:Skill,
+        skos:Concept .
+
+lk:Core_Banking a lk:Skill,
+        skos:Concept .
+
+lk:Corporate_Events a lk:Skill,
+        skos:Concept .
+
+lk:Corporate_Governance a lk:Skill,
+        skos:Concept .
+
+lk:Corporate_Law a lk:Skill,
+        skos:Concept .
+
+lk:Creative_Translation a lk:Skill,
+        skos:Concept .
+
+lk:Creative_Work a lk:Skill,
+        skos:Concept .
+
+lk:Crescent_College a aiiso:College .
+
+lk:Cross-functional_Team_Leadership a lk:Skill,
+        skos:Concept .
+
+lk:Customer_Service a lk:Skill,
+        skos:Concept .
+
+lk:Czech a dbpedia-owl:Language .
+
+lk:DHCP a lk:Skill,
+        skos:Concept .
+
+lk:DIT a aiiso:College,
+        foaf:Organization ;
+    lk:hasPosition _:N2fc7016a416d4e939ce051f2cd8d7adb .
+
+<http://scss.tcd.ie/cs/muc/linkedin/Dairy_Herd_Management_/_Advanced_Animal_Husbandry> a aiiso:Course,
+        skos:Concept .
+
+lk:Dalian_Jiaotong_University a aiiso:College .
+
+lk:Data_Analysis a lk:Skill,
+        skos:Concept .
+
+lk:Data_Classification a lk:Skill,
+        skos:Concept .
+
+lk:Data_Mining a lk:Skill,
+        skos:Concept .
+
+lk:Data_Visualization a lk:Skill,
+        skos:Concept .
+
+lk:Data_Warehousing a lk:Skill,
+        skos:Concept .
+
+lk:Debt_Collection a lk:Skill,
+        skos:Concept .
+
+lk:Debugging a lk:Skill,
+        skos:Concept .
+
+lk:Design_Patterns a lk:Skill,
+        skos:Concept .
+
+lk:Designer a lk:Skill,
+        skos:Concept .
+
+lk:Digital_Retoucher a lk:Skill,
+        skos:Concept .
+
+lk:Dip_PR a lk:Degree ;
+    lk:level "7"^^xsd:interger .
+
+lk:Dip_PolGovt a lk:Degree ;
+    lk:level "7"^^xsd:interger .
+
+lk:Direct_Sales a lk:Skill,
+        skos:Concept .
+
+lk:Disaster_Recovery a lk:Skill,
+        skos:Concept .
+
+lk:Documented_care a lk:Skill,
+        skos:Concept .
+
+lk:Dracula a lk:Skill,
+        skos:Concept .
+
+<http://scss.tcd.ie/cs/muc/linkedin/Dún_Laoghaire_Institute_of_Art,_Design_and_Technology> a aiiso:College .
+
+lk:E-commerce_Solutions a lk:Skill,
+        skos:Concept .
+
+lk:ERP a lk:Skill,
+        skos:Concept .
+
+lk:Eclipse a lk:Skill,
+        skos:Concept .
+
+<http://scss.tcd.ie/cs/muc/linkedin/Ecommerce,_Online_Marketing> a aiiso:Course,
+        skos:Concept .
+
+lk:Editorial a lk:Skill,
+        skos:Concept .
+
+lk:Education_Management a lk:Industry .
+
+lk:Electronics_and_Information_Engineering a aiiso:Course,
+        skos:Concept .
+
+lk:Email_Marketing a lk:Skill,
+        skos:Concept .
+
+lk:Emerging_Markets a lk:Skill,
+        skos:Concept .
+
+lk:Employer_Branding a lk:Skill,
+        skos:Concept .
+
+lk:Energy a lk:Skill,
+        skos:Concept .
+
+lk:Energy_Audits a lk:Skill,
+        skos:Concept .
+
+lk:Energy_Efficiency a lk:Skill,
+        skos:Concept .
+
+lk:Energy_Management a lk:Skill,
+        skos:Concept .
+
+lk:Enterprise_Architecture a lk:Skill,
+        skos:Concept .
+
+lk:Enterprise_Integration a lk:Skill,
+        skos:Concept .
+
+lk:Entertainment a lk:Industry,
+        lk:Skill,
+        skos:Concept .
+
+lk:Entrepreneur a lk:Skill,
+        skos:Concept .
+
+lk:Entrepreneurship a lk:Skill,
+        skos:Concept .
+
+lk:Environmental_Awareness a lk:Skill,
+        skos:Concept .
+
+lk:Equities a lk:Skill,
+        skos:Concept .
+
+lk:Event_Photography a lk:Skill,
+        skos:Concept .
+
+lk:Event_Planning a lk:Skill,
+        skos:Concept .
+
+lk:Excel a lk:Skill,
+        skos:Concept .
+
+lk:FTP a lk:Skill,
+        skos:Concept .
+
+lk:FX_trading a lk:Skill,
+        skos:Concept .
+
+lk:Facebook a lk:Skill,
+        skos:Concept,
+        foaf:Organization ;
+    dbpedia-owl:formationYear "2004"^^xsd:gYear ;
+    dbpedia-owl:industry lk:Internet ;
+    lk:from 1001 ;
+    lk:hasPosition _:Na29474a313d14dae95f932d04c4f41d2 ;
+    lk:organizationType "Public Company"^^xsd:integer ;
+    lk:to 5000 .
+
+lk:FactSet a lk:Skill,
+        skos:Concept .
+
+lk:Fairmont_High_School a aiiso:College .
+
+lk:Fashion a lk:Skill,
+        skos:Concept .
+
+lk:Feature_Articles a lk:Skill,
+        skos:Concept .
+
+lk:Feature_Writing a lk:Skill,
+        skos:Concept .
+
+lk:Festivals a lk:Skill,
+        skos:Concept .
+
+lk:Fiction a lk:Skill,
+        skos:Concept .
+
+lk:Fiction_Writing a lk:Skill,
+        skos:Concept .
+
+lk:Financial_Markets a lk:Skill,
+        skos:Concept .
+
+lk:Financial_Modeling a lk:Skill,
+        skos:Concept .
+
+lk:Finnish a dbpedia-owl:Language .
+
+lk:Firewalls a lk:Skill,
+        skos:Concept .
+
+lk:Forums a lk:Skill,
+        skos:Concept .
+
+lk:GPRS a lk:Skill,
+        skos:Concept .
+
+lk:GSM a lk:Skill,
+        skos:Concept .
+
+lk:Gaeilge a dbpedia-owl:Language .
+
+lk:Game_Development a lk:Skill,
+        skos:Concept .
+
+lk:Genomics a lk:Skill,
+        skos:Concept .
+
+<http://scss.tcd.ie/cs/muc/linkedin/German_philology_&_Aesthetics> a aiiso:Course,
+        skos:Concept .
+
+lk:Getting_Endorsed a lk:Skill,
+        skos:Concept .
+
+lk:Global_Sourcing a lk:Skill,
+        skos:Concept .
+
+lk:Google a lk:Skill,
+        skos:Concept,
+        foaf:Organization ;
+    dbpedia-owl:formationYear "1998"^^xsd:gYear ;
+    dbpedia-owl:industry lk:Internet ;
+    lk:from 10001 ;
+    lk:hasPosition _:N5cbc0c018da6424e89e44210235c77a7,
+        _:Ncad5eab6f906492784ccbbeed9497293 ;
+    lk:organizationType "Public Company"^^xsd:integer ;
+    lk:to 999999 .
+
+lk:Google_AdWords a lk:Skill,
+        skos:Concept .
+
+lk:Google_Webmaster_Tools a lk:Skill,
+        skos:Concept .
+
+lk:Google_Webmasters a lk:Skill,
+        skos:Concept .
+
+lk:Grails a lk:Skill,
+        skos:Concept .
+
+lk:Green_Cert a lk:Degree ;
+    lk:level "7"^^xsd:interger .
+
+lk:Greendale_Community_School a aiiso:College .
+
+lk:Griffith_College_Dublin a aiiso:College .
+
+lk:Groovy a lk:Skill,
+        skos:Concept .
+
+<http://scss.tcd.ie/cs/muc/linkedin/HTML/XML> a lk:Skill,
+        skos:Concept .
+
+lk:HVAC a lk:Skill,
+        skos:Concept .
+
+lk:Headhunting a lk:Skill,
+        skos:Concept .
+
+lk:Healthcare a lk:Skill,
+        skos:Concept .
+
+lk:Hedge_Funds a lk:Skill,
+        skos:Concept .
+
+lk:Hercules a lk:Skill,
+        skos:Concept .
+
+lk:Hibernate a lk:Skill,
+        skos:Concept .
+
+lk:High_Performance_Computing a lk:Skill,
+        skos:Concept .
+
+lk:Higher_Diploma a lk:Degree ;
+    lk:level "7"^^xsd:interger .
+
+lk:History a lk:Skill,
+        skos:Concept .
+
+lk:Holography a lk:Skill,
+        skos:Concept .
+
+lk:Human_Rights a lk:Skill,
+        skos:Concept .
+
+lk:Human_Trafficking a lk:Skill,
+        skos:Concept .
+
+lk:IC a lk:Skill,
+        skos:Concept .
+
+lk:ICT_Consulting a lk:Skill,
+        skos:Concept .
+
+lk:IDA a lk:Skill,
+        skos:Concept .
+
+lk:IES_Marques_de_Santillana a aiiso:College .
+
+lk:IIS a lk:Skill,
+        skos:Concept .
+
+lk:IP a lk:Skill,
+        skos:Concept .
+
+lk:ITIL a lk:Skill,
+        skos:Concept .
+
+lk:IT_Sales a lk:Skill,
+        skos:Concept .
+
+lk:Industrial_Design a lk:Skill,
+        skos:Concept .
+
+lk:Information_Services a lk:Industry .
+
+lk:Infrastructure_Management a lk:Skill,
+        skos:Concept .
+
+lk:Innovation a lk:Skill,
+        skos:Concept .
+
+lk:Innovation_Management a lk:Skill,
+        skos:Concept .
+
+lk:Insolvency a lk:Skill,
+        skos:Concept .
+
+lk:Integrated_Circuit_Design a lk:Skill,
+        skos:Concept .
+
+lk:Integrated_Marketing a lk:Skill,
+        skos:Concept .
+
+lk:Integration a lk:Skill,
+        skos:Concept .
+
+lk:Interaction_Design a lk:Skill,
+        skos:Concept .
+
+lk:International_Affairs a lk:Industry,
+        lk:Skill,
+        skos:Concept .
+
+lk:International_Business a lk:Skill,
+        skos:Concept .
+
+lk:International_Equities a lk:Skill,
+        skos:Concept .
+
+lk:International_Trade_and_Development a lk:Industry .
+
+lk:Internet_Banking a lk:Skill,
+        skos:Concept .
+
+lk:Internet_Marketing a lk:Skill,
+        skos:Concept .
+
+lk:Invention a lk:Skill,
+        skos:Concept .
+
+lk:Italian a dbpedia-owl:Language .
+
+lk:J2EE a lk:Skill,
+        skos:Concept .
+
+lk:JSON a lk:Skill,
+        skos:Concept .
+
+lk:Japanese a dbpedia-owl:Language .
+
+lk:Java_Enterprise_Edition a lk:Skill,
+        skos:Concept .
+
+lk:Joomla a lk:Skill,
+        skos:Concept .
+
+lk:L10n a lk:Skill,
+        skos:Concept .
+
+lk:LaTeX a lk:Skill,
+        skos:Concept .
+
+lk:Landlord_Tenant_Disputes a lk:Skill,
+        skos:Concept .
+
+lk:Law a aiiso:Course,
+        skos:Concept .
+
+lk:Leaving_Cert a lk:Degree ;
+    lk:level "7"^^xsd:interger .
+
+lk:Leaving_Certificate a lk:Degree ;
+    lk:level "7"^^xsd:interger .
+
+lk:Lecturing a lk:Skill,
+        skos:Concept .
+
+lk:Legal_Affairs a lk:Skill,
+        skos:Concept .
+
+lk:Legal_Issues a lk:Skill,
+        skos:Concept .
+
+lk:Legal_Recruiting a lk:Skill,
+        skos:Concept .
+
+lk:Legal_Recruitment_Dublin a lk:Skill,
+        skos:Concept .
+
+lk:Lighting a lk:Skill,
+        skos:Concept .
+
+lk:Limerick_Tutorial_College a aiiso:College .
+
+lk:Live_Events a lk:Skill,
+        skos:Concept .
+
+lk:Lobbying a lk:Skill,
+        skos:Concept .
+
+lk:Localization a lk:Skill,
+        skos:Concept .
+
+lk:MS_Project a lk:Skill,
+        skos:Concept .
+
+lk:Malware_Analysis a lk:Skill,
+        skos:Concept .
+
+lk:Managed_Services a lk:Skill,
+        skos:Concept .
+
+lk:Management a lk:Skill,
+        skos:Concept .
+
+lk:Manufacturing_Management a lk:Skill,
+        skos:Concept .
+
+lk:Marketing_Communications a lk:Skill,
+        skos:Concept .
+
+lk:Marketing_Institute_of_Ireland a aiiso:College .
+
+lk:Marketing_Strategy a lk:Skill,
+        skos:Concept .
+
+lk:Masarykova_univerzita_Brno a aiiso:College .
+
+<http://scss.tcd.ie/cs/muc/linkedin/Master's_Degree> a lk:Degree ;
+    lk:level "7"^^xsd:interger .
+
+lk:Mathematics a lk:Skill,
+        skos:Concept .
+
+lk:Media_Interviews a lk:Skill,
+        skos:Concept .
+
+lk:Medical_Records a lk:Skill,
+        skos:Concept .
+
+lk:Metadata_Standards a lk:Skill,
+        skos:Concept .
+
+lk:Microarray_Analysis a lk:Skill,
+        skos:Concept .
+
+lk:Microsoft_Certified_Systems_Engineer a lk:Skill,
+        skos:Concept .
+
+lk:Microsoft_SQL_Server a lk:Skill,
+        skos:Concept .
+
+lk:Mixed_Signal a lk:Skill,
+        skos:Concept .
+
+lk:Mobile_Applications a lk:Skill,
+        skos:Concept .
+
+lk:Mobile_Communications a lk:Skill,
+        skos:Concept .
+
+lk:Mobile_Internet a lk:Skill,
+        skos:Concept .
+
+lk:Mobile_Technology a lk:Skill,
+        skos:Concept .
+
+lk:Monologues a lk:Skill,
+        skos:Concept .
+
+lk:Multilingual a lk:Skill,
+        skos:Concept .
+
+lk:Music a lk:Industry,
+        lk:Skill,
+        skos:Concept .
+
+lk:NGOs a lk:Skill,
+        skos:Concept .
+
+lk:National_Certificate_in_Agriculture a aiiso:Course,
+        skos:Concept .
+
+lk:NetBeans a lk:Skill,
+        skos:Concept .
+
+lk:Network_Administration a lk:Skill,
+        skos:Concept .
+
+lk:Network_Architecture a lk:Skill,
+        skos:Concept .
+
+lk:Network_Security a lk:Skill,
+        skos:Concept .
+
+lk:New_Media a lk:Skill,
+        skos:Concept .
+
+lk:Nonprofit_Organization_Management a lk:Industry .
+
+lk:Not_for_Profit a lk:Skill,
+        skos:Concept .
+
+lk:Novels a lk:Skill,
+        skos:Concept .
+
+lk:OOP a lk:Skill,
+        skos:Concept .
+
+lk:Objective-C a lk:Skill,
+        skos:Concept .
+
+lk:Offshore_Outsourcing a lk:Skill,
+        skos:Concept .
+
+lk:OllyDbg a lk:Skill,
+        skos:Concept .
+
+lk:Online_Communities a lk:Skill,
+        skos:Concept .
+
+lk:Online_Journalism a lk:Skill,
+        skos:Concept .
+
+lk:Online_Media a lk:Industry .
+
+lk:Online_PR a lk:Skill,
+        skos:Concept .
+
+lk:Online_Publishing a lk:Skill,
+        skos:Concept .
+
+lk:Operating_Systems a lk:Skill,
+        skos:Concept .
+
+lk:Operations_Management a lk:Skill,
+        skos:Concept .
+
+lk:Organic_Search a lk:Skill,
+        skos:Concept .
+
+lk:Origami a lk:Skill,
+        skos:Concept .
+
+lk:Outsourcing a lk:Skill,
+        skos:Concept .
+
+lk:P3 a lk:Skill,
+        skos:Concept .
+
+lk:Partner_Recruitment a lk:Skill,
+        skos:Concept .
+
+lk:Pasta a lk:Skill,
+        skos:Concept .
+
+lk:Penetration_Testing a lk:Skill,
+        skos:Concept .
+
+lk:People_Management a lk:Skill,
+        skos:Concept .
+
+<http://scss.tcd.ie/cs/muc/linkedin/Ph.D.> a lk:Degree ;
+    lk:level "7"^^xsd:interger .
+
+<http://scss.tcd.ie/cs/muc/linkedin/Philosophy_&_History_of_Art> a aiiso:Course,
+        skos:Concept .
+
+lk:Photographer a lk:Skill,
+        skos:Concept .
+
+lk:Photonics a lk:Skill,
+        skos:Concept .
+
+lk:Photoshop a lk:Skill,
+        skos:Concept .
+
+lk:Physical_Verification a lk:Skill,
+        skos:Concept .
+
+lk:Pitman_Training_College a aiiso:College .
+
+lk:Policy_Analysis a lk:Skill,
+        skos:Concept .
+
+lk:Political_Campaigns a lk:Skill,
+        skos:Concept .
+
+lk:Political_Communication a lk:Skill,
+        skos:Concept .
+
+lk:Political_Philosophy a lk:Skill,
+        skos:Concept .
+
+lk:Political_Research a lk:Skill,
+        skos:Concept .
+
+lk:Politics_and_Government a aiiso:Course,
+        skos:Concept .
+
+lk:Portfolio_Management a lk:Skill,
+        skos:Concept .
+
+lk:Portobello_College_Dublin a aiiso:College .
+
+lk:Portrait_Photography a lk:Skill,
+        skos:Concept .
+
+lk:Portraits a lk:Skill,
+        skos:Concept .
+
+lk:Primavera_P6 a lk:Skill,
+        skos:Concept .
+
+lk:Private_Sector a lk:Skill,
+        skos:Concept .
+
+lk:Problem_Solving a lk:Skill,
+        skos:Concept .
+
+lk:Product_Marketing a lk:Skill,
+        skos:Concept .
+
+lk:Product_Reviews a lk:Skill,
+        skos:Concept .
+
+lk:Professional_Services a lk:Skill,
+        skos:Concept .
+
+lk:Project_Delivery a lk:Skill,
+        skos:Concept .
+
+lk:Project_Portfolio_Management a lk:Skill,
+        skos:Concept .
+
+lk:Promotions a lk:Skill,
+        skos:Concept .
+
+lk:Proofreading a lk:Skill,
+        skos:Concept .
+
+lk:Psychology a aiiso:Course,
+        skos:Concept .
+
+lk:Public_Relations_Institute_of_Ireland a aiiso:College .
+
+lk:Public_Speaking a lk:Skill,
+        skos:Concept .
+
+lk:Published_Author a lk:Skill,
+        skos:Concept .
+
+lk:Publishing a lk:Industry,
+        lk:Skill,
+        skos:Concept .
+
+lk:Qualitative_Research a lk:Skill,
+        skos:Concept .
+
+lk:Quantity_Surveying a lk:Skill,
+        skos:Concept .
+
+lk:R a lk:Skill,
+        skos:Concept .
+
+lk:Recruitment_Advertising a lk:Skill,
+        skos:Concept .
+
+lk:Relationship_Marketing a lk:Skill,
+        skos:Concept .
+
+lk:Remote_Access a lk:Skill,
+        skos:Concept .
+
+lk:Renewable_Energy a lk:Skill,
+        skos:Concept .
+
+lk:Rentals a lk:Skill,
+        skos:Concept .
+
+<http://scss.tcd.ie/cs/muc/linkedin/Reporting_&amp;_Analysis> a lk:Skill,
+        skos:Concept .
+
+lk:Reputation_Management a lk:Skill,
+        skos:Concept .
+
+lk:Residential a lk:Skill,
+        skos:Concept .
+
+lk:Residential_Homes a lk:Skill,
+        skos:Concept .
+
+lk:Restructuring a lk:Skill,
+        skos:Concept .
+
+lk:Retail_Banking a lk:Skill,
+        skos:Concept .
+
+lk:Reverse_Engineering a lk:Skill,
+        skos:Concept .
+
+lk:Reviews a lk:Skill,
+        skos:Concept .
+
+lk:Risk_Management a lk:Skill,
+        skos:Concept .
+
+lk:Rosmini a aiiso:College .
+
+lk:Routing a lk:Skill,
+        skos:Concept .
+
+lk:SMS a lk:Skill,
+        skos:Concept .
+
+lk:SOA a lk:Skill,
+        skos:Concept .
+
+lk:Sales a lk:Skill,
+        skos:Concept .
+
+lk:Sales_Operations a lk:Skill,
+        skos:Concept .
+
+lk:Sales_Recruitment a lk:Skill,
+        skos:Concept .
+
+<http://scss.tcd.ie/cs/muc/linkedin/School_of_Computing,_Dublin_Institute_of_Technology> a aiiso:College .
+
+<http://scss.tcd.ie/cs/muc/linkedin/School_of_Software_Engineering,_Harbin_Institute_of_Technology> a aiiso:College .
+
+lk:Search_Advertising a lk:Skill,
+        skos:Concept .
+
+lk:Search_Engine_Marketing a lk:Skill,
+        skos:Concept .
+
+lk:Search_Engine_Optimisation a lk:Skill,
+        skos:Concept .
+
+lk:Search_Engine_Positioning a lk:Skill,
+        skos:Concept .
+
+lk:Security_Research a lk:Skill,
+        skos:Concept .
+
+lk:Selling a lk:Skill,
+        skos:Concept .
+
+lk:Sept._2010_Degree a lk:Degree ;
+    lk:level "7"^^xsd:interger .
+
+lk:Sequence_Analysis a lk:Skill,
+        skos:Concept .
+
+lk:Servers a lk:Skill,
+        skos:Concept .
+
+lk:Silvaco a lk:Skill,
+        skos:Concept .
+
+lk:Social_Commerce a lk:Skill,
+        skos:Concept .
+
+lk:Social_Marketing a lk:Skill,
+        skos:Concept .
+
+lk:Social_Networking a lk:Skill,
+        skos:Concept .
+
+lk:Software_Design a lk:Skill,
+        skos:Concept .
+
+lk:Software_Engineering a aiiso:Course,
+        skos:Concept .
+
+lk:Sourcing a lk:Skill,
+        skos:Concept .
+
+<http://scss.tcd.ie/cs/muc/linkedin/St._Caimin's> a aiiso:College .
+
+lk:St._Munchins_College a aiiso:College .
+
+lk:Start-ups a lk:Skill,
+        skos:Concept .
+
+lk:Storage a lk:Skill,
+        skos:Concept .
+
+lk:Storytelling a lk:Skill,
+        skos:Concept .
+
+lk:Strategic_Partnerships a lk:Skill,
+        skos:Concept .
+
+lk:Strategy_Development a lk:Skill,
+        skos:Concept .
+
+lk:Struts a lk:Skill,
+        skos:Concept .
+
+lk:Subversion a lk:Skill,
+        skos:Concept .
+
+lk:Suretrack a lk:Skill,
+        skos:Concept .
+
+lk:Survival_Analysis a lk:Skill,
+        skos:Concept .
+
+lk:Sustainability a lk:Skill,
+        skos:Concept .
+
+lk:Sustainable_Energy a lk:Skill,
+        skos:Concept .
+
+lk:Tanner_EDA a lk:Skill,
+        skos:Concept .
+
+<http://scss.tcd.ie/cs/muc/linkedin/Teagasc,_Ballyhaise> a aiiso:College .
+
+lk:Team_Management a lk:Skill,
+        skos:Concept .
+
+lk:Technical_Recruiting a lk:Skill,
+        skos:Concept .
+
+lk:Technological_Innovation a lk:Skill,
+        skos:Concept .
+
+lk:Temporary_Staffing a lk:Skill,
+        skos:Concept .
+
+lk:Terenure_College a aiiso:College .
+
+lk:Test_Automation a lk:Skill,
+        skos:Concept .
+
+lk:Tomcat a lk:Skill,
+        skos:Concept .
+
+lk:Translation a lk:Skill,
+        skos:Concept .
+
+lk:Translation_and_Localization a lk:Industry .
+
+lk:Twitter a lk:Skill,
+        skos:Concept .
+
+lk:UMTS a lk:Skill,
+        skos:Concept .
+
+lk:University_Of_Applied_Sciences a aiiso:College .
+
+lk:Universität_Hamburg a aiiso:College .
+
+lk:Universität_Wien a aiiso:College .
+
+lk:Université_Paris_Dauphine a aiiso:College .
+
+lk:User_Experience a lk:Skill,
+        skos:Concept .
+
+lk:User_Interface_Design a lk:Skill,
+        skos:Concept .
+
+lk:VAS a lk:Skill,
+        skos:Concept .
+
+lk:VB.NET a lk:Skill,
+        skos:Concept .
+
+lk:VBA a lk:Skill,
+        skos:Concept .
+
+lk:VMware a lk:Skill,
+        skos:Concept .
+
+lk:Valuation a lk:Skill,
+        skos:Concept .
+
+lk:Vendor_Management a lk:Skill,
+        skos:Concept .
+
+lk:Venture_Capital a lk:Skill,
+        skos:Concept .
+
+lk:Video a lk:Skill,
+        skos:Concept .
+
+lk:Virtualization a lk:Skill,
+        skos:Concept .
+
+lk:Virus_Culture a lk:Skill,
+        skos:Concept .
+
+lk:Visiting_Student a lk:Degree ;
+    lk:level "7"^^xsd:interger .
+
+lk:Visual_Basic a lk:Skill,
+        skos:Concept .
+
+<http://scss.tcd.ie/cs/muc/linkedin/Visual_C++> a lk:Skill,
+        skos:Concept .
+
+lk:Visual_Studio a lk:Skill,
+        skos:Concept .
+
+lk:WCF a lk:Skill,
+        skos:Concept .
+
+lk:Wealth_Management a lk:Skill,
+        skos:Concept .
+
+lk:Web_Applications a lk:Skill,
+        skos:Concept .
+
+lk:Web_Marketing a lk:Skill,
+        skos:Concept .
+
+lk:Weblogic a lk:Skill,
+        skos:Concept .
+
+lk:Website_Development a lk:Skill,
+        skos:Concept .
+
+lk:Website_UI a lk:Skill,
+        skos:Concept .
+
+lk:Websites a lk:Skill,
+        skos:Concept .
+
+lk:Westminster_University a aiiso:College .
+
+lk:Wilsons_Hospital_School a aiiso:College .
+
+lk:Windows a lk:Skill,
+        skos:Concept .
+
+lk:Windows_Server a lk:Skill,
+        skos:Concept .
+
+lk:Wireless_Networking a lk:Skill,
+        skos:Concept .
+
+lk:Writers_Digest_Online a aiiso:College .
+
+lk:XHTML a lk:Skill,
+        skos:Concept .
+
+lk:XML a lk:Skill,
+        skos:Concept .
+
+lk:XSLT a lk:Skill,
+        skos:Concept .
+
+lk:ebmi a lk:Skill,
+        skos:Concept .
+
+lk:iPhone a lk:Skill,
+        skos:Concept .
+
+lk:iPhone_Application_Development a lk:Skill,
+        skos:Concept .
+
+lk:marketing a lk:Skill,
+        skos:Concept .
+
+lk:patient_rights a lk:Skill,
+        skos:Concept .
+
+lk:patient_safety a lk:Skill,
+        skos:Concept .
+
+lk:phpMyAdmin a lk:Skill,
+        skos:Concept .
+
+lk:privacy a lk:Skill,
+        skos:Concept .
+
+lk:radio_production a lk:Skill,
+        skos:Concept .
+
+lk:remote_consulting a lk:Skill,
+        skos:Concept .
+
+lk:talent_mapping a lk:Skill,
+        skos:Concept .
+
+lk:terenure a aiiso:College .
+
+lk:user_experience a lk:Skill,
+        skos:Concept .
+
+<http://scss.tcd.ie/cs/muc/linkedin/.NET> a lk:Skill,
+        skos:Concept .
+
+<http://scss.tcd.ie/cs/muc/linkedin/3G> a lk:Skill,
+        skos:Concept .
+
+lk:Algonkian_Writers_Conference a aiiso:College .
+
+lk:Algorithms a lk:Skill,
+        skos:Concept .
+
+lk:Artificial_Intelligence a lk:Skill,
+        skos:Concept .
+
+lk:Associate_Member a lk:Degree ;
+    lk:level "7"^^xsd:interger .
+
+lk:B.Comm a lk:Degree ;
+    lk:level "7"^^xsd:interger .
+
+lk:B.SC a lk:Degree ;
+    lk:level "7"^^xsd:interger .
+
+<http://scss.tcd.ie/cs/muc/linkedin/B.Sc.> a lk:Degree ;
+    lk:level "7"^^xsd:interger .
+
+lk:BApplied_Science_in_Computing a lk:Degree ;
+    lk:level "7"^^xsd:interger .
+
+lk:BI_Norwegian_School_of_Management a aiiso:College .
+
+<http://scss.tcd.ie/cs/muc/linkedin/BSC(SURV)> a lk:Degree ;
+    lk:level "7"^^xsd:interger .
+
+<http://scss.tcd.ie/cs/muc/linkedin/BSc(Eng)> a lk:Degree ;
+    lk:level "7"^^xsd:interger .
+
+lk:BUSINESS a aiiso:Course,
+        skos:Concept .
+
+lk:Bachelor a lk:Degree ;
+    lk:level "7"^^xsd:interger .
+
+lk:Bachelor_of_Business_and_Legal_Studies a lk:Degree ;
+    lk:level "7"^^xsd:interger .
+
+lk:Blackrock_College a aiiso:College .
+
+lk:Blogging a lk:Skill,
+        skos:Concept .
+
+lk:Boston_College a aiiso:College .
+
+lk:Business_Adminitration a aiiso:Course,
+        skos:Concept .
+
+lk:Business_Analysis a lk:Skill,
+        skos:Concept .
+
+lk:Business_Development a lk:Skill,
+        skos:Concept .
+
+lk:Business_Intelligence a lk:Skill,
+        skos:Concept .
+
+<http://scss.tcd.ie/cs/muc/linkedin/Business_Management_(Finance)> a aiiso:Course,
+        skos:Concept .
+
+lk:Business_Planning a lk:Skill,
+        skos:Concept .
+
+lk:Business_and_Law a aiiso:Course,
+        skos:Concept .
+
+lk:C a lk:Skill,
+        skos:Concept .
+
+lk:CSS a lk:Skill,
+        skos:Concept .
+
+lk:Catalan a dbpedia-owl:Language .
+
+lk:Central_Colleges_of_the_Philippines a aiiso:College .
+
+lk:Chinese a dbpedia-owl:Language,
+        lk:Skill,
+        skos:Concept .
+
+lk:Commercial_Computer_Programming a lk:Degree ;
+    lk:level "7"^^xsd:interger .
+
+<http://scss.tcd.ie/cs/muc/linkedin/Computer_Science,_Database_development> a aiiso:Course,
+        skos:Concept .
+
+<http://scss.tcd.ie/cs/muc/linkedin/Computer_Science_&_Physics> a aiiso:Course,
+        skos:Concept .
+
+lk:Computer_Systems a aiiso:Course,
+        skos:Concept .
+
+lk:Construction a lk:Industry,
+        lk:Skill,
+        skos:Concept .
+
+lk:Construction_Economics_and_Management a aiiso:Course,
+        skos:Concept .
+
+lk:Creative_Writing a aiiso:Course,
+        lk:Skill,
+        skos:Concept .
+
+lk:Customer_Relations a lk:Skill,
+        skos:Concept .
+
+lk:Databases a lk:Skill,
+        skos:Concept .
+
+lk:Digital_Media a lk:Skill,
+        skos:Concept .
+
+lk:Digital_Strategy a lk:Skill,
+        skos:Concept .
+
+lk:Direct_Marketing a lk:Skill,
+        skos:Concept .
+
+lk:Disability_Studies a aiiso:Course,
+        skos:Concept .
+
+lk:Economics a lk:Skill,
+        skos:Concept .
+
+lk:Editing a lk:Skill,
+        skos:Concept .
+
+lk:Electronics_and_Communications_Engineering a aiiso:Course,
+        skos:Concept .
+
+lk:Engineering a lk:Skill,
+        skos:Concept .
+
+lk:Enterprise_Software a lk:Skill,
+        skos:Concept .
+
+lk:Event_Management a lk:Skill,
+        skos:Concept .
+
+lk:Executive_Search a lk:Skill,
+        skos:Concept .
+
+lk:Experimental_Physics a aiiso:Course,
+        skos:Concept .
+
+<http://scss.tcd.ie/cs/muc/linkedin/French_&_Italian> a aiiso:Course,
+        skos:Concept .
+
+lk:German a dbpedia-owl:Language .
+
+lk:Google_Adwords a lk:Skill,
+        skos:Concept .
+
+lk:Google_Analytics a lk:Skill,
+        skos:Concept .
+
+lk:Graduate_Diploma a lk:Degree ;
+    lk:level "7"^^xsd:interger .
+
+lk:HTML a lk:Skill,
+        skos:Concept .
+
+lk:Human_Resources_Management a aiiso:Course,
+        skos:Concept .
+
+lk:IT_Management a lk:Skill,
+        skos:Concept .
+
+<http://scss.tcd.ie/cs/muc/linkedin/Institut_d'Administration_des_Entreprises> a aiiso:College .
+
+lk:Investment_Banking a lk:Industry,
+        lk:Skill,
+        skos:Concept .
+
+lk:Irish_Taxation_Institute a aiiso:College .
+
+lk:Irish_Writers_Centre a aiiso:College .
+
+lk:JSP a lk:Skill,
+        skos:Concept .
+
+lk:JavaScript a lk:Skill,
+        skos:Concept .
+
+lk:LLB a lk:Degree ;
+    lk:level "7"^^xsd:interger .
+
+lk:Leadership a lk:Skill,
+        skos:Concept .
+
+lk:Licenciado_en_Ciéncias_Económicas a lk:Degree ;
+    lk:level "7"^^xsd:interger .
+
+lk:M._Sc a lk:Degree ;
+    lk:level "7"^^xsd:interger .
+
+lk:MSc_Network_and_Distributed_System a aiiso:Course,
+        skos:Concept .
+
+lk:Machine_Learning a lk:Skill,
+        skos:Concept .
+
+lk:Management_of_Information_Systems a aiiso:Course,
+        skos:Concept .
+
+lk:Marketing_and_Advertising a lk:Industry .
+
+lk:Masaryk_University_Faculty_of_Arts a aiiso:College .
+
+lk:Master_Diploma_in_Arts a lk:Degree ;
+    lk:level "7"^^xsd:interger .
+
+<http://scss.tcd.ie/cs/muc/linkedin/Master_of_Science_(M.Sc.)> a lk:Degree ;
+    lk:level "7"^^xsd:interger .
+
+<http://scss.tcd.ie/cs/muc/linkedin/Master_of_Science_(MSc)> a lk:Degree ;
+    lk:level "7"^^xsd:interger .
+
+lk:Media_Relations a lk:Skill,
+        skos:Concept .
+
+<http://scss.tcd.ie/cs/muc/linkedin/Mgr.> a lk:Degree ;
+    lk:level "7"^^xsd:interger .
+
+lk:Microbiology a aiiso:Course,
+        lk:Skill,
+        skos:Concept .
+
+lk:Mobile_and_Ubiquitous_Computing a aiiso:Course,
+        skos:Concept .
+
+lk:MySQL a lk:Skill,
+        skos:Concept .
+
+lk:National_College_of_Ireland a aiiso:College .
+
+<http://scss.tcd.ie/cs/muc/linkedin/National_University_of_Ireland,_Galway> a aiiso:College .
+
+lk:PHP a lk:Skill,
+        skos:Concept .
+
+lk:PPC a lk:Skill,
+        skos:Concept .
+
+lk:PhD a lk:Degree ;
+    lk:level "7"^^xsd:interger .
+
+lk:Pharmaceuticals a lk:Industry .
+
+lk:Product_Development a lk:Skill,
+        skos:Concept .
+
+lk:Product_Management a lk:Skill,
+        skos:Concept .
+
+lk:Program_Management a lk:Skill,
+        skos:Concept .
+
+lk:Project_Planning a lk:Skill,
+        skos:Concept .
+
+lk:Public_Policy a lk:Industry,
+        lk:Skill,
+        skos:Concept .
+
+lk:Public_Relations a aiiso:Course,
+        lk:Skill,
+        skos:Concept .
+
+lk:Python a lk:Skill,
+        skos:Concept .
+
+lk:Recruiting a lk:Skill,
+        skos:Concept .
+
+<http://scss.tcd.ie/cs/muc/linkedin/Renewables_&_Environment> a lk:Industry .
+
+lk:SEM a lk:Skill,
+        skos:Concept .
+
+lk:SQL a lk:Skill,
+        skos:Concept .
+
+lk:SQL_Server a lk:Skill,
+        skos:Concept .
+
+lk:SaaS a lk:Skill,
+        skos:Concept .
+
+lk:Sales_Management a lk:Skill,
+        skos:Concept .
+
+lk:Search a lk:Skill,
+        skos:Concept .
+
+lk:Security a lk:Skill,
+        skos:Concept .
+
+lk:Social_Care a aiiso:Course,
+        lk:Skill,
+        skos:Concept .
+
+lk:Social_Media_Marketing a lk:Skill,
+        skos:Concept .
+
+lk:Solution_Architecture a lk:Skill,
+        skos:Concept .
+
+lk:St_Andrews_Secondary_School a aiiso:College .
+
+lk:Staffing_and_Recruiting a lk:Industry .
+
+lk:Talent_Acquisition a lk:Skill,
+        skos:Concept .
+
+<http://scss.tcd.ie/cs/muc/linkedin/Taxation,_Investment_Advice> a aiiso:Course,
+        skos:Concept .
+
+lk:Teaching a lk:Skill,
+        skos:Concept .
+
+lk:Team_Leadership a lk:Skill,
+        skos:Concept .
+
+lk:UML a lk:Skill,
+        skos:Concept .
+
+<http://scss.tcd.ie/cs/muc/linkedin/University_of_South_Africa/Universiteit_van_Suid-Afrika> a aiiso:College .
+
+lk:Université_de_Geneve a aiiso:College .
+
+lk:Utilities a lk:Industry .
+
+lk:Virginia_Polytechnic_Institute_and_State_University_-_Pamplin_College_of_Business a aiiso:College .
+
+lk:Web_Design a lk:Skill,
+        skos:Concept .
+
+lk:Web_Development a lk:Skill,
+        skos:Concept .
+
+lk:Wordpress a lk:Skill,
+        skos:Concept .
+
+lk:Xcode a lk:Skill,
+        skos:Concept .
+
+lk:jQuery a lk:Skill,
+        skos:Concept .
+
+lk:ASP.NET a lk:Skill,
+        skos:Concept .
+
+lk:Accounting a lk:Industry .
+
+lk:Advertising a lk:Skill,
+        skos:Concept .
+
+lk:BS a lk:Degree ;
+    lk:level "7"^^xsd:interger .
+
+lk:Bachelor_of_Science a lk:Degree ;
+    lk:level "7"^^xsd:interger .
+
+<http://scss.tcd.ie/cs/muc/linkedin/C#> a lk:Skill,
+        skos:Concept .
+
+<http://scss.tcd.ie/cs/muc/linkedin/C++> a lk:Skill,
+        skos:Concept .
+
+lk:Commerce a aiiso:Course,
+        skos:Concept .
+
+lk:Consulting a lk:Skill,
+        skos:Concept .
+
+lk:Copywriting a lk:Skill,
+        skos:Concept .
+
+lk:Digital_Marketing a lk:Skill,
+        skos:Concept .
+
+lk:Dublin_City_University a aiiso:College,
+        foaf:Organization ;
+    dbpedia-owl:formationYear "1980"^^xsd:gYear ;
+    dbpedia-owl:industry lk:Higher_Education ;
+    lk:from 1001 ;
+    lk:hasPosition _:N78e3ea1d31544da69d18c7cdb1e63762 ;
+    lk:organizationType "Educational Institution"^^xsd:integer ;
+    lk:to 5000 .
+
+lk:E-commerce a lk:Skill,
+        skos:Concept .
+
+lk:Information_Technology a aiiso:Course,
+        lk:Skill,
+        skos:Concept .
+
+lk:Journalism a lk:Skill,
+        skos:Concept .
+
+lk:Management_Consulting a lk:Industry,
+        lk:Skill,
+        skos:Concept .
+
+lk:Microsoft_Office a lk:Skill,
+        skos:Concept .
+
+lk:Mobile_Devices a lk:Skill,
+        skos:Concept .
+
+lk:Online_Marketing a lk:Skill,
+        skos:Concept .
+
+lk:Photography a lk:Industry,
+        lk:Skill,
+        skos:Concept .
+
+lk:Requirements_Analysis a lk:Skill,
+        skos:Concept .
+
+lk:Semiconductors a lk:Industry .
+
+lk:The_Law_Society_of_Ireland a aiiso:College .
+
+lk:Universidad_Autónoma_de_Madrid a aiiso:College .
+
+lk:Web_Services a lk:Skill,
+        skos:Concept .
+
+lk:BSc a lk:Degree ;
+    lk:level "7"^^xsd:interger .
+
+lk:Cloud_Computing a lk:Skill,
+        skos:Concept .
+
+lk:French a dbpedia-owl:Language .
+
+lk:Law_Practice a lk:Industry .
+
+lk:MBA a lk:Degree ;
+    lk:level "7"^^xsd:interger .
+
+lk:Master a lk:Degree ;
+    lk:level "7"^^xsd:interger .
+
+<http://scss.tcd.ie/cs/muc/linkedin/N/A> a lk:Degree ;
+    lk:level "7"^^xsd:interger .
+
+lk:New_Business_Development a lk:Skill,
+        skos:Concept .
+
+lk:Newspapers a lk:Industry .
+
+lk:Politics a aiiso:Course,
+        lk:Skill,
+        skos:Concept .
+
+lk:Project_Management a lk:Skill,
+        skos:Concept .
+
+lk:SEO a lk:Skill,
+        skos:Concept .
+
+lk:Software_Development a lk:Skill,
+        skos:Concept .
+
+lk:Spanish a dbpedia-owl:Language .
+
+lk:Telecommunications a lk:Industry,
+        lk:Skill,
+        skos:Concept .
+
+lk:The_Open_University a aiiso:College .
+
+lk:Writing a aiiso:Course,
+        lk:Skill,
+        skos:Concept .
+
+lk:writing a aiiso:Course,
+        skos:Concept .
+
+lk:Analytic_Philosophy a aiiso:Course,
+        skos:Concept .
+
+lk:Business_Strategy a lk:Skill,
+        skos:Concept .
+
+lk:Education a <http://www.w3.org/2002/07/owl#Class> .
+
+lk:English a dbpedia-owl:Language .
+
+lk:Java a lk:Skill,
+        skos:Concept .
+
+lk:Marketing a aiiso:Course,
+        lk:Skill,
+        skos:Concept .
+
+lk:Mechanical_Engineering a aiiso:Course,
+        skos:Concept .
+
+lk:Online_Advertising a lk:Skill,
+        skos:Concept .
+
+lk:University_of_Limerick a aiiso:College,
+        foaf:Organization ;
+    dbpedia-owl:formationYear "1972"^^xsd:gYear ;
+    dbpedia-owl:industry lk:Higher_Education ;
+    lk:from 1001 ;
+    lk:hasPosition _:N2b8e035195b04b3c9684aa335d2d3d39,
+        _:N9fbcfd8c10174cc3b5e9345c3e5a40bf ;
+    lk:organizationType "Educational Institution"^^xsd:integer ;
+    lk:to 5000 .
+
+lk:Banking a lk:Industry,
+        lk:Skill,
+        skos:Concept .
+
+lk:Computer_Science a aiiso:Course,
+        lk:Skill,
+        skos:Concept .
+
+lk:Higher_Education a lk:Industry .
+
+lk:Research a lk:Industry,
+        lk:Skill,
+        skos:Concept .
+
+lk:Computer_Software a lk:Industry .
+
+lk:Financial_Services a lk:Industry .
+
+lk:Social_Media a lk:Skill,
+        skos:Concept .
+
+lk:University_College_Dublin a aiiso:College,
+        foaf:Organization ;
+    dbpedia-owl:industry lk:Higher_Education ;
+    lk:from 1001 ;
+    lk:hasPosition _:N381b521e1cc546c79f7b490317e8e852 ;
+    lk:organizationType "Educational Institution"^^xsd:integer ;
+    lk:to 5000 .
+
+lk:Dublin_Institute_of_Technology a aiiso:College,
+        foaf:Organization ;
+    dbpedia-owl:industry lk:Higher_Education ;
+    lk:from 1001 ;
+    lk:hasPosition _:N1ad8f1ce8cb74024a91e6996e53321b5,
+        _:Nb3f62fc8b0064a9bb53bf7db77ae2f91 ;
+    lk:organizationType "Educational Institution"^^xsd:integer ;
+    lk:to 5000 .
+
+lk:Internet a lk:Industry,
+        lk:Skill,
+        skos:Concept .
+
+lk:Information_Technology_and_Services a lk:Industry .
+
+<http://scss.tcd.ie/cs/muc/linkedin/Trinity_College,_Dublin> a aiiso:College .
+
+lk:Industry a <http://www.w3.org/2002/07/owl#Class> .
+
+lk:Position a <http://www.w3.org/2002/07/owl#Class> .
+
+lk:Skill a <http://www.w3.org/2002/07/owl#Class> .
+
+[] a lk:Position ;
+    ns1:occupation "Senior Software Engineer" ;
+    lk:from "2001-06-01"^^xsd:date ;
+    lk:to "2004-04-01"^^xsd:date .
+
+[] a lk:Position ;
+    ns1:occupation "Agency Development Manager" .
+
+[] a lk:Position ;
+    ns1:occupation "Software Development Manager" ;
+    lk:from "1998-10-01"^^xsd:date ;
+    lk:to "2000-01-01"^^xsd:date .
+
+[] a lk:Position ;
+    ns1:occupation "Security Consultant" ;
+    lk:from "1998-12-01"^^xsd:date ;
+    lk:to "2002-06-01"^^xsd:date .
+
+[] a lk:Position ;
+    ns1:occupation "Laboratory Technician" ;
+    lk:from "2002-12-01"^^xsd:date ;
+    lk:to "2003-05-01"^^xsd:date .
+
+[] a lk:Position ;
+    ns1:occupation "Owner" ;
+    lk:from "2009-06-01"^^xsd:date ;
+    lk:to "2010-08-01"^^xsd:date .
+
+[] a lk:Position ;
+    ns1:occupation "Labour Consultant" ;
+    lk:from "2006-09-01"^^xsd:date ;
+    lk:to "2008-01-01"^^xsd:date .
+
+[] a lk:Position ;
+    ns1:occupation "Tax Manager" ;
+    lk:from "2010-09-01"^^xsd:date ;
+    lk:to "2013-01-21"^^xsd:date .
+
+[] a foaf:Person ;
+    lk:education [ lk:college lk:Irish_Taxation_Institute ;
+            lk:degree lk:Associate_Member ;
+            lk:major <http://scss.tcd.ie/cs/muc/linkedin/Taxation,_Investment_Advice> ],
+        [ lk:college lk:Catholic_University_School ],
+        [ lk:college lk:Irish_Taxation_Institute ;
+            lk:degree lk:Associate_Member ;
+            lk:major <http://scss.tcd.ie/cs/muc/linkedin/Taxation,_Investment_Advice> ],
+        [ lk:college lk:University_College_Dublin ;
+            lk:degree lk:BComm ;
+            lk:major lk:Commerce ] ;
+    lk:worksAs _:N22d5733d72034c35acb8ce9f2a824be2,
+        _:N52805f7d86f841adb86fcd28fd2ff5d8 .
+
+[] a lk:Position ;
+    ns1:occupation "Online Media Associate Intern" ;
+    lk:from "2011-06-01"^^xsd:date ;
+    lk:to "2011-09-01"^^xsd:date .
+
+[] a foaf:Person ;
+    lk:education [ lk:college lk:Dublin_Institute_of_Technology ;
+            lk:degree lk:Commercial_Computer_Programming ],
+        [ lk:college lk:Rosmini ],
+        [ lk:college lk:Dublin_Institute_of_Technology ;
+            lk:degree lk:Commercial_Computer_Programming ] ;
+    lk:skill <http://scss.tcd.ie/cs/muc/linkedin/Analysis_&_Design>,
+        lk:Consulting,
+        lk:Design_Patterns,
+        lk:Integration,
+        lk:Java,
+        lk:Java_Enterprise_Edition,
+        lk:Problem_Solving,
+        lk:Professional_Services,
+        lk:Project_Management,
+        lk:Requirements_Analysis,
+        lk:Software_Design,
+        lk:Software_Development,
+        lk:Solution_Architecture,
+        lk:Team_Leadership,
+        lk:UML,
+        lk:Visual_Basic,
+        <http://scss.tcd.ie/cs/muc/linkedin/Visual_C++>,
+        lk:Web_Applications,
+        lk:Web_Services ;
+    lk:worksAs _:N2633451efe3c491da2101e98194490cb,
+        _:Nb2ee4f827bef42d1a755ac526a95ff59,
+        _:Nd544f4f7406e499cabda194434ebdedd .
+
+[] a lk:Position ;
+    ns1:occupation "Lead Architect" .
+
+[] a foaf:Person ;
+    lk:education [ lk:college lk:Dublin_Institute_of_Technology ],
+        [ lk:college lk:Dublin_Institute_of_Technology ] ;
+    lk:skill lk:Artificial_Intelligence,
+        <http://scss.tcd.ie/cs/muc/linkedin/C++>,
+        lk:Computer_Science,
+        lk:Lecturing,
+        lk:Machine_Learning,
+        lk:Objective-C,
+        lk:Python,
+        lk:Xcode,
+        lk:iPhone_Application_Development ;
+    lk:worksAs _:N1ad8f1ce8cb74024a91e6996e53321b5,
+        _:N2fc7016a416d4e939ce051f2cd8d7adb,
+        _:Nb3f62fc8b0064a9bb53bf7db77ae2f91 .
+
+[] a foaf:Person ;
+    lk:skill lk:Advertising,
+        lk:Designer,
+        lk:Digital_Retoucher,
+        lk:Editorial,
+        lk:Event_Photography,
+        lk:Fashion,
+        lk:Photographer,
+        lk:Photography,
+        lk:Portrait_Photography,
+        lk:Portraits ;
+    lk:worksAs _:N1df381331d024913ad33ea3efc058843,
+        _:N5b747eef74c34722acc36702c9b5a734 .
+
+[] a lk:Position ;
+    ns1:occupation "Web Solutions Manager/ Developer" ;
+    lk:from "2008-01-01"^^xsd:date ;
+    lk:to "2013-01-21"^^xsd:date .
+
+[] a lk:Position ;
+    ns1:occupation "Chairperson" ;
+    lk:from "2010-06-01"^^xsd:date ;
+    lk:to "2013-01-21"^^xsd:date .
+
+[] a lk:Position ;
+    ns1:occupation "Senior Development Executive" ;
+    lk:from "2007-04-01"^^xsd:date ;
+    lk:to "2013-01-21"^^xsd:date .
+
+[] a lk:Position ;
+    ns1:occupation "Lecturer" ;
+    lk:from "2002-09-01"^^xsd:date ;
+    lk:to "2013-01-21"^^xsd:date .
+
+[] a lk:Position ;
+    ns1:occupation "Working Group Co-Chair MultilingualWeb-LT" ;
+    lk:from "2012-01-01"^^xsd:date ;
+    lk:to "2013-01-21"^^xsd:date .
+
+[] a lk:Position ;
+    ns1:occupation "Member Services Representative" ;
+    lk:from "2003-10-01"^^xsd:date ;
+    lk:to "2004-11-01"^^xsd:date .
+
+[] a lk:Position ;
+    ns1:occupation "Author & social media consultant & trainer" ;
+    lk:from "2011-11-01"^^xsd:date ;
+    lk:to "2013-01-21"^^xsd:date .
+
+[] a lk:Position ;
+    ns1:occupation "Teaching Assistant" ;
+    lk:from "2007-10-01"^^xsd:date ;
+    lk:to "2008-05-01"^^xsd:date .
+
+[] a lk:Position ;
+    ns1:occupation "Founder" ;
+    lk:from "2012-03-01"^^xsd:date ;
+    lk:to "2013-01-21"^^xsd:date .
+
+[] a lk:Position ;
+    ns1:occupation "Senior Researcher" ;
+    lk:from "2011-01-01"^^xsd:date ;
+    lk:to "2013-01-21"^^xsd:date .
+
+[] a foaf:Person ;
+    lk:education [ lk:college lk:St_Andrews_Secondary_School ],
+        [ lk:college lk:St_Andrews_Secondary_School ] ;
+    lk:skill lk:Business_Strategy,
+        lk:Coaching,
+        lk:Customer_Relations,
+        lk:Customer_Service,
+        lk:Direct_Sales,
+        lk:Leadership,
+        lk:Management,
+        lk:Operations_Management,
+        lk:Rentals,
+        lk:Residential,
+        lk:Residential_Homes,
+        lk:Sales_Management,
+        lk:Sales_Operations,
+        lk:Selling ;
+    lk:worksAs _:N0ad9f6fc0e6649ec80fe3bc52a29d9b2,
+        _:N30dfb59d8b74479485c3cc7793915e8a,
+        _:N331403339c3243d49c0587ce252745af,
+        _:N664bee64f3454455ba68ce6a7c16096c .
+
+[] a lk:Position ;
+    ns1:occupation "CEO" ;
+    lk:from "2006-09-01"^^xsd:date ;
+    lk:to "2010-09-01"^^xsd:date .
+
+[] a lk:Position ;
+    ns1:occupation "Staff Reporter" ;
+    lk:from "2007-02-01"^^xsd:date ;
+    lk:to "2007-09-01"^^xsd:date .
+
+[] a lk:Position ;
+    ns1:occupation "Head of Software Development" ;
+    lk:from "2000-01-01"^^xsd:date ;
+    lk:to "2002-06-01"^^xsd:date .
+
+[] a lk:Position ;
+    ns1:occupation "Photographer" ;
+    lk:from "2004-09-01"^^xsd:date ;
+    lk:to "2013-01-21"^^xsd:date .
+
+[] a lk:Position ;
+    ns1:occupation "Software Developer" ;
+    lk:from "1994-05-01"^^xsd:date ;
+    lk:to "1997-05-01"^^xsd:date .
+
+[] a lk:Position ;
+    ns1:occupation "Head of Research - Cantor Fitzgerald Ireland" ;
+    lk:from "2012-10-01"^^xsd:date ;
+    lk:to "2013-01-21"^^xsd:date .
+
+[] a lk:Position ;
+    ns1:occupation "Director Wealth Management" ;
+    lk:to "2013-01-21"^^xsd:date .
+
+[] a lk:Position ;
+    ns1:occupation "IT Administrator / Web Solutions Manager" ;
+    lk:from "2003-09-01"^^xsd:date ;
+    lk:to "2013-01-21"^^xsd:date .
+
+[] a lk:Position ;
+    ns1:occupation "IT Specialist" ;
+    lk:from "2004-06-01"^^xsd:date ;
+    lk:to "2008-02-01"^^xsd:date .
+
+[] a lk:Position ;
+    ns1:occupation "operations manager" .
+
+[] a lk:Position ;
+    ns1:occupation "Development Team Lead" ;
+    lk:from "1997-10-01"^^xsd:date ;
+    lk:to "2009-01-01"^^xsd:date .
+
+[] a lk:Position ;
+    ns1:occupation "Lead Architect" .
+
+[] a lk:Position ;
+    ns1:occupation "Design Engineer" .
+
+[] a lk:Position ;
+    ns1:occupation "Strategic Advisor" ;
+    lk:from "2011-08-01"^^xsd:date ;
+    lk:to "2011-11-01"^^xsd:date .
+
+[] a lk:Position ;
+    ns1:occupation "Founder" ;
+    lk:from "2003-02-01"^^xsd:date ;
+    lk:to "2012-08-01"^^xsd:date .
+
+[] a foaf:Person ;
+    dbpedia-owl:language lk:Czech,
+        lk:English,
+        lk:German ;
+    lk:education [ lk:college lk:Masaryk_University_Faculty_of_Arts ;
+            lk:degree <http://scss.tcd.ie/cs/muc/linkedin/Ph.D.> ;
+            lk:major lk:Analytic_Philosophy ],
+        [ lk:college lk:Université_de_Geneve ;
+            lk:degree <http://scss.tcd.ie/cs/muc/linkedin/N/A> ;
+            lk:major lk:Analytic_Philosophy ],
+        [ lk:college lk:Masarykova_univerzita_Brno ;
+            lk:degree <http://scss.tcd.ie/cs/muc/linkedin/Mgr.> ;
+            lk:major <http://scss.tcd.ie/cs/muc/linkedin/Philosophy_&_History_of_Art> ],
+        [ lk:college lk:Universität_Wien ;
+            lk:degree <http://scss.tcd.ie/cs/muc/linkedin/N/A> ;
+            lk:major lk:Analytic_Philosophy ],
+        [ lk:college lk:Universität_Hamburg ;
+            lk:degree <http://scss.tcd.ie/cs/muc/linkedin/N/A> ;
+            lk:major lk:Analytic_Philosophy ],
+        [ lk:college lk:Masaryk_University_Faculty_of_Arts ;
+            lk:degree <http://scss.tcd.ie/cs/muc/linkedin/Mgr.> ;
+            lk:major <http://scss.tcd.ie/cs/muc/linkedin/German_philology_&_Aesthetics> ],
+        [ lk:college lk:Université_de_Geneve ;
+            lk:degree <http://scss.tcd.ie/cs/muc/linkedin/N/A> ;
+            lk:major lk:Analytic_Philosophy ] ;
+    lk:skill lk:Business_Analysis,
+        lk:Copywriting,
+        lk:Creative_Translation,
+        lk:L10n,
+        lk:Leadership,
+        lk:Localization,
+        lk:Metadata_Standards,
+        lk:Multilingual,
+        lk:Project_Management,
+        lk:Project_Portfolio_Management,
+        lk:Research,
+        lk:Translation ;
+    lk:worksAs _:N011fe0facb1a4e759e6853742f186615,
+        _:N0addaeef9f274c7a92250292f02e03f3,
+        _:N294859048c8342e98fc5191c51167f29,
+        _:N3f86be9405e1423e9cb7243969525648,
+        _:N88aeb474e05349a6b6914a8fffa250ff,
+        _:N98160dfd78b74d82b8df75bb7a41ddf3,
+        _:N9fbcfd8c10174cc3b5e9345c3e5a40bf,
+        _:Nbd2459ae30e5474faa7776819978deb9,
+        _:Nc4afd775750d46aa9e2674c6a6955117,
+        _:Ncf6bde7c079a4cb286ffb265fd9a474a,
+        _:Nd238a8cfc13f4e7e9c012e6efdc8eb67,
+        _:Ndfa1736b305b40b0b6950e251659809d .
+
+[] a lk:Position ;
+    ns1:occupation "Business Development Consultant" ;
+    lk:from "2007-04-01"^^xsd:date ;
+    lk:to "2008-09-01"^^xsd:date .
+
+[] a foaf:Person ;
+    lk:education [ lk:college lk:Brighton_High_School ],
+        [ lk:college lk:Virginia_Polytechnic_Institute_and_State_University_-_Pamplin_College_of_Business ;
+            lk:degree lk:MBA ],
+        [ lk:college lk:Virginia_Polytechnic_Institute_and_State_University_-_Pamplin_College_of_Business ;
+            lk:degree lk:MBA ],
+        [ lk:college lk:American_University ;
+            lk:degree lk:BS ;
+            lk:major lk:Computer_Science ] ;
+    lk:skill lk:Business_Intelligence,
+        lk:Cloud_Computing,
+        lk:Data_Warehousing,
+        lk:Enterprise_Architecture,
+        lk:Enterprise_Software,
+        lk:Requirements_Analysis,
+        lk:SOA,
+        lk:SaaS,
+        lk:Software_Development,
+        lk:Solution_Architecture ;
+    lk:worksAs _:N22ba53c222c1465090d138a6a2b836a8,
+        _:N3a3e9705aa1549a4a71cd2826b637b35,
+        _:N87723eb8b8694065a849faa0477266ea,
+        _:Ncdd42faad0394d619db92eb78b41f3b3,
+        _:Ne3721ad1904b4dbfad13878cd440f62a,
+        _:Nfeeb61c9c9ee46af8bcc37d7831f22c4 .
+
+[] a lk:Position ;
+    ns1:occupation "Lecturer" .
+
+[] a lk:Position ;
+    ns1:occupation "Producer" ;
+    lk:from "2007-11-01"^^xsd:date ;
+    lk:to "2008-11-01"^^xsd:date .
+
+[] a foaf:Person ;
+    lk:education [ lk:college lk:Limerick_Tutorial_College ],
+        [ lk:college lk:The_Law_Society_of_Ireland ],
+        [ lk:college lk:The_Law_Society_of_Ireland ],
+        [ lk:college lk:St._Munchins_College ],
+        [ lk:college <http://scss.tcd.ie/cs/muc/linkedin/National_University_of_Ireland,_Galway> ],
+        [ lk:college lk:The_Law_Society_of_Ireland ] ;
+    lk:skill lk:Commercial_Leasing,
+        lk:Commercial_Litigation,
+        lk:Conveyancing,
+        lk:Corporate_Governance,
+        lk:Corporate_Law,
+        lk:Debt_Collection,
+        lk:Insolvency,
+        lk:Landlord_Tenant_Disputes,
+        lk:Restructuring,
+        lk:Web_Design,
+        lk:Website_Development ;
+    lk:worksAs _:Nbde08b1c5ba94f979ae2317c45b48c4a .
+
+[] a lk:Position ;
+    ns1:occupation "Architect" .
+
+[] a lk:Position ;
+    ns1:occupation "IT Engineer in the outsourcing department" ;
+    lk:from "2003-10-01"^^xsd:date ;
+    lk:to "2005-09-01"^^xsd:date .
+
+[] a lk:Position ;
+    ns1:occupation "Journalist" ;
+    lk:from "2007-09-01"^^xsd:date ;
+    lk:to "2011-06-01"^^xsd:date .
+
+[] a lk:Position ;
+    ns1:occupation "Project Director - Services" ;
+    lk:from "2001-03-01"^^xsd:date ;
+    lk:to "2005-01-01"^^xsd:date .
+
+[] a lk:Position ;
+    ns1:occupation "Head of Online - Brussels" ;
+    lk:from "2008-09-01"^^xsd:date ;
+    lk:to "2009-06-01"^^xsd:date .
+
+[] a lk:Position ;
+    ns1:occupation "Founder" ;
+    lk:from "2011-10-01"^^xsd:date ;
+    lk:to "2013-01-21"^^xsd:date .
+
+[] a lk:Position ;
+    ns1:occupation "Development Officer" ;
+    lk:from "2010-08-01"^^xsd:date ;
+    lk:to "2013-01-21"^^xsd:date .
+
+[] a foaf:Person .
+
+[] a lk:Position ;
+    ns1:occupation "Head of Human Resources" ;
+    lk:from "1994-09-01"^^xsd:date ;
+    lk:to "1997-12-01"^^xsd:date .
+
+[] a lk:Position ;
+    ns1:occupation "Developer" ;
+    lk:from "2001-01-01"^^xsd:date ;
+    lk:to "2002-02-01"^^xsd:date .
+
+[] a lk:Position ;
+    ns1:occupation "AMT Co-Op student" .
+
+[] a lk:Position ;
+    ns1:occupation "Co Founder / Co Owner" ;
+    lk:from "2012-01-01"^^xsd:date ;
+    lk:to "2013-01-21"^^xsd:date .
+
+[] a lk:Position ;
+    ns1:occupation "Communications and Programme Support Officer" ;
+    lk:from "2012-08-01"^^xsd:date ;
+    lk:to "2013-01-21"^^xsd:date .
+
+[] a lk:Position ;
+    ns1:occupation "Reviewer" ;
+    lk:from "2009-04-01"^^xsd:date ;
+    lk:to "2012-09-01"^^xsd:date .
+
+[] a foaf:Person ;
+    dbpedia-owl:language lk:English,
+        lk:Finnish,
+        lk:Spanish ;
+    lk:education [ lk:college lk:Universidad_Autónoma_de_Madrid ;
+            lk:degree lk:Sept._2010_Degree ;
+            lk:major lk:Psychology ],
+        [ lk:college lk:National_College_of_Ireland ;
+            lk:degree lk:Master_Diploma_in_Arts ;
+            lk:major lk:Human_Resources_Management ],
+        [ lk:college lk:National_College_of_Ireland ;
+            lk:degree lk:Master_Diploma_in_Arts ;
+            lk:major lk:Human_Resources_Management ] ;
+    lk:skill lk:Automation,
+        lk:C,
+        <http://scss.tcd.ie/cs/muc/linkedin/C#>,
+        <http://scss.tcd.ie/cs/muc/linkedin/C++>,
+        lk:Customer_Relations,
+        lk:Debugging,
+        lk:ERP,
+        lk:Employer_Branding,
+        lk:Executive_Search,
+        lk:Facebook,
+        lk:Global_Sourcing,
+        lk:Java,
+        lk:JavaScript,
+        lk:Microsoft_Office,
+        lk:Product_Development,
+        lk:Recruitment_Advertising,
+        <http://scss.tcd.ie/cs/muc/linkedin/Reporting_&amp;_Analysis>,
+        lk:Sales_Recruitment,
+        lk:Search,
+        lk:Software_Development,
+        lk:Sourcing,
+        lk:Talent_Acquisition,
+        lk:Technical_Recruiting,
+        lk:Test_Automation ;
+    lk:worksAs _:N1e0933300dae4f4a8dba65de354fc490,
+        _:N4e5412f4b4234bdc955ed7b86c52e501,
+        _:N58cdbe818a164da780dbc39b76fc6d1e,
+        _:Na7f17394a6714632bac2f985ab2075bb,
+        _:Na94f8d03c8aa4d32a2ace523c01c4b91,
+        _:Nc542b69dbcca41b3a751690fea8edf0f .
+
+[] a lk:Position ;
+    ns1:occupation "Developer" ;
+    lk:from "2005-09-01"^^xsd:date ;
+    lk:to "2009-04-01"^^xsd:date .
+
+[] a lk:Position ;
+    ns1:occupation "President and CEO Americas" .
+
+[] a lk:Position ;
+    ns1:occupation "Social Care Worker" ;
+    lk:from "2006-01-01"^^xsd:date ;
+    lk:to "2007-01-01"^^xsd:date .
+
+[] a lk:Position ;
+    ns1:occupation "Recruitment Coordinator" ;
+    lk:from "2008-03-01"^^xsd:date ;
+    lk:to "2008-08-01"^^xsd:date .
+
+[] a foaf:Person ;
+    lk:education [ lk:college <http://scss.tcd.ie/cs/muc/linkedin/Trinity_College,_Dublin> ],
+        [ lk:college <http://scss.tcd.ie/cs/muc/linkedin/Trinity_College,_Dublin> ],
+        [ lk:college lk:terenure ] ;
+    lk:skill lk:Banking,
+        lk:Business_Strategy,
+        lk:Capital_Markets,
+        lk:Emerging_Markets,
+        lk:Financial_Markets,
+        lk:Investment_Banking ;
+    lk:worksAs _:N02fb5118c4fd44a399d7ba88ba98cc24,
+        _:N072a8567d6fe40829f1b0ae80a6bb54a,
+        _:N4791cae7ad354aaa8e4834786edf702b,
+        _:N566077563867492683029b3955f80e88,
+        _:N5bd2815230254d6594b1a05feaff13d8,
+        _:N5ef8b2b3c7504c54aa374013b966a897,
+        _:N63d591c467644ffa9b5dde995f1b40b1,
+        _:N6d1afdfff56a458d964a1a5971b89df7,
+        _:Nda9ca66624a843ba98b87cacb6a38014,
+        _:Ndcaac6af9f7e475d94a2f7e868e8618b,
+        _:Nf593e2615fda44ee96dde4c3e62f569e .
+
+[] a lk:Position ;
+    ns1:occupation "Project Manager" ;
+    lk:from "2005-06-01"^^xsd:date ;
+    lk:to "2008-12-01"^^xsd:date .
+
+[] a foaf:Person ;
+    lk:education [ lk:college lk:University_College_Dublin ;
+            lk:degree lk:B.SC ;
+            lk:major <http://scss.tcd.ie/cs/muc/linkedin/Computer_Science_&_Physics> ],
+        [ lk:college lk:University_College_Dublin ;
+            lk:degree lk:B.SC ;
+            lk:major <http://scss.tcd.ie/cs/muc/linkedin/Computer_Science_&_Physics> ],
+        [ lk:college lk:Christian_Brothers_College ] ;
+    lk:skill lk:E-commerce,
+        lk:E-commerce_Solutions,
+        lk:Grails,
+        lk:Groovy,
+        lk:Invention,
+        lk:Mobile_Devices,
+        lk:Social_Commerce ;
+    lk:worksAs _:N50a10a1e16744089bc80642339d4cfbc,
+        _:N6ef259f545b7415bb9f6e11493aee6d1,
+        _:N72fca80eb5214f2cabbd4450cbf08d34,
+        _:N765a4b6c3dba402490e4602814f90ab3,
+        _:N77385f4753a2485fbe95ff24782b9b13,
+        _:N904edd71e6234436a48cb31c399054d1,
+        _:Nbf68de9bc6664a22aa4cc3cc963cc373,
+        _:Nc6e202c24c2e4d48a1f2f1a04a36da1d,
+        _:Nee71bb4f78e34a18aeed5108bb5c2b80 .
+
+[] a lk:Position ;
+    ns1:occupation "Managing Director" ;
+    lk:from "2006-01-01"^^xsd:date ;
+    lk:to "2013-01-21"^^xsd:date .
+
+[] a lk:Position ;
+    ns1:occupation "Advisory Board Member" ;
+    lk:to "2013-01-21"^^xsd:date .
+
+[] a lk:Position ;
+    ns1:occupation "Voting Member XLIFF TC" ;
+    lk:from "2008-11-01"^^xsd:date ;
+    lk:to "2013-01-21"^^xsd:date .
+
+[] a foaf:Person ;
+    lk:education [ lk:college <http://scss.tcd.ie/cs/muc/linkedin/Trinity_College,_Dublin> ;
+            lk:degree lk:LLB ],
+        [ lk:college <http://scss.tcd.ie/cs/muc/linkedin/Trinity_College,_Dublin> ;
+            lk:degree lk:LLB ],
+        [ lk:college lk:Castleknock_College ] ;
+    lk:worksAs _:N30a26aed92e24d91bbb943ff00b0923a,
+        _:N474b435cc814410b8dbf5967112d43fe,
+        _:N9105223391b74ff282fbc84c705ab11d .
+
+[] a foaf:Person ;
+    lk:education [ lk:college lk:BI_Norwegian_School_of_Management ],
+        [ lk:college lk:BI_Norwegian_School_of_Management ],
+        [ lk:college lk:University_Of_Applied_Sciences ] ;
+    lk:skill lk:Affiliate_Marketing,
+        lk:Google_Adwords,
+        lk:Google_Analytics,
+        lk:Online_Advertising,
+        lk:Online_Marketing,
+        lk:Organic_Search,
+        lk:PPC,
+        lk:SEM,
+        lk:SEO,
+        lk:Search,
+        lk:Search_Advertising,
+        lk:Wordpress ;
+    lk:worksAs _:N0329f849a0c246fa9283021a06fb6d71,
+        _:N11047a2d275d4d9586c971e84b713f29,
+        _:N884cb51c5a9f462c8ca13139dd7acbea,
+        _:Nbef8cbeec04449878a17eb614c231a2f,
+        _:Ncad5eab6f906492784ccbbeed9497293,
+        _:Ndf6dd45be0864319a25f5a993c079772 .
+
+[] a foaf:Person ;
+    lk:education [ lk:college lk:Irish_Writers_Centre ;
+            lk:major lk:writing ],
+        [ lk:college lk:Algonkian_Writers_Conference ;
+            lk:major lk:writing ],
+        [ lk:college lk:Algonkian_Writers_Conference ;
+            lk:major lk:writing ],
+        [ lk:college lk:Writers_Digest_Online ;
+            lk:major lk:writing ],
+        [ lk:college lk:Westminster_University ;
+            lk:major lk:Writing ] ;
+    lk:skill lk:Blogging,
+        lk:Book_Reviews,
+        lk:Books,
+        lk:Copy_Editing,
+        lk:Copywriting,
+        lk:Creative_Writing,
+        lk:Editing,
+        lk:Fiction,
+        lk:Fiction_Writing,
+        lk:Journalism,
+        lk:Marketing,
+        lk:Novels,
+        lk:Proofreading,
+        lk:Published_Author,
+        lk:Publishing,
+        lk:Research,
+        lk:Social_Media,
+        lk:Social_Media_Marketing,
+        lk:Writing,
+        lk:marketing ;
+    lk:worksAs _:N3556b47b9c294df9a93af92829328db8,
+        _:N90ce250e380c4b82a5b088f0f50b7762,
+        _:Na8ef6ad3d0584e1c91709c8f95302594 .
+
+[] a lk:Position ;
+    ns1:occupation "Senior Developer" .
+
+[] a lk:Position ;
+    ns1:occupation "Head of Channels & Integration Domain" ;
+    lk:from "2010-07-01"^^xsd:date ;
+    lk:to "2012-11-01"^^xsd:date .
+
+[] a lk:Position ;
+    ns1:occupation "Software Engineering Intern" ;
+    lk:from "1997-06-01"^^xsd:date ;
+    lk:to "1998-10-01"^^xsd:date .
+
+[] a lk:Position ;
+    ns1:occupation "R&D Programme Manager" ;
+    lk:from "2006-05-01"^^xsd:date ;
+    lk:to "2013-01-21"^^xsd:date .
+
+[] a foaf:Person ;
+    dbpedia-owl:language lk:English,
+        lk:French,
+        lk:German,
+        lk:Spanish ;
+    lk:education [ lk:college <http://scss.tcd.ie/cs/muc/linkedin/Institut_d'Administration_des_Entreprises> ;
+            lk:degree lk:Master ;
+            lk:major lk:Business_Adminitration ],
+        [ lk:college lk:Université_Paris_Dauphine ;
+            lk:degree <http://scss.tcd.ie/cs/muc/linkedin/Master's_Degree> ;
+            lk:major lk:Business_Management_and_Information_Technology ],
+        [ lk:college <http://scss.tcd.ie/cs/muc/linkedin/Institut_d'Administration_des_Entreprises> ;
+            lk:degree lk:Master ;
+            lk:major lk:Business_Adminitration ] ;
+    lk:skill lk:Account_Management,
+        lk:Advertising,
+        lk:Business_Development,
+        lk:Cloud_Computing,
+        lk:Consulting,
+        lk:Direct_Marketing,
+        lk:E-commerce,
+        lk:IT_Sales,
+        lk:Marketing,
+        lk:Mobile_Devices,
+        lk:New_Business_Development,
+        lk:Online_Advertising,
+        lk:Product_Management,
+        lk:Recruiting,
+        lk:SaaS,
+        lk:Sales,
+        lk:Sales_Management,
+        lk:Social_Media ;
+    lk:worksAs _:N599695e64efd42b2aadcd1714544f316,
+        _:N5cbc0c018da6424e89e44210235c77a7,
+        _:Na29474a313d14dae95f932d04c4f41d2,
+        _:Na7932aabac394f859e7f69f6289bc7b0,
+        _:Nae0aae8e53594bcc8141bab1b8e12f41,
+        _:Nb5924650741843dea59ee71064407f7a .
+
+[] a foaf:Person ;
+    dbpedia-owl:language lk:Gaeilge ;
+    lk:education [ lk:college lk:Pitman_Training_College ],
+        [ lk:college <http://scss.tcd.ie/cs/muc/linkedin/National_University_of_Ireland,_Galway> ;
+            lk:degree lk:Certificate ;
+            lk:major lk:Social_Care ],
+        [ lk:college lk:DIT ;
+            lk:degree lk:Bachelor_of_Science ;
+            lk:major <http://scss.tcd.ie/cs/muc/linkedin/Communications_&_Journalism;_Communication_Theory> ],
+        [ lk:college <http://scss.tcd.ie/cs/muc/linkedin/Trinity_College,_Dublin> ;
+            lk:degree <http://scss.tcd.ie/cs/muc/linkedin/Master_of_Science_(MSc)> ;
+            lk:major lk:Disability_Studies ],
+        [ lk:college <http://scss.tcd.ie/cs/muc/linkedin/Trinity_College,_Dublin> ;
+            lk:degree <http://scss.tcd.ie/cs/muc/linkedin/Master_of_Science_(MSc)> ;
+            lk:major lk:Disability_Studies ],
+        [ lk:college lk:Irish_Writers_Centre ;
+            lk:major lk:Creative_Writing ] ;
+    lk:skill lk:Conducting_Interviews,
+        lk:Copywriting,
+        lk:Creative_Work,
+        lk:Editing,
+        lk:Feature_Articles,
+        lk:Feature_Writing,
+        lk:Journalism,
+        lk:Media_Interviews,
+        lk:Media_Relations,
+        lk:Policy_Analysis,
+        lk:Product_Reviews,
+        lk:Research,
+        lk:Reviews,
+        lk:Social_Care,
+        lk:Social_Media,
+        lk:Storytelling,
+        lk:radio_production ;
+    lk:worksAs _:N06b36f40b6204f5dbd0cfc126145a20d,
+        _:N1bd2f727594b4a07821d29bd21bca941,
+        _:N422993b49e224ad4846ea9d73db165a5,
+        _:N42bcf7f18e604c1485b5582d25f621ee,
+        _:N7a55200a0b584802b68c45ac4b53a69f,
+        _:N9854d3cb8e5a4ba492893c5fd9a96d05,
+        _:N9bf83c5dc02b482bb918b650fccd50df,
+        _:N9e888443ae1342a494109c87e3c517b1,
+        _:Naf44840b049d468b85161e065ad13558,
+        _:Nb49d38a8d1e74c9f84da70658e914022 .
+
+[] a lk:Position ;
+    ns1:occupation "Talent Sourcing Specialist for CPL Solutions" ;
+    lk:from "2012-03-01"^^xsd:date ;
+    lk:to "2013-01-21"^^xsd:date .
+
+[] a foaf:Person ;
+    lk:education [ lk:college lk:University_College_Dublin ;
+            lk:degree lk:Bachelor_of_Business_and_Legal_Studies ;
+            lk:major lk:Business_and_Law ],
+        [ lk:college lk:University_College_Dublin ;
+            lk:degree lk:Bachelor_of_Business_and_Legal_Studies ;
+            lk:major lk:Business_and_Law ] ;
+    lk:worksAs _:N4ec3f95a327241bab402470823695c89,
+        _:N64251ba6782b4a9f833784b69f2e4713,
+        _:Na8e79ce770b9406ea4ef0f11f0ee9009 .
+
+[] a lk:Position ;
+    ns1:occupation "Co-Founder" ;
+    lk:from "2011-05-01"^^xsd:date ;
+    lk:to "2013-01-21"^^xsd:date .
+
+[] a foaf:Person ;
+    lk:education [ lk:college <http://scss.tcd.ie/cs/muc/linkedin/Trinity_College,_Dublin> ;
+            lk:major <http://scss.tcd.ie/cs/muc/linkedin/French_&_Italian> ],
+        [ lk:college <http://scss.tcd.ie/cs/muc/linkedin/Trinity_College,_Dublin> ;
+            lk:major <http://scss.tcd.ie/cs/muc/linkedin/French_&_Italian> ] ;
+    lk:skill lk:Acquisition_Integration,
+        lk:Executive_Search,
+        lk:Headhunting,
+        lk:Legal_Recruiting,
+        lk:Legal_Recruitment_Dublin,
+        lk:Partner_Recruitment,
+        lk:Recruiting,
+        lk:Talent_Acquisition,
+        lk:Temporary_Staffing,
+        lk:talent_mapping ;
+    lk:worksAs _:Nbb38029ff14d4d57a091c58328feabbb .
+
+[] a lk:Position ;
+    ns1:occupation "Lead Generation Manager" ;
+    lk:from "2004-11-01"^^xsd:date ;
+    lk:to "2005-07-01"^^xsd:date .
+
+[] a lk:Position ;
+    ns1:occupation "Creative Translator" ;
+    lk:from "2000-05-01"^^xsd:date ;
+    lk:to "2004-02-01"^^xsd:date .
+
+[] a lk:Position ;
+    ns1:occupation "Head of Wholesale Banking Network" ;
+    lk:from "2004-09-01"^^xsd:date ;
+    lk:to "2006-09-01"^^xsd:date .
+
+[] a lk:Position ;
+    ns1:occupation "Managing Director" ;
+    lk:from "2005-05-01"^^xsd:date ;
+    lk:to "2013-01-21"^^xsd:date .
+
+[] a lk:Position ;
+    ns1:occupation "Founder" ;
+    lk:to "2013-01-21"^^xsd:date .
+
+[] a lk:Position ;
+    ns1:occupation "Lead Developer" ;
+    lk:from "2006-10-01"^^xsd:date ;
+    lk:to "2013-01-21"^^xsd:date .
+
+[] a foaf:Person ;
+    lk:education [ lk:college <http://scss.tcd.ie/cs/muc/linkedin/Trinity_College,_Dublin> ;
+            lk:degree lk:M._Sc ;
+            lk:major lk:Management_of_Information_Systems ],
+        [ lk:college <http://scss.tcd.ie/cs/muc/linkedin/St._Caimin's> ;
+            lk:degree lk:Leaving_Certificate ;
+            lk:major lk:All_Honours ],
+        [ lk:college <http://scss.tcd.ie/cs/muc/linkedin/Trinity_College,_Dublin> ;
+            lk:degree lk:M._Sc ;
+            lk:major lk:Management_of_Information_Systems ],
+        [ lk:college lk:Dublin_City_University ;
+            lk:degree <http://scss.tcd.ie/cs/muc/linkedin/B._Sc.> ;
+            lk:major <http://scss.tcd.ie/cs/muc/linkedin/Computer_Applications_(Information_Systems)> ] ;
+    lk:skill lk:Getting_Endorsed ;
+    lk:worksAs _:N2438ed18db734f309c926fc4bb9283ef,
+        _:N3a27a1e572f84e40aa9e077de7415ce2,
+        _:N6c81bd1bd8184690af49ba6a4c6f998c,
+        _:N88c9466af42a466daf1d9169685df44c,
+        _:Na14cf480e5b844bd8d0bbecb982b9542,
+        _:Nff1060c890414d04be78becdf956b8c8 .
+
+[] a lk:Position ;
+    ns1:occupation "Senior Research Engineer" .
+
+[] a lk:Position ;
+    ns1:occupation "Ingres Developer" .
+
+[] a lk:Position ;
+    ns1:occupation "Assistant Professor" ;
+    lk:from "2003-09-01"^^xsd:date ;
+    lk:to "2005-08-01"^^xsd:date .
+
+[] a lk:Position ;
+    ns1:occupation "CEO and Founder" ;
+    lk:from "2003-07-01"^^xsd:date ;
+    lk:to "2008-02-01"^^xsd:date .
+
+[] a foaf:Person ;
+    lk:skill <http://scss.tcd.ie/cs/muc/linkedin/3G>,
+        lk:Consulting,
+        lk:Documented_care,
+        lk:Healthcare,
+        lk:Medical_Records,
+        lk:Mobile_Applications,
+        lk:Mobile_Internet,
+        lk:Remote_Access,
+        lk:SMS,
+        lk:Video,
+        lk:patient_rights,
+        lk:patient_safety,
+        lk:privacy,
+        lk:remote_consulting,
+        lk:user_experience .
+
+[] a lk:Position ;
+    ns1:occupation "Managing and Creative Director" ;
+    lk:from "2007-07-01"^^xsd:date ;
+    lk:to "2013-01-21"^^xsd:date .
+
+[] a lk:Position ;
+    ns1:occupation "Software Consultant" ;
+    lk:from "2002-07-01"^^xsd:date ;
+    lk:to "2003-07-01"^^xsd:date .
+
+[] a lk:Position ;
+    ns1:occupation "Post-Doctoral Researcher in Machine Learning" .
+
+[] a foaf:Person ;
+    lk:skill lk:Advocacy,
+        lk:Authoring,
+        lk:Campaigns,
+        lk:Community,
+        lk:Computer_Science,
+        lk:Databases,
+        lk:Economics,
+        lk:Engineering,
+        lk:History,
+        lk:Human_Rights,
+        lk:Human_Trafficking,
+        lk:International_Affairs,
+        lk:Joomla,
+        lk:Lobbying,
+        lk:Management_Consulting,
+        lk:Mathematics,
+        lk:Microsoft_Certified_Systems_Engineer,
+        lk:Microsoft_Office,
+        lk:NGOs,
+        lk:Not_for_Profit,
+        lk:Political_Philosophy,
+        lk:Politics,
+        lk:Private_Sector,
+        lk:Public_Policy,
+        lk:Qualitative_Research,
+        lk:Research,
+        lk:Social_Media,
+        lk:Teaching,
+        lk:Writing ;
+    lk:worksAs _:N055471c5389049a886f39dd7fff33c62 .
+
+[] a foaf:Person ;
+    lk:education [ lk:college lk:Dublin_City_University ;
+            lk:degree lk:Graduate_Diploma ;
+            lk:major lk:Information_Technology ],
+        [ lk:college lk:Dublin_City_University ;
+            lk:degree lk:Graduate_Diploma ;
+            lk:major lk:Information_Technology ],
+        [ lk:college <http://scss.tcd.ie/cs/muc/linkedin/Trinity_College,_Dublin> ;
+            lk:degree <http://scss.tcd.ie/cs/muc/linkedin/BA_(mod)> ;
+            lk:major lk:Microbiology ] ;
+    lk:skill lk:Algorithms,
+        lk:Bioinformatics,
+        lk:Biostatistics,
+        lk:Cancer,
+        lk:Cluster_Analysis,
+        lk:Computational_Biology,
+        lk:Data_Analysis,
+        lk:Data_Classification,
+        lk:Data_Mining,
+        lk:Data_Visualization,
+        lk:Genomics,
+        lk:Java,
+        lk:LaTeX,
+        lk:Machine_Learning,
+        lk:Microarray_Analysis,
+        lk:Microbiology,
+        lk:R,
+        lk:Sequence_Analysis,
+        lk:Software_Development,
+        lk:Survival_Analysis ;
+    lk:worksAs _:N250f2096168f48419048cdc1f8b4376e,
+        _:N381b521e1cc546c79f7b490317e8e852,
+        _:N78e3ea1d31544da69d18c7cdb1e63762,
+        _:Na342ccedf80c44339b88f39f27f754e5,
+        _:Nee00cc6f4d6749a9ac0a0ebd51396b7a .
+
+[] a lk:Position ;
+    ns1:occupation "Marketing" ;
+    lk:from "1997-01-01"^^xsd:date ;
+    lk:to "2011-11-01"^^xsd:date .
+
+[] a lk:Position ;
+    ns1:occupation "XLIFF TC Secretary & Editor" ;
+    lk:from "2012-12-01"^^xsd:date ;
+    lk:to "2013-01-21"^^xsd:date .
+
+[] a lk:Position ;
+    ns1:occupation "IC Layout Engineer" ;
+    lk:from "2004-06-01"^^xsd:date ;
+    lk:to "2007-11-01"^^xsd:date .
+
+[] a lk:Position ;
+    ns1:occupation "Solutions Architect" ;
+    lk:from "2009-02-01"^^xsd:date ;
+    lk:to "2013-01-21"^^xsd:date .
+
+[] a lk:Position ;
+    ns1:occupation "Principal Consultant, Legal & Compliance Recruitment Team" ;
+    lk:from "2005-08-01"^^xsd:date ;
+    lk:to "2013-01-21"^^xsd:date .
+
+[] a lk:Position ;
+    ns1:occupation "Communities Editor" ;
+    lk:from "2012-09-01"^^xsd:date ;
+    lk:to "2013-01-21"^^xsd:date .
+
+[] a lk:Position ;
+    ns1:occupation "General Manager" .
+
+[] a lk:Position ;
+    ns1:occupation "Tax Consultant" .
+
+[] a lk:Position ;
+    ns1:occupation "Trainee Solicitor" ;
+    lk:from "2010-03-01"^^xsd:date ;
+    lk:to "2013-01-21"^^xsd:date .
+
+[] a lk:Position ;
+    ns1:occupation "Project Manager" ;
+    lk:from "2007-07-01"^^xsd:date ;
+    lk:to "2008-06-01"^^xsd:date .
+
+[] a lk:Position ;
+    ns1:occupation "SEO Director" ;
+    lk:from "2005-05-01"^^xsd:date ;
+    lk:to "2013-01-21"^^xsd:date .
+
+[] a lk:Position ;
+    ns1:occupation "Project Management Officer" ;
+    lk:from "2009-01-01"^^xsd:date ;
+    lk:to "2010-07-01"^^xsd:date .
+
+[] a foaf:Person ;
+    lk:education [ lk:college lk:Central_Colleges_of_the_Philippines ;
+            lk:degree lk:Bachelor_of_Science ;
+            lk:major lk:Electronics_and_Communications_Engineering ],
+        [ lk:college lk:Central_Colleges_of_the_Philippines ;
+            lk:degree lk:Bachelor_of_Science ;
+            lk:major lk:Electronics_and_Communications_Engineering ] ;
+    lk:skill lk:Analog,
+        lk:Cadence_Virtuoso,
+        lk:Calibre,
+        lk:Dracula,
+        lk:Hercules,
+        lk:IC,
+        lk:Mixed_Signal,
+        lk:Physical_Verification,
+        lk:Silvaco,
+        lk:Tanner_EDA ;
+    lk:worksAs _:N35a85b5f037645619b8f02d3dbebea81,
+        _:Nc213f4aaa1144fff88094bfcfa52e043,
+        _:Nd3c18ee386e94f8fa896308c08a275ff .
+
+[] a lk:Position ;
+    ns1:occupation "Director, Moravia Research" ;
+    lk:from "2010-08-01"^^xsd:date ;
+    lk:to "2011-01-01"^^xsd:date .
+
+[] a lk:Position ;
+    ns1:occupation "Social Care Worker" ;
+    lk:from "2008-11-01"^^xsd:date ;
+    lk:to "2012-08-01"^^xsd:date .
+
+[] a lk:Position ;
+    ns1:occupation "Client Partner France and Benelux" ;
+    lk:from "2010-04-01"^^xsd:date ;
+    lk:to "2013-01-21"^^xsd:date .
+
+[] a foaf:Person ;
+    lk:education [ lk:college lk:Greendale_Community_School ],
+        [ lk:college lk:Dublin_Institute_of_Technology ;
+            lk:degree lk:BApplied_Science_in_Computing ;
+            lk:major <http://scss.tcd.ie/cs/muc/linkedin/Computer_Science,_Database_development> ],
+        [ lk:college lk:Dublin_Institute_of_Technology ;
+            lk:degree lk:BApplied_Science_in_Computing ;
+            lk:major <http://scss.tcd.ie/cs/muc/linkedin/Computer_Science,_Database_development> ] ;
+    lk:skill lk:ASP,
+        lk:CSS,
+        lk:DHCP,
+        lk:FTP,
+        <http://scss.tcd.ie/cs/muc/linkedin/HTML/XML>,
+        lk:MySQL,
+        lk:Network_Administration,
+        lk:Network_Architecture,
+        lk:PHP,
+        lk:Photoshop,
+        lk:Routing,
+        lk:SQL,
+        lk:SQL_Server,
+        lk:Wireless_Networking,
+        lk:Wordpress,
+        lk:jQuery,
+        lk:phpMyAdmin ;
+    lk:worksAs _:N97da25566e1c49b491e284a05370e028,
+        _:Nd5aa4131522748f1808cd17fbc7c571c .
+
+[] a foaf:Person ;
+    dbpedia-owl:language lk:French ;
+    lk:education [ lk:college lk:University_College_Dublin ;
+            lk:degree lk:MBA ;
+            lk:major lk:BUSINESS ],
+        [ lk:college lk:University_College_Dublin ;
+            lk:degree lk:MBA ;
+            lk:major lk:BUSINESS ],
+        [ lk:college lk:Terenure_College ;
+            lk:degree lk:Leaving_Cert ],
+        [ lk:college lk:Marketing_Institute_of_Ireland ;
+            lk:degree lk:Cert ;
+            lk:major lk:Marketing ] ;
+    lk:skill lk:Advertising,
+        lk:Branded_Entertainment,
+        lk:Business_Planning,
+        lk:Digital_Marketing,
+        lk:Digital_Media,
+        lk:Digital_Strategy,
+        lk:Direct_Marketing,
+        lk:Email_Marketing,
+        lk:Event_Management,
+        lk:Integrated_Marketing,
+        lk:Marketing,
+        lk:Marketing_Communications,
+        lk:Marketing_Strategy,
+        lk:New_Media,
+        lk:Online_Advertising,
+        lk:Project_Planning,
+        lk:Relationship_Marketing,
+        lk:SEO,
+        lk:Social_Media,
+        lk:Social_Media_Marketing ;
+    lk:worksAs _:N43a0bbf85e1d4ed9b3a7a02c72ca9fe7,
+        _:Nc8deace18d4a437f997772d4adf7b925,
+        _:Nd598ed3950184054937ea023d0b3af0b .
+
+[] a lk:Position ;
+    ns1:occupation "Founder and CEO" .
+
+[] a lk:Position ;
+    ns1:occupation "Internship: Recruitment administrator" ;
+    lk:from "2009-07-01"^^xsd:date ;
+    lk:to "2010-01-01"^^xsd:date .
+
+[] a lk:Position ;
+    ns1:occupation "Partner, Head of Corporate and M&A" ;
+    lk:from "1999-05-01"^^xsd:date ;
+    lk:to "2013-01-21"^^xsd:date .
+
+[] a lk:Position ;
+    ns1:occupation "Project Engineer" ;
+    lk:from "2004-02-01"^^xsd:date ;
+    lk:to "2004-10-01"^^xsd:date .
+
+[] a lk:Position ;
+    ns1:occupation "Founder" ;
+    lk:from "1992-01-01"^^xsd:date ;
+    lk:to "2013-01-21"^^xsd:date .
+
+[] a lk:Position ;
+    ns1:occupation "Sales in Flagship Store and Online" ;
+    lk:from "2000-05-01"^^xsd:date ;
+    lk:to "2008-08-01"^^xsd:date .
+
+[] a lk:Position ;
+    ns1:occupation "Director of Operations" ;
+    lk:from "2005-02-01"^^xsd:date ;
+    lk:to "2013-01-21"^^xsd:date .
+
+[] a foaf:Person ;
+    lk:education [ lk:college lk:Blackrock_College ],
+        [ lk:college lk:Blackrock_College ] ;
+    lk:skill lk:Digital_Marketing,
+        lk:E-commerce,
+        lk:Integrated_Circuit_Design,
+        lk:Interaction_Design,
+        lk:User_Experience,
+        lk:User_Interface_Design,
+        lk:Web_Design ;
+    lk:worksAs _:N3affbec56b4344b7958422558d295b20,
+        _:N4739e65ef4424525835774dbd3845da4,
+        _:Na9f9a945230e4a34ad30895cc770d0a4 .
+
+[] a lk:Position ;
+    ns1:occupation "Business Acquisition Manager" ;
+    lk:from "2008-10-01"^^xsd:date ;
+    lk:to "2010-04-01"^^xsd:date .
+
+[] a lk:Position ;
+    ns1:occupation "Director, Client Services, EMEA" ;
+    lk:from "2008-06-01"^^xsd:date ;
+    lk:to "2013-01-21"^^xsd:date .
+
+[] a lk:Position ;
+    ns1:occupation "Head of IT" ;
+    lk:from "2007-02-01"^^xsd:date ;
+    lk:to "2010-07-01"^^xsd:date .
+
+[] a lk:Position ;
+    ns1:occupation "Head of Development" .
+
+[] a lk:Position ;
+    ns1:occupation "Co-Organiser" ;
+    lk:from "2009-01-01"^^xsd:date ;
+    lk:to "2009-09-01"^^xsd:date .
+
+[] a foaf:Person ;
+    lk:education [ lk:college lk:Dublin_Institute_of_Technology ;
+            lk:degree <http://scss.tcd.ie/cs/muc/linkedin/BSc(Eng)> ;
+            lk:major lk:Mechanical_Engineering ],
+        [ lk:college lk:Dublin_Institute_of_Technology ;
+            lk:degree <http://scss.tcd.ie/cs/muc/linkedin/BSc(Eng)> ;
+            lk:major lk:Mechanical_Engineering ] ;
+    lk:skill lk:Energy,
+        lk:Energy_Audits,
+        lk:Energy_Efficiency,
+        lk:Energy_Management,
+        lk:Engineering,
+        lk:Environmental_Awareness,
+        lk:HVAC,
+        lk:Lighting,
+        lk:Project_Management,
+        lk:Renewable_Energy,
+        lk:Sustainability,
+        lk:Sustainable_Energy ;
+    lk:worksAs _:N0e1453651814434ea1768d123d39bfdf,
+        _:N157b6d12df99469e9d86307a813a1bfe,
+        _:N307275f74512475ea4e85fa92c74724e,
+        _:N7868c438906f4ccf9ab9c840e2156fa2,
+        _:N8c9650de803d46b4a42e535fe2d20744,
+        _:Na8fc0bb4a52e4b758c37019c38960bd6,
+        _:Ne0221aeab1a54c5c8b0440779df511a8 .
+
+[] a lk:Position ;
+    ns1:occupation "Lisbon Treaty 1 Campaign Director" ;
+    lk:from "2007-03-01"^^xsd:date ;
+    lk:to "2008-08-01"^^xsd:date .
+
+[] a lk:Position ;
+    ns1:occupation "Management Consultant" ;
+    lk:from "1994-06-01"^^xsd:date ;
+    lk:to "1996-05-01"^^xsd:date .
+
+[] a lk:Position ;
+    ns1:occupation "Internet Marketing Adviser" ;
+    lk:from "2008-03-01"^^xsd:date ;
+    lk:to "2012-04-01"^^xsd:date .
+
+[] a lk:Position ;
+    ns1:occupation "Development Adviser" ;
+    lk:from "2012-04-01"^^xsd:date ;
+    lk:to "2013-01-21"^^xsd:date .
+
+[] a foaf:Person ;
+    dbpedia-owl:language lk:Italian ;
+    lk:skill lk:Aeronautics,
+        lk:Biotechnology,
+        lk:Business_Planning,
+        lk:Business_Strategy,
+        lk:Cloud_Computing,
+        lk:Composites,
+        lk:Entrepreneur,
+        lk:Entrepreneurship,
+        lk:FX_trading,
+        lk:High_Performance_Computing,
+        lk:Holography,
+        lk:ICT_Consulting,
+        lk:Industrial_Design,
+        lk:Innovation,
+        lk:International_Business,
+        lk:Internet,
+        lk:Manufacturing_Management,
+        lk:New_Business_Development,
+        lk:Photonics,
+        lk:Product_Marketing,
+        lk:Start-ups,
+        lk:Strategic_Partnerships,
+        lk:Strategy_Development,
+        lk:Telecommunications,
+        lk:Venture_Capital ;
+    lk:worksAs _:N0806008aa1374a4fa8f1d94bfdfa7abe,
+        _:N0f65301ab97b47f6838adf56cff75975,
+        _:N28b8ca67c23f47e791b23f7f8c2e0aab,
+        _:Ncd79311d955b42c09ca88e10b622d15a,
+        _:Ndb823372de51461ea0f7f04def9da6dd .
+
+[] a lk:Position ;
+    ns1:occupation "IC Layout Engineer" ;
+    lk:from "2008-02-01"^^xsd:date ;
+    lk:to "2008-08-01"^^xsd:date .
+
+[] a lk:Position ;
+    ns1:occupation "Advisory Committee Representative for University of Limerick" ;
+    lk:from "2012-01-01"^^xsd:date ;
+    lk:to "2013-01-21"^^xsd:date .
+
+[] a lk:Position ;
+    ns1:occupation "Business Development Manager" ;
+    lk:from "2006-08-01"^^xsd:date ;
+    lk:to "2007-04-01"^^xsd:date .
+
+[] a lk:Position ;
+    ns1:occupation "Vice President, EMEA" ;
+    lk:from "2012-12-01"^^xsd:date ;
+    lk:to "2013-01-21"^^xsd:date .
+
+[] a lk:Position ;
+    ns1:occupation "Operations Director" ;
+    lk:from "2004-06-01"^^xsd:date ;
+    lk:to "2006-12-01"^^xsd:date .
+
+[] a lk:Position ;
+    ns1:occupation "Advisor - Strategic Corporate Development" ;
+    lk:from "2011-06-01"^^xsd:date ;
+    lk:to "2011-11-01"^^xsd:date .
+
+[] a lk:Position ;
+    ns1:occupation "Marketing" ;
+    lk:from "1990-02-01"^^xsd:date ;
+    lk:to "1996-12-01"^^xsd:date .
+
+[] a lk:Position ;
+    ns1:occupation "Lecturer" .
+
+[] a lk:Position ;
+    ns1:occupation "Senior Planner" ;
+    lk:from "2002-02-01"^^xsd:date ;
+    lk:to "2013-01-21"^^xsd:date .
+
+[] a foaf:Person ;
+    lk:education [ lk:college lk:Boston_College ;
+            lk:degree lk:BS ;
+            lk:major <http://scss.tcd.ie/cs/muc/linkedin/Business_Management_(Finance)> ],
+        [ lk:college lk:Boston_College ;
+            lk:degree lk:BS ;
+            lk:major <http://scss.tcd.ie/cs/muc/linkedin/Business_Management_(Finance)> ],
+        [ lk:college <http://scss.tcd.ie/cs/muc/linkedin/Trinity_College,_Dublin> ;
+            lk:degree lk:Visiting_Student ;
+            lk:major <http://scss.tcd.ie/cs/muc/linkedin/Business_&_Economics> ] ;
+    lk:skill lk:Asset_Management,
+        lk:Asset_Managment,
+        lk:Bloomberg,
+        lk:Economics,
+        lk:Equities,
+        lk:Excel,
+        lk:FactSet,
+        lk:Financial_Modeling,
+        lk:HTML,
+        lk:Hedge_Funds,
+        lk:International_Equities,
+        lk:Portfolio_Management,
+        lk:Research,
+        lk:VBA,
+        lk:Valuation,
+        lk:Wealth_Management ;
+    lk:worksAs _:Na71b7cba17c04c8fa02581a51fbd50f6 .
+
+[] a lk:Position ;
+    ns1:occupation "Software Engineer" ;
+    lk:from "1998-05-01"^^xsd:date ;
+    lk:to "2000-01-01"^^xsd:date .
+
+[] a foaf:Person ;
+    dbpedia-owl:language lk:Afrikaans ;
+    lk:education [ lk:college <http://scss.tcd.ie/cs/muc/linkedin/University_of_South_Africa/Universiteit_van_Suid-Afrika> ;
+            lk:degree lk:B.Comm ;
+            lk:major lk:Commerce ],
+        [ lk:college <http://scss.tcd.ie/cs/muc/linkedin/University_of_South_Africa/Universiteit_van_Suid-Afrika> ;
+            lk:degree lk:B.Comm ;
+            lk:major lk:Commerce ],
+        [ lk:college lk:Fairmont_High_School ] ;
+    lk:skill lk:Advanced_SEO,
+        lk:Blogging,
+        lk:Brand_Management,
+        lk:Business_Strategy,
+        lk:Digital_Strategy,
+        lk:Google,
+        lk:Google_AdWords,
+        lk:Google_Adwords,
+        lk:Google_Analytics,
+        lk:Google_Webmaster_Tools,
+        lk:Google_Webmasters,
+        lk:Internet_Marketing,
+        lk:New_Business_Development,
+        lk:Online_Advertising,
+        lk:Online_Marketing,
+        lk:PPC,
+        lk:Reputation_Management,
+        lk:SEM,
+        lk:SEO,
+        lk:Search_Engine_Marketing,
+        lk:Search_Engine_Optimisation,
+        lk:Search_Engine_Positioning,
+        lk:Social_Marketing,
+        lk:Social_Media,
+        lk:Social_Networking,
+        lk:Twitter,
+        lk:Web_Marketing,
+        lk:Website_UI,
+        lk:Websites,
+        lk:ebmi ;
+    lk:worksAs _:N032b70ff2ac24aa9ab37ed2f936b1938,
+        _:N0c83a0c0ab3547d0a47dd73853b1e31f,
+        _:N97294140d78543dea3a29322ef8dd064,
+        _:N9d3189a8bfef464a9f4275c1e00f6a11,
+        _:Na0802dc55cdd4832bce4cda5b241ed41,
+        _:Ne0ecb36e92e142bf815fafd2f778b410 .
+
+[] a lk:Position ;
+    ns1:occupation "Managing Director" ;
+    lk:from "1999-08-01"^^xsd:date ;
+    lk:to "2013-01-21"^^xsd:date .
+
+[] a lk:Position ;
+    ns1:occupation "Head of Technical Product Development" .
+
+[] a lk:Position ;
+    ns1:occupation "Founder" ;
+    lk:from "2008-07-01"^^xsd:date ;
+    lk:to "2013-01-21"^^xsd:date .
+
+[] a lk:Position ;
+    ns1:occupation "Solicitor" .
+
+[] a lk:Position ;
+    ns1:occupation "Founder" ;
+    lk:to "2013-01-21"^^xsd:date .
+
+[] a lk:Position ;
+    ns1:occupation "Head of Global Human Resources" ;
+    lk:from "1998-02-01"^^xsd:date ;
+    lk:to "1998-09-01"^^xsd:date .
+
+[] a foaf:Person ;
+    lk:skill lk:Corporate_Events,
+        lk:Entertainment,
+        lk:Event_Management,
+        lk:Event_Planning,
+        lk:Festivals,
+        lk:Live_Events,
+        lk:Marketing,
+        lk:Music,
+        lk:Promotions ;
+    lk:worksAs _:Ne68bf7e5d0dd40358ed898682a201ebc .
+
+[] a foaf:Person ;
+    lk:education [ lk:college lk:University_of_Limerick ;
+            lk:degree <http://scss.tcd.ie/cs/muc/linkedin/B.Sc.> ;
+            lk:major lk:Computer_Systems ],
+        [ lk:college lk:Wilsons_Hospital_School ],
+        [ lk:college lk:University_of_Limerick ;
+            lk:degree <http://scss.tcd.ie/cs/muc/linkedin/B.Sc.> ;
+            lk:major lk:Computer_Systems ] ;
+    lk:skill <http://scss.tcd.ie/cs/muc/linkedin/.NET>,
+        lk:ASP.NET,
+        lk:Android,
+        lk:Business_Continuity,
+        lk:Cloud_Computing,
+        lk:Disaster_Recovery,
+        lk:Firewalls,
+        lk:IIS,
+        lk:IT_Management,
+        lk:Infrastructure_Management,
+        lk:Microsoft_SQL_Server,
+        lk:Operating_Systems,
+        lk:Security,
+        lk:Servers,
+        lk:Storage,
+        lk:VMware,
+        lk:Virtualization,
+        lk:Web_Services,
+        lk:Windows_Server,
+        lk:iPhone ;
+    lk:worksAs _:N0d0bdbca56ef4d969f26fe728b1234d3,
+        _:N2b8e035195b04b3c9684aa335d2d3d39,
+        _:Nad412337cdab489dbeb3b6b97eac8233,
+        _:Ne1b23cd2e22b42e880fc5e22116a2920 .
+
+[] a lk:Position ;
+    ns1:occupation "CTO" ;
+    lk:from "2004-07-01"^^xsd:date ;
+    lk:to "2008-07-01"^^xsd:date .
+
+[] a lk:Position ;
+    ns1:occupation "Research Fellow Machine Learning / Bioinformatician" ;
+    lk:from "2008-07-01"^^xsd:date ;
+    lk:to "2012-07-01"^^xsd:date .
+
+[] a lk:Position ;
+    ns1:occupation "Developer" ;
+    lk:from "1999-05-01"^^xsd:date ;
+    lk:to "2001-05-01"^^xsd:date .
+
+[] a foaf:Person ;
+    lk:worksAs _:N1eeaaeeb517f46a3a9efa2db2210a108,
+        _:N5bf2d0fbd0ac4354aea3ecb369d9f1b5,
+        _:N7ad71df539614a25843af080aa156725,
+        _:N8b84324367594aadafe2c37db55e2542,
+        _:Nba80c1e5946d4cc7a54d9dae3256d3ef .
+
+[] a lk:Position ;
+    ns1:occupation "Project Co-ordinator" ;
+    lk:from "2004-02-01"^^xsd:date ;
+    lk:to "2006-05-01"^^xsd:date .
+
+[] a lk:Position ;
+    ns1:occupation "Recruiter" ;
+    lk:from "2006-03-01"^^xsd:date ;
+    lk:to "2006-08-01"^^xsd:date .
+
+[] a lk:Position ;
+    ns1:occupation "Social Media Adviser" ;
+    lk:from "2010-01-01"^^xsd:date ;
+    lk:to "2011-03-01"^^xsd:date .
+
+[] a foaf:Person ;
+    lk:education [ lk:college lk:Public_Relations_Institute_of_Ireland ;
+            lk:degree lk:Dip_PR ;
+            lk:major lk:Public_Relations ],
+        [ lk:college lk:The_Open_University ;
+            lk:degree lk:BSc ;
+            lk:major lk:Politics ],
+        [ lk:college <http://scss.tcd.ie/cs/muc/linkedin/Dún_Laoghaire_Institute_of_Art,_Design_and_Technology> ],
+        [ lk:college lk:The_Open_University ;
+            lk:degree lk:Dip_PolGovt ;
+            lk:major lk:Politics_and_Government ],
+        [ lk:college lk:The_Open_University ;
+            lk:degree lk:Certificate_in_Legal_Studies ;
+            lk:major lk:Law ],
+        [ lk:college lk:The_Open_University ;
+            lk:degree lk:BSc ;
+            lk:major lk:Politics ],
+        [ lk:college lk:Ballsbridge_College_of_Further_Education ;
+            lk:degree <http://scss.tcd.ie/cs/muc/linkedin/Certificate_Electronic_Commerce_&_Online_Marketing> ;
+            lk:major <http://scss.tcd.ie/cs/muc/linkedin/Ecommerce,_Online_Marketing> ] ;
+    lk:skill lk:Breaking_News,
+        lk:Community_Development,
+        lk:Community_Sites,
+        lk:Digital_Marketing,
+        lk:Digital_Media,
+        lk:Forums,
+        lk:Journalism,
+        lk:Legal_Affairs,
+        lk:Legal_Issues,
+        lk:Media_Relations,
+        lk:Online_Advertising,
+        lk:Online_Communities,
+        lk:Online_Journalism,
+        lk:Online_Marketing,
+        lk:Online_PR,
+        lk:Online_Publishing,
+        lk:Pasta,
+        lk:Political_Campaigns,
+        lk:Political_Communication,
+        lk:Political_Research,
+        lk:Politics,
+        lk:Public_Policy,
+        lk:Public_Relations,
+        lk:SEO,
+        lk:Social_Media ;
+    lk:worksAs _:N0743f8e713464561a9fb8917d2b546d3,
+        _:N0c7580fcdb714b4fbbb0bc8e475e6d0a,
+        _:N1bf752e84c544c1699f73d6cfa8604f6,
+        _:N5e6723104a794b18973cfe17cfa954b9,
+        _:N6ff23905dee8463e99610ed07ccd0221,
+        _:N9a14fbac3adf4b3899f17198b1632b64,
+        _:Nb2ece7d81e744f52ac9b0b14bad52e7a,
+        _:Ncca8c7e6d0234a348fc69df379163388,
+        _:Nd06043f0dc4e45e1af50132c8742f36e .
+
+[] a lk:Position ;
+    ns1:occupation "Chief Executive Officer" ;
+    lk:from "2011-12-01"^^xsd:date ;
+    lk:to "2013-01-21"^^xsd:date .
+
+[] a lk:Position ;
+    ns1:occupation "Presales Engineer" ;
+    lk:from "2002-06-01"^^xsd:date ;
+    lk:to "2005-01-01"^^xsd:date .
+
+[] a lk:Position ;
+    ns1:occupation "Process Optimization Consultant" ;
+    lk:from "2008-06-01"^^xsd:date ;
+    lk:to "2013-01-21"^^xsd:date .
+
+[] a foaf:Person ;
+    lk:education [ lk:college lk:University_College_Dublin ;
+            lk:degree lk:BSc ;
+            lk:major lk:Experimental_Physics ],
+        [ lk:college lk:University_College_Dublin ;
+            lk:degree lk:BSc ;
+            lk:major lk:Experimental_Physics ] ;
+    lk:skill <http://scss.tcd.ie/cs/muc/linkedin/3G>,
+        lk:Business_Development,
+        lk:Business_Strategy,
+        lk:Cross-functional_Team_Leadership,
+        lk:GPRS,
+        lk:GSM,
+        lk:IP,
+        lk:Mobile_Communications,
+        lk:Mobile_Devices,
+        lk:Mobile_Technology,
+        lk:New_Business_Development,
+        lk:People_Management,
+        lk:Product_Development,
+        lk:Product_Management,
+        lk:Program_Management,
+        lk:Project_Delivery,
+        lk:Project_Management,
+        lk:Project_Planning,
+        lk:Team_Leadership,
+        lk:Team_Management,
+        lk:Telecommunications,
+        lk:UMTS,
+        lk:VAS,
+        lk:Vendor_Management ;
+    lk:worksAs _:N1f1ac6cfd6494bb9810e6864536be147,
+        _:N5168f5b1bfe84d41ad05351315bca371,
+        _:N537e011f42604c2295af2738e0885159,
+        _:Na202da04c5d04f03a3ef471f15972a41 .
+
+[] a lk:Position ;
+    ns1:occupation "PhD in Machine Learning" .
+
+[] a lk:Position ;
+    ns1:occupation "Senior Antivirus Researcher" ;
+    lk:from "2005-01-01"^^xsd:date ;
+    lk:to "2013-01-21"^^xsd:date .
+
+[] a lk:Position ;
+    ns1:occupation "Head of IT" ;
+    lk:from "2003-12-01"^^xsd:date ;
+    lk:to "2006-11-01"^^xsd:date .
+
+[] a foaf:Person ;
+    dbpedia-owl:language lk:Catalan,
+        lk:English,
+        lk:French,
+        lk:Japanese,
+        lk:Spanish ;
+    lk:education [ lk:college lk:Universidad_Autónoma_de_Madrid ;
+            lk:degree lk:Licenciado_en_Ciéncias_Económicas ],
+        [ lk:college lk:IES_Marques_de_Santillana ],
+        [ lk:college lk:Universidad_Autónoma_de_Madrid ;
+            lk:degree lk:Licenciado_en_Ciéncias_Económicas ] ;
+    lk:skill lk:Antivirus,
+        lk:Bodypaint,
+        lk:Computer_Security,
+        lk:IDA,
+        lk:Malware_Analysis,
+        lk:Monologues,
+        lk:Network_Security,
+        lk:OllyDbg,
+        lk:Origami,
+        lk:Public_Speaking,
+        lk:Reverse_Engineering,
+        lk:Security,
+        lk:Security_Research,
+        lk:Teaching,
+        lk:Virus_Culture,
+        lk:Writing ;
+    lk:worksAs _:N75d009b6f24841f28b00d01d45a1c982,
+        _:N9c4cca9bae1f41348b9a9472173bf2b2,
+        _:N9fd2860725854046b457e2b090f38475,
+        _:Neb06d8091b494751a823c31e213c650e .
+
+[] a lk:Position ;
+    ns1:occupation "Senior Research Officer" ;
+    lk:from "2012-07-01"^^xsd:date ;
+    lk:to "2013-01-21"^^xsd:date .
+
+[] a lk:Position ;
+    ns1:occupation "Founder and CEO" ;
+    lk:from "2011-06-01"^^xsd:date ;
+    lk:to "2011-11-01"^^xsd:date .
+
+[] a lk:Position ;
+    ns1:occupation "Business Relationship Manager" ;
+    lk:from "2006-05-01"^^xsd:date ;
+    lk:to "2009-06-01"^^xsd:date .
+
+[] a lk:Position ;
+    ns1:occupation "Account Strategist" ;
+    lk:from "2012-09-01"^^xsd:date ;
+    lk:to "2013-01-21"^^xsd:date .
+
+[] a lk:Position ;
+    ns1:occupation "Developer" ;
+    lk:from "2002-01-01"^^xsd:date ;
+    lk:to "2004-11-01"^^xsd:date .
+
+[] a lk:Position ;
+    ns1:occupation "Sourcing Specialist EMEA - Recruiter" ;
+    lk:from "2011-04-01"^^xsd:date ;
+    lk:to "2012-02-01"^^xsd:date .
+
+[] a lk:Position ;
+    ns1:occupation "Head of Distribution Platforms Change Delivery" ;
+    lk:from "2012-11-01"^^xsd:date ;
+    lk:to "2013-01-21"^^xsd:date .
+
+[] a lk:Position ;
+    ns1:occupation "Practice Manager, Federal and Mid-Atlantic Consulting Services" ;
+    lk:from "2000-02-01"^^xsd:date ;
+    lk:to "2007-02-01"^^xsd:date .
+
+[] a lk:Position ;
+    ns1:occupation "Head of Technical Product Development" .
+
+[] a foaf:Person ;
+    lk:education [ lk:college lk:Dalian_Jiaotong_University ;
+            lk:degree lk:Bachelor ;
+            lk:major lk:Electronics_and_Information_Engineering ],
+        [ lk:college lk:Griffith_College_Dublin ;
+            lk:degree lk:Bachelor ;
+            lk:major lk:Computer_Science ],
+        [ lk:college lk:Portobello_College_Dublin ;
+            lk:degree lk:Higher_Diploma ;
+            lk:major lk:Computer_Science ],
+        [ lk:college <http://scss.tcd.ie/cs/muc/linkedin/Trinity_College,_Dublin> ;
+            lk:degree lk:Master ;
+            lk:major lk:MSc_Network_and_Distributed_System ],
+        [ lk:college <http://scss.tcd.ie/cs/muc/linkedin/Trinity_College,_Dublin> ;
+            lk:degree lk:Master ;
+            lk:major lk:MSc_Network_and_Distributed_System ] ;
+    lk:skill <http://scss.tcd.ie/cs/muc/linkedin/.NET>,
+        lk:AJAX,
+        lk:ASP.NET,
+        lk:Apache,
+        lk:C,
+        <http://scss.tcd.ie/cs/muc/linkedin/C#>,
+        lk:CSS,
+        lk:Chinese,
+        lk:Databases,
+        lk:Eclipse,
+        lk:HTML,
+        lk:Hibernate,
+        lk:J2EE,
+        lk:JSON,
+        lk:JSP,
+        lk:Java,
+        lk:JavaScript,
+        lk:Microsoft_Office,
+        lk:MySQL,
+        lk:NetBeans,
+        lk:OOP,
+        lk:PHP,
+        lk:SQL,
+        lk:SQL_Server,
+        lk:Struts,
+        lk:Subversion,
+        lk:Tomcat,
+        lk:UML,
+        lk:VB.NET,
+        lk:Visual_Studio,
+        lk:WCF,
+        lk:Web_Development,
+        lk:Web_Services,
+        lk:Weblogic,
+        lk:Windows,
+        lk:XHTML,
+        lk:XML,
+        lk:XSLT,
+        lk:Xcode,
+        lk:jQuery ;
+    lk:worksAs _:N2e5685846ddc4380b3b4b38af6fda617,
+        _:N30396ac159934651b6c9db03726587ff,
+        _:Ne2c72eb3900e481498619dedf2ed2f84,
+        _:Nf862b4e65d324ab09712b4f9220b1a75 .
+
+[] a lk:Position ;
+    ns1:occupation "Online Editor" ;
+    lk:from "2005-07-01"^^xsd:date ;
+    lk:to "2006-04-01"^^xsd:date .
+
+[] a lk:Position ;
+    ns1:occupation "Sr. IC Layout Engineer" ;
+    lk:from "2008-11-01"^^xsd:date ;
+    lk:to "2013-01-21"^^xsd:date .
+
+[] a lk:Position ;
+    ns1:occupation "Solicitor / Trainee" .
+
+[] a lk:Position ;
+    ns1:occupation "Multimedia Instructor" ;
+    lk:from "2005-08-01"^^xsd:date ;
+    lk:to "2006-11-01"^^xsd:date .
+
+[] a lk:Position ;
+    ns1:occupation ".Net Developer" ;
+    lk:from "2011-01-01"^^xsd:date ;
+    lk:to "2013-01-21"^^xsd:date .
+
+[] a lk:Position ;
+    ns1:occupation "Internship" ;
+    lk:from "2010-02-01"^^xsd:date ;
+    lk:to "2010-05-01"^^xsd:date .
+
+[] a lk:Position ;
+    ns1:occupation "Founder and CEO" ;
+    lk:from "2007-10-01"^^xsd:date ;
+    lk:to "2013-01-21"^^xsd:date .
+
+[] a foaf:Person ;
+    dbpedia-owl:language lk:Chinese,
+        lk:English ;
+    lk:education [ lk:college <http://scss.tcd.ie/cs/muc/linkedin/Trinity_College,_Dublin> ;
+            lk:degree <http://scss.tcd.ie/cs/muc/linkedin/Master_of_Science_(M.Sc.)> ;
+            lk:major lk:Mobile_and_Ubiquitous_Computing ],
+        [ lk:college <http://scss.tcd.ie/cs/muc/linkedin/School_of_Computing,_Dublin_Institute_of_Technology> ;
+            lk:degree <http://scss.tcd.ie/cs/muc/linkedin/BSc_(Hons)> ;
+            lk:major lk:Computer_Science ],
+        [ lk:college <http://scss.tcd.ie/cs/muc/linkedin/School_of_Software_Engineering,_Harbin_Institute_of_Technology> ;
+            lk:degree <http://scss.tcd.ie/cs/muc/linkedin/Bachelor's_Degree> ;
+            lk:major lk:Software_Engineering ],
+        [ lk:college <http://scss.tcd.ie/cs/muc/linkedin/Trinity_College,_Dublin> ;
+            lk:degree <http://scss.tcd.ie/cs/muc/linkedin/Master_of_Science_(M.Sc.)> ;
+            lk:major lk:Mobile_and_Ubiquitous_Computing ] ;
+    lk:skill lk:ASP.NET,
+        lk:Algorithms,
+        lk:Artificial_Intelligence,
+        <http://scss.tcd.ie/cs/muc/linkedin/C#>,
+        <http://scss.tcd.ie/cs/muc/linkedin/C++>,
+        lk:Game_Development,
+        lk:JSP,
+        lk:Java,
+        lk:Penetration_Testing,
+        lk:Python,
+        lk:Web_Development ;
+    lk:worksAs _:N24b6fc9f4e384411b820ac8bfd35b7b1 .
+
+[] a lk:Position ;
+    ns1:occupation "Design Engineer" .
+
+[] a lk:Position ;
+    ns1:occupation "Head of Strategic Initiatives" ;
+    lk:from "2010-09-01"^^xsd:date ;
+    lk:to "2011-06-01"^^xsd:date .
+
+[] a lk:Position ;
+    ns1:occupation "Assistant Tax Manager" .
+
+[] a lk:Position ;
+    ns1:occupation "Owner, Photographer" ;
+    lk:from "1996-08-01"^^xsd:date ;
+    lk:to "2013-01-21"^^xsd:date .
+
+[] a foaf:Person ;
+    lk:education [ lk:college lk:Crescent_College ],
+        [ lk:college lk:University_of_Limerick ;
+            lk:degree lk:PhD ;
+            lk:major lk:Mechanical_Engineering ],
+        [ lk:college lk:University_of_Limerick ;
+            lk:degree lk:PhD ;
+            lk:major lk:Mechanical_Engineering ],
+        [ lk:college lk:University_of_Limerick ;
+            lk:degree lk:BEng ;
+            lk:major lk:Mechanical_Engineering ] ;
+    lk:worksAs _:N688db7eea98d441094bd35e7d7f685d5,
+        _:N71bcf44ad6df4fbeb08a48d424d33cc0,
+        _:Nc538229b46d24141b023f5627c35823d,
+        _:Ndc14a3e708ec4deb94dbbc3400e8ad26 .
+
+[] a lk:Position ;
+    ns1:occupation "Assistant Editor" ;
+    lk:from "2012-09-01"^^xsd:date ;
+    lk:to "2013-01-21"^^xsd:date .
+
+[] a lk:Position ;
+    ns1:occupation "Software Engineer Intern" ;
+    lk:from "2011-02-01"^^xsd:date ;
+    lk:to "2011-08-01"^^xsd:date .
+
+[] a lk:Position ;
+    ns1:occupation "Consultant" ;
+    lk:from "1996-01-01"^^xsd:date ;
+    lk:to "1998-02-01"^^xsd:date .
+
+[] a lk:Position ;
+    ns1:occupation "Facilities Engineer" ;
+    lk:from "1997-06-01"^^xsd:date ;
+    lk:to "2002-03-01"^^xsd:date .
+
+[] a lk:Position ;
+    ns1:occupation "Head of IT Development" .
+
+[] a lk:Position ;
+    ns1:occupation "Freelancer" ;
+    lk:from "2009-02-01"^^xsd:date ;
+    lk:to "2010-08-01"^^xsd:date .
+
+[] a lk:Position ;
+    ns1:occupation "Feature Writer" ;
+    lk:from "2007-10-01"^^xsd:date ;
+    lk:to "2008-05-01"^^xsd:date .
+
+[] a lk:Position ;
+    ns1:occupation "IT Manager" ;
+    lk:from "2004-05-01"^^xsd:date ;
+    lk:to "2005-04-01"^^xsd:date .
+
+[] a lk:Position ;
+    ns1:occupation "Writer" ;
+    lk:from "2007-02-01"^^xsd:date ;
+    lk:to "2013-01-21"^^xsd:date .
+
+[] a lk:Position ;
+    ns1:occupation "Founder and chairman" ;
+    lk:to "2013-01-21"^^xsd:date .
+
+[] a lk:Position ;
+    ns1:occupation "Technology & business writer" ;
+    lk:from "2008-02-01"^^xsd:date ;
+    lk:to "2009-05-01"^^xsd:date .
+
+[] a lk:Position ;
+    ns1:occupation "Global Chief Operating Officer" ;
+    lk:from "1998-09-01"^^xsd:date ;
+    lk:to "2001-02-01"^^xsd:date .
+
+[] a lk:Position ;
+    ns1:occupation "Java Developer" ;
+    lk:from "2005-01-01"^^xsd:date ;
+    lk:to "2005-07-01"^^xsd:date .
+
+[] a foaf:Person ;
+    dbpedia-owl:language lk:Catalan,
+        lk:French,
+        lk:Spanish ;
+    lk:skill lk:Agile_Software_Development,
+        lk:Business_Analysis,
+        lk:Business_Intelligence,
+        lk:Change_Management,
+        lk:Commercial_Banking,
+        lk:Core_Banking,
+        lk:Enterprise_Integration,
+        lk:Enterprise_Software,
+        lk:ITIL,
+        lk:IT_Management,
+        lk:Information_Technology,
+        lk:Innovation_Management,
+        lk:Internet_Banking,
+        lk:Managed_Services,
+        lk:Offshore_Outsourcing,
+        lk:Outsourcing,
+        lk:Program_Management,
+        lk:Requirements_Analysis,
+        lk:Retail_Banking,
+        lk:Risk_Management,
+        lk:Technological_Innovation ;
+    lk:worksAs _:N043113d8f0c74a42a745aa1b5538003a,
+        _:N26c0d4e1a4534928a51f6fc5f636899e,
+        _:N2b0374288c0d41a09bf1220e7bb1ceb2,
+        _:N47bc0d0c9d754b9790c00bc8f7481781,
+        _:N51e738e771a34db1b629c56c07795042,
+        _:N5b08e6aacdda49ad827aadc1f897522a,
+        _:N6a0ddce74a5b49e8bbfd29cc0125b785,
+        _:Nf894f44a933f4c8c9187130ad6f807a2,
+        _:Nfb274926b047461c93f949bef9dd39af .
+
+[] a lk:Position ;
+    ns1:occupation "Founder & CEO" ;
+    lk:from "2010-11-01"^^xsd:date ;
+    lk:to "2012-07-01"^^xsd:date .
+
+[] a lk:Position ;
+    ns1:occupation "Media Planner / Buyer" ;
+    lk:from "2006-04-01"^^xsd:date ;
+    lk:to "2007-03-01"^^xsd:date .
+
+[] a lk:Position ;
+    ns1:occupation "Project Engineer" ;
+    lk:from "2002-03-01"^^xsd:date ;
+    lk:to "2004-02-01"^^xsd:date .
+
+[] a lk:Position ;
+    ns1:occupation "Intern" ;
+    lk:from "2010-08-01"^^xsd:date ;
+    lk:to "2010-12-01"^^xsd:date .
+
+[] a lk:Position ;
+    ns1:occupation "Director of Operations - EMEA" .
+
+[] a lk:Position ;
+    ns1:occupation "Lead Architect" .
+
+[] a foaf:Person ;
+    lk:education [ lk:college lk:Dublin_Institute_of_Technology ;
+            lk:degree <http://scss.tcd.ie/cs/muc/linkedin/BSC(SURV)> ;
+            lk:major lk:Construction_Economics_and_Management ],
+        [ lk:college lk:Cheshire_College_of_Agriculture ;
+            lk:degree lk:ANCA ;
+            lk:major <http://scss.tcd.ie/cs/muc/linkedin/Dairy_Herd_Management_/_Advanced_Animal_Husbandry> ],
+        [ lk:college <http://scss.tcd.ie/cs/muc/linkedin/Teagasc,_Ballyhaise> ;
+            lk:degree lk:Green_Cert ;
+            lk:major lk:National_Certificate_in_Agriculture ],
+        [ lk:college lk:Dublin_Institute_of_Technology ;
+            lk:degree <http://scss.tcd.ie/cs/muc/linkedin/BSC(SURV)> ;
+            lk:major lk:Construction_Economics_and_Management ] ;
+    lk:skill lk:Civil_Engineering,
+        lk:Construction,
+        lk:MS_Project,
+        lk:P3,
+        lk:Primavera_P6,
+        lk:Quantity_Surveying,
+        lk:Suretrack ;
+    lk:worksAs _:Ncc56a6438daa4a16ab533d23f876e0bd .
+
+[] a lk:Position ;
+    ns1:occupation "Managing Director" ;
+    lk:from "2005-05-01"^^xsd:date ;
+    lk:to "2013-01-21"^^xsd:date .
+
+[] a lk:Position ;
+    ns1:occupation "Project Engineer" ;
+    lk:from "2002-03-01"^^xsd:date ;
+    lk:to "2006-05-01"^^xsd:date .
+
+[] a lk:Position ;
+    ns1:occupation "Chair XLIFF Promotion and Liaison SC" ;
+    lk:from "2011-08-01"^^xsd:date ;
+    lk:to "2013-01-21"^^xsd:date .
+
+

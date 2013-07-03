@@ -3,10 +3,58 @@ import html_parser
 import pickle
 import json
 import urllib2
+import logging
+import sys
+
 
 class Utils:
+
 	@staticmethod
-	def getAllSkills(dir = "./resources/skill/"):
+	def setupLogger():
+		logger = logging.getLogger('linkedin')
+
+		logger.propagate = False
+		handler = logging.StreamHandler(sys.stdout)
+		formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
+		handler.setFormatter(formatter)
+		logger.addHandler(handler)
+		logger.setLevel(logging.DEBUG)
+		Utils.logger = logger
+		return logger
+
+	@staticmethod
+	def getLogger():
+		try:
+			return Utils.logger
+		except AttributeError:
+			return Utils.setupLogger()
+
+	@staticmethod
+	def persistentPublicProfiles(profiles):
+		pass
+		# public_profile_file = open('./result/public_profile.pickle', 'ab')
+		# if type(profiles) is list:
+		# 	Utils.getLogger().debug('dump to public_profile.pickle %s - %s', profiles[0].file_name, profiles[-1].file_name)
+		# else:
+		# 	Utils.getLogger().debug('dump to public_profile.pickle %s', profiles.file_name)
+		# pickle.dump(profiles, public_profile_file)
+		# public_profile_file.close()
+
+	@staticmethod
+	def persistentCompanyProfiles(profiles):
+		pass
+		# company_profile_file = open('./result/company_profile.pickle', 'ab')
+		#
+		# if type(profiles) is list:
+		# 	Utils.getLogger().debug('dump to company_profile.pickle %s - %s', profiles[0].file_name, profiles[-1].file_name)
+		# else:
+		# 	Utils.getLogger().debug('dump to company_profile.pickle %s', profiles.file_name)
+		#
+		# pickle.dump(profiles, company_profile_file)
+		# company_profile_file.close()
+
+	@staticmethod
+	def persistentSkills(dir="./resources/skill/"):
 		skills = []
 		for f in os.listdir(dir):
 			fpath = os.path.join(dir, f)
@@ -28,8 +76,8 @@ class Utils:
 			for j in range(1, len1 + 1):
 				add, delete = previous[j] + 1, current[j - 1]+1
 				change = previous[j-1]
-				if string1[j - 1] !=string2[i - 1]:
-					change = change+1
+				if string1[j - 1] != string2[i - 1]:
+					change += 1
 				current[j] = min(add, delete, change)
 		return current[len1]
 
@@ -38,9 +86,10 @@ class Utils:
 	def getLatLngCityByName(company_name):
 		_request_url = 'http://maps.googleapis.com/maps/api/geocode/json?address=%s&sensor=false&components=country:IE'
 		address = urllib2.quote(company_name)
-		url = _request_url %address
+		url = _request_url % address
 
 		data = json.load(urllib2.urlopen(url))
+
 
 if __name__ == '__main__':
 	print Utils.levenshteinDistance('abc', 'abd')

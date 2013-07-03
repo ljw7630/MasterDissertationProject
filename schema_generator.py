@@ -1,5 +1,6 @@
 from rdflib import Graph, URIRef
 from rdflib.namespace import Namespace, NamespaceManager, FOAF, SKOS, XSD, RDF, RDFS, OWL
+from html_parser import IndustryParser
 
 
 class SchemaGenerator:
@@ -12,22 +13,24 @@ class SchemaGenerator:
 			self._namespace_lk = Namespace(self._base_uri)
 		else:
 			self._namespace_lk = Namespace(uri)
-		self._namespace_time = Namespace(self._owl_time_uri)
+
+		# self._namespace_time = Namespace(self._owl_time_uri)
 
 		self.graph = Graph()
 		namespace_manager = NamespaceManager(self.graph)
 		namespace_manager.bind('lk', self._namespace_lk, override=False)
 
-		namespace_manager.bind('owl-time', self._owl_time_uri, override=False)
+		# namespace_manager.bind('owl-time', self._owl_time_uri, override=False)
+		namespace_manager.bind('dbpedia-owl', Namespace('http://dbpedia.org/ontology/'), override=False)
+		namespace_manager.bind('aiiso', Namespace('http://purl.org/vocab/aiiso/schema#'), override=False)
 
 		self.graph.namespace_manager = namespace_manager
 		self.graph.bind('foaf', FOAF)
 		self.graph.bind('skos', SKOS)
 
-	def generate(self):
-		self.Concept = SKOS.Concept
-
+	def generate_class_definition(self):
 		# classes
+		self.Concept = SKOS.Concept
 		self.Person = FOAF.Person
 		self.Organization = FOAF.Organization
 		self.Position = self._namespace_lk.Position
@@ -37,12 +40,23 @@ class SchemaGenerator:
 		self.Language = URIRef('http://dbpedia.org/ontology/Language')
 		self.City = URIRef('http://dbpedia.org/ontology/City')
 		self.Education = self._namespace_lk.Education
-		self.Degree = self._namespace_lk.Degree
 		self.Course = URIRef('http://purl.org/vocab/aiiso/schema#Course')
 		self.College = URIRef('http://purl.org/vocab/aiiso/schema#College')
 		self.School = URIRef('http://purl.org/vocab/aiiso/schema#School')
-		self.Interval = self._namespace_time.Interval
+		self.Degree = self._namespace_lk.Degree
+		# define class
+		self.graph.add((self.Position, RDF.type, OWL.Class))
+		self.graph.add((self.Speciality, RDF.type, OWL.Class))
+		self.graph.add((self.Skill, RDF.type, OWL.Class))
+		self.graph.add((self.Industry, RDF.type, OWL.Class))
+		self.graph.add((self.Education, RDF.type, OWL.Class))
 
+		# define class relationship
+		# self.graph.add((self.Skill, RDF.type, self.Concept))
+		# self.graph.add((self.Speciality, RDF.type, self.Concept))
+		# self.graph.add((self.Industry, RDF.type, self.Concept))
+
+	def generate_property_definition(self):
 		# properties
 		self.id = self._namespace_lk.id
 		self.skill = self._namespace_lk.skill
@@ -58,27 +72,13 @@ class SchemaGenerator:
 		self.organization_type = self._namespace_lk.organizationType
 		self.speciality = self._namespace_lk.speciality
 		self.education = self._namespace_lk.education
+		self.major = self._namespace_lk.major
 		self.degree = self._namespace_lk.degree
 		self.level = self._namespace_lk.level
 		self.college = self._namespace_lk.college
 		self.school = self._namespace_lk.school
 		self.to_time = self._namespace_lk['to']
-		self.from_time = self._namespace_lk['from']
-
-		# define class
-		self.graph.add((self.Position, RDF.type, OWL.Class))
-		self.graph.add((self.Speciality, RDF.type, OWL.Class))
-		self.graph.add((self.Skill, RDF.type, OWL.Class))
-		self.graph.add((self.Industry, RDF.type, OWL.Class))
-		self.graph.add((self.Education, RDF.type, OWL.Class))
-		self.graph.add((self.Degree, RDF.type, OWL.Class))
-
-		# define class relationship
-		self.graph.add((self.Degree, RDF.type, self.Course))
-		self.graph.add((self.Degree, RDF.type, self.Concept))
-		self.graph.add((self.Skill, RDF.type, self.Concept))
-		self.graph.add((self.Speciality, RDF.type, self.Concept))
-		self.graph.add((self.Industry, RDF.type, self.Concept))
+		self.from_value = self._namespace_lk['from']
 
 		# define property
 		self.graph.add((self.id, RDF.type,  OWL.DatatypeProperty))
@@ -89,10 +89,11 @@ class SchemaGenerator:
 		self.graph.add((self.college, RDF.type, OWL.ObjectProperty))
 		self.graph.add((self.school, RDF.type, OWL.ObjectProperty))
 		self.graph.add((self.to_time, RDF.type, OWL.DatatypeProperty))
-		self.graph.add((self.from_time, RDF.type, OWL.DatatypeProperty))
+		self.graph.add((self.from_value, RDF.type, OWL.DatatypeProperty))
 		self.graph.add((self.has_position, RDF.type, OWL.ObjectProperty))
 		self.graph.add((self.organization_type, RDF.type, OWL.DatatypeProperty))
 		self.graph.add((self.speciality, RDF.type, OWL.ObjectProperty))
+		self.graph.add((self.major, RDF.type, OWL.ObjectProperty))
 
 		# define property domain and range
 		self.graph.add((self.id, RDFS.domain, self.Person))
@@ -101,9 +102,11 @@ class SchemaGenerator:
 		self.graph.add((self.skill, RDFS.range, self.Skill))
 		self.graph.add((self.education, RDFS.domain, self.Person))
 		self.graph.add((self.education, RDFS.range, self.Education))
+		self.graph.add((self.major, RDFS.domain, self.Education))
+		self.graph.add((self.major, RDFS.range, self.Course))
 		self.graph.add((self.degree, RDFS.domain, self.Education))
 		self.graph.add((self.degree, RDFS.range, self.Degree))
-		self.graph.add((self.level, RDFS.domain, self.Degree))
+		self.graph.add((self.level, RDFS.domain, self.Course))
 		self.graph.add((self.level, RDFS.range, XSD.integer))
 		self.graph.add((self.college, RDFS.domain, self.Education))
 		self.graph.add((self.college, RDFS.range, self.College))
@@ -117,13 +120,35 @@ class SchemaGenerator:
 		self.graph.add((self.has_position, RDFS.range, self.Position))
 		self.graph.add((self.organization_type, RDFS.domain, self.Organization))
 		self.graph.add((self.organization_type, RDFS.range, XSD.string))
+		# self.graph.add((self.from_value, RDFS.range, XSD.date))
+		# self.graph.add((self.to_time, RDFS.range, XSD.date))
 
-		self.graph.add((self.from_time, RDFS.range, self.Interval))
-		self.graph.add((self.to_time, RDFS.range, self.Interval))
+	def get_term(self, term):
+		return self._namespace_lk[term.replace(' ', '_')]
 
-		self.graph.close()
+	def generate_instance(self):
+		pass
 
-	def saveAtFile(self, format='turtle', file_name='result/ontology.owl'):
+	def generate_instance_industry(self):
+		industries = IndustryParser().getIndustries()
+
+		for industry in industries:
+			self.graph.add((self.get_term(industry), RDF.type, self.Industry))
+
+	def generate_instance_degree(self):
+		pass
+
+	def generate(self):
+
+		self.generate_class_definition()
+
+		self.generate_property_definition()
+
+		self.generate_instance_industry()
+
+		return self.graph
+
+	def save(self, format='turtle', file_name='result/ontology.owl'):
 		f = open(file_name, 'w')
 		print >> f, self.graph.serialize(format=format)
 		f.close()
@@ -132,4 +157,4 @@ class SchemaGenerator:
 if __name__ == "__main__":
 	sg = SchemaGenerator()
 	sg.generate()
-	sg.saveAtFile(format='xml')
+	sg.save(format='xml')

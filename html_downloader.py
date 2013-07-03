@@ -6,38 +6,56 @@ import html_parser
 
 class HTMLDownloader:
 	# Download the html and store to a location specified by file_name
-	def download(self, url, file_name):
+	@staticmethod
+	def download(url, file_name):
 		wp = urllib.urlopen(url)
 
 		wp_stream = wp.read()
 
 		wp_file = open(file_name, 'w')
 
-		wp_file.write(wp_stream);
+		wp_file.write(wp_stream)
 
 		wp.close()
 		wp_file.close()
+
+
+class CompanyProfileDownloader:
+	_default_folder = 'company_raw/'
+	_default_postfix = '.htm'
+
+	@staticmethod
+	def downloadByUrl(url, file_name):
+		full_path = CompanyProfileDownloader._default_folder + file_name + CompanyProfileDownloader._default_postfix
+
+		HTMLDownloader.download(url, full_path)
+
+		return full_path
+
+	def downloadByDiscovery(self):
+		pass
 
 
 class PublicProfileDownloader:
 	_linkedin_ireland_url = 'http://ie.linkedin.com/in/'
 
 	# Just like in Google, type: "keyword site:http://ie.linkedin.com/in/"
-	# and download the cotent from return ulrs
+	# and download the content from return ulrs
 	def googleSearch(self, keywords, site=_linkedin_ireland_url, num=20):
 		urls = []
 		urls[:] = search(keywords + ' ' + 'site:' + site, stop=num)
 
-		urls[:] = (str(value) for value in urls if str(value).startswith(_linkedin_ireland_url) == True)
+		urls[:] = (str(value) for value in urls if str(value).startswith(self._linkedin_ireland_url) == True)
 		return urls
 
 	# Search and Download
-	def download(self, keywords, site=_linkedin_ireland_url, num=20, path='./user_raw/', postfix='.htm'):
+	def download(self, keywords, path='./user_raw/', postfix='.htm'):
 		urls = self.googleSearch(keywords)
-		html_downloader = HTMLDownloader()
+
 		for url in urls:
 			file_name = url.rsplit('/', 1)[1]
-			html_downloader.download(url, path + file_name + postfix)
+			HTMLDownloader.download(url, path + file_name + postfix)
+
 
 # Download skills from research gate
 class SkillDownloader:
