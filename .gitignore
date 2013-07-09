@@ -37,3 +37,9 @@ nosetests.xml
 .mr.developer.cfg
 .project
 .pydevproject
+
+*.htm
+*.less
+
+node_modules/
+website/js/
