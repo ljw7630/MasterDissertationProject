@@ -1,5 +1,5 @@
 import sys
-sys.path.insert(0, '/Users/jinwu/GitHub/MasterDissertationProject')
+sys.path.insert(0, '/home/ubuntu/MasterDissertationProject')
 from html_parser import PublicProfileParser
 import re
 import os
@@ -51,7 +51,7 @@ class ProfileCleaner:
 
 	def saveToFile(self):
 
-		f = open('/Users/jinwu/GitHub/MasterDissertationProject/website/survey/tmp/' + self.file_name, 'w')
+		f = open('../tmp/' + self.file_name, 'w')
 		f.write(str(self.parser.soup))
 		f.close()
 		return os.path.basename(f.name)

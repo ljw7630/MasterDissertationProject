@@ -14,7 +14,7 @@ def print_users(request):
 
 def print_form(request):
 
-	cleaner = PC('/Users/jinwu/GitHub/MasterDissertationProject/user_raw/lijinwu.htm')
+	cleaner = PC('/home/ubuntu/MasterDissertationProject/user_raw/lijinwu.htm')
 	path = cleaner.saveToFile()
 	form = TripleForm()
 

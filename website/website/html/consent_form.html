@@ -1,10 +1,9 @@
 <!DOCTYPE html>
-{% load compressed %}
+{% load staticfiles %}
 <html>
 <head>
     <title></title>
-    {% compressed_css 'bootstrap' %}
-    {% compressed_js 'bootstrap' %}
+
 </head>
 <body>
 
@@ -12,7 +11,7 @@
     <div>
         <h3>Consent Form:</h3>
     </div>
-    <form action="/form_handler/">
+    <form action="/print_form/">
         <div>
             <p>
             I understand that my participation in this experiment will involve interacting with a web application and will involve
