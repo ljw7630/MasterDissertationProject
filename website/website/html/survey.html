@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+{% load compressed %}
+<html>
+<head>
+	<title></title>
+	{% compressed_css 'bootstrap' %}
+	{% compressed_js 'bootstrap' %}
+</head>
+<body>
+<div class="container-fluid">
+	<div class="main_container">
+		<div class="row">
+			<div class="span8">
+				{% include path %}
+			</div>
+			<div class="span4">
+				<form action="../finish">
+					{{ survey_form }}
+
+					{{ survey_form }}
+
+					{{ survey_form }}
+
+					{{ survey_form }}
+					</br>
+					<input type="submit" name="submit">
+				</form>
+			</div>
+		</div>
+	</div>
+</div>
+</body>
+</html>

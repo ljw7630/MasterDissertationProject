@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+{% load compressed %}
+<html>
+<head>
+    <title></title>
+    {% compressed_css 'bootstrap' %}
+    {% compressed_js 'bootstrap' %}
+</head>
+<body>
+
+<div class="container">
+    <div>
+        <h3>Consent Form:</h3>
+    </div>
+    <form action="/form_handler/">
+        <div>
+            <p>
+            I understand that my participation in this experiment will involve interacting with a web application and will involve
+            data generation from LinkedIn.com public personal and company profiles. Within this experiment I may spend as much or as
+            little time extracting data as I wish. I understand I will not be identifiable from the data collected; users are
+            identified using unique IDs.
+            </p>
+
+            <p>
+            I understand that participation in this experiment is entirely voluntary.
+            </p>
+
+            <p>
+            I understand I am free to withdraw without penalty and without providing a reason and have the data collected to that
+            time destroyed, or to discuss my concerns with the experimenter.
+            </p>
+
+	        <p>
+            I understand that if I or anyone in my family has a history of epilepsy then I am proceeding at my own risk.
+	        </p>
+
+	        <p>
+            I understand that the information provided by me will be treated anonymously so that it is impossible to trace this
+            information back to me individually. The data obtained in this study will be used for research purposes only. In
+            accordance with the Data Protection Act, this information may be retained indefinitely.
+	        </p>
+
+	        <p>
+            I understand that the timing of experiment, time used interacting with the system will be recorded anonymously
+            throughout the experiment. These usage statistics will be made anonymous and it will be impossible to trace the material
+            back to me.
+	        </p>
+
+	        <p>
+            I understand that in the extremely unlikely event that I discuss any illicit activities, we will be obliged to pass that
+            information on to appropriate authorities.
+	        </p>
+
+	        <p>
+            I understand that I need to be over 18 years old and competent to supply consent to participate in this study.
+	        </p>
+
+	        <p>
+            I, <input type="text" name="name"/> (Name), consent to participate in this study conducted by Jinwu Li (MSc student in School
+            of Computer Science and Statistics, Trinity College Dublin; lij7@tcd.ie).
+	        </p>
+
+	        <p>
+            Signed:
+	        </p>
+
+	        <p>
+            Date:
+	        </p>
+
+	        <p>
+            Jinwu Li
+	        </p>
+
+	        <p>
+            Email: lij7@tcd.ie
+	        </p>
+
+	        <p>
+            Phone: +353-(0)-87-1687844
+	        </p>
+        </div>
+		</br>
+        <input type="submit" value="agree" name='btn'/>
+        <input type="submit" value="disagree" name='btn'/>
+    </form>
+</body>
+</html>

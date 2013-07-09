@@ -30,7 +30,7 @@ def main():
 	for profile in profiles:
 		rg.add(profile)
 
-	rg.save(format='turtle')
+	rg.save(format='xml')
 
 
 if __name__ == '__main__':

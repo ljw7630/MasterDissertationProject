@@ -4,6 +4,7 @@ from collections import defaultdict
 from utils import Utils
 from model import PersonalProfile, CompanyProfile
 
+
 class DegreeAbbreviationParser:
 	_file_name = './resources/British degree abbreviations - Wikipedia, the free encyclopedia.html'
 
