@@ -1,12 +1,6 @@
-<!DOCTYPE html>
-{% load staticfiles %}
-<html>
-<head>
-    <title></title>
+{% extends "base.html" %}
 
-</head>
-<body>
-
+{% block content %}
 <div class="container">
     <div>
         <h3>Consent Form:</h3>
@@ -83,5 +77,4 @@
         <input type="submit" value="agree" name='btn'/>
         <input type="submit" value="disagree" name='btn'/>
     </form>
-</body>
-</html>
+{% endblock %}

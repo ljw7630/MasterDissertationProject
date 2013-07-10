@@ -1,8 +1,8 @@
 import sys
-sys.path.insert(0, '/Users/jinwu/GitHub/MasterDissertationProject')
+import os
+#sys.path.insert(0, os.path.realpath('../../..'))
 from html_parser import PublicProfileParser
 import re
-import os
 
 
 class ProfileCleaner:
@@ -12,10 +12,12 @@ class ProfileCleaner:
 		given_name = self.parser.getGivenName()
 		family_name = self.parser.getFamilyName()
 		self.removeName(given_name, family_name)
+		self.removeScripts()
 		self.removeImage()
 		self.removeExtra()
 		self.removeGroups()
 		self.removeHeader()
+		self.removeFooter()
 
 	def removeName(self, given_name, family_name):
 		for item in self.parser.soup.find_all(text=re.compile(given_name+"\s*")):
@@ -25,6 +27,10 @@ class ProfileCleaner:
 		for item in self.parser.soup.find_all(text=re.compile("[a-zA-Z0-9]*"+family_name+"*")):
 			to_be_replace = item.replace('Li', 'unknown')
 			item.replace_with(to_be_replace)
+
+	def removeScripts(self):
+		for item in self.parser.soup.find_all('script'):
+			item.extract()
 
 	def removeSummary(self):
 		tag = self.parser.soup.find('div', id='profile-summary')
@@ -49,9 +55,13 @@ class ProfileCleaner:
 		tag = self.parser.soup.find('div', id='header')
 		tag.extract()
 
+	def removeFooter(self):
+		tag = self.parser.soup.find('div', id='footer')
+		tag.extract()
+
 	def saveToFile(self):
 
-		f = open('/Users/jinwu/GitHub/MasterDissertationProject/website/survey/tmp/' + self.file_name, 'w')
+		f = open(os.path.realpath('survey/tmp/') + '/' + self.file_name, 'w')
 		f.write(str(self.parser.soup))
 		f.close()
 		return os.path.basename(f.name)

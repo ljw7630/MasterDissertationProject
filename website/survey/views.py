@@ -4,6 +4,7 @@ from django.shortcuts import render
 from forms import TripleForm
 from helper.profile_cleaner import ProfileCleaner as PC
 from django.template.loader import get_template
+import os
 
 
 def print_users(request):
@@ -14,7 +15,7 @@ def print_users(request):
 
 def print_form(request):
 
-	cleaner = PC('/Users/jinwu/GitHub/MasterDissertationProject/user_raw/lijinwu.htm')
+	cleaner = PC(os.path.realpath('../user_raw/lijinwu.htm'))
 	path = cleaner.saveToFile()
 	form = TripleForm()
 
