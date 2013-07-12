@@ -1,6 +1,6 @@
 from rdflib import Graph, URIRef
 from rdflib.namespace import Namespace, NamespaceManager, FOAF, SKOS, XSD, RDF, RDFS, OWL
-from html_parser import IndustryParser
+from html_parser import IndustryParser, DisciplineParser
 
 
 class SchemaGenerator:
@@ -123,8 +123,21 @@ class SchemaGenerator:
 		# self.graph.add((self.from_value, RDFS.range, XSD.date))
 		# self.graph.add((self.to_time, RDFS.range, XSD.date))
 
-	def get_term(self, term):
-		return self._namespace_lk[term.replace(' ', '_')]
+	def generate_discipline_hierarchy(self):
+		disciplines = DisciplineParser().getDisciplinesHierarchy()
+
+		self.generate_discipline_hierarchy_helper(disciplines.keys(), disciplines)
+
+	def generate_discipline_hierarchy_helper(self, super_classes, dictionary):
+		if super_classes == {}:
+			return
+		for super_class in super_classes:
+			self.graph.add((self.get_term(super_class), RDF.type, OWL.Class))
+			for sub_class in dictionary[super_class].keys():
+
+				self.graph.add((self.get_term(sub_class), RDFS.subClassOf, self.get_term(sub_class)))
+				self.generate_discipline_hierarchy_helper(dictionary[super_class][sub_class].keys(),
+					dictionary[super_class][sub_class])
 
 	def generate_instance(self):
 		pass
@@ -146,7 +159,12 @@ class SchemaGenerator:
 
 		self.generate_instance_industry()
 
+		self.generate_discipline_hierarchy()
+
 		return self.graph
+
+	def get_term(self, term):
+		return self._namespace_lk[term.replace(' ', '_')]
 
 	def save(self, format='turtle', file_name='result/ontology.owl'):
 		f = open(file_name, 'w')

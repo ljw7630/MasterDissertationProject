@@ -5,6 +5,24 @@ from utils import Utils
 from model import PersonalProfile, CompanyProfile
 
 
+class IrishNameParser:
+	_file_names = ['./resources/Irish_Boys_Names.htm', './resources/Irish_Girls_Names.htm']
+
+	def __init__(self):
+		self.names = []
+
+		for file_name in self._file_names:
+			self.getNames(file_name)
+
+	def getNames(self, file_name):
+		soup = bs4.BeautifulSoup(open(file_name))
+		tr_names = soup.find('tbody').findAll('tr')[3:]
+
+		for tr_name in tr_names:
+			name = tr_name.findAll('td')[1].font.string
+			self.names.append(name)
+
+
 class DegreeAbbreviationParser:
 	_file_name = './resources/British degree abbreviations - Wikipedia, the free encyclopedia.html'
 
@@ -88,13 +106,13 @@ class DisciplineParser:
 			disciplines[h2.span.string] = {}
 			h3 = h2.findNext('h3')
 			while h3.findPrevious('h2') == h2:
-				disciplines[h2.span.string][h3.span.string] = {}
+				disciplines[h2.span.string][h3.span['id']] = {}
 				table = h3.findNext('table')
 				tds = table.findAll('td')
 				for td in tds:
 					ul = td.find('ul')
 					tmp_dicts = self.getUlDict(ul)
-					disciplines[h2.span.string][h3.span.string].update(tmp_dicts)
+					disciplines[h2.span.string][h3.span['id']].update(tmp_dicts)
 				h3 = h3.findNext('h3')
 		return disciplines
 
@@ -102,10 +120,15 @@ class DisciplineParser:
 		dicts = defaultdict(dict)
 		li = ul.find('li')
 		while True:
-			if li.a:
-				dicts[li.a.string] = {}
-			else:
-				dicts[li.string] = {}
+			try:
+				if li.next_element.name == 'a':
+					dicts[li.a.string] = {}
+			except AttributeError:
+					dicts[li.next_element] = {}
+			# if li.a:
+			# 	dicts[li.a.string] = {}
+			# else:
+			# 	dicts[li.string] = {}
 			if li.find('ul') is not None:
 				dicts[li.a.string] = self.getUlDict(li.ul)
 			if li.findNextSibling('li') is None:
@@ -308,15 +331,18 @@ class PublicProfileParser:
 		extra_profile_list = []
 		for profile in profiles:
 			url = profile.strong.a['href']
-
+			url = url[:url.find('?')]
+			url = '/'.join(url.split('/')[:5])
 			if str(url).startswith(self._linkedin_ireland_url_prefix):
-				name = profile.strong.a.string.strip()
 
-				if profile.span.string is not None:
-					headline_title = profile.span.string.strip()
-					extra_profile_list.append({'url': url, 'name': name, 'headline_title': headline_title})
-				else:
-					extra_profile_list.append({'url': url, 'name': name})
+				extra_profile_list.append(url)
+				# name = profile.strong.a.string.strip()
+				#
+				# if profile.span.string is not None:
+				# 	headline_title = profile.span.string.strip()
+				# 	extra_profile_list.append({'url': url, 'name': name, 'headline_title': headline_title})
+				# else:
+				# 	extra_profile_list.append({'url': url, 'name': name})
 
 		return extra_profile_list
 

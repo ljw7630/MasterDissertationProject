@@ -1,7 +1,11 @@
 import urllib
 from google import search
 import string
-import html_parser
+from html_parser import PublicProfileParser, SkillParser, IrishNameParser
+from profile_cleaner import ProfileCleaner
+from db_helper import DBHelper
+import sqlite3
+import sys, os
 
 
 class HTMLDownloader:
@@ -49,12 +53,26 @@ class PublicProfileDownloader:
 		return urls
 
 	# Search and Download
-	def download(self, keywords, path='./user_raw/', postfix='.htm'):
-		urls = self.googleSearch(keywords)
+	def download(self, keyword, path='./user_raw/', postfix='.htm'):
+		urls = self.googleSearch(keyword)
 
 		for url in urls:
 			file_name = url.rsplit('/', 1)[1]
-			HTMLDownloader.download(url, path + file_name + postfix)
+			if not DBHelper.dataInDB(file_name + postfix):
+				try:
+					HTMLDownloader.download(url, path + file_name + postfix)
+					parser = PublicProfileParser(path + file_name + postfix)
+					links = parser.getExtraProfiles()
+					for link in links:
+						name = link.rsplit('/', 1)[1]
+						DBHelper().dataAddEntry(name + postfix, link, False)
+					cleaner = ProfileCleaner(path+file_name+postfix)
+					cleaner.saveToFile(path+file_name+postfix)
+					DBHelper().dataAddEntry(file_name + postfix, url, True)
+				except sqlite3.IntegrityError:
+					pass
+				except AttributeError:
+					os.remove(path + file_name + postfix)
 
 
 # Download skills from research gate
@@ -68,7 +86,7 @@ class SkillDownloader:
 			url = site + c + '/'
 			path = store_path + 'skill/' + c + postfix
 			html_downloader.download(url, path)
-			parser = html_parser.SkillParser(path)
+			parser = SkillParser(path)
 			pages = parser.getNumberOfPages()
 			for i in range(2, pages + 1):
 				url = site + c + '/?page=' + str(i)
@@ -76,14 +94,22 @@ class SkillDownloader:
 				html_downloader.download(url, path)
 
 
-# def main(argv):
-# 	profile_downloader = PublicProfileDownloader()
-# 	for i in range(1, len(argv)):
-# 		profile_downloader.download(argv[i], num = 3)
+def main(argv):
+	params = argv
+	if len(params) == 1:
+		params = IrishNameParser().names
+	else:
+		params = argv[1:]
 
-# if __name__ == "__main__":
-# 	main(sys.argv)
+	profile_downloader = PublicProfileDownloader()
+	for param in params:
+		profile_downloader.download(param)
+
+	DBHelper.commitAndClose()
 
 if __name__ == "__main__":
-	skd = SkillDownloader()
-	skd.download() 
+	main(sys.argv)
+
+# if __name__ == "__main__":
+# 	skd = SkillDownloader()
+# 	skd.download()
