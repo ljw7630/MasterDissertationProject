@@ -1,10 +1,11 @@
 # Create your views here.
-from models import User, Answer, Triple
-from django.shortcuts import render
-from forms import TripleForm
-from helper.profile_cleaner import ProfileCleaner as PC
-from django.template.loader import get_template
 import os
+
+from django.shortcuts import render
+
+from models import User
+from forms import TripleForm
+from profile_cleaner import ProfileCleaner as PC
 
 
 def print_users(request):

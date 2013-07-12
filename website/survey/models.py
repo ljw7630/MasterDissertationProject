@@ -26,3 +26,13 @@ class Triple(models.Model):
 
 	def __unicode__(self):
 		return 'answer: ' + str(self.answer.id) + ', triple: ' + str(self.id)
+
+
+class Data(models.Model):
+	file_name = models.CharField(max_length=100, unique=True)
+	user_group = models.IntegerField(null=True, blank=True)
+	file_exists = models.BooleanField(default=False)
+	file_url = models.CharField(max_length=150)
+
+	def __unicode__(self):
+		return "data: " + self.file_name
