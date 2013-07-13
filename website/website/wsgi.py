@@ -23,11 +23,12 @@ sys.path.append(os.path.realpath('.'))
 sys.path.append(os.path.realpath('./html'))
 sys.path.append(os.path.realpath('../survey/tmp'))
 
+
 DJANGO_ROOT = os.path.dirname(os.path.realpath(django.__file__))
 SITE_ROOT = os.path.dirname(os.path.realpath(__file__))
 
-print "django_root", DJANGO_ROOT
-print "site_root", SITE_ROOT
+print >> sys.stderr, "django_root", DJANGO_ROOT
+print >> sys.stderr, "site_root", SITE_ROOT
 
 # We defer to a DJANGO_SETTINGS_MODULE already in the environment. This breaks
 # if running multiple sites in the same mod_wsgi process. To fix this, use
