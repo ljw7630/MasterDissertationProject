@@ -14,17 +14,15 @@ framework.
 
 """
 import os
+from os.path import dirname
 import sys
 import django
 
 sys.path.append('/usr/local/django')
-sys.path.insert(0, os.path.abspath(os.path.join(os.path.realpath(__file__), os.path.pardir)))
+sys.path.insert(0, dirname(dirname(os.path.realpath(__file__))))
 
 DJANGO_ROOT = os.path.dirname(os.path.realpath(django.__file__))
 SITE_ROOT = os.path.dirname(os.path.realpath(__file__))
-
-print >> sys.stderr, "django_root", DJANGO_ROOT
-print >> sys.stderr, "site_root", SITE_ROOT
 
 # We defer to a DJANGO_SETTINGS_MODULE already in the environment. This breaks
 # if running multiple sites in the same mod_wsgi process. To fix this, use

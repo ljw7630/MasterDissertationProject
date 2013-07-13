@@ -3,7 +3,7 @@
 import os
 from os.path import dirname
 
-TMPLATE_PATH = dirname(dirname(os.path.realpath(__file__)))
+TMPLATE_PATH = dirname(dirname(dirname(os.path.realpath(__file__))))
 APP_PATH = os.path.realpath(__file__)
 
 DEBUG = True
