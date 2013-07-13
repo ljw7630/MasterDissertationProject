@@ -18,11 +18,7 @@ import sys
 import django
 
 sys.path.append('/usr/local/django')
-sys.path.append(os.path.realpath('..'))
-sys.path.append(os.path.realpath('.'))
-sys.path.append(os.path.realpath('./html'))
-sys.path.append(os.path.realpath('../survey/tmp'))
-
+sys.path.insert(0, os.path.abspath(os.path.join(os.path.realpath(__file__), os.path.pardir)))
 
 DJANGO_ROOT = os.path.dirname(os.path.realpath(django.__file__))
 SITE_ROOT = os.path.dirname(os.path.realpath(__file__))
