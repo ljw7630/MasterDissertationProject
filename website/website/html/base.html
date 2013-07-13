@@ -1,13 +1,11 @@
 <!DOCTYPE html>
-{% load compressed %}
+{% load staticfiles %}
 <html>
 <head>
 	<title></title>
 
-	{% compressed_css 'bootstrap' %}
-	{% compressed_js 'bootstrap' %}
-	<!--<link rel="stylesheet" href="less/bootstrap.css" />-->
-	<!--<script type="text/javascript" src="js/bootstrap-transition.js"></script>-->
+	<link rel="stylesheet" href="{% static 'less/bootstrap.css' %}" />
+	<script type="text/javascript" src="{% static 'js/bootstrap-transition.js' %}"></script>
 </head>
 <body>
 	{% block content %}
