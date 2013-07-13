@@ -16,11 +16,11 @@ framework.
 import os
 import sys
 
-# sys.path.append('/usr/local/django')
-# sys.path.append(os.path.realpath('..'))
-# sys.path.append(os.path.realpath('.'))
-# sys.path.append(os.path.realpath('./html'))
-# sys.path.append(os.path.realpath('../survey/tmp'))
+sys.path.append('/usr/local/django')
+sys.path.append(os.path.realpath('..'))
+sys.path.append(os.path.realpath('.'))
+sys.path.append(os.path.realpath('./html'))
+sys.path.append(os.path.realpath('../survey/tmp'))
 
 # We defer to a DJANGO_SETTINGS_MODULE already in the environment. This breaks
 # if running multiple sites in the same mod_wsgi process. To fix this, use

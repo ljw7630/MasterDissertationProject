@@ -1,11 +1,9 @@
 # Create your views here.
-import os
 
 from django.shortcuts import render
 
 from models import User
 from forms import TripleForm
-import sys
 
 
 def print_users(request):
