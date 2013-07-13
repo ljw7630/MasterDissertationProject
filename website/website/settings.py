@@ -1,10 +1,11 @@
 # Django settings for website project.
 
-import os,sys
+import os
+import sys
 from os.path import dirname
 
 TEMPLATE_PATH = dirname(dirname(dirname(os.path.realpath(__file__))))
-APP_PATH = os.path.realpath(__file__)
+APP_PATH = dirname(os.path.realpath(__file__))
 
 print >> sys.stderr, TEMPLATE_PATH
 print >> sys.stderr, APP_PATH
@@ -119,8 +120,8 @@ ROOT_URLCONF = 'website.urls'
 WSGI_APPLICATION = 'website.wsgi.application'
 
 TEMPLATE_DIRS = (
-	TMPLATE_PATH + '/user_raw',
-
+	TEMPLATE_PATH + '/user_raw',
+	APP_PATH + '/html',
 	# Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
 	# Always use forward slashes, even on Windows.
 	# Don't forget to use absolute paths, not relative paths.
