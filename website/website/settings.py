@@ -1,10 +1,13 @@
 # Django settings for website project.
 
-import os
+import os,sys
 from os.path import dirname
 
-TMPLATE_PATH = dirname(dirname(dirname(os.path.realpath(__file__))))
+TEMPLATE_PATH = dirname(dirname(dirname(os.path.realpath(__file__))))
 APP_PATH = os.path.realpath(__file__)
+
+print >> sys.stderr, TEMPLATE_PATH
+print >> sys.stderr, APP_PATH
 
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
