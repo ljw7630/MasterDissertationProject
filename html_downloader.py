@@ -5,7 +5,7 @@ from html_parser import PublicProfileParser, SkillParser, IrishNameParser
 from profile_cleaner import ProfileCleaner
 from db_helper import DBHelper
 import sqlite3
-import sys, os
+import sys,os
 
 
 class HTMLDownloader:

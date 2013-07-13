@@ -109,6 +109,7 @@ ROOT_URLCONF = 'website.urls'
 WSGI_APPLICATION = 'website.wsgi.application'
 
 TEMPLATE_DIRS = (
+	'../user_raw',
 	'survey/tmp',
 	'website/html',
 

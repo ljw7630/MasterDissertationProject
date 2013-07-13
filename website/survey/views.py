@@ -5,7 +5,7 @@ from django.shortcuts import render
 
 from models import User
 from forms import TripleForm
-from profile_cleaner import ProfileCleaner as PC
+import sys
 
 
 def print_users(request):
@@ -16,8 +16,7 @@ def print_users(request):
 
 def print_form(request):
 
-	cleaner = PC(os.path.realpath('../user_raw/lijinwu.htm'))
-	path = cleaner.saveToFile()
+	path = 'aaroncobrien.htm'
 	form = TripleForm()
 
 	return render(request, 'survey.html', {'path': path, 'survey_form': form})
