@@ -4,21 +4,36 @@
 <div class="container-fluid">
 	<div class="main_container">
 		<div class="row">
-			<div class="span8">
+			<div class="span6">
 				{% include path %}
 			</div>
-			<div class="span4">
-				<form action="../finish">
-					{{ survey_form }}
+			<div class="span6">
+				<!--{% block person %}-->
+				<!--{% endblock %}-->
+				<div class="navbar-form">
+					<form action="../finish">
+						<div class="well container">
+							{% include "city.html" %}
+						</div>
 
-					{{ survey_form }}
+						<div class="well container">
+							<legend>Experiences:</legend>
+							{% include "experience.html" with experiences=experiences %}
+						</div>
 
-					{{ survey_form }}
+						<div class="well container">
+							<legend>Educations:</legend>
+							{% include "education.html" with educations=educations %}
+						</div>
 
-					{{ survey_form }}
-					</br>
-					<input type="submit" name="submit">
-				</form>
+						<div class="well container">
+							<legend>Skills:</legend>
+							{% include "skill.html" with skills=skills %}
+						</div>
+						</br>
+						<input type="submit" name="submit">
+					</form>
+				</div>
 			</div>
 		</div>
 	</div>
