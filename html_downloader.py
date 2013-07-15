@@ -45,7 +45,7 @@ class PublicProfileDownloader:
 
 	# Just like in Google, type: "keyword site:http://ie.linkedin.com/in/"
 	# and download the content from return ulrs
-	def googleSearch(self, keywords, site=_linkedin_ireland_url, num=20):
+	def googleSearch(self, keywords, site=_linkedin_ireland_url, num=50):
 		urls = []
 		urls[:] = search(keywords + ' ' + 'site:' + site, stop=num)
 
