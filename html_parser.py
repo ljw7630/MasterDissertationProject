@@ -74,10 +74,31 @@ class DegreeAbbreviationParser:
 			abbreviation, name = degree.text.split('-')
 			abbreviations = abbreviation.replace(',', ' ').replace(' or ', ' ').replace('/', ' ').split()
 			abbreviations = [abbr.strip() for abbr in abbreviations]
-			name = name.strip()
+			name = name.strip().replace(' ', '_')
 
 			degree_map[name] = abbreviations
 		return degree_map
+
+	def saveToFile(self):
+		f = open('resources/degree_abbrs.txt', 'w')
+
+		bd = self.getBachelorDegreeAbbrs()
+		self.unfoldToLine(f, 8, bd)
+
+		md = self.getMasterDegreeAbbrs()
+		self.unfoldToLine(f, 9, md)
+
+		phd = self.getDoctorDegreeAbbrs()
+		self.unfoldToLine(f, 10, phd)
+
+		f.close()
+
+	# convert a map to a line of words
+	def unfoldToLine(self, f, level, dictionary):
+		for key in dictionary.keys():
+			arr = dictionary[key]
+			line = str(level) + " " + " ".join(arr) + " " + key
+			f.write(line + '\n')
 
 
 class IndustryParser:

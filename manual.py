@@ -3,6 +3,16 @@ from html_parser import PublicProfileParser as ProfileParser
 from os import listdir
 from os.path import join
 from utils import Utils
+import glob
+from profile_cleaner import ProfileCleaner as Cleaner
+
+
+def cleanProfile():
+	path = 'user_raw'
+	for f in listdir(path):
+		file_path = join(path, f)
+		cleaner = Cleaner(file_path)
+		cleaner.saveToFile(file_path)
 
 
 def getPublicProfiles():
@@ -23,15 +33,15 @@ def printList(arr):
 
 
 def main():
-	profiles = getPublicProfiles()
-	Utils.persistentPublicProfiles(profiles)
-	rg = RG()
-
-	for profile in profiles:
-		rg.add(profile)
-
-	rg.save(format='xml')
-
+	cleanProfile()
+	# profiles = getPublicProfiles()
+	# Utils.persistentPublicProfiles(profiles)
+	# rg = RG()
+	#
+	# for profile in profiles:
+	# 	rg.add(profile)
+	#
+	# rg.save(format='xml')
 
 if __name__ == '__main__':
 	main()

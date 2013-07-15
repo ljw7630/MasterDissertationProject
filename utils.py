@@ -16,7 +16,7 @@ class Utils:
 		handler = logging.StreamHandler(sys.stdout)
 		formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
 		handler.setFormatter(formatter)
-		#logger.addHandler(handler)
+		logger.addHandler(handler)
 		logger.setLevel(logging.DEBUG)
 		Utils.logger = logger
 		return logger

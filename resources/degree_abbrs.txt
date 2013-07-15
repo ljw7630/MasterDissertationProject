@@ -1,0 +1,128 @@
+8 BEcon Bachelor_of_Economics
+8 BLitt LittB Bachelor_of_Literature_or_Bachelor_of_Letters
+8 BMin Bachelor_of_Ministry
+8 BFin Bachelor_of_Finance
+8 BFA Bachelor_of_Fine_Art
+8 BSc(Eng) Bachelor_of_Science_in_Engineering
+8 BAppSc Bachelor_of_Applied_Science
+8 BTchg Bachelor_of_Teaching
+8 BAcc Bachelor_of_Accounting
+8 BDS BChD Bachelor_of_Dental_Surgery
+8 BD Bachelor_of_Divinity
+8 BBA Bachelor_of_Business_Administration
+8 BDes Bachelor_of_Design
+8 BMSc Bachelor_of_Medical_Science
+8 BVMedSc BVSc Bachelor_of_Veterinary_(Medical)_Science
+8 BTh ThB BTheol Bachelor_of_Theology
+8 BMedSc BMSc Bachelor_of_Biomedical_science
+8 BPharm Bachelor_of_Pharmacy
+8 BNurs BN Bachelor_of_Nursing
+8 BS ChB BChir BCh Bachelor_of_Surgery
+8 BAE Bachelor_of_Arts_and_Economics
+8 BA Bachelor_of_Arts
+8 BVetMed VetMB BVMS BVM BVS Bachelor_of_Veterinary_Medicine_(&_Surgery)
+8 BOptom Bachelor_in_Clinical_Optometry
+8 BEng BE Bachelor_of_Engineering
+8 BHSc Bachelor_of_Health_Science
+8 BCoun Bachelor_of_Counseling
+8 BArch Bachelor_of_Architecture
+8 LLB Bachelor_of_Laws
+8 BMus MusB Bachelor_of_Music
+8 BEcon&Fin Bachelor_of_Economics_and_Finance
+8 BASc Bachelor_of_Arts_and_Science
+8 BSc(Econ) Bachelor_of_Science_in_Economics
+8 BEd EdB Bachelor_of_Education
+8 BSc Bachelor_of_Science
+8 BPhil Bachelor_of_Philosophy
+8 BPhys Bachelor_of_Physics
+8 BSc(Psych) Bachelor_of_Science_in_Psychology
+8 BScEcon BScEc Bachelor_of_Economic_and_Social_Studies
+8 BMid Bachelor_of_Midwifery
+8 BCL Bachelor_of_Civil_Law
+8 MB BM Bachelor_of_Medicine
+8 BCJ Bachelor_of_Criminal_Justice
+8 BSocSc Bachelor_of_Social_Science
+8 BTech Bachelor_of_Technology
+9 MChemPhys Master_of_Chemical_Physics
+9 MSSc MSocSc Master_of_Social_Science
+9 MGeog Master_of_Geography
+9 MEarthSci MESci Master_of_Earth_Science
+9 MClinDent Master_of_Clinical_Dentistry
+9 MEcon Master_of_Economics
+9 MGeophys Master_of_Geophysics
+9 LLM Master_of_Laws
+9 MUniv Master_of_the_University
+9 MChem Master_of_Chemistry
+9 MBiochem MBiolSci Master_of_Biochemistry
+9 MBM Master_of_Business_and_Management
+9 MMORSE Master_of_Mathematics,_Operational_Research,_Statistics_and_Economics
+9 MGeoscience Master_of_Geoscience
+9 MStat Master_of_Statistics
+9 MSt Master_of_Studies
+9 MBiol Master_of_Biology
+9 MTL Master_of_Teaching_and_Learning
+9 MDrama Master_of_Drama
+9 MPlan Master_of_Planning
+9 MEnvSc Master_of_Environmental_Science
+9 MCD Master_of_Civic_Design
+9 MInf Master_of_Informatics
+9 MOptom Master_in_Clinical_Optometry
+9 MEng Master_of_Engineering
+9 MA Master_of_Arts
+9 MGeol Master_of_Geology
+9 MPhil Master_of_Philosophy
+9 MPhys Master_of_Physics
+9 MMus MusM Master_of_Music
+9 MPH Master_of_Public_Health
+9 MFA Master_of_Fine_Art
+9 MEd Master_of_Education
+9 MComp Master_of_Computing
+9 MArch Master_of_Architecture
+9 MDiv Master_of_Divinity
+9 MPS MProfSt Master_of_Professional_Studies
+9 MMathPhys Master_of_Mathematics_and_Physics,_Master_of_Mathematical_Physics
+9 MSc MSci Integrated_Master_in_Science
+9 PG_Dip Postgraduate_Diploma
+9 MNursSc Master_of_Nursing_Science
+9 MNatSc Master_of_Natural_Science
+9 MDes Master_of_Design
+9 MRes Master_of_Research
+9 MMS Master_of_Management_Studies
+9 MMath Master_of_Mathematics
+9 MBA Master_of_Business_Administration
+9 MMathStat Master_of_Mathematics_and_Statistics
+9 MBiolSc Master_of_Biological_Science
+9 MJur Master_of_Jurisprudence_(Law)_(Magister_Juris_at_Oxford)
+9 MAcc Master_of_Accountancy
+9 MLib Master_of_Librarianship
+9 MTheol Master_of_Theology
+9 MOcean Master_of_Oceanography
+9 MSc Master_of_Science
+9 MLitt Master_of_Letters
+9 MMathComp Master_of_Computational_Mathematics
+9 MPharm Master_of_Pharmacy
+9 MPA Master_of_Public_Administration
+9 MSc Master_in_Science_(Master_of_Natural_Science_at_Cambridge_University)
+10 HScD DHSc Doctor_of_Health_Science
+10 DCL Doctor_of_Civil_Law_especially_at_Oxford
+10 DBA Doctor_of_Business_Administration
+10 EngD Doctor_of_Engineering
+10 DSc ScD Doctor_of_Science
+10 DMin Doctor_of_Ministry
+10 DDS Doctor_of_Dental_Surgery
+10 LLD Doctor_of_Laws
+10 JD Juris_Doctor,_Juris_Doctorate,_Doctor_of_Jurisprudence
+10 EdD DEd Doctor_of_Education
+10 DUniv Doctor_of_the_University
+10 DMus MusD Doctor_of_Music
+10 PhD DPhil Doctor_of_Philosophy
+10 DClinPsych Doctor_of_Clinical_Psychology
+10 DLitt LittD Doctor_of_Literature
+10 EdPsychD DEdPsy Doctor_of_Educational_Psychology
+10 DNursSc Doctor_of_Nursing_Science
+10 SocScD Doctor_of_Social_Science
+10 DProf Doctor_of_Professional_Studies
+10 DD Doctor_of_Divinity
+10 DPT Doctor_of_Practical_Theology
+10 ThD Doctor_of_Theology
+10 MD DM Doctor_of_Medicine

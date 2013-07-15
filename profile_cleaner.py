@@ -18,6 +18,10 @@ class ProfileCleaner:
 		self.removeGroups()
 		self.removeHeader()
 		self.removeFooter()
+		self.removeAdditional()
+		self.removeContact()
+		self.removeViewFullProfile()
+		self.removeJoinLinkedIn()
 
 	def removeName(self, given_name, family_name):
 		for item in self.parser.soup.find_all(text=re.compile(given_name+"\s*")):
@@ -64,7 +68,32 @@ class ProfileCleaner:
 	def removeFooter(self):
 		tag = self.parser.soup.find('div', id='footer')
 		if tag:
-			tag.extract()()
+			tag.extract()
+
+	def removeViewFullProfile(self):
+		tag = self.parser.soup.find('div', class_='view-full-profile')
+		if tag:
+			tag.extract()
+
+	def removeRegForm(self):
+		tag = self.parser.soup.find('div', id='blueregform')
+		if tag:
+			tag.extract()
+
+	def removeAdditional(self):
+		tag = self.parser.soup.find('div', id='profile-additional')
+		if tag:
+			tag.extract()
+
+	def removeContact(self):
+		tag = self.parser.soup.find('div', id='profile-contact')
+		if tag:
+			tag.extract()
+
+	def removeJoinLinkedIn(self):
+		tag = self.parser.soup.find('div', class_='join-linkedin')
+		if tag:
+			tag.extract()
 
 	def saveToFile(self, file_name):
 		f = open(file_name, 'w')

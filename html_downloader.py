@@ -6,7 +6,7 @@ from profile_cleaner import ProfileCleaner
 from db_helper import DBHelper
 import sqlite3
 import sys,os
-
+import traceback
 
 class HTMLDownloader:
 	# Download the html and store to a location specified by file_name
@@ -65,13 +65,19 @@ class PublicProfileDownloader:
 					links = parser.getExtraProfiles()
 					for link in links:
 						name = link.rsplit('/', 1)[1]
-						DBHelper().dataAddEntry(name + postfix, link, False)
+						try:
+							DBHelper().dataAddEntry(name + postfix, link, False)
+						except sqlite3.IntegrityError:
+							print 'conflict'
+							pass
 					cleaner = ProfileCleaner(path+file_name+postfix)
 					cleaner.saveToFile(path+file_name+postfix)
 					DBHelper().dataAddEntry(file_name + postfix, url, True)
 				except sqlite3.IntegrityError:
+					traceback.print_exc()
 					pass
 				except AttributeError:
+					traceback.print_exc()
 					os.remove(path + file_name + postfix)
 
 

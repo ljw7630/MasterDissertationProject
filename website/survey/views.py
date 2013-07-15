@@ -14,10 +14,14 @@ def print_users(request):
 
 def print_form(request):
 
-	path = 'aaroncobrien.htm'
-	form = TripleForm()
+	path = 'adamdfinlay.htm'
+	# form = TripleForm()
 
-	return render(request, 'survey.html', {'path': path, 'survey_form': form})
+	return render(request, 'survey.html',
+	              {'path': path
+	              , 'experiences': range(2)
+	              , 'educations': range(3)
+	              , 'skills': range(4)})
 
 
 def finish(request):
