@@ -18,11 +18,14 @@ def print_form(request):
 	# form = TripleForm()
 
 	return render(request, 'survey.html',
-	              {'path': path
-	              , 'experiences': range(2)
-	              , 'educations': range(3)
-	              , 'skills': range(4)})
+		{'path': path,
+		 'experiences': range(2),
+		 'educations': range(3),
+		 'skills': range(4)})
 
 
-def finish(request):
-	return render(request, 'thank_you.html')
+def compare(request):
+	return render(request, 'compare.html',
+		{'experiences': range(2),
+		 'educations': range(3),
+		 'skills': range(4)})
