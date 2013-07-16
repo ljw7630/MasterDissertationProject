@@ -9,19 +9,20 @@ class ProfileCleaner:
 	def __init__(self, file_name):
 		self.parser = PublicProfileParser(file_name)
 		self.file_name = file_name.split('/')[-1]
-		given_name = self.parser.getGivenName()
-		family_name = self.parser.getFamilyName()
-		self.removeName(given_name, family_name)
-		self.removeScripts()
-		self.removeImage()
-		self.removeExtra()
-		self.removeGroups()
-		self.removeHeader()
-		self.removeFooter()
-		self.removeAdditional()
-		self.removeContact()
-		self.removeViewFullProfile()
-		self.removeJoinLinkedIn()
+		# given_name = self.parser.getGivenName()
+		# family_name = self.parser.getFamilyName()
+		# self.removeName(given_name, family_name)
+		# self.removeScripts()
+		self.removeLinks()
+		# self.removeImage()
+		# self.removeExtra()
+		# self.removeGroups()
+		# self.removeHeader()
+		# self.removeFooter()
+		# self.removeAdditional()
+		# self.removeContact()
+		# self.removeViewFullProfile()
+		# self.removeJoinLinkedIn()
 
 	def removeName(self, given_name, family_name):
 		for item in self.parser.soup.find_all(text=re.compile(given_name+"\s*")):
@@ -34,6 +35,10 @@ class ProfileCleaner:
 
 	def removeScripts(self):
 		for item in self.parser.soup.find_all('script'):
+			item.extract()
+
+	def removeLinks(self):
+		for item in self.parser.soup.find_all("link"):
 			item.extract()
 
 	def removeSummary(self):
