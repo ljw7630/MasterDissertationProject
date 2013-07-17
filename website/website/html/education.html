@@ -1,36 +1,36 @@
 {% for education in educations %}
 	<div class="row">
 		<div class="span3">
-				College: <input class="span2" type="text" placeholder="college"/>
-				Major: <input class="span2" type="text" placeholder="major"/>
-			Degree:
-				<select data-toggle="dropdown">
-					<option>
-						BSc - Bachelor degree of Science
-					</option>
-					<option>
-						MA - Master of Art
-					</option>
-					<option>
-						etc
-					</option>
-				</select>
-			Level:
-				<select data-toggle="dropdown">
-					<option>
-						8
-					</option>
-					<option>
-						9
-					</option>
-					<option>
-						10
-					</option>
-				</select>
+				College: <input class="span2" type="text" placeholder="college" value="{{education.college}}"/>
+				Major: <input class="span2" type="text" placeholder="major" value="{{education.major}}"/>
+			Degree: {{education.degree}}
+				<!--<select data-toggle="dropdown">-->
+					<!--<option>-->
+						<!--BSc - Bachelor degree of Science-->
+					<!--</option>-->
+					<!--<option>-->
+						<!--MA - Master of Art-->
+					<!--</option>-->
+					<!--<option>-->
+						<!--etc-->
+					<!--</option>-->
+				<!--</select>-->
+			Level: 8
+				<!--<select data-toggle="dropdown">-->
+					<!--<option>-->
+						<!--8-->
+					<!--</option>-->
+					<!--<option>-->
+						<!--9-->
+					<!--</option>-->
+					<!--<option>-->
+						<!--10-->
+					<!--</option>-->
+				<!--</select>-->
 		</div>
 		<div class="span3">
-			from: <input class="span2" type="text" placeholder="start time"/></br>
-			to: <input class="span2" type="text" placeholder="end time"/></br>
+			from: <input class="span2" type="text" placeholder="start time" value="{{education.from}}"/></br>
+			to: <input class="span2" type="text" placeholder="end time" value="{{education.to}}"/></br>
 		</div>
 	</div>
 {% endfor %}

@@ -1,6 +1,0 @@
-import urllib
-
-wp = urlib.urlopen("http://www.linkedin.com/in/lijinwu")
-
-wp_stream = wp.read()
-wp.close()
