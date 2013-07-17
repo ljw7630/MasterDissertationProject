@@ -2,7 +2,7 @@
 
 {% block content %}
 <div class="container-fluid">
-	<div class="main_container">
+	<div class="container">
 		<div class="row">
 			<div class="span6">
 				{% include path %}
@@ -10,30 +10,23 @@
 			<div class="span6">
 				<!--{% block person %}-->
 				<!--{% endblock %}-->
-				<div class="navbar-form">
-					<form action="../finish">
-						<div class="well container">
-							{% include "city.html" %}
-						</div>
 
-						<div class="well container">
-							<legend>Experiences:</legend>
-							{% include "experience.html" with experiences=experiences %}
-						</div>
+					<form action="../compare" class="form-horizontal">
 
-						<div class="well container">
-							<legend>Educations:</legend>
-							{% include "education.html" with educations=educations %}
-						</div>
+						{% include "city.html" %}
 
-						<div class="well container">
-							<legend>Skills:</legend>
-							{% include "skill.html" with skills=skills %}
-						</div>
+						<legend>Experiences:</legend>
+						{% include "experience.html" with experiences=experiences %}
+
+						<legend>Educations:</legend>
+						{% include "education.html" with educations=educations %}
+
+						<legend>Skills:</legend>
+						{% include "skill.html" with skills=skills %}
 						</br>
 						<input type="submit" name="submit">
 					</form>
-				</div>
+
 			</div>
 		</div>
 	</div>
