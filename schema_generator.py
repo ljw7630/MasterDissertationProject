@@ -1,6 +1,6 @@
-from rdflib import Graph, URIRef
+from rdflib import Graph, URIRef, Literal
 from rdflib.namespace import Namespace, NamespaceManager, FOAF, SKOS, XSD, RDF, RDFS, OWL
-from html_parser import IndustryParser, DisciplineParser
+from html_parser import IndustryParser, DisciplineParser, DegreeAbbreviationParser
 
 
 class SchemaGenerator:
@@ -132,15 +132,17 @@ class SchemaGenerator:
 		if super_classes == {}:
 			return
 		for super_class in super_classes:
-			self.graph.add((self.get_term(super_class), RDF.type, OWL.Class))
+			super_class_term = self.get_term(super_class)
+			self.graph.add((super_class_term, RDF.type, self.Course))
+			self.graph.add((super_class_term, RDF.type, SKOS.Concept))
+			self.graph.add((super_class_term, SKOS.prefLabel, Literal(super_class, datatype=XSD.string)))
 			for sub_class in dictionary[super_class].keys():
 
-				self.graph.add((self.get_term(sub_class), RDFS.subClassOf, self.get_term(sub_class)))
+				self.graph.add((self.get_term(sub_class), SKOS.narrower, super_class_term))
+				self.graph.add((super_class_term, SKOS.broader, self.get_term(sub_class)))
+
 				self.generate_discipline_hierarchy_helper(dictionary[super_class][sub_class].keys(),
 					dictionary[super_class][sub_class])
-
-	def generate_instance(self):
-		pass
 
 	def generate_instance_industry(self):
 		industries = IndustryParser().getIndustries()
@@ -149,7 +151,9 @@ class SchemaGenerator:
 			self.graph.add((self.get_term(industry), RDF.type, self.Industry))
 
 	def generate_instance_degree(self):
-		pass
+		for degreeArr in DegreeAbbreviationParser().degrees:
+			degreeAbbr = degreeArr[1]
+			self.graph.add((self.get_term(degreeAbbr), RDF.type, SKOS.Concept))
 
 	def generate(self):
 
@@ -160,6 +164,8 @@ class SchemaGenerator:
 		self.generate_instance_industry()
 
 		self.generate_discipline_hierarchy()
+
+		self.generate_instance_degree()
 
 		return self.graph
 

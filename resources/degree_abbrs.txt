@@ -103,6 +103,7 @@
 9 MPharm Master_of_Pharmacy
 9 MPA Master_of_Public_Administration
 9 MSc Master_in_Science_(Master_of_Natural_Science_at_Cambridge_University)
+9 Master Master
 10 HScD DHSc Doctor_of_Health_Science
 10 DCL Doctor_of_Civil_Law_especially_at_Oxford
 10 DBA Doctor_of_Business_Administration
