@@ -7,8 +7,13 @@ from os.path import dirname
 TEMPLATE_PATH = dirname(dirname(dirname(os.path.realpath(__file__))))
 APP_PATH = dirname(os.path.realpath(__file__))
 
-print >> sys.stderr, TEMPLATE_PATH
-print >> sys.stderr, APP_PATH
+# print >> sys.stderr, TEMPLATE_PATH
+# print >> sys.stderr, APP_PATH
+
+# 4store
+FOURSTORE_KBNAME = "linkedin"
+FOURSTORE_PORT = 6742
+SPARQL_ENDPOINT = "http://localhost:6667/sparql/"
 
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
@@ -142,6 +147,7 @@ INSTALLED_APPS = (
 	'survey',
 	'gunicorn',
 	'django_evolution',
+	'fourstore',
 	# Uncomment the next line to enable the admin:
 	# 'django.contrib.admin',
 	# Uncomment the next line to enable admin documentation:

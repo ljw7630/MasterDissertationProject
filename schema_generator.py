@@ -120,8 +120,6 @@ class SchemaGenerator:
 		self.graph.add((self.has_position, RDFS.range, self.Position))
 		self.graph.add((self.organization_type, RDFS.domain, self.Organization))
 		self.graph.add((self.organization_type, RDFS.range, XSD.string))
-		# self.graph.add((self.from_value, RDFS.range, XSD.date))
-		# self.graph.add((self.to_time, RDFS.range, XSD.date))
 
 	def generate_discipline_hierarchy(self):
 		disciplines = DisciplineParser().getDisciplinesHierarchy()

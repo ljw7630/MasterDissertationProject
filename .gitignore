@@ -48,3 +48,5 @@ website/img
 website/less
 website/admin/
 website/website/db/website.db
+
+resources/index/

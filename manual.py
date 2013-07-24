@@ -5,6 +5,7 @@ from os.path import join
 from utils import Utils
 import glob
 from profile_cleaner import ProfileCleaner as Cleaner
+from socket_handler import DegreeSocketHandler
 
 
 def cleanProfile():
@@ -32,16 +33,31 @@ def printList(arr):
 		print item
 
 
+def validateDegreeEngine():
+	sh = DegreeSocketHandler()
+	sh.send_query_command()
+	profiles = getPublicProfiles()
+
+	for profile in profiles:
+		for education in profile.education_list:
+			if 'degree' in education:
+				print sh.send_query(education['degree'])
+				print '\n'
+
+	sh.close()
+
+
 def main():
-	cleanProfile()
-	# profiles = getPublicProfiles()
+	# validateDegreeEngine()
+	# cleanProfile()
+	profiles = getPublicProfiles()
 	# Utils.persistentPublicProfiles(profiles)
-	# rg = RG()
-	#
-	# for profile in profiles:
-	# 	rg.add(profile)
-	#
-	# rg.save(format='xml')
+	rg = RG()
+
+	for profile in profiles:
+		rg.add(profile)
+
+	rg.save(format='xml')
 
 if __name__ == '__main__':
 	main()

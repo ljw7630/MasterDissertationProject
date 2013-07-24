@@ -33,6 +33,7 @@ class Data(models.Model):
 	user_group = models.IntegerField(null=True, blank=True)
 	file_exists = models.BooleanField(default=False)
 	file_url = models.CharField(max_length=150)
+	rdf = models.BooleanField(default=False)
 
 	def __unicode__(self):
 		return "data: " + self.file_name

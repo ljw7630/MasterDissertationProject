@@ -28,6 +28,7 @@ class DegreeAbbreviationParser:
 
 	def __init__(self):
 		self.soup = bs4.BeautifulSoup(open(self._file_name))
+		self.getAllAbbrs()
 
 	def getBachelorDegreeAbbrs(self):
 
@@ -82,23 +83,44 @@ class DegreeAbbreviationParser:
 	def saveToFile(self):
 		f = open('resources/degree_abbrs.txt', 'w')
 
-		bd = self.getBachelorDegreeAbbrs()
-		self.unfoldToLine(f, 8, bd)
+		# bd = self.getBachelorDegreeAbbrs()
+		# self.unfoldToLine(f, 8, bd)
+		#
+		# md = self.getMasterDegreeAbbrs()
+		# self.unfoldToLine(f, 9, md)
+		#
+		# phd = self.getDoctorDegreeAbbrs()
+		# self.unfoldToLine(f, 10, phd)
+		#
+		# f.close()
 
-		md = self.getMasterDegreeAbbrs()
-		self.unfoldToLine(f, 9, md)
-
-		phd = self.getDoctorDegreeAbbrs()
-		self.unfoldToLine(f, 10, phd)
-
+		for linearr in self.degrees:
+			line = " ".join(linearr)
+			f.write(line + '\n')
 		f.close()
 
 	# convert a map to a line of words
-	def unfoldToLine(self, f, level, dictionary):
+	# def unfoldToLine(self, f, level, dictionary):
+	# 	for key in dictionary.keys():
+	# 		arr = dictionary[key]
+	# 		line = str(level) + " " + " ".join(arr) + " " + key
+	# 		f.write(line + '\n')
+
+	def getAllAbbrs(self):
+		bg = self.getBachelorDegreeAbbrs()
+		mg = self.getMasterDegreeAbbrs()
+		dg = self.getDoctorDegreeAbbrs()
+
+		self.degrees = []
+		self.unfold(bg, 8, self.degrees)
+		self.unfold(mg, 9, self.degrees)
+		self.unfold(dg, 10, self.degrees)
+		self.dictionary = dict(bg.items() + mg.items() + dg.items())
+
+	def unfold(self, dictionary, level, degrees):
 		for key in dictionary.keys():
 			arr = dictionary[key]
-			line = str(level) + " " + " ".join(arr) + " " + key
-			f.write(line + '\n')
+			degrees.append([str(level)] + arr + [key])
 
 
 class IndustryParser:
@@ -210,8 +232,8 @@ class PublicProfileParser:
 	def parseHtml(self):
 		profile = PersonalProfile()
 		profile.file_name = self.file_name
-		profile.given_name = self.getGivenName()
-		profile.family_name = self.getFamilyName()
+		# profile.given_name = self.getGivenName()
+		# profile.family_name = self.getFamilyName()
 		profile.industry = self.getIndustry()
 		profile.headline_title = self.getHeadlineTitle()
 		profile.experience_list = self.getExperiences()
@@ -296,8 +318,8 @@ class PublicProfileParser:
 		language_list = []
 
 		if lis is not None:
-			languages = []
-			languages[:] = self.removeNewlineInList(lis)
+
+			languages = lis.findAll('li')
 
 			for language_tag in languages:
 				language = language_tag.h3.string
@@ -311,8 +333,8 @@ class PublicProfileParser:
 		skill_list = []
 
 		if skills is not None:
-			lis = []
-			lis[:] = self.removeNewlineInList(skills)
+			lis = skills.findAll('li')
+
 			for li in lis:
 				href = li.span.a['href']
 				skill = li.span.a.string.strip()

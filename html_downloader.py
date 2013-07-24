@@ -66,12 +66,15 @@ class PublicProfileDownloader:
 					for link in links:
 						name = link.rsplit('/', 1)[1]
 						try:
+							# meaning this file is not downloaded yet, need to update it when we download
 							DBHelper().dataAddEntry(name + postfix, link, False)
 						except sqlite3.IntegrityError:
 							print 'conflict'
 							pass
 					cleaner = ProfileCleaner(path+file_name+postfix)
 					cleaner.saveToFile(path+file_name+postfix)
+
+					# meaning this file is downloaded
 					DBHelper().dataAddEntry(file_name + postfix, url, True)
 				except sqlite3.IntegrityError:
 					traceback.print_exc()

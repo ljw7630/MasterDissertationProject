@@ -1,28 +1,120 @@
 from schema_generator import SchemaGenerator as SG
-from rdflib import BNode, RDF, Literal
+from rdflib import BNode, RDF, Literal, Graph
 from rdflib.namespace import FOAF, XSD
 from html_parser import CompanyProfileParser as CPP
 from html_downloader import CompanyProfileDownloader as CPD
 from utils import Utils
 import re
+import os
+from socket_handler import DegreeSocketHandler
+import pickle
+
+RESOURCES_COMPANIES_PICKLE = 'resources/companies.pickle'
+
+RESOURCES_JOB_TITLES_PICKLE = 'resources/job_titles.pickle'
+
+RESOURCES_SKILLS_PICKLE = 'resources/skills.pickle'
+
+RESOURCES_DEGREES_PICKLE = 'resources/degrees.pickle'
+
+RESOURCES_COURSES_PICKLE = 'resources/courses.pickle'
+
+RESOURCES_LANGUAGES_PICKLE = 'resources/languages.pickle'
+
+RESOURCES_COLLEGES_PICKLE = 'resources/colleges.pickle'
+
+RESOURCES_ONTOLOGY_OWL = 'resources/ontology.owl'
+
+RESOURCES_DATA_RDF = 'resources/data.rdf'
 
 
 class RDFGenerator:
-	colleges = set()
-	languages = set()
-	courses = set()
-	degrees = set()
-	skills = set()
-	job_titles = set()
-	companies = set()
-	company_profiles = []
+	# company_profiles = []
 
 	def __init__(self):
 		self.schema = SG()
-		self.schema.generate()
+		if os.path.exists(RESOURCES_DATA_RDF):
+			self.graph = Graph()
+			self.graph.parse(RESOURCES_DATA_RDF, format='xml')
+
+			print 'load % lines of triples' % len(self.graph)
+		elif os.path.exists(RESOURCES_ONTOLOGY_OWL):
+			self.graph = Graph()
+			self.graph.parse(RESOURCES_ONTOLOGY_OWL, format='xml')
+		else:
+			self.schema.generate()
+			self.graph = self.schema.graph
+			print 'create a new graph'
+
+		self.loadPickles()
+
+		self.degree_socket_handler = DegreeSocketHandler()
+		self.degree_socket_handler.send_query_command()
+
+	def loadPickles(self):
+		#loading pickles if exist
+		if os.path.exists(RESOURCES_COLLEGES_PICKLE):
+			self.colleges = pickle.load(RESOURCES_COLLEGES_PICKLE)
+		else:
+			self.colleges = set()
+
+		if os.path.exists(RESOURCES_COMPANIES_PICKLE):
+			self.companies = pickle.load(RESOURCES_COMPANIES_PICKLE)
+		else:
+			self.companies = set()
+
+		if os.path.exists(RESOURCES_COURSES_PICKLE):
+			self.courses = pickle.load(RESOURCES_COURSES_PICKLE)
+		else:
+			self.courses = set()
+
+		if os.path.exists(RESOURCES_DEGREES_PICKLE):
+			self.degrees = pickle.load(RESOURCES_DEGREES_PICKLE)
+		else:
+			self.degrees = set()
+
+		if os.path.exists(RESOURCES_JOB_TITLES_PICKLE):
+			self.job_titles = pickle.load(RESOURCES_JOB_TITLES_PICKLE)
+		else:
+			self.job_titles = set()
+
+		if os.path.exists(RESOURCES_LANGUAGES_PICKLE):
+			self.languages = pickle.load(RESOURCES_LANGUAGES_PICKLE)
+		else:
+			self.languages = set()
+
+		if os.path.exists(RESOURCES_SKILLS_PICKLE):
+			self.skills = pickle.load(RESOURCES_SKILLS_PICKLE)
+		else:
+			self.skills = set()
+
+	def dumpPickles(self):
+		pickle.dump(self.colleges, open(RESOURCES_COLLEGES_PICKLE, 'wb'))
+		pickle.dump(self.companies, open(RESOURCES_COMPANIES_PICKLE, 'wb'))
+		pickle.dump(self.courses, open(RESOURCES_COURSES_PICKLE, 'wb'))
+		pickle.dump(self.degrees, open(RESOURCES_DEGREES_PICKLE, 'wb'))
+		pickle.dump(self.job_titles, open(RESOURCES_JOB_TITLES_PICKLE, 'wb'))
+		pickle.dump(self.languages, open(RESOURCES_LANGUAGES_PICKLE, 'wb'))
+		pickle.dump(self.skills, open(RESOURCES_SKILLS_PICKLE, 'wb'))
+
+	def save(self, format='xml', file_name=RESOURCES_DATA_RDF):
+
+		# saving rdf
+		f = open(file_name, 'wb')
+		print >> f, self.graph.serialize(format=format)
+		f.close()
+
+		pickle.dump(self)
+
+	def close(self):
+		self.degree_socket_handler.close()
+
+	def saveAndClose(self):
+		self.close()
+		self.save()
 
 	def graph_add(self, s, p, o):
-		self.schema.graph.add((s, p, o))
+		self.graph.add((s, p, o))
 
 	def add(self, profile):
 		person = BNode()
@@ -84,14 +176,15 @@ class RDFGenerator:
 			if 'degree' in education_dict:
 				degree = education_dict['degree']
 				degree, level = self.degree_helper(degree)
-				term = self.schema.get_term(degree)
+				if degree:
+					term = self.schema.get_term(degree)
 
-				if degree not in self.degrees:
-					self.graph_add(term, RDF.type, self.schema.Degree)
-					self.graph_add(term, self.schema.level, Literal(level, datatype=XSD.interger))
-					self.degrees.add(degree)
+					if degree not in self.degrees:
+						self.graph_add(term, RDF.type, self.schema.Degree)
+						self.graph_add(term, self.schema.level, Literal(level, datatype=XSD.interger))
+						self.degrees.add(degree)
 
-				self.graph_add(education, self.schema.degree, term)
+					self.graph_add(education, self.schema.degree, term)
 
 			self.graph_add(person, self.schema.education, education)
 
@@ -112,8 +205,11 @@ class RDFGenerator:
 				except KeyError:
 					pass
 				try:
-					if experience['to'] and self.check_datetime_format(experience['to']):
-						self.graph_add(term, self.schema.to_time, Literal(experience['to'], datatype=XSD.date))
+					if experience['to']:
+						if self.check_datetime_format(experience['to']):
+							self.graph_add(term, self.schema.to_time, Literal(experience['to'], datatype=XSD.date))
+						elif experience['to'].lowercase == 'current' or experience['to'].lowercase == 'now':
+							pass
 				except KeyError:
 					pass
 
@@ -170,7 +266,6 @@ class RDFGenerator:
 		except AttributeError:
 			return 1, 1
 
-
 	def check_datetime_format(self, datetime_string):
 		match = re.search(r'(\d{4}-\d{2}-\d{2})', datetime_string)
 		return match
@@ -179,12 +274,13 @@ class RDFGenerator:
 		return position
 
 	def degree_helper(self, degree):
-		return degree, 7
+		print repr(degree)
+		abbr, level = self.degree_socket_handler.send_query(degree)
+
+		if not abbr:
+			return None, None
+		else:
+			return abbr, int(level)
 
 	def company_name_helper(self, company_name):
 		return company_name
-
-	def save(self, format='turtle', file_name='result/data.rdf'):
-		f = open(file_name, 'wb')
-		print >> f, self.schema.graph.serialize(format=format)
-		f.close()
