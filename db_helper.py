@@ -25,6 +25,7 @@ class DBHelper():
 			# print 'statement: ', """insert into survey_data(file_name, file_url, file_exists, type, rdf)
 			# 		values ('%s', '%s', %i, '%s')""" % (file_name, url, int(exist), type, int(rdf))
 			file_name = file_name.replace("'", "''")
+			print file_name, url
 			DBHelper.getCursor().execute(
 				"""insert into survey_data(file_name, file_url, file_exists, type, rdf)
 					values ('%s', '%s', %i, '%s', %i)""" % (file_name, url, int(exist), type, int(rdf)))
@@ -38,10 +39,12 @@ class DBHelper():
 
 	@staticmethod
 	def dataSetRDF(file_name):
+		file_name = file_name.replace("'", "''")
 		DBHelper.getCursor().execute("update survey_data set rdf=1 where file_name='%s'" % file_name)
 
 	@staticmethod
 	def isDataRDFed(file_name):
+		file_name = file_name.replace("'", "''")
 		res = DBHelper.getCursor().execute("select count(*) from survey_data where file_name='%s' and rdf=0"
 			% file_name)
 		count = res.fetchone()[0]
@@ -52,6 +55,7 @@ class DBHelper():
 
 	@staticmethod
 	def dataInDB(file_name):
+		file_name = file_name.replace("'", "''")
 		res = DBHelper.getCursor().execute("select count(*) from survey_data where file_name='%s'" % file_name)
 		count = res.fetchone()[0]
 		if count != 0:
