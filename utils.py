@@ -100,10 +100,8 @@ class Utils:
 				print name + postfix, '~~~~', link
 				DBHelper().dataAddEntry(name + postfix, link, False)
 			except sqlite3.IntegrityError as e:
-				#print 'conflict'
-				print e
 				print e.message
-				print 'IntegrityError'
+				print 'database error'
 
 if __name__ == '__main__':
 	print Utils.levenshteinDistance('abc', 'abd')
