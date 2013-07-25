@@ -38,7 +38,7 @@ class DBHelper():
 
 	@staticmethod
 	def dataSetRDF(file_name):
-		DBHelper.getCursor().execute("update survey_data set rdf=1 where file_name=%s" % file_name)
+		DBHelper.getCursor().execute("update survey_data set rdf=1 where file_name='%s'" % file_name)
 
 	@staticmethod
 	def isDataRDFed(file_name):
@@ -52,7 +52,7 @@ class DBHelper():
 
 	@staticmethod
 	def dataInDB(file_name):
-		res = DBHelper.getCursor().execute("select count(*) from survey_data where file_name = '%s'" % file_name)
+		res = DBHelper.getCursor().execute("select count(*) from survey_data where file_name='%s'" % file_name)
 		count = res.fetchone()[0]
 		if count != 0:
 			return True
