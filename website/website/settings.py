@@ -19,6 +19,8 @@ DEBUG = True
 TEMPLATE_DEBUG = DEBUG
 
 
+print APP_PATH + "/db/website.db"
+
 ADMINS = (
 	# ('Your Name', 'your_email@example.com'),
 )

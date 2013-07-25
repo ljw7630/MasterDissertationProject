@@ -6,10 +6,13 @@ class DBHelper():
 	@staticmethod
 	def getCursor():
 		try:
+			print 'get cursor'
 			return DBHelper.cur
 		except AttributeError:
+			print 'open connection'
 			DBHelper.con = sqlite3.connect('website/website/db/website.db')
 			DBHelper.cur = DBHelper.con.cursor()
+			print 'files that not exists', DBHelper.getNotExistFileNames()
 			return DBHelper.cur
 
 	@staticmethod
