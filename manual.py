@@ -22,7 +22,7 @@ def getPublicProfiles(limit=1000):
 	path = 'user_raw'
 	profiles = []
 
-	for f in listdir(path):
+	for f in DBHelper.getNotRDFedFileName(limit):
 		file_path = join(path, f)
 		parser = ProfileParser(file_path)
 		profile = parser.parseHtml()
@@ -49,10 +49,13 @@ def validateDegreeEngine():
 	sh.close()
 
 
-def main():
-	# validateDegreeEngine()
-	# cleanProfile()
-	profiles = getPublicProfiles()
+def main(argv):
+	num = 100
+	if len(argv) == 1:
+		num = 100
+	else:
+		num = int(argv[1])
+	profiles = getPublicProfiles(limit=num)
 	# Utils.persistentPublicProfiles(profiles)
 	rg = RG()
 
@@ -65,4 +68,4 @@ def main():
 	DBHelper.commitAndClose()
 
 if __name__ == '__main__':
-	main()
+	main(sys.argv)

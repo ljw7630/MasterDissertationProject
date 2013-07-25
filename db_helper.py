@@ -12,12 +12,12 @@ class DBHelper():
 	@staticmethod
 	def getNotExistFileNames(limit=1000):
 		res = DBHelper.getCursor().execute("select file_name from survey_data where file_exists=0 limit %i" % limit)
-		return res.fetchall()
+		return [f[0] for f in res.fetchall()]
 
 	@staticmethod
 	def getNotRDFedFileName(limit=1000):
 		res = DBHelper.getCursor().execute("select file_name from survey_data where file_exists=1 and rdf=0 limit %i" % limit)
-		return res.fetchall()
+		return [f[0] for f in res.fetchall()]
 
 	@staticmethod
 	def dataAddEntry(file_name, url, exist, rdf=0, type='PERSON'):
