@@ -35,6 +35,7 @@ class CompanyProfileDownloader:
 
 	@staticmethod
 	def downloadByUrl(url, file_name):
+		print 'company name: ', file_name
 		full_path = CompanyProfileDownloader._default_folder + file_name + CompanyProfileDownloader._default_postfix
 		if not os.path.exists(full_path):
 			HTMLDownloader.download(url, full_path)
