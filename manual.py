@@ -4,8 +4,10 @@ from os import listdir
 from os.path import join
 from utils import Utils
 import glob
+import sys
 from profile_cleaner import ProfileCleaner as Cleaner
 from socket_handler import DegreeSocketHandler
+from db_helper import DBHelper
 
 
 def cleanProfile():
@@ -16,7 +18,7 @@ def cleanProfile():
 		cleaner.saveToFile(file_path)
 
 
-def getPublicProfiles():
+def getPublicProfiles(limit=1000):
 	path = 'user_raw'
 	profiles = []
 
@@ -55,9 +57,12 @@ def main():
 	rg = RG()
 
 	for profile in profiles:
+		Utils.putExtraProfilesIntoDB(profiles.extra_profile_list)
 		rg.add(profile)
-
+		DBHelper.dataSetRDF(profile.file_name)
 	rg.save(format='xml')
 
+	DBHelper.commitAndClose()
+
 if __name__ == '__main__':
-	main()
+	main(sys.argv)

@@ -1,4 +1,6 @@
 import os
+import sqlite3
+from db_helper import DBHelper
 import html_parser
 import pickle
 import json
@@ -89,6 +91,16 @@ class Utils:
 
 		data = json.load(urllib2.urlopen(url))
 
+	@staticmethod
+	def putExtraProfilesIntoDB(links, postfix='.htm'):
+		for link in links:
+			name = link.rsplit('/', 1)[1]
+			try:
+				# meaning this file is not downloaded yet, need to update it when we download
+				DBHelper().dataAddEntry(name + postfix, link, False)
+			except sqlite3.IntegrityError:
+				print 'conflict'
+				pass
 
 if __name__ == '__main__':
 	print Utils.levenshteinDistance('abc', 'abd')

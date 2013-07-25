@@ -22,13 +22,11 @@ class DegreeSocketHandler:
 		if change:
 			query_string = self.clean_query_string(query_string)
 		query_string += '\n'
-		print 'query_string', repr(query_string)
 
 		self.s.sendall(query_string)
 
 		# data = self.s.recv(1024)
 		data = self.fid.readline()
-		print 'data', repr(data)
 		data = data.strip().split(',')
 		return data[0], data[1]
 

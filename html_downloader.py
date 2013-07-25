@@ -5,19 +5,24 @@ from html_parser import PublicProfileParser, SkillParser, IrishNameParser
 from profile_cleaner import ProfileCleaner
 from db_helper import DBHelper
 import sqlite3
-import sys,os
+import sys
+import os
 import traceback
+from utils import Utils
+
 
 class HTMLDownloader:
 	# Download the html and store to a location specified by file_name
 	@staticmethod
 	def download(url, file_name):
+		if os.path.exists(file_name):
+			return
+
 		wp = urllib.urlopen(url)
 
 		wp_stream = wp.read()
 
 		wp_file = open(file_name, 'w')
-
 		wp_file.write(wp_stream)
 
 		wp.close()
@@ -31,9 +36,8 @@ class CompanyProfileDownloader:
 	@staticmethod
 	def downloadByUrl(url, file_name):
 		full_path = CompanyProfileDownloader._default_folder + file_name + CompanyProfileDownloader._default_postfix
-
-		HTMLDownloader.download(url, full_path)
-
+		if not os.path.exists(full_path):
+			HTMLDownloader.download(url, full_path)
 		return full_path
 
 	def downloadByDiscovery(self):
@@ -45,7 +49,7 @@ class PublicProfileDownloader:
 
 	# Just like in Google, type: "keyword site:http://ie.linkedin.com/in/"
 	# and download the content from return ulrs
-	def googleSearch(self, keywords, site=_linkedin_ireland_url, num=50):
+	def googleSearch(self, keywords, site=_linkedin_ireland_url, num=5):
 		urls = []
 		urls[:] = search(keywords + ' ' + 'site:' + site, stop=num)
 
@@ -63,14 +67,7 @@ class PublicProfileDownloader:
 					HTMLDownloader.download(url, path + file_name + postfix)
 					parser = PublicProfileParser(path + file_name + postfix)
 					links = parser.getExtraProfiles()
-					for link in links:
-						name = link.rsplit('/', 1)[1]
-						try:
-							# meaning this file is not downloaded yet, need to update it when we download
-							DBHelper().dataAddEntry(name + postfix, link, False)
-						except sqlite3.IntegrityError:
-							print 'conflict'
-							pass
+					Utils.putExtraProfilesIntoDB(links)
 					cleaner = ProfileCleaner(path+file_name+postfix)
 					cleaner.saveToFile(path+file_name+postfix)
 

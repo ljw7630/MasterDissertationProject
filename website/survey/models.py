@@ -34,6 +34,7 @@ class Data(models.Model):
 	file_exists = models.BooleanField(default=False)
 	file_url = models.CharField(max_length=150)
 	rdf = models.BooleanField(default=False)
+	type = models.CharField(max_length=10)
 
 	def __unicode__(self):
 		return "data: " + self.file_name

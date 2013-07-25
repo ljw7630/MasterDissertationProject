@@ -8,20 +8,21 @@ import re
 import os
 from socket_handler import DegreeSocketHandler
 import pickle
+from db_helper import DBHelper
+
+RESOURCES_COLLEGES_PICKLE = 'resources/colleges.pickle'
 
 RESOURCES_COMPANIES_PICKLE = 'resources/companies.pickle'
 
-RESOURCES_JOB_TITLES_PICKLE = 'resources/job_titles.pickle'
-
-RESOURCES_SKILLS_PICKLE = 'resources/skills.pickle'
+RESOURCES_COURSES_PICKLE = 'resources/courses.pickle'
 
 RESOURCES_DEGREES_PICKLE = 'resources/degrees.pickle'
 
-RESOURCES_COURSES_PICKLE = 'resources/courses.pickle'
+RESOURCES_JOB_TITLES_PICKLE = 'resources/job_titles.pickle'
 
 RESOURCES_LANGUAGES_PICKLE = 'resources/languages.pickle'
 
-RESOURCES_COLLEGES_PICKLE = 'resources/colleges.pickle'
+RESOURCES_SKILLS_PICKLE = 'resources/skills.pickle'
 
 RESOURCES_ONTOLOGY_OWL = 'resources/ontology.owl'
 
@@ -54,37 +55,37 @@ class RDFGenerator:
 	def loadPickles(self):
 		#loading pickles if exist
 		if os.path.exists(RESOURCES_COLLEGES_PICKLE):
-			self.colleges = pickle.load(RESOURCES_COLLEGES_PICKLE)
+			self.colleges = pickle.load(open(RESOURCES_COLLEGES_PICKLE))
 		else:
 			self.colleges = set()
 
 		if os.path.exists(RESOURCES_COMPANIES_PICKLE):
-			self.companies = pickle.load(RESOURCES_COMPANIES_PICKLE)
+			self.companies = pickle.load(open(RESOURCES_COMPANIES_PICKLE))
 		else:
 			self.companies = set()
 
 		if os.path.exists(RESOURCES_COURSES_PICKLE):
-			self.courses = pickle.load(RESOURCES_COURSES_PICKLE)
+			self.courses = pickle.load(open(RESOURCES_COURSES_PICKLE))
 		else:
 			self.courses = set()
 
 		if os.path.exists(RESOURCES_DEGREES_PICKLE):
-			self.degrees = pickle.load(RESOURCES_DEGREES_PICKLE)
+			self.degrees = pickle.load(open(RESOURCES_DEGREES_PICKLE))
 		else:
 			self.degrees = set()
 
 		if os.path.exists(RESOURCES_JOB_TITLES_PICKLE):
-			self.job_titles = pickle.load(RESOURCES_JOB_TITLES_PICKLE)
+			self.job_titles = pickle.load(open(RESOURCES_JOB_TITLES_PICKLE))
 		else:
 			self.job_titles = set()
 
 		if os.path.exists(RESOURCES_LANGUAGES_PICKLE):
-			self.languages = pickle.load(RESOURCES_LANGUAGES_PICKLE)
+			self.languages = pickle.load(open(RESOURCES_LANGUAGES_PICKLE))
 		else:
 			self.languages = set()
 
 		if os.path.exists(RESOURCES_SKILLS_PICKLE):
-			self.skills = pickle.load(RESOURCES_SKILLS_PICKLE)
+			self.skills = pickle.load(open(RESOURCES_SKILLS_PICKLE))
 		else:
 			self.skills = set()
 
@@ -104,7 +105,7 @@ class RDFGenerator:
 		print >> f, self.graph.serialize(format=format)
 		f.close()
 
-		pickle.dump(self)
+		self.dumpPickles()
 
 	def close(self):
 		self.degree_socket_handler.close()
@@ -124,6 +125,8 @@ class RDFGenerator:
 		self.add_skill_triple(profile, person)
 		self.add_education_triple(profile, person)
 		self.add_experience_triple(profile, person)
+
+		DBHelper.dataSetRDF(profile.file_name)
 
 	def add_language_triple(self, profile, person):
 		for language in profile.language_list:
@@ -190,7 +193,6 @@ class RDFGenerator:
 
 	def add_experience_triple(self, profile, person):
 		for experience in profile.experience_list:
-			position = BNode()
 
 			if 'job_title' in experience:
 				job_title = experience['job_title']
@@ -208,7 +210,7 @@ class RDFGenerator:
 					if experience['to']:
 						if self.check_datetime_format(experience['to']):
 							self.graph_add(term, self.schema.to_time, Literal(experience['to'], datatype=XSD.date))
-						elif experience['to'].lowercase == 'current' or experience['to'].lowercase == 'now':
+						elif experience['to'].lower() == 'current' or experience['to'].upper() == 'now':
 							pass
 				except KeyError:
 					pass
@@ -241,16 +243,14 @@ class RDFGenerator:
 						if 'Industry' in company_profile:
 							self.graph_add(company, self.schema.industry, self.schema.get_term(company_profile['Industry']))
 
-						Utils.persistentCompanyProfiles(company_profile)
-
-				self.graph_add(company, self.schema.has_position, position)
-				self.graph_add(person, self.schema.works_as, position)
+				self.graph_add(company, self.schema.has_position, term)
+				self.graph_add(person, self.schema.works_as, term)
 
 	def get_company_profile(self, url, company_name):
 		file_path = CPD.downloadByUrl(url, company_name)
 		parser = CPP(file_path)
 		company_profile = parser.parseHtml()
-
+		DBHelper.dataAddEntry(file_path)
 		return company_profile
 
 	def get_company_size(self, company_size_string):

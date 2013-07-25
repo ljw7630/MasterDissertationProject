@@ -204,6 +204,7 @@ class CompanyProfileParser:
 	def __init__(self, file_name):
 		Utils.getLogger().debug(file_name)
 		self.soup = bs4.BeautifulSoup(open(file_name))
+		self.file_name = file_name
 
 	def parseHtml(self):
 		basic_infos = self.soup.find('div', class_="basic-info").dl.findAll('dt')
@@ -216,6 +217,7 @@ class CompanyProfileParser:
 
 		company_profile = CompanyProfile()
 		company_profile.content = self.content
+		company_profile.file_name = self.file_name
 
 		return company_profile
 
@@ -227,7 +229,7 @@ class PublicProfileParser:
 	def __init__(self, file_name):
 		Utils.getLogger().debug(file_name)
 		self.soup = bs4.BeautifulSoup(open(file_name))
-		self.file_name = file_name
+		self.file_name = file_name.split('/')[-1]
 
 	def parseHtml(self):
 		profile = PersonalProfile()
@@ -323,7 +325,7 @@ class PublicProfileParser:
 
 			for language_tag in languages:
 				language = language_tag.h3.string
-				language_list.append(language)
+				language_list.append(str(language))
 
 		return language_list
 
