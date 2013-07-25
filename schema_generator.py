@@ -28,6 +28,9 @@ class SchemaGenerator:
 		self.graph.bind('foaf', FOAF)
 		self.graph.bind('skos', SKOS)
 
+		self.generate_class_definition()
+		self.generate_property_definition()
+
 	def generate_class_definition(self):
 		# classes
 		self.Concept = SKOS.Concept
@@ -154,10 +157,6 @@ class SchemaGenerator:
 			self.graph.add((self.get_term(degreeAbbr), RDF.type, SKOS.Concept))
 
 	def generate(self):
-
-		self.generate_class_definition()
-
-		self.generate_property_definition()
 
 		self.generate_instance_industry()
 
