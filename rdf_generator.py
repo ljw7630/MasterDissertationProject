@@ -250,7 +250,7 @@ class RDFGenerator:
 		file_path = CPD.downloadByUrl(url, company_name)
 		parser = CPP(file_path)
 		company_profile = parser.parseHtml()
-		DBHelper.dataAddEntry(file_path)
+		DBHelper.dataAddEntry(file_path.split('/')[-1], url, 1, type='COMPANY')
 		return company_profile
 
 	def get_company_size(self, company_size_string):
