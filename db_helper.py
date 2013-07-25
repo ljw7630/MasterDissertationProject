@@ -20,14 +20,14 @@ class DBHelper():
 		return res.fetchall()
 
 	@staticmethod
-	def dataAddEntry(file_name, url, exist, type='PERSON'):
+	def dataAddEntry(file_name, url, exist, rdf=0, type='PERSON'):
 		try:
-			print 'statement: ', """insert into survey_data(file_name, file_url, file_exists, type)
-					values ('%s', '%s', %i, '%s')""" % (file_name, url, int(exist), type)
+			# print 'statement: ', """insert into survey_data(file_name, file_url, file_exists, type, rdf)
+			# 		values ('%s', '%s', %i, '%s')""" % (file_name, url, int(exist), type, int(rdf))
 
 			DBHelper.getCursor().execute(
-				"""insert into survey_data(file_name, file_url, file_exists, type)
-					values ('%s', '%s', %i, '%s')""" % (file_name, url, int(exist), type))
+				"""insert into survey_data(file_name, file_url, file_exists, type, rdf)
+					values ('%s', '%s', %i, '%s', %i)""" % (file_name, url, int(exist), type, int(rdf)))
 			DBHelper.con.commit()
 		except sqlite3.IntegrityError:
 			if exist:
