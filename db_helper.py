@@ -25,6 +25,9 @@ class DBHelper():
 	@staticmethod
 	def dataAddEntry(file_name, url, exist, type='PERSON'):
 		try:
+			print 'statement: ', """insert into survey_data(file_name, file_url, file_exists, type)
+					values ('%s', '%s', %i, '%s')""" % (file_name, url, int(exist), type)
+
 			DBHelper.getCursor().execute(
 				"""insert into survey_data(file_name, file_url, file_exists, type)
 					values ('%s', '%s', %i, '%s')""" % (file_name, url, int(exist), type))
