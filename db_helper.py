@@ -5,12 +5,8 @@ class DBHelper():
 
 	@staticmethod
 	def getCursor():
-		try:
-			return DBHelper.cur
-		except AttributeError:
-			DBHelper.con = sqlite3.connect('website/website/db/website.db')
-			DBHelper.cur = DBHelper.con.cursor()
-			return DBHelper.cur
+		DBHelper.con = sqlite3.connect('website/website/db/website.db')
+		DBHelper.cur = DBHelper.con.cursor()
 
 	@staticmethod
 	def getNotExistFileNames(limit=1000):
