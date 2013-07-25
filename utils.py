@@ -100,9 +100,10 @@ class Utils:
 				# meaning this file is not downloaded yet, need to update it when we download
 				DBHelper().dataAddEntry(name + postfix, link, False)
 			except sqlite3.IntegrityError as e:
-				print e.message
-				print 'database error'
-				traceback.print_exc()
+				print 'conflict'
+				# print e.message
+				# print 'database error'
+				# traceback.print_exc()
 
 if __name__ == '__main__':
 	print Utils.levenshteinDistance('abc', 'abd')
