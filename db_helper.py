@@ -7,6 +7,7 @@ class DBHelper():
 	def getCursor():
 		DBHelper.con = sqlite3.connect('website/website/db/website.db')
 		DBHelper.cur = DBHelper.con.cursor()
+		return DBHelper.cur
 
 	@staticmethod
 	def getNotExistFileNames(limit=1000):

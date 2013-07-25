@@ -7,6 +7,7 @@ import json
 import urllib2
 import logging
 import sys
+import traceback
 
 
 class Utils:
@@ -102,6 +103,7 @@ class Utils:
 			except sqlite3.IntegrityError as e:
 				print e.message
 				print 'database error'
+				traceback.print_exc()
 
 if __name__ == '__main__':
 	print Utils.levenshteinDistance('abc', 'abd')
