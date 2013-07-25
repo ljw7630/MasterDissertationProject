@@ -60,7 +60,7 @@ def main(argv):
 	rg = RG()
 
 	for profile in profiles:
-		Utils.putExtraProfilesIntoDB(profiles.extra_profile_list)
+		Utils.putExtraProfilesIntoDB(profile.extra_profile_list)
 		rg.add(profile)
 		DBHelper.dataSetRDF(profile.file_name)
 	rg.save(format='xml')
