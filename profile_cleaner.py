@@ -15,7 +15,7 @@ class ProfileCleaner:
 		self.removeScripts()
 		self.removeLinks()
 		self.removeImage()
-		self.removeExtra()
+		#self.removeExtra()
 		self.removeGroups()
 		self.removeHeader()
 		self.removeFooter()
