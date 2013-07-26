@@ -8,6 +8,7 @@ import sys
 from profile_cleaner import ProfileCleaner as Cleaner
 from socket_handler import DegreeSocketHandler
 from db_helper import DBHelper
+import traceback
 
 ## fix db scripts:
 
@@ -102,6 +103,7 @@ def run(num):
 			rg.add(profile)
 			DBHelper.dataSetRDF(profile.file_name, rdf=1)
 	except Exception:
+		traceback.print_exc()
 		rg.save(format='xml')
 		rg.close()
 		DBHelper.commitAndClose()
