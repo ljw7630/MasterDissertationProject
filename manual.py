@@ -87,16 +87,22 @@ def validateDegreeEngine():
 def run(num):
 	rg = RG()
 	profile_paths = getPublicProfiles(limit=num)
-	for path in profile_paths:
-		parser = ProfileParser(path)
-		profile = parser.parseHtml()
-		Utils.putExtraProfilesIntoDB(profile.extra_profile_list)
-		rg.add(profile)
-		DBHelper.dataSetRDF(profile.file_name, rdf=1)
-	rg.save(format='xml')
-	rg.close()
-	DBHelper.commitAndClose()
-
+	try:
+		for path in profile_paths:
+			parser = ProfileParser(path)
+			profile = parser.parseHtml()
+			Utils.putExtraProfilesIntoDB(profile.extra_profile_list)
+			rg.add(profile)
+			DBHelper.dataSetRDF(profile.file_name, rdf=1)
+	except Exception:
+		rg.save(format='xml')
+		rg.close()
+		DBHelper.commitAndClose()
+	else:
+		rg.save(format='xml')
+		rg.close()
+		DBHelper.commitAndClose()
+		
 
 def main(argv):
 	num = 100
