@@ -41,6 +41,13 @@ class DBHelper():
 	def dataSetRDF(file_name):
 		file_name = file_name.replace("'", "''")
 		DBHelper.getCursor().execute("update survey_data set rdf=1 where file_name='%s'" % file_name)
+		DBHelper.con.commit()
+
+	@staticmethod
+	def dataSetExists(file_name, file_exists):
+		file_name = file_name.replace("'", "''")
+		DBHelper.getCursor().execute("update survey_data set file_exists=%i where file_name='%s'" % (file_exists, file_name))
+		DBHelper.con.commit()
 
 	@staticmethod
 	def isDataRDFed(file_name):
