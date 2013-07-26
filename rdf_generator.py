@@ -159,7 +159,7 @@ class RDFGenerator:
 
 				if college not in self.colleges:
 					self.graph_add(term, RDF.type, self.schema.College)
-					self.graph_add(term, RDF.label, Literal(college, datatype=XSD.string))
+					self.graph_add(term, RDFS.label, Literal(college, datatype=XSD.string))
 					self.colleges.add(college)
 
 				self.graph_add(education, self.schema.college, term)
