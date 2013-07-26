@@ -52,14 +52,16 @@ def cleanProfile():
 
 def getPublicProfiles(limit=1000):
 	path = 'user_raw'
-	profiles = []
+	profile_paths = []
 
 	for f in DBHelper.getNotRDFedFileName(limit):
 		file_path = join(path, f)
-		parser = ProfileParser(file_path)
-		profile = parser.parseHtml()
-		profiles.append(profile)
-	return profiles
+		profile_paths.append(file_path)
+	# 	parser = ProfileParser(file_path)
+	# 	profile = parser.parseHtml()
+	# 	profiles.append(profile)
+	# return profiles
+	return profile_paths
 
 
 def printList(arr):
@@ -81,23 +83,27 @@ def validateDegreeEngine():
 	sh.close()
 
 
-def main(argv):
-	num = 100
-	if len(argv) == 1:
-		num = 100
-	else:
-		num = int(argv[1])
-	profiles = getPublicProfiles(limit=num)
-	# Utils.persistentPublicProfiles(profiles)
+def run(num):
 	rg = RG()
-
-	for profile in profiles:
+	profile_paths = getPublicProfiles(limit=num)
+	for path in profile_paths:
+		parser = ProfileParser(path)
+		profile = parser.parseHtml()
 		Utils.putExtraProfilesIntoDB(profile.extra_profile_list)
 		rg.add(profile)
 		rg.save(format='xml')
 		DBHelper.dataSetRDF(profile.file_name, rdf=1)
 
 	DBHelper.commitAndClose()
+
+
+def main(argv):
+	num = 100
+	if len(argv) == 1:
+		num = 100
+	else:
+		num = int(argv[1])
+	run(num)
 
 if __name__ == '__main__':
 	main(sys.argv)
