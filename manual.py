@@ -98,8 +98,8 @@ def run(num):
 		for path in profile_paths:
 			parser = ProfileParser(path)
 			profile = parser.parseHtml()
-			print profile.extra_profile_list
-			Utils.putExtraProfilesIntoDB(profile.extra_profile_list)
+			# print profile.extra_profile_list
+			# Utils.putExtraProfilesIntoDB(profile.extra_profile_list)
 			rg.add(profile)
 			DBHelper.dataSetRDF(profile.file_name, rdf=1)
 	except Exception:
