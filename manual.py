@@ -29,6 +29,18 @@ from db_helper import DBHelper
 # for f in res:
 # 	print f
 # 	DBHelper.dataSetExists(f, 1)
+#
+##############################################################################
+#
+# import os
+# from db_helper import DBHelper
+#
+# res = DBHelper.getNotRDFedFileName(limit=10000)
+#
+# for f in res:
+# 	if (not os.path.exists('user_raw/'+f)) and (not os.path.exists('company_raw/'+f)):
+# 		print f
+# 		DBHelper.deleteDataInDB(f)
 
 def cleanProfile():
 	path = 'user_raw'
