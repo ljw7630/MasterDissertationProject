@@ -156,7 +156,7 @@ class SchemaGenerator:
 		for degreeArr in DegreeAbbreviationParser().degrees:
 			degreeAbbr = degreeArr[1]
 			self.graph.add((self.get_term(degreeAbbr), RDF.type, SKOS.Concept))
-			self.graph.add((self.get_term(degreeArr), SKOS.prefLabel, Literal(degreeArr[-1], datatype=XSD.string)))
+			self.graph.add((self.get_term(degreeAbbr), SKOS.prefLabel, Literal(degreeArr[-1], datatype=XSD.string)))
 
 	def generate(self):
 
