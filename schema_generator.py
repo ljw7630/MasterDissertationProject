@@ -150,11 +150,13 @@ class SchemaGenerator:
 
 		for industry in industries:
 			self.graph.add((self.get_term(industry), RDF.type, self.Industry))
+			self.graph.add((self.get_term(industry), RDFS.label, Literal(industry, datatype=XSD.date)))
 
 	def generate_instance_degree(self):
 		for degreeArr in DegreeAbbreviationParser().degrees:
 			degreeAbbr = degreeArr[1]
 			self.graph.add((self.get_term(degreeAbbr), RDF.type, SKOS.Concept))
+			self.graph.add((self.get_term(degreeArr), SKOS.prefLabel, Literal(degreeArr[-1], datatype=XSD.string)))
 
 	def generate(self):
 

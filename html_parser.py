@@ -332,7 +332,7 @@ class PublicProfileParser:
 
 			for language_tag in languages:
 				language = language_tag.h3.string
-				language_list.append(language.encode('utf-8'))
+				language_list.append(language.encode('ascii', 'ignore'))
 
 		return language_list
 

@@ -98,7 +98,7 @@ class Utils:
 			name = link.rsplit('/', 1)[1]
 			try:
 				# meaning this file is not downloaded yet, need to update it when we download
-				DBHelper().dataAddEntry(name + postfix, link, False)
+				DBHelper().dataAddEntry(name + postfix, link, exist=0)
 			except sqlite3.IntegrityError as e:
 				print 'conflict'
 				# print e.message

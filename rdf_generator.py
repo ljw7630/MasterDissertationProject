@@ -1,5 +1,5 @@
 from schema_generator import SchemaGenerator as SG
-from rdflib import BNode, RDF, Literal, Graph
+from rdflib import BNode, RDF, Literal, Graph, RDFS
 from rdflib.namespace import FOAF, XSD
 from html_parser import CompanyProfileParser as CPP
 from html_downloader import CompanyProfileDownloader as CPD
@@ -159,6 +159,7 @@ class RDFGenerator:
 
 				if college not in self.colleges:
 					self.graph_add(term, RDF.type, self.schema.College)
+					self.graph_add(term, RDF.label, Literal(college, datatype=XSD.string))
 					self.colleges.add(college)
 
 				self.graph_add(education, self.schema.college, term)
@@ -217,6 +218,8 @@ class RDFGenerator:
 				company_name = experience['company_name']
 				company_name = self.company_name_helper(company_name)
 				company = self.schema.get_term(company_name)
+
+				self.graph_add(company, RDFS.label, Literal(company_name, datatype=XSD.string))
 
 				# we need to define this company
 				if company_name not in self.companies:
