@@ -244,7 +244,7 @@ class RDFGenerator:
 						if 'Industry' in company_profile:
 							self.graph_add(company, self.schema.industry, self.schema.get_term(company_profile['Industry']))
 
-						DBHelper.dataSetRDF(company_profile.file_name, rdf=1)
+						DBHelper.dataSetRDF(company_profile['file_name'], rdf=1)
 
 				self.graph_add(company, self.schema.has_position, term)
 				self.graph_add(person, self.schema.works_as, term)
