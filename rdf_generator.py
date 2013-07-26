@@ -210,7 +210,7 @@ class RDFGenerator:
 						if self.check_datetime_format(experience['to']):
 							self.graph_add(term, self.schema.to_time, Literal(experience['to'], datatype=XSD.date))
 						elif experience['to'].lower() == 'current' or experience['to'].upper() == 'now':
-							pass
+							self.graph_add(term, self.schema.to_time, Literal('now', datatype=XSD.string))
 				except KeyError:
 					pass
 
