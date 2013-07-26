@@ -72,6 +72,12 @@ class DBHelper():
 			return False
 
 	@staticmethod
+	def deleteDataInDB(file_name):
+		file_name = file_name.replace("'", "''")
+		DBHelper.getCursor().execute("delete from survey_data where file_name='%s'" % file_name)
+		DBHelper.con.commit()
+
+	@staticmethod
 	def commitAndClose():
 		try:
 			DBHelper.cur.close()
