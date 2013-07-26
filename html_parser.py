@@ -207,9 +207,12 @@ class CompanyProfileParser:
 		self.file_name = file_name
 
 	def parseHtml(self):
+		self.content = {}
 		basic_infos = self.soup.find('div', class_="basic-info").dl.findAll('dt')
 
-		self.content = {}
+		if basic_infos is None:
+			return
+
 		for info in basic_infos:
 			dd = info.findNext('dd')
 			value = dd.string.strip() if dd.a is None else dd.a.string.strip()
