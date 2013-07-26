@@ -2,7 +2,6 @@ import sqlite3
 
 
 class DBHelper():
-
 	@staticmethod
 	def getCursor():
 		DBHelper.con = sqlite3.connect('website/website/db/website.db')
@@ -21,7 +20,8 @@ class DBHelper():
 
 	@staticmethod
 	def getNotRDFedFileName(limit=1000):
-		res = DBHelper.getCursor().execute("select file_name from survey_data where file_exists=1 and rdf=0 limit %i" % limit)
+		res = DBHelper.getCursor().execute(
+			"select file_name from survey_data where file_exists=1 and rdf=0 and type='PERSON' limit %i" % limit)
 		return [f[0] for f in res.fetchall()]
 
 	@staticmethod
@@ -46,20 +46,21 @@ class DBHelper():
 	@staticmethod
 	def dataSetRDF(file_name, rdf=1):
 		file_name = file_name.replace("'", "''")
-		DBHelper.getCursor().execute("update survey_data set rdf=%i where file_name='%s'" % (rdf,file_name))
+		DBHelper.getCursor().execute("update survey_data set rdf=%i where file_name='%s'" % (rdf, file_name))
 		DBHelper.con.commit()
 
 	@staticmethod
 	def dataSetExists(file_name, file_exists):
 		file_name = file_name.replace("'", "''")
-		DBHelper.getCursor().execute("update survey_data set file_exists=%i where file_name='%s'" % (file_exists, file_name))
+		DBHelper.getCursor().execute(
+			"update survey_data set file_exists=%i where file_name='%s'" % (file_exists, file_name))
 		DBHelper.con.commit()
 
 	@staticmethod
 	def isDataRDFed(file_name):
 		file_name = file_name.replace("'", "''")
 		res = DBHelper.getCursor().execute("select count(*) from survey_data where file_name='%s' and rdf=0"
-			% file_name)
+		                                   % file_name)
 		count = res.fetchone()[0]
 		if count != 0:
 			return True

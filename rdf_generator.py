@@ -24,9 +24,9 @@ RESOURCES_LANGUAGES_PICKLE = 'resources/languages.pickle'
 
 RESOURCES_SKILLS_PICKLE = 'resources/skills.pickle'
 
-RESOURCES_ONTOLOGY_OWL = 'resources/ontology.owl'
+RESOURCES_ONTOLOGY_OWL = 'result/ontology.owl'
 
-RESOURCES_DATA_RDF = 'resources/data.rdf'
+RESOURCES_DATA_RDF = 'result/data.rdf'
 
 
 class RDFGenerator:
@@ -244,6 +244,8 @@ class RDFGenerator:
 						if 'Industry' in company_profile:
 							self.graph_add(company, self.schema.industry, self.schema.get_term(company_profile['Industry']))
 
+						DBHelper.dataSetRDF(company_profile.file_name, rdf=1)
+
 				self.graph_add(company, self.schema.has_position, term)
 				self.graph_add(person, self.schema.works_as, term)
 
@@ -251,7 +253,7 @@ class RDFGenerator:
 		file_path = CPD.downloadByUrl(url, company_name)
 		parser = CPP(file_path)
 		company_profile = parser.parseHtml()
-		DBHelper.dataAddEntry(file_path.split('/')[-1], url, 1, type='COMPANY')
+		DBHelper.dataAddEntry(company_profile.file_name, url, exists=1, type='COMPANY')
 		return company_profile
 
 	def get_company_size(self, company_size_string):

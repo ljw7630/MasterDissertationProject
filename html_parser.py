@@ -204,7 +204,7 @@ class CompanyProfileParser:
 	def __init__(self, file_name):
 		Utils.getLogger().debug(file_name)
 		self.soup = bs4.BeautifulSoup(open(file_name))
-		self.file_name = file_name
+		self.file_name = file_name.split('/')[-1]
 
 	def parseHtml(self):
 		self.content = {}
