@@ -223,7 +223,6 @@ class CompanyProfileParser:
 			value = dd.string.strip() if dd.a is None else dd.a.string.strip()
 			self.content[info.string.strip()] = value
 
-		company_profile = CompanyProfile()
 		company_profile.content = self.content
 
 		return company_profile
