@@ -286,10 +286,10 @@ class PublicProfileParser:
 					company_url = self._linkedin_url_prefix + company.a['href']
 					company_name = company.a.span.string.strip().encode('ascii', 'ignore')
 					experience['company_url'] = company_url
-					experience['company_name'] = company_name
 				else:
 					company_name = company.span.string.strip().encode('ascii', 'ignore')
-					experience['company_name'] = company_name
+
+				experience['company_name'] = company_name.replace('/', '')
 
 				period_raw = raw_experience.find('p', 'period')
 				self.getFromTo(experience, period_raw)

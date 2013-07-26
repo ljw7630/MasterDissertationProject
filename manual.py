@@ -94,8 +94,8 @@ def main(argv):
 	for profile in profiles:
 		Utils.putExtraProfilesIntoDB(profile.extra_profile_list)
 		rg.add(profile)
+		rg.save(format='xml')
 		DBHelper.dataSetRDF(profile.file_name, rdf=1)
-	rg.save(format='xml')
 
 	DBHelper.commitAndClose()
 
