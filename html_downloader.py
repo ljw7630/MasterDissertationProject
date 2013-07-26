@@ -9,6 +9,9 @@ import sys
 import os
 import traceback
 from utils import Utils
+import time
+
+NUM = 10
 
 
 class HTMLDownloader:
@@ -49,7 +52,7 @@ class PublicProfileDownloader:
 
 	# Just like in Google, type: "keyword site:http://ie.linkedin.com/in/"
 	# and download the content from return ulrs
-	def googleSearch(self, keywords, site=_linkedin_ireland_url, num=5):
+	def googleSearch(self, keywords, site=_linkedin_ireland_url, num=NUM):
 		urls = []
 		urls[:] = search(keywords + ' ' + 'site:' + site, stop=num)
 
@@ -107,9 +110,14 @@ def main(argv):
 	else:
 		params = argv[1:]
 
+	counter = 0
 	profile_downloader = PublicProfileDownloader()
 	for param in params:
 		profile_downloader.download(param)
+		counter += NUM
+		if counter > 100:
+			time.sleep(180)
+			counter -= 100
 
 	DBHelper.commitAndClose()
 
