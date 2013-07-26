@@ -10,6 +10,11 @@ class DBHelper():
 		return DBHelper.cur
 
 	@staticmethod
+	def getFileNames(limit=1000):
+		res = DBHelper.getCursor().execute("select file_name from survey_data where type='PERSON'" % limit)
+		return [f[0] for f in res.fetchall()]
+
+	@staticmethod
 	def getNotExistFileNames(limit=1000):
 		res = DBHelper.getCursor().execute("select file_name from survey_data where file_exists=0 limit %i" % limit)
 		return [f[0] for f in res.fetchall()]
@@ -39,9 +44,9 @@ class DBHelper():
 				raise sqlite3.IntegrityError
 
 	@staticmethod
-	def dataSetRDF(file_name):
+	def dataSetRDF(file_name, rdf=1):
 		file_name = file_name.replace("'", "''")
-		DBHelper.getCursor().execute("update survey_data set rdf=1 where file_name='%s'" % file_name)
+		DBHelper.getCursor().execute("update survey_data set rdf=%i where file_name='%s'" % (rdf,file_name))
 		DBHelper.con.commit()
 
 	@staticmethod

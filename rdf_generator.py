@@ -126,8 +126,6 @@ class RDFGenerator:
 		self.add_education_triple(profile, person)
 		self.add_experience_triple(profile, person)
 
-		DBHelper.dataSetRDF(profile.file_name)
-
 	def add_language_triple(self, profile, person):
 		for language in profile.language_list:
 			term = self.schema.get_term(language)
