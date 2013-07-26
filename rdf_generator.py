@@ -228,7 +228,7 @@ class RDFGenerator:
 
 					# extra process required for
 					if 'company_url' in experience:
-						company_profile = self.get_company_profile(experience['company_url'], company_name).content
+						company_profile = self.get_company_profile(experience['company_url'], company_name)
 
 						if 'Founded' in company_profile:
 							self.graph_add(company, self.schema.formation_year, Literal(company_profile['Founded'], datatype=XSD.gYear))
@@ -252,8 +252,8 @@ class RDFGenerator:
 	def get_company_profile(self, url, company_name):
 		file_path = CPD.downloadByUrl(url, company_name)
 		parser = CPP(file_path)
-		company_profile = parser.parseHtml()
-		DBHelper.dataAddEntry(company_profile.file_name, url, exist=1, type='COMPANY')
+		company_profile = parser.parseHtml().content
+		DBHelper.dataAddEntry(company_profile['file_name'], url, exist=1, type='COMPANY')
 		return company_profile
 
 	def get_company_size(self, company_size_string):
