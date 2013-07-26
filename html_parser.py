@@ -208,10 +208,13 @@ class CompanyProfileParser:
 
 	def parseHtml(self):
 		self.content = {}
+		company_profile = CompanyProfile()
+		company_profile.file_name = self.file_name
 		basic_info = self.soup.find('div', class_="basic-info")
 
 		if basic_info is None:
-			return
+			company_profile.content = self.content
+			return company_profile
 
 		basic_infos = basic_info.dl.findAll('dt')
 
@@ -222,7 +225,6 @@ class CompanyProfileParser:
 
 		company_profile = CompanyProfile()
 		company_profile.content = self.content
-		company_profile.file_name = self.file_name
 
 		return company_profile
 
