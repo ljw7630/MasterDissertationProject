@@ -275,7 +275,6 @@ class RDFGenerator:
 		return position
 
 	def degree_helper(self, degree):
-		print repr(degree)
 		abbr, level = self.degree_socket_handler.send_query(degree)
 
 		if not abbr:

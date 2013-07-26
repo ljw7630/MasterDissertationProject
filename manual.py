@@ -42,6 +42,7 @@ from db_helper import DBHelper
 # 		print f
 # 		DBHelper.deleteDataInDB(f)
 
+
 def cleanProfile():
 	path = 'user_raw'
 	for f in listdir(path):
@@ -93,6 +94,7 @@ def run(num):
 		rg.add(profile)
 		DBHelper.dataSetRDF(profile.file_name, rdf=1)
 	rg.save(format='xml')
+	rg.close()
 	DBHelper.commitAndClose()
 
 
