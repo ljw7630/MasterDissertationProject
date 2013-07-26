@@ -204,12 +204,13 @@ class CompanyProfileParser:
 	def __init__(self, file_name):
 		Utils.getLogger().debug(file_name)
 		self.soup = bs4.BeautifulSoup(open(file_name))
-		self.file_name = file_name.split('/')[-1]
+		self.content = {}
+		self.content.file_name = file_name.split('/')[-1]
 
 	def parseHtml(self):
 		self.content = {}
 		company_profile = CompanyProfile()
-		company_profile.file_name = self.file_name
+
 		basic_info = self.soup.find('div', class_="basic-info")
 
 		if basic_info is None:
