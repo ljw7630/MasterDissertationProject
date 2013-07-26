@@ -91,6 +91,7 @@ def run(num):
 		for path in profile_paths:
 			parser = ProfileParser(path)
 			profile = parser.parseHtml()
+			print profile.extra_profile_list
 			Utils.putExtraProfilesIntoDB(profile.extra_profile_list)
 			rg.add(profile)
 			DBHelper.dataSetRDF(profile.file_name, rdf=1)
@@ -102,7 +103,7 @@ def run(num):
 		rg.save(format='xml')
 		rg.close()
 		DBHelper.commitAndClose()
-		
+
 
 def main(argv):
 	num = 100
