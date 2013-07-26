@@ -94,6 +94,7 @@ class Utils:
 
 	@staticmethod
 	def putExtraProfilesIntoDB(links, postfix='.htm'):
+		print 'puting', len(links), 'into db...'
 		for link in links:
 			name = link.rsplit('/', 1)[1]
 			try:

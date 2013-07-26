@@ -115,9 +115,9 @@ def main(argv):
 	for param in params:
 		profile_downloader.download(param)
 		counter += NUM
-		if counter > 100:
-			time.sleep(180)
-			counter -= 100
+		if counter > 500:
+			time.sleep(120)
+			counter -= 500
 
 	DBHelper.commitAndClose()
 
