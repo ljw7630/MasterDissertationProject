@@ -9,6 +9,26 @@ from profile_cleaner import ProfileCleaner as Cleaner
 from socket_handler import DegreeSocketHandler
 from db_helper import DBHelper
 
+## fix db scripts:
+
+# import os
+# from db_helper import DBHelper
+#
+# res = DBHelper.getNotRDFedFileName(limit=10000)
+#
+# for f in res:
+# 	if os.path.exists('user_raw/'+f) or os.path.exists('company_raw/'+f):
+# 		print f
+# 		DBHelper.dataSetExists(f, 1)
+#
+##############################################################################
+#
+#
+# res = os.listdir('user_raw')
+#
+# for f in res:
+# 	print f
+# 	DBHelper.dataSetExists(f, 1)
 
 def cleanProfile():
 	path = 'user_raw'

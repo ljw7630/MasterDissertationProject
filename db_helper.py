@@ -25,7 +25,8 @@ class DBHelper():
 			# print 'statement: ', """insert into survey_data(file_name, file_url, file_exists, type, rdf)
 			# 		values ('%s', '%s', %i, '%s')""" % (file_name, url, int(exist), type, int(rdf))
 			file_name = file_name.replace("'", "''")
-			print file_name, url
+			url = url.replace("'", "''")
+
 			DBHelper.getCursor().execute(
 				"""insert into survey_data(file_name, file_url, file_exists, type, rdf)
 					values ('%s', '%s', %i, '%s', %i)""" % (file_name, url, int(exist), type, int(rdf)))

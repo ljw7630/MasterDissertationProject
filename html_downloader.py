@@ -65,6 +65,7 @@ class PublicProfileDownloader:
 			if not DBHelper.dataInDB(file_name + postfix):
 				try:
 					HTMLDownloader.download(url, path + file_name + postfix)
+					DBHelper().dataAddEntry(file_name + postfix, url, True)
 					parser = PublicProfileParser(path + file_name + postfix)
 					links = parser.getExtraProfiles()
 					Utils.putExtraProfilesIntoDB(links)
@@ -72,7 +73,6 @@ class PublicProfileDownloader:
 					cleaner.saveToFile(path+file_name+postfix)
 
 					# meaning this file is downloaded
-					DBHelper().dataAddEntry(file_name + postfix, url, True)
 				except sqlite3.IntegrityError:
 					traceback.print_exc()
 					pass
