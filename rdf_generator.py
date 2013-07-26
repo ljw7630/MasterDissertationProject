@@ -177,7 +177,7 @@ class RDFGenerator:
 				self.graph_add(education, self.schema.major, term)
 
 			if 'degree' in education_dict:
-				degree = education_dict['degree']
+				degree = education_dict['degree'].encode('ascii', 'ignore')
 				degree, level = self.degree_helper(degree)
 				if degree:
 					term = self.schema.get_term(degree)
