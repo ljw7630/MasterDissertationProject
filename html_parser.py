@@ -345,9 +345,13 @@ class PublicProfileParser:
 			lis = skills.findAll('li')
 
 			for li in lis:
-				href = li.span.a['href']
-				skill = li.span.a.string.strip()
-				skill_list.append({'skill': skill, 'url': href})
+				if li.span.a is None:
+					href = li.span['class'][-1]
+					skill = li.span.string.strip()
+				else:
+					href = li.span.a['href']
+					skill = li.span.a.string.strip()
+				skill_list.append({'skill': skill, 'pyth': href})
 
 		return skill_list
 
