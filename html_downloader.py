@@ -67,7 +67,7 @@ class PublicProfileDownloader:
 			self.downloadAndAnalyze(url)
 
 	def downloadAndAnalyze(self, url, path='./user_raw/', postfix='.htm'):
-		file_name = url.rsplit('/', 1)[1]
+		file_name = Utils.getFileNameFromUrl(url)
 		# if not DBHelper.dataInDB(file_name + postfix):
 		if not os.path.exists(path + file_name + postfix):
 			try:

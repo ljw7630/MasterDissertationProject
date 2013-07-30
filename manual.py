@@ -13,14 +13,13 @@ import traceback
 
 ## fix db scripts:
 
-# import os
-# from db_helper import DBHelper
-#
+import os
+from db_helper import DBHelper
+
 # res = DBHelper.getNotRDFedFileName(limit=10000)
 #
 # for f in res:
 # 	if os.path.exists('user_raw/'+f):
-#
 # 		DBHelper.dataSetExists(f, 1)
 # 	else:
 # 		print f
@@ -52,6 +51,29 @@ import traceback
 # for f in res:
 # 	print f
 # 	DBHelper.dataSetRDF(f, rdf=0)
+##############################################################################
+
+# from db_helper import DBHelper
+# import sqlite3
+# from utils import Utils
+# from profile_cleaner import ProfileCleaner
+# from html_parser import PublicProfileParser
+# res = DBHelper.getFileNames(limit=10000)
+# path = './user_raw/'
+# for f in res:
+# 	try:
+# 		parser = PublicProfileParser(path + f)
+# 		links = parser.getExtraProfiles()
+# 		Utils.putExtraProfilesIntoDB(links)
+# 		cleaner = ProfileCleaner(path + f)
+# 		cleaner.saveToFile(path + f)
+# 	# meaning this file is downloaded
+# 	except sqlite3.IntegrityError:
+# 		traceback.print_exc()
+# 		pass
+# 	except AttributeError:
+# 		traceback.print_exc()
+# 		os.remove(path + f)
 
 
 def downloadMoreProfiles():

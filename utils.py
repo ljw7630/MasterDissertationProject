@@ -96,7 +96,7 @@ class Utils:
 	def putExtraProfilesIntoDB(links, postfix='.htm'):
 		print 'puting', len(links), 'into db...'
 		for link in links:
-			name = link.rsplit('/', 1)[1]
+			name = Utils.getFileNameFromUrl(link)
 			try:
 				# meaning this file is not downloaded yet, need to update it when we download
 				DBHelper().dataAddEntry(name + postfix, link, exist=0)
@@ -105,6 +105,13 @@ class Utils:
 				# print e.message
 				# print 'database error'
 				# traceback.print_exc()
+
+	@staticmethod
+	def getFileNameFromUrl(url):
+		if url[-1] != '/':
+			url += '/'
+		return '-'.join(url.split('/')[4:-1])
+
 
 if __name__ == '__main__':
 	print Utils.levenshteinDistance('abc', 'abd')

@@ -443,11 +443,11 @@ class PublicProfileParser:
 		extra_profile_list = []
 		for profile in profiles:
 			url = profile.strong.a['href']
-			url = url[:url.find('?')]
-			url = '/'.join(url.split('/')[:5])
+			realurl = url[:url.find('?')]
+			url = '/'.join(realurl.split('/')[:5])
 			if str(url).startswith(self._linkedin_ireland_url_prefix):
 
-				extra_profile_list.append(url)
+				extra_profile_list.append(realurl)
 				# name = profile.strong.a.string.strip()
 				#
 				# if profile.span.string is not None:
