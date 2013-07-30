@@ -68,7 +68,8 @@ class PublicProfileDownloader:
 
 	def downloadAndAnalyze(self, url, path='./user_raw/', postfix='.htm'):
 		file_name = url.rsplit('/', 1)[1]
-		if not DBHelper.dataInDB(file_name + postfix):
+		# if not DBHelper.dataInDB(file_name + postfix):
+		if not os.path.exists(path + file_name + postfix):
 			try:
 				HTMLDownloader.download(url, path + file_name + postfix)
 				DBHelper().dataAddEntry(file_name + postfix, url, True)
@@ -85,6 +86,8 @@ class PublicProfileDownloader:
 			except AttributeError:
 				traceback.print_exc()
 				os.remove(path + file_name + postfix)
+		else:
+			print 'file already exists'
 
 
 # Download skills from research gate
