@@ -3,6 +3,64 @@ import bs4
 from collections import defaultdict
 from utils import Utils
 from model import PersonalProfile, CompanyProfile
+import os
+import urllib
+import urllib2
+
+
+class CityParser:
+	city_names = ['Dublin', 'Galway', 'Cork', 'Limerick', 'Wexford']
+
+	def __init__(self, company_name):
+		self.company_name = company_name
+		self.url = 'http://www.goldenpages.ie/q/business/advance/'
+		values = dict(where='ireland', what=company_name)
+		data = urllib.urlencode(values)
+		req = urllib2.Request(self.url, data)
+		rsp = urllib2.urlopen(req)
+		soup = bs4.BeautifulSoup(rsp.read())
+		results = soup.find('div', class_='-localResults')
+		divs = results.findAll('div', class_='result-box')
+		self.cities = set()
+		for div in divs:
+			name = div.find('span', class_='result-bn medium').string.strip()
+			address = div.find('div', class_='result-address').string.strip()
+
+			for city in self.city_names:
+				if address.lower().find(city.lower()) != -1:
+					self.cities.add(city)
+					break
+
+	def getResult(self):
+		return self.cities
+
+
+class UniversityParser:
+	def __init__(self):
+		path = 'resources/university/'
+		file_names = os.listdir('resources/university')
+		self.universities = set()
+
+		for file_name in file_names:
+			file_path = os.path.join(path, file_name)
+			self.soup = bs4.BeautifulSoup(open(file_path))
+			self.universities = self.universities.union(self.parseHtml())
+
+	def parseHtml(self):
+		table = self.soup.findAll('table')[4].find('table')
+		names = set()
+		trs = table.findAll('tr')[1:]
+		for tr in trs:
+			name = tr.findAll('td')[1].a.string.strip().encode('ascii', 'ignore')
+			names.add(name)
+		return names
+
+	def saveToFile(self):
+		f = open('resources/universities.txt', 'w')
+
+		for university in self.universities:
+			f.write(university + '\n')
+		f.close()
 
 
 class IrishNameParser:
@@ -402,6 +460,9 @@ class PublicProfileParser:
 
 	def getFromTo(self, dictionary, period_raw):
 		from_to = period_raw.findAll('abbr')
+		location = period_raw.find('span', class_='location')
+		if location:
+			dictionary['city'] = location.string.strip()
 
 		if from_to:
 			try:

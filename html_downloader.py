@@ -60,28 +60,31 @@ class PublicProfileDownloader:
 		return urls
 
 	# Search and Download
-	def download(self, keyword, path='./user_raw/', postfix='.htm'):
+	def download(self, keyword):
 		urls = self.googleSearch(keyword)
 
 		for url in urls:
-			file_name = url.rsplit('/', 1)[1]
-			if not DBHelper.dataInDB(file_name + postfix):
-				try:
-					HTMLDownloader.download(url, path + file_name + postfix)
-					DBHelper().dataAddEntry(file_name + postfix, url, True)
-					parser = PublicProfileParser(path + file_name + postfix)
-					links = parser.getExtraProfiles()
-					Utils.putExtraProfilesIntoDB(links)
-					cleaner = ProfileCleaner(path+file_name+postfix)
-					cleaner.saveToFile(path+file_name+postfix)
+			self.downloadAndAnalyze(url)
 
-					# meaning this file is downloaded
-				except sqlite3.IntegrityError:
-					traceback.print_exc()
-					pass
-				except AttributeError:
-					traceback.print_exc()
-					os.remove(path + file_name + postfix)
+	def downloadAndAnalyze(self, url, path='./user_raw/', postfix='.htm'):
+		file_name = url.rsplit('/', 1)[1]
+		if not DBHelper.dataInDB(file_name + postfix):
+			try:
+				HTMLDownloader.download(url, path + file_name + postfix)
+				DBHelper().dataAddEntry(file_name + postfix, url, True)
+				parser = PublicProfileParser(path + file_name + postfix)
+				links = parser.getExtraProfiles()
+				Utils.putExtraProfilesIntoDB(links)
+				cleaner = ProfileCleaner(path+file_name+postfix)
+				cleaner.saveToFile(path+file_name+postfix)
+
+				# meaning this file is downloaded
+			except sqlite3.IntegrityError:
+				traceback.print_exc()
+				pass
+			except AttributeError:
+				traceback.print_exc()
+				os.remove(path + file_name + postfix)
 
 
 # Download skills from research gate

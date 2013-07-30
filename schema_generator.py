@@ -6,6 +6,7 @@ from html_parser import IndustryParser, DisciplineParser, DegreeAbbreviationPars
 class SchemaGenerator:
 	_base_uri = 'http://scss.tcd.ie/cs/muc/linkedin/'
 	_owl_time_uri = 'http://www.w3.org/2006/time#'
+	cities = ['Dublin', 'Galway', 'Cork', 'Limerick', 'Wexford']
 
 	def __init__(self, uri=None):
 
@@ -17,16 +18,21 @@ class SchemaGenerator:
 		# self._namespace_time = Namespace(self._owl_time_uri)
 
 		self.graph = Graph()
-		namespace_manager = NamespaceManager(self.graph)
-		namespace_manager.bind('lk', self._namespace_lk, override=False)
-
-		# namespace_manager.bind('owl-time', self._owl_time_uri, override=False)
-		namespace_manager.bind('dbpedia-owl', Namespace('http://dbpedia.org/ontology/'), override=False)
-		namespace_manager.bind('aiiso', Namespace('http://purl.org/vocab/aiiso/schema#'), override=False)
-
-		self.graph.namespace_manager = namespace_manager
-		self.graph.bind('foaf', FOAF)
-		self.graph.bind('skos', SKOS)
+		# namespace_manager = NamespaceManager(self.graph)
+		# namespace_manager.bind('lk', self._namespace_lk, override=True)
+		#
+		# # namespace_manager.bind('owl-time', self._owl_time_uri, override=False)
+		# namespace_manager.bind('dbpedia-owl', Namespace('http://dbpedia.org/ontology/'), override=False)
+		# namespace_manager.bind('aiiso', Namespace('http://purl.org/vocab/aiiso/schema#'), override=False)
+		# self.graph.namespace_manager = namespace_manager
+		self.graph.namespace_manager.reset()
+		self.graph.namespace_manager.bind('lk', self._base_uri)
+		self.graph.namespace_manager.bind('owl-time', Namespace(self._owl_time_uri))
+		self.graph.namespace_manager.bind('dbpedia-owl', Namespace('http://dbpedia.org/ontology/'))
+		self.graph.namespace_manager.bind('dbpedia', Namespace('http://dbpedia.org/property/'))
+		self.graph.namespace_manager.bind('aiiso', Namespace('http://purl.org/vocab/aiiso/schema#'))
+		self.graph.namespace_manager.bind('foaf', FOAF)
+		self.graph.namespace_manager.bind('skos', SKOS)
 
 		self.generate_class_definition()
 		self.generate_property_definition()
@@ -66,7 +72,7 @@ class SchemaGenerator:
 		self.language = URIRef('http://dbpedia.org/ontology/language')
 		self.works_as = self._namespace_lk['worksAs']
 		self.city = URIRef('http://dbpedia.org/ontology/city')
-		self.headquarter = URIRef('http://dbpedia.org/ontology/headquarter')
+		#self.headquarter = URIRef('http://dbpedia.org/ontology/headquarter')
 		self.industry = URIRef('http://dbpedia.org/ontology/industry')
 		self.formation_year = URIRef('http://dbpedia.org/ontology/formationYear')
 		self.number_of_employees = URIRef('http://dbpedia.org/ontology/numberOfEmployees')
@@ -109,7 +115,7 @@ class SchemaGenerator:
 		self.graph.add((self.major, RDFS.range, self.Course))
 		self.graph.add((self.degree, RDFS.domain, self.Education))
 		self.graph.add((self.degree, RDFS.range, self.Degree))
-		self.graph.add((self.level, RDFS.domain, self.Course))
+		self.graph.add((self.level, RDFS.domain, self.Degree))
 		self.graph.add((self.level, RDFS.range, XSD.integer))
 		self.graph.add((self.college, RDFS.domain, self.Education))
 		self.graph.add((self.college, RDFS.range, self.College))
@@ -124,12 +130,12 @@ class SchemaGenerator:
 		self.graph.add((self.organization_type, RDFS.domain, self.Organization))
 		self.graph.add((self.organization_type, RDFS.range, XSD.string))
 
-	def generate_discipline_hierarchy(self):
+	def generate_instance_discipline_hierarchy(self):
 		disciplines = DisciplineParser().getDisciplinesHierarchy()
 
-		self.generate_discipline_hierarchy_helper(disciplines.keys(), disciplines)
+		self.generate_instance_discipline_hierarchy_helper(disciplines.keys(), disciplines)
 
-	def generate_discipline_hierarchy_helper(self, super_classes, dictionary):
+	def generate_instance_discipline_hierarchy_helper(self, super_classes, dictionary):
 		if super_classes == {}:
 			return
 		for super_class in super_classes:
@@ -142,7 +148,7 @@ class SchemaGenerator:
 				self.graph.add((self.get_term(sub_class), SKOS.narrower, super_class_term))
 				self.graph.add((super_class_term, SKOS.broader, self.get_term(sub_class)))
 
-				self.generate_discipline_hierarchy_helper(dictionary[super_class][sub_class].keys(),
+				self.generate_instance_discipline_hierarchy_helper(dictionary[super_class][sub_class].keys(),
 					dictionary[super_class][sub_class])
 
 	def generate_instance_industry(self):
@@ -158,20 +164,27 @@ class SchemaGenerator:
 			self.graph.add((self.get_term(degreeAbbr), RDF.type, SKOS.Concept))
 			self.graph.add((self.get_term(degreeAbbr), SKOS.prefLabel, Literal(degreeArr[-1], datatype=XSD.string)))
 
+	def generate_instance_city(self):
+		for city in self.cities:
+			self.graph.add((self.get_term(city), RDF.type, self.City))
+			self.graph.add((self.get_term(city), RDFS.label, Literal(city, datatype=XSD.string)))
+
 	def generate(self):
 
 		self.generate_instance_industry()
 
-		self.generate_discipline_hierarchy()
+		self.generate_instance_discipline_hierarchy()
 
 		self.generate_instance_degree()
+
+		self.generate_instance_city()
 
 		return self.graph
 
 	def get_term(self, term):
 		return self._namespace_lk[term.replace(' ', '_')]
 
-	def save(self, format='turtle', file_name='result/ontology.owl'):
+	def save(self, format='xml', file_name='result/ontology.owl'):
 		f = open(file_name, 'w')
 		print >> f, self.graph.serialize(format=format)
 		f.close()

@@ -1,12 +1,12 @@
 from schema_generator import SchemaGenerator as SG
 from rdflib import BNode, RDF, Literal, Graph, RDFS
 from rdflib.namespace import FOAF, XSD
-from html_parser import CompanyProfileParser as CPP
+from html_parser import CompanyProfileParser as CPP, CityParser
 from html_downloader import CompanyProfileDownloader as CPD
 from utils import Utils
 import re
 import os
-from socket_handler import DegreeSocketHandler
+from socket_handler import DegreeSocketHandler, UniversitySocketHandler, LanguageSocketHandler
 import pickle
 from db_helper import DBHelper
 
@@ -51,6 +51,10 @@ class RDFGenerator:
 
 		self.degree_socket_handler = DegreeSocketHandler()
 		self.degree_socket_handler.send_query_command()
+		self.university_socket_handler = UniversitySocketHandler()
+		self.university_socket_handler.send_query_command()
+		self.language_socket_handler = LanguageSocketHandler()
+		self.language_socket_handler.send_query_command()
 
 	def loadPickles(self):
 		#loading pickles if exist
@@ -109,6 +113,8 @@ class RDFGenerator:
 
 	def close(self):
 		self.degree_socket_handler.close()
+		self.language_socket_handler.close()
+		self.university_socket_handler.close()
 
 	def saveAndClose(self):
 		self.close()
@@ -128,6 +134,7 @@ class RDFGenerator:
 
 	def add_language_triple(self, profile, person):
 		for language in profile.language_list:
+			language = self.language_helper(language)
 			term = self.schema.get_term(language)
 
 			# if this is the new language we encounter
@@ -139,7 +146,7 @@ class RDFGenerator:
 
 	def add_skill_triple(self, profile, person):
 		for skill_dict in profile.skill_list:
-			skill_name = skill_dict['skill']
+			skill_name = skill_dict['skill'].lower()
 			term = self.schema.get_term(skill_name)
 
 			if skill_name not in self.skills:
@@ -155,6 +162,7 @@ class RDFGenerator:
 
 			if 'college' in education_dict:
 				college = education_dict['college']
+				college = self.university_helper(college)
 				term = self.schema.get_term(college)
 
 				if college not in self.colleges:
@@ -166,6 +174,7 @@ class RDFGenerator:
 
 			if 'major' in education_dict:
 				course = education_dict['major']
+				#todo: add course_name helper
 				term = self.schema.get_term(course)
 
 				if course not in self.courses:
@@ -221,9 +230,14 @@ class RDFGenerator:
 
 				self.graph_add(company, RDFS.label, Literal(company_name, datatype=XSD.string))
 
+				# add city info
+				for city in self.get_cities_by_company_name(company_name):
+					self.graph_add(company, self.schema.city, self.schema.get_term(city))
+
 				# we need to define this company
 				if company_name not in self.companies:
 					self.graph_add(company, RDF.type, self.schema.Organization)
+					#todo: get city info of the company
 					self.companies.add(company_name)
 
 					# extra process required for
@@ -239,7 +253,7 @@ class RDFGenerator:
 							self.graph_add(company, self.schema.to_time, Literal(maxi, datatype=XSD.integer))
 
 						if 'Type' in company_profile:
-							self.graph_add(company, self.schema.organization_type, Literal(company_profile['Type'], datatype=XSD.integer))
+							self.graph_add(company, self.schema.organization_type, Literal(company_profile['Type'], datatype=XSD.string))
 
 						if 'Industry' in company_profile:
 							self.graph_add(company, self.schema.industry, self.schema.get_term(company_profile['Industry']))
@@ -276,6 +290,12 @@ class RDFGenerator:
 	def position_helper(self, position):
 		return position
 
+	def language_helper(self, language):
+		return self.language_socket_handler.send_query(language)
+
+	def university_helper(self, university):
+		return self.university_socket_handler.send_query(university)
+
 	def degree_helper(self, degree):
 		abbr, level = self.degree_socket_handler.send_query(degree)
 
@@ -285,4 +305,8 @@ class RDFGenerator:
 			return abbr, int(level)
 
 	def company_name_helper(self, company_name):
-		return company_name
+		return company_name.lower()
+
+	def get_cities_by_company_name(self, company_name):
+		cp = CityParser(company_name)
+		return cp.getResult()

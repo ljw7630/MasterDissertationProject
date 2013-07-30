@@ -15,7 +15,7 @@ class DBHelper():
 
 	@staticmethod
 	def getNotExistFileNames(limit=1000):
-		res = DBHelper.getCursor().execute("select file_name from survey_data where file_exists=0 limit %i" % limit)
+		res = DBHelper.getCursor().execute("select file_url from survey_data where file_exists=0 and type='PERSON' limit %i" % limit)
 		return [f[0] for f in res.fetchall()]
 
 	@staticmethod

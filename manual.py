@@ -1,3 +1,4 @@
+from html_downloader import PublicProfileDownloader
 from rdf_generator import RDFGenerator as RG
 from html_parser import PublicProfileParser as ProfileParser
 from os import listdir
@@ -18,9 +19,12 @@ import traceback
 # res = DBHelper.getNotRDFedFileName(limit=10000)
 #
 # for f in res:
-# 	if os.path.exists('user_raw/'+f) or os.path.exists('company_raw/'+f):
-# 		print f
+# 	if os.path.exists('user_raw/'+f):
+#
 # 		DBHelper.dataSetExists(f, 1)
+# 	else:
+# 		print f
+# 		DBHelper.dataSetExists(f, 0)
 #
 ##############################################################################
 #
@@ -48,6 +52,13 @@ import traceback
 # for f in res:
 # 	print f
 # 	DBHelper.dataSetRDF(f, rdf=0)
+
+
+def downloadMoreProfiles():
+	downloader = PublicProfileDownloader()
+	urls = DBHelper.getNotExistFileNames()
+	for url in urls:
+		downloader.downloadAndAnalyze(url)
 
 
 def cleanProfile():
