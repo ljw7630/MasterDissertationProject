@@ -56,7 +56,7 @@ import traceback
 
 def downloadMoreProfiles():
 	downloader = PublicProfileDownloader()
-	urls = DBHelper.getNotExistFileNames()
+	urls = DBHelper.getNotExistFileNames(limit=3000)
 	for url in urls:
 		downloader.downloadAndAnalyze(url)
 
