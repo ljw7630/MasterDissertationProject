@@ -72,8 +72,8 @@ class PublicProfileDownloader:
 		if not os.path.exists(path + file_name + postfix):
 			try:
 				HTMLDownloader.download(url, path + file_name + postfix)
+				DBHelper().dataAddEntry(file_name + postfix, url, True)
 				if analysis:
-					DBHelper().dataAddEntry(file_name + postfix, url, True)
 					parser = PublicProfileParser(path + file_name + postfix)
 					links = parser.getExtraProfiles()
 					Utils.putExtraProfilesIntoDB(links)
