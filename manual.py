@@ -15,7 +15,7 @@ import traceback
 
 # import os
 # from db_helper import DBHelper
-# res = DBHelper.getNotRDFedFileName(limit=10000)
+# res = DBHelper.getNotRDFedFileName(limit=20000)
 # for f in res:
 # 	if os.path.exists('user_raw/'+f):
 # 		DBHelper.dataSetExists(f, 1)
@@ -72,11 +72,11 @@ import traceback
 # 		os.remove(path + f)
 
 
-def downloadMoreProfiles():
+def downloadMoreProfiles(limit=3000):
 	downloader = PublicProfileDownloader()
-	urls = DBHelper.getNotExistFileNames(limit=3000)
+	urls = DBHelper.getNotExistFileNames(limit=limit)
 	for url in urls:
-		downloader.downloadAndAnalyze(url)
+		downloader.downloadAndAnalyze(url, analysis=False)
 
 
 def cleanProfile():
