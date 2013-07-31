@@ -13,11 +13,9 @@ import traceback
 
 ## fix db scripts:
 
-import os
-from db_helper import DBHelper
-
+# import os
+# from db_helper import DBHelper
 # res = DBHelper.getNotRDFedFileName(limit=10000)
-#
 # for f in res:
 # 	if os.path.exists('user_raw/'+f):
 # 		DBHelper.dataSetExists(f, 1)
@@ -38,9 +36,7 @@ from db_helper import DBHelper
 #
 # import os
 # from db_helper import DBHelper
-#
 # res = DBHelper.getNotRDFedFileName(limit=10000)
-#
 # for f in res:
 # 	if (not os.path.exists('user_raw/'+f)) and (not os.path.exists('company_raw/'+f)):
 # 		print f

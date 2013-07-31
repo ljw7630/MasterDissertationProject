@@ -38,7 +38,7 @@ class DBHelper():
 			DBHelper.con.commit()
 		except sqlite3.IntegrityError:
 			if exist:
-				DBHelper.getCursor().execute("update survey_data set file_exists=%i" % int(exist))
+				DBHelper.getCursor().execute("update survey_data set file_exists=%i where file_name = '%s'" % (int(exist), file_name))
 				DBHelper.con.commit()
 			else:
 				raise sqlite3.IntegrityError
