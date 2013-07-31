@@ -66,16 +66,17 @@ class PublicProfileDownloader:
 		for url in urls:
 			self.downloadAndAnalyze(url)
 
-	def downloadAndAnalyze(self, url, path='./user_raw/', postfix='.htm'):
+	def downloadAndAnalyze(self, url, path='./user_raw/', postfix='.htm', analysis=True):
 		file_name = Utils.getFileNameFromUrl(url)
 		# if not DBHelper.dataInDB(file_name + postfix):
 		if not os.path.exists(path + file_name + postfix):
 			try:
 				HTMLDownloader.download(url, path + file_name + postfix)
-				DBHelper().dataAddEntry(file_name + postfix, url, True)
-				parser = PublicProfileParser(path + file_name + postfix)
-				links = parser.getExtraProfiles()
-				Utils.putExtraProfilesIntoDB(links)
+				if analysis:
+					DBHelper().dataAddEntry(file_name + postfix, url, True)
+					parser = PublicProfileParser(path + file_name + postfix)
+					links = parser.getExtraProfiles()
+					Utils.putExtraProfilesIntoDB(links)
 				cleaner = ProfileCleaner(path+file_name+postfix)
 				cleaner.saveToFile(path+file_name+postfix)
 
