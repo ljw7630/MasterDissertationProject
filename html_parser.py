@@ -480,7 +480,7 @@ class PublicProfileParser:
 			divs = mainDiv.findAll('div')
 
 			for div in divs:
-				collegeTitle = div.h3.string.strip()
+				collegeTitle = div.h3.string.strip().encode('ascii', 'ignore')
 				detailsEducation = div.h4.findAll('span')
 				education_dictionary = {'college': collegeTitle}
 				for item in detailsEducation:
