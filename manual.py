@@ -12,11 +12,11 @@ from db_helper import DBHelper
 import traceback
 
 ## fix db scripts:
-import os
-from db_helper import DBHelper
-from os.path import join
-for f in os.listdir('user_raw'):
-	DBHelper.dataSetExists(f, 1)
+# import os
+# from db_helper import DBHelper
+# from os.path import join
+# for f in os.listdir('user_raw'):
+# 	DBHelper.dataSetExists(f, 1)
 
 #############################################################################
 # import os
