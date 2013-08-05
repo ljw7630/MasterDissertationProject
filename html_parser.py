@@ -6,6 +6,7 @@ from model import PersonalProfile, CompanyProfile
 import os
 import urllib
 import urllib2
+from html_downloader import HTMLDownloader
 
 CITY_NAMES = ['Dublin', 'Galway', 'Cork', 'Limerick', 'Wexford']
 
@@ -56,7 +57,12 @@ class CityParser:
 		data = urllib.urlencode(values)
 		req = urllib2.Request(self.url, data)
 		rsp = urllib2.urlopen(req)
-		soup = bs4.BeautifulSoup(rsp.read())
+		stream = rsp.read()
+		tmp_file = open('resources/tmp.txt', 'w')
+		tmp_file.write(stream)
+		stream.close()
+		tmp_file.close()
+		soup = bs4.BeautifulSoup(open('resources/tmp.txt', 'r'))
 		try:
 			results = soup.find('div', class_='-localResults')
 			divs = results.findAll('div', class_='result-box')
