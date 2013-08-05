@@ -69,8 +69,9 @@ class CityParser:
 
 					for city in CITY_NAMES:
 						if address.lower().find(city.lower()) != -1:
-							cities.add(city)
-							self.city_arr.append(city)
+							if city not in cities:
+								cities.add(city)
+								self.city_arr.append(city)
 							break
 				except AttributeError:
 					pass
