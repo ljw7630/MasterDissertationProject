@@ -32,15 +32,14 @@ RESOURCES_DATA_RDF = 'result/data.rdf'
 class RDFGenerator:
 	# company_profiles = []
 
-	def __init__(self):
+	def __init__(self, file_name):
 		self.schema = SG()
-		# if os.path.exists(RESOURCES_DATA_RDF):
-		# 	self.graph = Graph()
-		# 	self.graph.parse(RESOURCES_DATA_RDF, format='xml')
-		#
-		# 	print 'load % lines of triples' % len(self.graph)
+		if os.path.exists(file_name):
+			self.graph = Graph()
+			self.graph.parse(file_name, format='xml')
+			print 'load % lines of triples' % len(self.graph)
 		# elif os.path.exists(RESOURCES_ONTOLOGY_OWL):
-		if os.path.exists(RESOURCES_ONTOLOGY_OWL):
+		elif os.path.exists(RESOURCES_ONTOLOGY_OWL):
 			self.graph = Graph()
 			self.graph.parse(RESOURCES_ONTOLOGY_OWL, format='xml')
 			print 'load % lines of triples' % len(self.graph)
