@@ -136,7 +136,7 @@ def validateDegreeEngine():
 
 
 def run(num, file_name):
-	rg = RG()
+	rg = RG(file_name)
 	profile_paths = getPublicProfiles(limit=num)
 	try:
 		for path in profile_paths:
