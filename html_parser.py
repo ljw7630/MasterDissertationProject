@@ -7,12 +7,50 @@ import os
 import urllib
 import urllib2
 
+CITY_NAMES = ['Dublin', 'Galway', 'Cork', 'Limerick', 'Wexford']
+
+
+class LanguageParser:
+	_file_name = './resources/List of languages by number of native speakers.html'
+
+	def __init__(self):
+		self.soup = bs4.BeautifulSoup(open(self._file_name))
+		table = self.soup.findAll('table', class_='wikitable sortable')[1]
+		self.languages = []
+		rows = table.findAll('tr')[1:]
+		for row in rows:
+			self.languages.append(row.td.b.a.string.strip())
+
+	def saveToFile(self, file_name='resources/languages.txt'):
+		f = open(file_name, 'w')
+		for language in self.languages:
+			f.write(language + '\n')
+		f.close()
+
+
+class IrishUniversityLocationParser:
+
+	def __init__(self, file_name='resources/Irish_Universities.html'):
+		self.soup = bs4.BeautifulSoup(open(file_name))
+		table = self.soup.find('table', cellspacing='1')
+		self.result = []
+		rows = table.findAll('tr')[2:-2]
+		for row in rows:
+			self.result.append((row.a.string.strip().encode('ascii', 'ignore'), row.h6.string.strip().encode('ascii', 'ignore')))
+
+	def saveToFile(self, file_name='resources/irish_university_locations.txt'):
+		f = open(file_name, 'w')
+		for res in self.result:
+			f.write(res[0] + '-' + res[1] + '\n')
+		f.close()
+
 
 class CityParser:
-	city_names = ['Dublin', 'Galway', 'Cork', 'Limerick', 'Wexford']
 
 	def __init__(self, company_name):
+		self.city_arr = []
 		self.company_name = company_name
+		print ('cityparser: ' + company_name)
 		self.url = 'http://www.goldenpages.ie/q/business/advance/'
 		values = dict(where='ireland', what=company_name)
 		data = urllib.urlencode(values)
@@ -21,18 +59,20 @@ class CityParser:
 		soup = bs4.BeautifulSoup(rsp.read())
 		results = soup.find('div', class_='-localResults')
 		divs = results.findAll('div', class_='result-box')
-		self.cities = set()
+		cities = set()
+
 		for div in divs:
-			name = div.find('span', class_='result-bn medium').string.strip()
+			#name = div.find('span', class_='result-bn medium').string.strip()
 			address = div.find('div', class_='result-address').string.strip()
 
-			for city in self.city_names:
+			for city in CITY_NAMES:
 				if address.lower().find(city.lower()) != -1:
-					self.cities.add(city)
+					cities.add(city)
+					self.city_arr.append(city)
 					break
 
 	def getResult(self):
-		return self.cities
+		return self.city_arr
 
 
 class UniversityParser:
@@ -202,20 +242,20 @@ class DisciplineParser:
 		h2s = soup.findAll('h2')
 
 		h2s = h2s[2:-5]
-		disciplines = defaultdict(dict)
+		self.disciplines = defaultdict(dict)
 		for h2 in h2s:
-			disciplines[h2.span.string] = {}
+			self.disciplines[h2.span.string] = {}
 			h3 = h2.findNext('h3')
 			while h3.findPrevious('h2') == h2:
-				disciplines[h2.span.string][h3.span['id']] = {}
+				self.disciplines[h2.span.string][h3.span['id']] = {}
 				table = h3.findNext('table')
 				tds = table.findAll('td')
 				for td in tds:
 					ul = td.find('ul')
 					tmp_dicts = self.getUlDict(ul)
-					disciplines[h2.span.string][h3.span['id']].update(tmp_dicts)
+					self.disciplines[h2.span.string][h3.span['id']].update(tmp_dicts)
 				h3 = h3.findNext('h3')
-		return disciplines
+		return self.disciplines
 
 	def getUlDict(self, ul):
 		dicts = defaultdict(dict)
@@ -236,6 +276,19 @@ class DisciplineParser:
 				break
 			li = li.findNextSibling('li')
 		return dicts
+
+	def saveToFile(self, file_name='resources/courses.txt'):
+		arr = []
+		self.unfold(arr, self.getDisciplinesHierarchy())
+		f = open(file_name, 'w')
+		for item in arr:
+			f.write(item + '\n')
+		f.close()
+
+	def unfold(self, arr, dictionary):
+		for key in dictionary.keys():
+			arr.append(key)
+			self.unfold(arr, dictionary[key])
 
 
 class SkillParser:
@@ -462,7 +515,12 @@ class PublicProfileParser:
 		from_to = period_raw.findAll('abbr')
 		location = period_raw.find('span', class_='location')
 		if location:
-			dictionary['city'] = location.string.strip()
+			location = location.string.strip()
+			for city in CITY_NAMES:
+				if location.lower().find(city.lower()) != -1:
+					dictionary['city'] = city
+					break
+
 
 		if from_to:
 			try:

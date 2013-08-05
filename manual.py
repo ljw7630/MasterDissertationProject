@@ -12,10 +12,16 @@ from db_helper import DBHelper
 import traceback
 
 ## fix db scripts:
+import os
+from db_helper import DBHelper
+from os.path import join
+for f in os.listdir('user_raw'):
+	DBHelper.dataSetExists(f, 1)
 
+#############################################################################
 # import os
 # from db_helper import DBHelper
-# res = DBHelper.getNotRDFedFileName(limit=20000)
+# res = DBHelper.getNotRDFedFileName(limit=21000)
 # for f in res:
 # 	if os.path.exists('user_raw/'+f):
 # 		DBHelper.dataSetExists(f, 1)
@@ -70,6 +76,15 @@ import traceback
 # 	except AttributeError:
 # 		traceback.print_exc()
 # 		os.remove(path + f)
+##############################################################################
+
+# from db_helper import DBHelper
+# import sqlite3
+# import os
+# path = 'user_raw'
+# for f in os.listdir('user_raw'):
+# 	file_path = os.path.join('user_raw', f)
+# 	DBHelper.dataAddEntry(f, 'nothing', 1, rdf=0, type='PERSON')
 
 
 def downloadMoreProfiles(limit=3000):
@@ -120,7 +135,7 @@ def validateDegreeEngine():
 	sh.close()
 
 
-def run(num):
+def run(num, file_name):
 	rg = RG()
 	profile_paths = getPublicProfiles(limit=num)
 	try:
@@ -133,11 +148,11 @@ def run(num):
 			DBHelper.dataSetRDF(profile.file_name, rdf=1)
 	except Exception:
 		traceback.print_exc()
-		rg.save(format='xml')
+		rg.save(format='xml', file_name=file_name)
 		rg.close()
 		DBHelper.commitAndClose()
 	else:
-		rg.save(format='xml')
+		rg.save(format='xml', file_name=file_name)
 		rg.close()
 		DBHelper.commitAndClose()
 
@@ -146,9 +161,11 @@ def main(argv):
 	num = 100
 	if len(argv) == 1:
 		num = 100
-	else:
+	elif len(argv) == 3:
 		num = int(argv[1])
-	run(num)
+		file_name = argv[2]
+
+	run(num, file_name)
 
 if __name__ == '__main__':
 	main(sys.argv)
