@@ -6,7 +6,6 @@ from model import PersonalProfile, CompanyProfile
 import os
 import urllib
 import urllib2
-from html_downloader import HTMLDownloader
 
 CITY_NAMES = ['Dublin', 'Galway', 'Cork', 'Limerick', 'Wexford']
 
