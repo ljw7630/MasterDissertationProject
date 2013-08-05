@@ -160,6 +160,7 @@ def run(num, file_name):
 
 
 def main(argv):
+	print 'argvs', len(argv)
 	num = 100
 	if len(argv) == 1:
 		num = 100
