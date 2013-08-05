@@ -137,7 +137,9 @@ def validateDegreeEngine():
 
 def run(num, file_name):
 	rg = RG()
+	print 'Getting profiles...'
 	profile_paths = getPublicProfiles(limit=num)
+	print 'number of profiles:', len(profile_paths)
 	try:
 		for path in profile_paths:
 			parser = ProfileParser(path)
