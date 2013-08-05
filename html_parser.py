@@ -59,7 +59,7 @@ class CityParser:
 		stream = rsp.read()
 		tmp_file = open('resources/tmp.txt', 'w')
 		tmp_file.write(stream)
-		stream.close()
+		rsp.close()
 		tmp_file.close()
 		soup = bs4.BeautifulSoup(open('resources/tmp.txt', 'r'))
 		try:
