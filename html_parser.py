@@ -63,13 +63,16 @@ class CityParser:
 
 		for div in divs:
 			#name = div.find('span', class_='result-bn medium').string.strip()
-			address = div.find('div', class_='result-address').string.strip()
+			try:
+				address = div.find('div', class_='result-address').string.strip()
 
-			for city in CITY_NAMES:
-				if address.lower().find(city.lower()) != -1:
-					cities.add(city)
-					self.city_arr.append(city)
-					break
+				for city in CITY_NAMES:
+					if address.lower().find(city.lower()) != -1:
+						cities.add(city)
+						self.city_arr.append(city)
+						break
+			except AttributeError:
+				pass
 
 	def getResult(self):
 		return self.city_arr

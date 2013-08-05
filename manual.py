@@ -137,9 +137,7 @@ def validateDegreeEngine():
 
 def run(num, file_name):
 	rg = RG()
-	print 'Getting profiles...'
 	profile_paths = getPublicProfiles(limit=num)
-	print 'number of profiles:', len(profile_paths)
 	try:
 		for path in profile_paths:
 			parser = ProfileParser(path)
@@ -160,14 +158,8 @@ def run(num, file_name):
 
 
 def main(argv):
-	print 'argvs', len(argv)
-	num = 100
-	if len(argv) == 1:
-		num = 100
-	elif len(argv) == 3:
-		num = int(argv[1])
-		file_name = argv[2]
-	print 'call run method...'
+	num = int(argv[1])
+	file_name = argv[2]
 	run(num, file_name)
 
 if __name__ == '__main__':
