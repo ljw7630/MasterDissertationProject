@@ -166,7 +166,7 @@ def main(argv):
 	elif len(argv) == 3:
 		num = int(argv[1])
 		file_name = argv[2]
-
+	print 'call run method...'
 	run(num, file_name)
 
 if __name__ == '__main__':
