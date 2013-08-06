@@ -56,7 +56,7 @@ class CityParser:
 		values = dict(where='ireland', what=company_name)
 		data = urllib.urlencode(values)
 		req = urllib2.Request(self.url, data)
-		rsp = urllib2.urlopen(req, timeout=10)
+		rsp = urllib2.urlopen(req, timeout=60)
 		stream = rsp.read()
 		tmp_file = open('resources/tmp.txt', 'w')
 		tmp_file.write(stream)
