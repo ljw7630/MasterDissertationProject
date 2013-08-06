@@ -61,6 +61,7 @@ class CityParser:
 		tmp_file.write(stream)
 		rsp.close()
 		tmp_file.close()
+		print 'resources/tmp.txt'
 		soup = bs4.BeautifulSoup(open('resources/tmp.txt', 'r'))
 		try:
 			results = soup.find('div', class_='-localResults')
