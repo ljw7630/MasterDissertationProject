@@ -48,6 +48,7 @@ class IrishUniversityLocationParser:
 class CityParser:
 
 	def __init__(self, company_name):
+
 		self.city_arr = []
 		self.company_name = company_name
 		print ('cityparser: ' + company_name)
@@ -55,13 +56,13 @@ class CityParser:
 		values = dict(where='ireland', what=company_name)
 		data = urllib.urlencode(values)
 		req = urllib2.Request(self.url, data)
-		rsp = urllib2.urlopen(req)
+		rsp = urllib2.urlopen(req, timeout=10)
 		stream = rsp.read()
 		tmp_file = open('resources/tmp.txt', 'w')
 		tmp_file.write(stream)
 		rsp.close()
 		tmp_file.close()
-		print 'resources/tmp.txt'
+		print("resources/tmp.txt")
 		soup = bs4.BeautifulSoup(open('resources/tmp.txt', 'r'))
 		try:
 			results = soup.find('div', class_='-localResults')
@@ -83,6 +84,7 @@ class CityParser:
 					pass
 		except AttributeError:
 			pass
+
 
 	def getResult(self):
 		return self.city_arr
