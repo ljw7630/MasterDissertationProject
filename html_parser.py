@@ -421,7 +421,10 @@ class PublicProfileParser:
 					company_name = company_name.strip().encode('ascii', 'ignore')
 					experience['company_url'] = company_url
 				else:
-					company_name = company.span.string.strip().encode('ascii', 'ignore')
+					company_name = company.span.string
+					if not company_name:
+						continue
+					company_name = company_name.strip().encode('ascii', 'ignore')
 
 				experience['company_name'] = company_name.replace('/', '')
 
