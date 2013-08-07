@@ -495,7 +495,7 @@ class PublicProfileParser:
 				for item in detailsEducation:
 					key = item['class'][0]
 					value = item.string.strip()
-					education_dictionary[key] = value
+					education_dictionary[key] = value.encode('ascii', 'ignore')
 
 				period_raw = div.find('p', 'period')
 				if period_raw:
