@@ -415,7 +415,10 @@ class PublicProfileParser:
 				experience = {'job_title': job_title}
 				if company.a is not None:
 					company_url = self._linkedin_url_prefix + company.a['href']
-					company_name = company.a.span.string.strip().encode('ascii', 'ignore')
+					company_name = company.a.span.string
+					if not company_name:
+						continue
+					company_name = company_name.strip().encode('ascii', 'ignore')
 					experience['company_url'] = company_url
 				else:
 					company_name = company.span.string.strip().encode('ascii', 'ignore')
