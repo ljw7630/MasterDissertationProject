@@ -411,17 +411,24 @@ class PublicProfileParser:
 			raw_experiences = profile_experience.find('div', 'content vcalendar').findAll('div', 'position')
 			for raw_experience in raw_experiences:
 				job_title = raw_experience.div.h3.span.string.strip()
-				company = raw_experience.div.h4.strong
+				company = raw_experience.div.h4
 				experience = {'job_title': job_title}
-				if company.a is not None:
-					company_url = self._linkedin_url_prefix + company.a['href']
-					company_name = company.a.span.string
-					if not company_name:
-						continue
-					company_name = company_name.strip().encode('ascii', 'ignore')
-					experience['company_url'] = company_url
+				if company.strong:
+					company = company.strong
+					if company.a is not None:
+						company_url = self._linkedin_url_prefix + company.a['href']
+						company_name = company.a.span.string
+						if not company_name:
+							continue
+						company_name = company_name.strip().encode('ascii', 'ignore')
+						experience['company_url'] = company_url
+					else:
+						company_name = company.span.string
+						if not company_name:
+							continue
+						company_name = company_name.strip().encode('ascii', 'ignore')
 				else:
-					company_name = company.span.string
+					company_name = company.string
 					if not company_name:
 						continue
 					company_name = company_name.strip().encode('ascii', 'ignore')
@@ -541,7 +548,6 @@ class PublicProfileParser:
 				if location.lower().find(city.lower()) != -1:
 					dictionary['city'] = city
 					break
-
 
 		if from_to:
 			try:
