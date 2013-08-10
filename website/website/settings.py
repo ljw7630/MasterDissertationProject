@@ -4,7 +4,7 @@ import os
 import sys
 from os.path import dirname
 
-TEMPLATE_PATH = dirname(dirname(dirname(os.path.realpath(__file__))))
+TEMPLATE_PATH = dirname(dirname(dirname(os.path.realpath(__file__)))) + '/user_raw'
 APP_PATH = dirname(os.path.realpath(__file__))
 
 # print >> sys.stderr, TEMPLATE_PATH
@@ -18,8 +18,10 @@ SPARQL_ENDPOINT = "http://localhost:6667/sparql/"
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
 
+## Global constants
+NUM_FILES = 20
 
-print APP_PATH + "/db/website.db"
+# print APP_PATH + "/db/website.db"
 
 ADMINS = (
 	# ('Your Name', 'your_email@example.com'),
@@ -127,7 +129,7 @@ ROOT_URLCONF = 'website.urls'
 WSGI_APPLICATION = 'website.wsgi.application'
 
 TEMPLATE_DIRS = (
-	TEMPLATE_PATH + '/user_raw',
+	TEMPLATE_PATH,
 	APP_PATH + '/html',
 	# Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
 	# Always use forward slashes, even on Windows.

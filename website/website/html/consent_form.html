@@ -1,11 +1,26 @@
 {% extends "base.html" %}
 
+
 {% block content %}
+
+
+<script>
+	function checkSubmit() {
+		var name = $("#name").val();
+
+		if(name.length == 0) {
+			alert("empty");
+		} else {
+			$("#myform").submit();
+		}
+	};
+</script>
+
 <div class="container">
     <div>
         <h3>Consent Form:</h3>
     </div>
-    <form action="/survey/print_form/">
+	<form id="myform" action="/consent" class="padding" name="myform" method="get">
         <div>
             <p>
 	            I understand that my participation in this experiment will involve interacting with a web application
@@ -44,7 +59,7 @@
 	        </p>
 
 	        <p>
-	            I, <input type="text" name="name"/> (Name), consent to participate in this study conducted by Jinwu Li (MSc student in School
+	            I, <input type="text" name="name" id="name" value=""/> (Name), consent to participate in this study conducted by Jinwu Li (MSc student in School
 	            of Computer Science and Statistics, Trinity College Dublin; lij7@tcd.ie).
 	        </p>
 
@@ -69,6 +84,7 @@
 	        </p>
         </div>
 		</br>
-        <input type="submit" value="agree" name='btn'/>
-    </form>
+        <input type="button" class='submit' value='Submit' id="btn" onclick="checkSubmit()"/>
+	</form>
+</div>
 {% endblock %}

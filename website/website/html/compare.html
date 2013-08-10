@@ -2,49 +2,53 @@
 
 {% block content %}
 <div class="container-fluid">
-	<div class="container">
-		<div class="row">
-			<div class="span6">
-				<h2>Your answer</h2>
+	<form action="/survey/print_form">
+		<div class="container">
+			<div class="row">
+				<div class="span6">
+					<h2>Your answer</h2>
 
-					{% include "city.html" with city=city1 %}
+						{% include "city.html" with city=city1 %}
 
+
+						<legend>Experiences:</legend>
+						{% include "experience.html" with experiences=experiences1 %}
+
+						<legend>Educations:</legend>
+						{% include "education.html" with educations=educations1 %}
+
+						<legend>Skills:</legend>
+						{% include "skill.html" with skills=skills1 %}
+
+				</div>
+				<div class="span6">
+					<h2>Our result</h2>
+
+					{% include "city.html" with city=city2 %}
 
 					<legend>Experiences:</legend>
-					{% include "experience.html" with experiences=experiences1 %}
+					{% include "experience.html" with experiences=experiences2 %}
 
 					<legend>Educations:</legend>
-					{% include "education.html" with educations=educations1 %}
+					{% include "education.html" with educations=educations2 %}
 
 					<legend>Skills:</legend>
-					{% include "skill.html" with skills=skills1 %}
+					{% include "skill.html" with skills=skills2 %}
 
-			</div>
-			<div class="span6">
-				<h2>Our result</h2>
-
-				{% include "city.html" with city=city2 %}
-
-				<legend>Experiences:</legend>
-				{% include "experience.html" with experiences=experiences2 %}
-
-				<legend>Educations:</legend>
-				{% include "education.html" with educations=educations2 %}
-
-				<legend>Skills:</legend>
-				{% include "skill.html" with skills=skills2 %}
-
+				</div>
 			</div>
 		</div>
-	</div>
-	<h3>Can your rate our result?</h3>
-	<div class='btn-group' data-toggle="buttons-radio">
-		<button type="button" class="btn btn-primary">1</button>
-		<button type="button" class="btn btn-primary">2</button>
-		<button type="button" class="btn btn-primary">3</button>
-		<button type="button" class="btn btn-primary">4</button>
-		<button type="button" class="btn btn-primary">5</button>
-	</div>
+		<h3>Can your rate our result?</h3>
+		<div class='btn-group' data-toggle="buttons-radio">
+			<button type="button" class="btn btn-primary">1</button>
+			<button type="button" class="btn btn-primary">2</button>
+			<button type="button" class="btn btn-primary">3</button>
+			<button type="button" class="btn btn-primary">4</button>
+			<button type="button" class="btn btn-primary">5</button>
+		</div>
+
+		<input type="submit"/>
+	</form>
 	</br></br>
 </div>
 {% endblock %}

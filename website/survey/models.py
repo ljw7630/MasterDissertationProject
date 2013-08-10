@@ -3,25 +3,33 @@ from django.db import models
 
 # Create your models here.
 class User(models.Model):
-	name = models.CharField(max_length=50)
-	age = models.IntegerField()
+	name = models.CharField(null=True, max_length=50, blank=True)
+	group = models.IntegerField(null=True, blank=True)
 
 	def __unicode__(self):
-		return 'user: ' + str(self.id) + ', username: ' + self.name
+		return 'user: ' + str(self.id) + ', username: ' + self.name + ', group: ' + str(self.group)
 
 
 class Answer(models.Model):
 	user = models.ForeignKey(User)
 	file = models.FilePathField()
+	overall_score = models.IntegerField(null=True, blank=True)
 
 	def __unicode__(self):
 		return 'user: ' + str(self.user.id) + ', answer: ' + str(self.id) + ', file: ' + self.file
 
 
 class Triple(models.Model):
-	subject = models.CharField(max_length=100)
-	predicate = models.CharField(max_length=30)
-	object = models.CharField(max_length=100)
+	subject = models.CharField(max_length=100, null=True, blank=True)
+	predicate = models.CharField(max_length=30, null=True, blank=True)
+	object = models.CharField(max_length=100, null=True, blank=True)
+
+	parse_subject = models.CharField(max_length=100, null=True, blank=True)
+	parse_predicate = models.CharField(max_length=30, null=True, blank=True)
+	parse_object = models.CharField(max_length=100, null=True, blank=True)
+
+	score = models.IntegerField(null=True, blank=True)
+
 	answer = models.ForeignKey(Answer)
 
 	def __unicode__(self):
