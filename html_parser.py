@@ -500,6 +500,7 @@ class PublicProfileParser:
 			mainDiv = details.find('div', class_='content vcalendar')
 
 			divs = mainDiv.findAll('div')
+			divs = mainDiv.findAll('div', class_='position')
 
 			for div in divs:
 				collegeTitle = div.h3.string.strip().encode('ascii', 'ignore')
