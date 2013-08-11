@@ -170,7 +170,7 @@ class RDFGenerator:
 
 			if 'college' in education_dict:
 				college = education_dict['college']
-				if college:
+				if not college:
 					continue
 				college = self.university_helper(college)
 				term = self.schema.get_term(college)
