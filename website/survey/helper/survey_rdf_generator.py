@@ -2,7 +2,7 @@ from model import RDFResult
 from schema_generator import SchemaGenerator as SG
 from rdflib import BNode, RDF, Literal, Graph, RDFS
 from rdflib.namespace import FOAF, XSD
-from html_parser import CompanyProfileParser as CPP, CityParser
+from survey_html_parser import CompanyProfileParser as CPP, CityParser
 from html_downloader import CompanyProfileDownloader as CPD
 import re
 import os
