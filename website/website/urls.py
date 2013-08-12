@@ -12,7 +12,7 @@ urlpatterns = patterns('',
                        ('^$', views.hello),
 
                        ('^consent/$', views.consent),
-                       ('^survey/consent/$', views.consent()),
+                       ('^survey/consent/$', views.consent),
 
                        ('^print_users/$', 'survey.views.print_users'),
 
