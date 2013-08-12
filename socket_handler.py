@@ -65,10 +65,13 @@ class DegreeSocketHandler(SocketHandler):
 		return data[0], data[1]
 
 	def clean_query_string(self, query_string):
+		old_query_string = query_string
 		p = re.compile(r'(.*?)(\(.*\))', re.M)
 		query_string = p.sub(r'\1', query_string)
 		query_string = query_string.strip()
 		query_string = query_string.replace('.', '')
+		if not query_string:
+			return old_query_string
 		return query_string
 
 	def close(self):
