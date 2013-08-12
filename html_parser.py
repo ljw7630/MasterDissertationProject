@@ -38,8 +38,8 @@ class IrishUniversityLocationParser:
 		rows = table.findAll('tr')[2:-2]
 		for row in rows:
 			self.result.append(
-				(row.a.string.strip()#.encode('ascii', 'ignore')
-				, row.h6.string.strip()#.encode('ascii', 'ignore')
+				(row.a.string.strip().encode('ascii', 'ignore')
+				, row.h6.string.strip().encode('ascii', 'ignore')
 				))
 
 	def saveToFile(self, file_name='resources/irish_university_locations.txt'):
@@ -108,7 +108,7 @@ class UniversityParser:
 		names = set()
 		trs = table.findAll('tr')[1:]
 		for tr in trs:
-			name = tr.findAll('td')[1].a.string.strip()#.encode('ascii', 'ignore')
+			name = tr.findAll('td')[1].a.string.strip().encode('ascii', 'ignore')
 			names.add(name)
 		return names
 
@@ -423,18 +423,18 @@ class PublicProfileParser:
 						company_name = company.a.span.string
 						if not company_name:
 							continue
-						company_name = company_name.strip()#.encode('ascii', 'ignore')
+						company_name = company_name.strip().encode('ascii', 'ignore')
 						experience['company_url'] = company_url
 					else:
 						company_name = company.span.string
 						if not company_name:
 							continue
-						company_name = company_name.strip()#.encode('ascii', 'ignore')
+						company_name = company_name.strip().encode('ascii', 'ignore')
 				else:
 					company_name = company.string
 					if not company_name:
 						continue
-					company_name = company_name.strip()#.encode('ascii', 'ignore')
+					company_name = company_name.strip().encode('ascii', 'ignore')
 
 				experience['company_name'] = company_name.replace('/', '')
 
@@ -472,7 +472,7 @@ class PublicProfileParser:
 
 			for language_tag in languages:
 				language = language_tag.h3.string
-				language = language#.encode('ascii', 'ignore')
+				language = language.encode('ascii', 'ignore')
 				language_list.append(language)
 
 		return language_list
@@ -506,13 +506,13 @@ class PublicProfileParser:
 			divs = mainDiv.findAll('div', class_='position')
 
 			for div in divs:
-				collegeTitle = div.h3.string.strip()#.encode('ascii', 'ignore')
+				collegeTitle = div.h3.string.strip().encode('ascii', 'ignore')
 				detailsEducation = div.h4.findAll('span')
 				education_dictionary = {'college': collegeTitle}
 				for item in detailsEducation:
 					key = item['class'][0]
 					value = item.string.strip()
-					education_dictionary[key] = value#.encode('ascii', 'ignore')
+					education_dictionary[key] = value.encode('ascii', 'ignore')
 
 				period_raw = div.find('p', 'period')
 				if period_raw:
