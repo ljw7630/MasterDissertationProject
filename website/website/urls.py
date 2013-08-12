@@ -10,9 +10,14 @@ admin.autodiscover()
 urlpatterns = patterns('',
                        ('^hello/$', views.hello),
                        ('^$', views.hello),
+
                        ('^consent/$', views.consent),
+                       ('^survey/consent/$', views.consent()),
+
                        ('^print_users/$', 'survey.views.print_users'),
+
                        ('^survey/print_form/', 'survey.views.print_form'),
+                       ('^print_form/', 'survey.views.print_form'),
                        # Examples:
                        # url(r'^$', 'website.views.home', name='home'),
                        # url(r'^website/', include('website.foo.urls')),
