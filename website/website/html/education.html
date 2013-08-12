@@ -1,36 +1,25 @@
-{% for education in educations %}
-	<div class="row">
-		<div class="span3">
-				College: <input class="span2" type="text" placeholder="college" value="{{education.college}}"/>
-				Major: <input class="span2" type="text" placeholder="major" value="{{education.major}}"/>
-			Degree: {{education.degree}}
-				<!--<select data-toggle="dropdown">-->
-					<!--<option>-->
-						<!--BSc - Bachelor degree of Science-->
-					<!--</option>-->
-					<!--<option>-->
-						<!--MA - Master of Art-->
-					<!--</option>-->
-					<!--<option>-->
-						<!--etc-->
-					<!--</option>-->
-				<!--</select>-->
-			Level: 8
-				<!--<select data-toggle="dropdown">-->
-					<!--<option>-->
-						<!--8-->
-					<!--</option>-->
-					<!--<option>-->
-						<!--9-->
-					<!--</option>-->
-					<!--<option>-->
-						<!--10-->
-					<!--</option>-->
-				<!--</select>-->
-		</div>
-		<div class="span3">
-			from: <input class="span2" type="text" placeholder="start time" value="{{education.from}}"/></br>
-			to: <input class="span2" type="text" placeholder="end time" value="{{education.to}}"/></br>
-		</div>
-	</div>
+
+
+{{ education_formset.management_form }}
+{% for form in education_formset %}
+	{% if compare %}
+	<h3>Your answer</h3>
+	{% endif %}
+	College: {{ form.college }} </br>
+	Major: {{ form.major }} </br>
+	Degree: {{ form.degree }} </br>
+	From: {{ form.date_from }} </br>
+	To: {{ form.date_to }} </br>
+	{% if compare %}
+		<h3>Our result</h3>
+			College: {{ form.parse_college }} </br>
+			Major: {{ form.parse_major }} </br>
+			Degree: {{ form.parse_degree }} </br>
+			From: {{ form.parse_date_from }} </br>
+			To: {{ form.parse_date_to }} </br>
+		<h4>Please rate our result</h4>
+		{{ form.parse_score }}
+	{% endif %}
+	</br>
+	</br>
 {% endfor %}

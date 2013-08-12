@@ -6,14 +6,16 @@ from model import PersonalProfile, CompanyProfile
 import os
 import urllib
 import urllib2
+from os.path import dirname
 
 CITY_NAMES = ['Dublin', 'Galway', 'Cork', 'Limerick', 'Wexford']
 
 
 class LanguageParser:
-	_file_name = './resources/List of languages by number of native speakers.html'
+	_file_name = dirname(os.path.realpath(__file__)) + '/resources/List of languages by number of native speakers.html'
 
 	def __init__(self):
+
 		self.soup = bs4.BeautifulSoup(open(self._file_name))
 		table = self.soup.findAll('table', class_='wikitable sortable')[1]
 		self.languages = []
@@ -29,14 +31,16 @@ class LanguageParser:
 
 
 class IrishUniversityLocationParser:
-
-	def __init__(self, file_name='resources/Irish_Universities.html'):
+	def __init__(self, file_name=dirname(os.path.realpath(__file__)) + '/resources/Irish_Universities.html'):
 		self.soup = bs4.BeautifulSoup(open(file_name))
 		table = self.soup.find('table', cellspacing='1')
 		self.result = []
 		rows = table.findAll('tr')[2:-2]
 		for row in rows:
-			self.result.append((row.a.string.strip().encode('ascii', 'ignore'), row.h6.string.strip().encode('ascii', 'ignore')))
+			self.result.append(
+				(row.a.string.strip()#.encode('ascii', 'ignore')
+				, row.h6.string.strip()#.encode('ascii', 'ignore')
+				))
 
 	def saveToFile(self, file_name='resources/irish_university_locations.txt'):
 		f = open(file_name, 'w')
@@ -46,24 +50,23 @@ class IrishUniversityLocationParser:
 
 
 class CityParser:
-
 	def __init__(self, company_name):
 
 		self.city_arr = []
 		self.company_name = company_name
-		print ('cityparser: ' + company_name)
+		print('cityparser: ' + company_name)
 		self.url = 'http://www.goldenpages.ie/q/business/advance/'
 		values = dict(where='ireland', what=company_name)
 		data = urllib.urlencode(values)
 		req = urllib2.Request(self.url, data)
 		rsp = urllib2.urlopen(req, timeout=60)
 		stream = rsp.read()
-		tmp_file = open('resources/tmp.txt', 'w')
+		tmp_file = open(dirname(os.path.realpath(__file__)) + '/resources/tmp.txt', 'w')
 		tmp_file.write(stream)
 		rsp.close()
 		tmp_file.close()
 		print("resources/tmp.txt")
-		soup = bs4.BeautifulSoup(open('resources/tmp.txt', 'r'))
+		soup = bs4.BeautifulSoup(open(dirname(os.path.realpath(__file__)) + '/resources/tmp.txt', 'r'))
 		try:
 			results = soup.find('div', class_='-localResults')
 			divs = results.findAll('div', class_='result-box')
@@ -85,15 +88,14 @@ class CityParser:
 		except AttributeError:
 			pass
 
-
 	def getResult(self):
 		return self.city_arr
 
 
 class UniversityParser:
 	def __init__(self):
-		path = 'resources/university/'
-		file_names = os.listdir('resources/university')
+		path = dirname(os.path.realpath(__file__)) + '/resources/university/'
+		file_names = os.listdir(dirname(os.path.realpath(__file__)) + '/resources/university')
 		self.universities = set()
 
 		for file_name in file_names:
@@ -106,12 +108,12 @@ class UniversityParser:
 		names = set()
 		trs = table.findAll('tr')[1:]
 		for tr in trs:
-			name = tr.findAll('td')[1].a.string.strip().encode('ascii', 'ignore')
+			name = tr.findAll('td')[1].a.string.strip()#.encode('ascii', 'ignore')
 			names.add(name)
 		return names
 
 	def saveToFile(self):
-		f = open('resources/universities.txt', 'w')
+		f = open(dirname(os.path.realpath(__file__)) + '/resources/universities.txt', 'w')
 
 		for university in self.universities:
 			f.write(university + '\n')
@@ -119,7 +121,8 @@ class UniversityParser:
 
 
 class IrishNameParser:
-	_file_names = ['./resources/Irish_Boys_Names.htm', './resources/Irish_Girls_Names.htm']
+	_file_names = [dirname(os.path.realpath(__file__)) + '/resources/Irish_Boys_Names.htm',
+	               dirname(os.path.realpath(__file__)) + '/resources/Irish_Girls_Names.htm']
 
 	def __init__(self):
 		self.names = []
@@ -137,7 +140,8 @@ class IrishNameParser:
 
 
 class DegreeAbbreviationParser:
-	_file_name = './resources/British degree abbreviations - Wikipedia, the free encyclopedia.html'
+	_file_name = dirname(
+		os.path.realpath(__file__)) + '/resources/British degree abbreviations - Wikipedia, the free encyclopedia.html'
 
 	def __init__(self):
 		self.soup = bs4.BeautifulSoup(open(self._file_name))
@@ -194,7 +198,7 @@ class DegreeAbbreviationParser:
 		return degree_map
 
 	def saveToFile(self):
-		f = open('resources/degree_abbrs.txt', 'w')
+		f = open(dirname(os.path.realpath(__file__)) + '/resources/degree_abbrs.txt', 'w')
 
 		# bd = self.getBachelorDegreeAbbrs()
 		# self.unfoldToLine(f, 8, bd)
@@ -237,7 +241,7 @@ class DegreeAbbreviationParser:
 
 
 class IndustryParser:
-	_file_name = './resources/industry.html'
+	_file_name = dirname(os.path.realpath(__file__)) + '/resources/industry.html'
 
 	def getIndustries(self):
 		self.soup = bs4.BeautifulSoup(open(self._file_name))
@@ -249,7 +253,7 @@ class IndustryParser:
 
 
 class DisciplineParser:
-	_file_name = './resources/List of academic disciplines - Wikipedia.html'
+	_file_name = dirname(os.path.realpath(__file__)) + '/resources/List of academic disciplines - Wikipedia.html'
 
 	def getDisciplinesHierarchy(self):
 		soup = bs4.BeautifulSoup(open(self._file_name))
@@ -280,7 +284,7 @@ class DisciplineParser:
 				if li.next_element.name == 'a':
 					dicts[li.a.string] = {}
 			except AttributeError:
-					dicts[li.next_element] = {}
+				dicts[li.next_element] = {}
 			# if li.a:
 			# 	dicts[li.a.string] = {}
 			# else:
@@ -292,7 +296,7 @@ class DisciplineParser:
 			li = li.findNextSibling('li')
 		return dicts
 
-	def saveToFile(self, file_name='resources/courses.txt'):
+	def saveToFile(self, file_name=dirname(os.path.realpath(__file__)) + '/resources/courses.txt'):
 		arr = []
 		self.unfold(arr, self.getDisciplinesHierarchy())
 		f = open(file_name, 'w')
@@ -326,7 +330,6 @@ class SkillParser:
 
 
 class CompanyProfileParser:
-
 	def __init__(self, file_name):
 		Utils.getLogger().debug(file_name)
 		self.soup = bs4.BeautifulSoup(open(file_name))
@@ -359,7 +362,7 @@ class PublicProfileParser:
 
 	def __init__(self, file_name):
 		Utils.getLogger().debug(file_name)
-		self.soup = bs4.BeautifulSoup(open(file_name))
+		self.soup = bs4.BeautifulSoup(open(file_name), from_encoding='utf-8')
 		self.file_name = file_name.split('/')[-1]
 
 	def parseHtml(self):
@@ -420,18 +423,18 @@ class PublicProfileParser:
 						company_name = company.a.span.string
 						if not company_name:
 							continue
-						company_name = company_name.strip().encode('ascii', 'ignore')
+						company_name = company_name.strip()#.encode('ascii', 'ignore')
 						experience['company_url'] = company_url
 					else:
 						company_name = company.span.string
 						if not company_name:
 							continue
-						company_name = company_name.strip().encode('ascii', 'ignore')
+						company_name = company_name.strip()#.encode('ascii', 'ignore')
 				else:
 					company_name = company.string
 					if not company_name:
 						continue
-					company_name = company_name.strip().encode('ascii', 'ignore')
+					company_name = company_name.strip()#.encode('ascii', 'ignore')
 
 				experience['company_name'] = company_name.replace('/', '')
 
@@ -469,7 +472,8 @@ class PublicProfileParser:
 
 			for language_tag in languages:
 				language = language_tag.h3.string
-				language_list.append(language.encode('ascii', 'ignore'))
+				language = language#.encode('ascii', 'ignore')
+				language_list.append(language)
 
 		return language_list
 
@@ -499,17 +503,16 @@ class PublicProfileParser:
 		if details is not None:
 			mainDiv = details.find('div', class_='content vcalendar')
 
-			divs = mainDiv.findAll('div')
 			divs = mainDiv.findAll('div', class_='position')
 
 			for div in divs:
-				collegeTitle = div.h3.string.strip().encode('ascii', 'ignore')
+				collegeTitle = div.h3.string.strip()#.encode('ascii', 'ignore')
 				detailsEducation = div.h4.findAll('span')
 				education_dictionary = {'college': collegeTitle}
 				for item in detailsEducation:
 					key = item['class'][0]
 					value = item.string.strip()
-					education_dictionary[key] = value.encode('ascii', 'ignore')
+					education_dictionary[key] = value#.encode('ascii', 'ignore')
 
 				period_raw = div.find('p', 'period')
 				if period_raw:
@@ -528,15 +531,14 @@ class PublicProfileParser:
 			realurl = url[:url.find('?')]
 			url = '/'.join(realurl.split('/')[:5])
 			if str(url).startswith(self._linkedin_ireland_url_prefix):
-
 				extra_profile_list.append(realurl)
-				# name = profile.strong.a.string.strip()
-				#
-				# if profile.span.string is not None:
-				# 	headline_title = profile.span.string.strip()
-				# 	extra_profile_list.append({'url': url, 'name': name, 'headline_title': headline_title})
-				# else:
-				# 	extra_profile_list.append({'url': url, 'name': name})
+			# name = profile.strong.a.string.strip()
+			#
+			# if profile.span.string is not None:
+			# 	headline_title = profile.span.string.strip()
+			# 	extra_profile_list.append({'url': url, 'name': name, 'headline_title': headline_title})
+			# else:
+			# 	extra_profile_list.append({'url': url, 'name': name})
 
 		return extra_profile_list
 
@@ -567,11 +569,11 @@ class PublicProfileParser:
 
 	def __str__(self):
 		return "Name: " + self.given_name + " " + self.family_name + "\n" \
-			+ "Industry: " + self.industry + "\n" \
-			+ "Experiences: " + str(self.experience_list) + "\n" \
-			+ "Educations: " + str(self.education_detail_list) + "\n" \
-			+ "Languages: " + str(self.language_list) + "\n" \
-			+ "Skills: " + str(self.skill_list) + "\n"
+		       + "Industry: " + self.industry + "\n" \
+		       + "Experiences: " + str(self.experience_list) + "\n" \
+		       + "Educations: " + str(self.education_detail_list) + "\n" \
+		       + "Languages: " + str(self.language_list) + "\n" \
+		       + "Skills: " + str(self.skill_list) + "\n"
 
 
 def main():

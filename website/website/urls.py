@@ -13,7 +13,6 @@ urlpatterns = patterns('',
                        ('^consent/$', views.consent),
                        ('^print_users/$', 'survey.views.print_users'),
                        ('^survey/print_form/', 'survey.views.print_form'),
-                       ('^survey/compare/$', 'survey.views.compare'),
                        # Examples:
                        # url(r'^$', 'website.views.home', name='home'),
                        # url(r'^website/', include('website.foo.urls')),

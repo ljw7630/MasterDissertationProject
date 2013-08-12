@@ -4,8 +4,12 @@ import os
 import sys
 from os.path import dirname
 
-TEMPLATE_PATH = dirname(dirname(dirname(os.path.realpath(__file__)))) + '/user_raw'
+
+PROJECT_PATH = dirname(dirname(dirname(os.path.realpath(__file__))))
+TEMPLATE_PATH = PROJECT_PATH + '/user_raw'
 APP_PATH = dirname(os.path.realpath(__file__))
+
+sys.path.insert(0, PROJECT_PATH)
 
 # print >> sys.stderr, TEMPLATE_PATH
 # print >> sys.stderr, APP_PATH
@@ -19,7 +23,7 @@ DEBUG = True
 TEMPLATE_DEBUG = DEBUG
 
 ## Global constants
-NUM_FILES = 20
+NUM_FILES = 2
 
 # print APP_PATH + "/db/website.db"
 

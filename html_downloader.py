@@ -10,6 +10,7 @@ import os
 import traceback
 from utils import Utils
 import time
+from os.path import dirname
 
 NUM = 10
 
@@ -33,7 +34,7 @@ class HTMLDownloader:
 
 
 class CompanyProfileDownloader:
-	_default_folder = 'company_raw/'
+	_default_folder = dirname(os.path.realpath(__file__)) + '/company_raw/'
 	_default_postfix = '.htm'
 
 	@staticmethod

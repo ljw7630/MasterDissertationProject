@@ -1,6 +1,5 @@
 import sys
 import os
-#sys.path.insert(0, os.path.realpath('../../..'))
 from html_parser import PublicProfileParser
 import re
 

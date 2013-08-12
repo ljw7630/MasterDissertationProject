@@ -1,0 +1,22 @@
+<!--{% for skill in languages %}-->
+
+	<!--<input type="text" class="span2" value="{{language}}"/>-->
+
+<!--{% endfor %}-->
+
+<!--<table>-->
+{{language_formset.management_form}}
+	{% if compare %}
+	<h3>Your answer</h3>
+	{% endif %}
+	{% for form in language_formset %}
+		{{ form.language }}
+	{% endfor %}
+	{% if compare %}
+		<h3>Our result</h3>
+		{% for form in language_formset %}
+			{{ form.parse_language }}
+		{% endfor %}
+	{% endif %}
+{{ answer_form.language_score }}
+<!--</table>-->

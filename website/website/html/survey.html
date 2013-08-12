@@ -11,19 +11,22 @@
 				<!--{% block person %}-->
 				<!--{% endblock %}-->
 
-					<form action="../print_form" class="form-horizontal">
+					<form action="../print_form/" class="form-horizontal" method="POST">
 
 						{% include "city.html" %}
 
 						<legend>Experiences:</legend>
-						{% include "experience.html" with experiences=experiences %}
-
+						{% include "experience.html" with experience_formset=experience_formset %}
+						<hr>
 						<legend>Educations:</legend>
-						{% include "education.html" with educations=educations %}
-
-						<legend>Skills:</legend>
-						{% include "skill.html" with skills=skills %}
+						{% include "education.html" with education_formset=education_formset %}
+						<hr>
+						<legend>Languages:</legend>
+						{% include "language.html" with language_formset=language_formset %}
 						</br>
+
+						<input type="hidden" name="action_id" id="action_id" value="{{action_id}}"/>
+
 						<input type="submit" name="submit">
 					</form>
 

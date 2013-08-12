@@ -21,7 +21,7 @@ import traceback
 #############################################################################
 # import os
 # from db_helper import DBHelper
-# res = DBHelper.getNotRDFedFileName(limit=21000)
+# res = DBHelper.getNotRDFedFileName(limit=22000)
 # for f in res:
 # 	if os.path.exists('user_raw/'+f):
 # 		DBHelper.dataSetExists(f, 1)

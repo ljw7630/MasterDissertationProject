@@ -1,13 +1,22 @@
 
-{% for experience in experiences %}
-<div class="row">
-	<div class="span3">
-		<label>Company:</label><input class="span2" type="text" placeholder="company" value="{{experience.company}}"/>
-		<label>Job title:</label><input class="span2" type="text" placeholder="title" value="{{experience.job_title}}"/>
-	</div>
-	<div class="span3">
-		<label>from:</label><input class="span2" type="text" placeholder="start time" value="{{experience.from}}"/>
-		<label>to:</label><input class="span2" type="text" placeholder="end time" value="{{experience.to}}"/>
-	</div>
-</div>
+{{ experience_formset.management_form }}
+{% for form in experience_formset %}
+	{% if compare %}
+	<h3>Your answer</h3>
+	{% endif %}
+	Company: {{ form.company }} </br>
+	Job Title: {{ form.job_title }} </br>
+	From: {{ form.date_from }} </br>
+	To: {{ form.date_to }} </br>
+	{% if compare %}
+		<h3>Our result</h3>
+		Company: {{ form.parse_company }} </br>
+		Job Title: {{ form.parse_job_title }} </br>
+		From: {{ form.parse_date_from }} </br>
+		To: {{ form.parse_date_to }} </br>
+		<h4>Please rate our result</h4>
+		{{ form.parse_score }}
+	{% endif %}
+	</br>
+	</br>
 {% endfor %}
