@@ -24,6 +24,7 @@ TEMPLATE_DEBUG = DEBUG
 
 ## Global constants
 NUM_FILES = 5
+NUM_GROUPS = 5
 
 # print APP_PATH + "/db/website.db"
 

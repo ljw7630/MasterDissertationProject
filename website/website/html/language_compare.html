@@ -1,0 +1,15 @@
+<table>
+	{{language_formset.management_form}}
+	<tr>
+		<th>Your answer</th>
+		<th>Our result</th>
+	</tr>
+	{% for form in language_formset %}
+	{{ form.id }}
+	<tr>
+		<td>Language: {{ form.language }}</td>
+		<td>Language: {{ form.parse_language }}</td>
+		<td>Score: {{ form.parse_language_score }}</td>
+	</tr>
+	{% endfor %}
+</table>

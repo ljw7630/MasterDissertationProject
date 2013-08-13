@@ -1,22 +1,11 @@
 
 {{ experience_formset.management_form }}
 {% for form in experience_formset %}
-	{% if compare %}
-	<h3>Your answer</h3>
-	{% endif %}
+	{{ form.id }}
 	Company: {{ form.company }} </br>
 	Job Title: {{ form.job_title }} </br>
 	From: {{ form.date_from }} </br>
 	To: {{ form.date_to }} </br>
-	{% if compare %}
-		<h3>Our result</h3>
-		Company: {{ form.parse_company }} </br>
-		Job Title: {{ form.parse_job_title }} </br>
-		From: {{ form.parse_date_from }} </br>
-		To: {{ form.parse_date_to }} </br>
-		<h4>Please rate our result</h4>
-		{{ form.parse_score }}
-	{% endif %}
 	</br>
 	</br>
 {% endfor %}

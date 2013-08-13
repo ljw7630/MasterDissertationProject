@@ -1,0 +1,38 @@
+
+
+{{ education_formset.management_form }}
+
+{% for form in education_formset %}
+{{ form.id }}
+<table>
+	<tr>
+		<th>Your answer</th>
+		<th>Our answer</th>
+	</tr>
+	<tr>
+		<td>College: {{ form.college }}</td>
+		<td>College: {{ form.parse_college}}</td>
+		<td>score: {{ form.parse_college_score }}</td>
+	</tr>
+	<tr>
+		<td>Major: {{ form.major }}</td>
+		<td>Major: {{ form.parse_major }}</td>
+		<td>score: {{ form.parse_major_score }}</td>
+	</tr>
+	<tr>
+		<td>Degree: {{ form.degree }}</td>
+		<td>Degree: {{ form.parse_degree }}</td>
+		<td>score: {{ form.parse_degree_score }}</td>
+	</tr>
+	<tr>
+		<td>From: {{ form.date_from }}</td>
+		<td>From: {{ form.parse_date_from }}</td>
+		<td>score: {{ form.parse_date_from_score }}</td>
+	</tr>
+	<tr>
+		<td>To: {{ form.date_to }}</td>
+		<td>To: {{ form.parse_date_to }}</td>
+		<td>score: {{ form.parse_date_to_score }}</td>
+	</tr>
+</table>
+{% endfor %}

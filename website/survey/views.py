@@ -1,22 +1,14 @@
 # Create your views here.
+from django.forms.models import modelformset_factory
 
 from django.shortcuts import render
 
 from models import *
-from django.http import HttpResponse, Http404
+from django.http import Http404
 from django.conf import settings
-from random import choice
-from os.path import dirname
-import os
 from django.db.models import Max
-from django.db.models import F
-from glob import glob
-from helper.survey_profile_cleaner import SurveyProfileCleaner
-from helper.FormHelper import FormHelper
-from helper.survey_rdf_generator import SurveyRDFGenerator
-from html_parser import PublicProfileParser
+from helper.form_helper import FormHelper
 import traceback
-from django.forms.formsets import formset_factory
 
 
 def print_users(request):
@@ -40,10 +32,9 @@ def print_form(request):
 
 			# store the form base on action. render next action
 			user_id = request.session['user_id']
-			# action_id = request.session['action_id']
 			print 'user_id:', user_id, 'action_id:', action_id
 			if action_id % 2:
-				answer = Answer.objects.filter(user_id=user_id).order_by('id')[action_id / 2]
+				answer = Answer.objects.get(pk=(user_id-1) * settings.NUM_FILES + action_id/2 + 1)
 				answer_form = AnswerForm(request.POST, instance=answer, prefix='answer')
 				print 'valid answer?', answer_form.is_valid()
 				print 'answer error?', answer_form.errors
@@ -75,29 +66,6 @@ def print_form(request):
 
 			print 'new_user', new_user
 
-			# if this is a new group, generate random profiles
-			# else get profiles from previous group user
-			if group > cur_max_group_id:
-				files = [f['file'] for f in Answer.objects.values('file')]
-				cur_count = 0
-				all_profiles = glob(settings.TEMPLATE_PATH + '/*.htm')
-				while cur_count < settings.NUM_FILES:
-					profile_with_full_path = choice(all_profiles)
-					profile = profile_with_full_path.rsplit('/', 1)[-1]
-					if profile not in files:
-						cur_count += 1
-						cleaner = SurveyProfileCleaner(profile_with_full_path)
-						cleaner.saveToFile()
-						answer = Answer(user_id=new_user.id, file=profile)
-						files.append(profile)
-						answer.save()
-			else:
-				same_group_answers = Answer.objects.filter(user__group=group)
-
-				for f in same_group_answers.values('file'):
-					a = Answer(user=new_user, file=f['file'])
-					a.save()
-
 			user_id = new_user.id
 			action_id = 0
 
@@ -106,50 +74,103 @@ def print_form(request):
 		if action_id >= settings.NUM_FILES * 2:
 			return render(request, 'thank_you.html')
 
-		answer = Answer.objects.filter(user_id=user_id).order_by('id')[action_id / 2]
-		path = answer.file
-		full_path = settings.TEMPLATE_PATH + '/' + path
-		profile = PublicProfileParser(full_path).parseHtml()
+		answer = Answer.objects.get(pk=(user_id - 1) * settings.NUM_FILES + action_id / 2 + 1)
+
+		ExperienceFormSet = modelformset_factory(Experience, extra=0)
+		EducationFormSet = modelformset_factory(Education, extra=0)
+		LanguageFormSet = modelformset_factory(Language, extra=0)
 
 		if action_id % 2:
 			if request.method == 'POST':
-				ExperienceFormSet = formset_factory(ExperienceForm)
-				EducationFormSet = formset_factory(EducationForm)
-				LanguageFormSet = formset_factory(LanguageForm)
+
+				# experience
 				experience_formset = ExperienceFormSet(request.POST, prefix='experience')
+								# queryset=Experience.objects.filter(answer_id=answer.id))
+				exps = Experience.objects.filter(answer=answer)
+				idx = 0
+				print 'len exp fs', len(experience_formset)
+				for form in experience_formset:
+					exps[idx].company = form['company']
+					exps[idx].parse_company_score = form['parse_company_score']
+					exps[idx].job_title = form['job_title']
+					exps[idx].parse_job_title_score = form['parse_job_title_score']
+					exps[idx].date_from = form['date_from']
+					exps[idx].parse_date_from_score = form['parse_date_from_score']
+					exps[idx].date_to = form['date_to']
+					exps[idx].parse_date_to_score = form['parse_date_to_score']
+					exps[idx].save()
+					idx += 1
+
+				experience_formset = ExperienceFormSet(prefix='experience',
+						queryset=Experience.objects.filter(answer_id=answer.id))
+
+				# if experience_formset.is_valid():
+				# 	experience_formset.save()
+				# else:
+				# 	print experience_formset.errors
+
+				# education
 				education_formset = EducationFormSet(request.POST, prefix='education')
+								# queryset=Education.objects.filter(answer_id=answer.id))
+				print 'len edu fs', len(education_formset)
+				edus = Education.objects.filter(answer=answer)
+				idx = 0
+				for form in education_formset:
+					edus[idx].college = form['college']
+					edus[idx].parse_college_score = form['parse_college_score']
+					edus[idx].major = form['major']
+					edus[idx].parse_major_score = form['parse_major_score']
+					edus[idx].degree = form['degree']
+					edus[idx].parse_degree_score = form['parse_degree_score']
+					edus[idx].date_from = form['date_from']
+					edus[idx].parse_date_from_score = form['parse_date_from_score']
+					edus[idx].date_to = form['date_to']
+					edus[idx].parse_date_to_score = form['parse_date_to_score']
+					edus[idx].save()
+					idx += 1
+
+				education_formset = EducationFormSet(prefix='education',
+						queryset=Education.objects.filter(answer_id=answer.id))
+
+				# if education_formset.is_valid():
+				# 	education_formset.save()
+				# else:
+				# 	print education_formset.save()
+
 				language_formset = LanguageFormSet(request.POST, prefix='language')
+								# queryset=Language.objects.filter(answer_id=answer.id))
 
-				generator = SurveyRDFGenerator()
-				generator.add(profile)
-				result = generator.get_result()
-				generator.close()
+				lans = Language.objects.filter(answer=answer)
+				idx=0
+				for form in language_formset:
+					lans[idx].language = form['language']
+					lans[idx].parse_language_score = form['parse_language_score']
+					lans[idx].save()
+					idx += 1
 
-				answer.parse_city = result.city
+				language_formset = LanguageFormSet(prefix='language',
+						queryset=Language.objects.filter(answer_id=answer.id))
+				# if language_formset.is_valid():
+				# 	language_formset.save()
+
 				answer_form = FormHelper.fillAnswerForm(answer)
 
-				experience_formset = FormHelper.fillExperienceFormset(answer, experience_formset, result.experience_list)
-				education_formset = FormHelper.fillEducationFormset(answer, education_formset, profile.education_list)
-				language_formset = FormHelper.fillLanguageFormset(answer, language_formset, profile.language_list)
-
-			#render profile
+				#render profile
 				return render(request, 'compare.html', {'experience_formset': experience_formset
-					, 'education_formset': education_formset, 'language_formset': language_formset
-					, 'action_id': action_id, 'answer_form': answer_form})
+				, 'education_formset': education_formset, 'language_formset': language_formset
+				, 'action_id': action_id, 'answer_form': answer_form})
 		else:
-			#render comparison
+			#render survey
+			path = answer.file
 
-			ExperienceFormSet = formset_factory(ExperienceForm, extra=len(profile.experience_list))
-			experience_formset = ExperienceFormSet(prefix='experience')
-			EducationFormSet = formset_factory(EducationForm, extra=len(profile.education_list))
-			education_formset = EducationFormSet(prefix='education')
-			LanguageFormSet = formset_factory(LanguageForm, extra=len(profile.language_list))
-			language_formset = LanguageFormSet(prefix='language')
+			experience_formset = ExperienceFormSet(queryset=Experience.objects.filter(answer_id=answer.id),
+			                                       prefix='experience')
+			education_formset = EducationFormSet(queryset=Education.objects.filter(answer_id=answer.id),
+			                                     prefix='education')
+			language_formset = LanguageFormSet(queryset=Language.objects.filter(answer_id=answer.id), prefix='language')
 
 			return render(request, 'survey.html', {'path': path, 'experience_formset': experience_formset
 			, 'education_formset': education_formset, 'language_formset': language_formset, 'action_id': action_id})
 	except:
 		traceback.print_exc()
-		# User.objects.get(id=user_id).delete()
-		# Answer.objects.filter(user_id=user_id).delete()
 		raise Http404

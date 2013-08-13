@@ -2,24 +2,12 @@
 
 {{ education_formset.management_form }}
 {% for form in education_formset %}
-	{% if compare %}
-	<h3>Your answer</h3>
-	{% endif %}
+	{{ form.id }}
 	College: {{ form.college }} </br>
 	Major: {{ form.major }} </br>
 	Degree: {{ form.degree }} </br>
 	From: {{ form.date_from }} </br>
 	To: {{ form.date_to }} </br>
-	{% if compare %}
-		<h3>Our result</h3>
-			College: {{ form.parse_college }} </br>
-			Major: {{ form.parse_major }} </br>
-			Degree: {{ form.parse_degree }} </br>
-			From: {{ form.parse_date_from }} </br>
-			To: {{ form.parse_date_to }} </br>
-		<h4>Please rate our result</h4>
-		{{ form.parse_score }}
-	{% endif %}
 	</br>
 	</br>
 {% endfor %}

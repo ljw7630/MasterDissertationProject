@@ -42,7 +42,6 @@ nosetests.xml
 *.less
 
 node_modules/
-website/js/
 website/css
 website/img
 website/less

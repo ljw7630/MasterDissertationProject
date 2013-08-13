@@ -12,16 +12,16 @@
 					City: {{ answer_form.parse_city }}
 					<h4>Please rate our result</h4>
 					{{ answer_form.city_score }}
-					<legend>Experiences:</legend>
-					{% include "experience.html" with experience_formset=experience_formset compare=True %}
+					<legend>Work Experiences:</legend>
+					{% include "experience_compare.html" with experience_formset=experience_formset%}
 					<hr>
 					<legend>Educations:</legend>
-					{% include "education.html" with education_formset=education_formset compare=True %}
+					{% include "education_compare.html" with education_formset=education_formset%}
 					<hr>
 					<legend>Languages:</legend>
-					{% include "language.html" with language_formset=language_formset compare=True %}
+					{% include "language_compare.html" with language_formset=language_formset%}
 					<hr>
-					<legend>Can your rate our overall result?</legend>
+					<legend>Can you rate overall result quality for this profile?</legend>
 					{{ answer_form.overall_score }}
 				</div>
 			</div>

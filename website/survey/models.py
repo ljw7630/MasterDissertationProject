@@ -153,8 +153,9 @@ class User(models.Model):
 
 
 class Answer(models.Model):
-	user = models.ForeignKey(User)
+	user = models.ForeignKey(User, null=True, blank=True, default=None, on_delete=models.SET_NULL)
 	file = models.FilePathField()
+
 	overall_score = models.IntegerField(null=True, blank=True, choices=SCORE_CHOICES)
 	language_score = models.IntegerField(null=True, blank=True, choices=SCORE_CHOICES)
 	skill_score = models.IntegerField(null=True, blank=True, choices=SCORE_CHOICES)
@@ -164,7 +165,7 @@ class Answer(models.Model):
 	city_score = models.IntegerField(null=True, blank=True, choices=SCORE_CHOICES)
 
 	def __unicode__(self):
-		return 'user: ' + str(self.user.id) + ', answer: ' + str(self.id) + ', file: ' + self.file
+		return 'answer: ' + str(self.id) + ', file: ' + self.file
 
 
 class AnswerForm(ModelForm):
@@ -174,65 +175,81 @@ class AnswerForm(ModelForm):
 
 
 class Experience(models.Model):
-	answer = models.ForeignKey(Answer)
+	answer = models.ForeignKey(Answer, null=True, blank=True, default=None, on_delete=models.SET_NULL)
 
 	company = models.CharField(max_length=100, null=True, blank=True)
-	job_title = models.CharField(max_length=100, null=True, blank=True)
-	date_from = models.CharField(max_length=100, null=True, blank=True)
-	date_to = models.CharField(max_length=100, null=True, blank=True)
-
 	parse_company = models.CharField(max_length=100, null=True, blank=True)
-	parse_job_title = models.CharField(max_length=100, null=True, blank=True)
-	parse_date_from = models.CharField(max_length=100, null=True, blank=True)
-	parse_date_to = models.CharField(max_length=100, null=True, blank=True)
+	parse_company_score = models.IntegerField(null=True, blank=True, choices=SCORE_CHOICES)
 
-	parse_score = models.IntegerField(null=True, blank=True, choices=SCORE_CHOICES)
+	job_title = models.CharField(max_length=100, null=True, blank=True)
+	parse_job_title = models.CharField(max_length=100, null=True, blank=True)
+	parse_job_title_score = models.IntegerField(null=True, blank=True, choices=SCORE_CHOICES)
+
+	date_from = models.CharField(max_length=100, null=True, blank=True)
+	parse_date_from = models.CharField(max_length=100, null=True, blank=True)
+	parse_date_from_score = models.IntegerField(null=True, blank=True, choices=SCORE_CHOICES)
+
+	date_to = models.CharField(max_length=100, null=True, blank=True)
+	parse_date_to = models.CharField(max_length=100, null=True, blank=True)
+	parse_date_to_score = models.IntegerField(null=True, blank=True, choices=SCORE_CHOICES)
+
+	# parse_score = models.IntegerField(null=True, blank=True, choices=SCORE_CHOICES)
 
 
 class ExperienceForm(ModelForm):
 	class Meta:
 		model = Experience
-		fields = ['company', 'job_title', 'date_from', 'date_to', 'parse_company', 'parse_job_title', 'parse_date_from',
-		          'parse_date_to', 'parse_score']
+		# fields = ['company', 'job_title', 'date_from', 'date_to', 'parse_company', 'parse_job_title', 'parse_date_from',
+		#           'parse_date_to', 'parse_score']
 		exclude=('answer')
 
 
 class Education(models.Model):
-	answer = models.ForeignKey(Answer)
+	answer = models.ForeignKey(Answer, null=True, blank=True, default=None, on_delete=models.SET_NULL)
 
 	college = models.CharField(max_length=100, null=True, blank=True)
-	major = models.CharField(max_length=100, null=True, blank=True)
-	degree = models.CharField(max_length=100, null=True, blank=True, choices=DEGREE_CHOICES)
-	date_from = models.CharField(max_length=100, null=True, blank=True)
-	date_to = models.CharField(max_length=100, null=True, blank=True)
-
 	parse_college = models.CharField(max_length=100, null=True, blank=True)
-	parse_major = models.CharField(max_length=100, null=True, blank=True)
-	parse_degree = models.CharField(max_length=100, null=True, blank=True, choices=DEGREE_CHOICES)
-	parse_date_from = models.CharField(max_length=100, null=True, blank=True)
-	parse_date_to = models.CharField(max_length=100, null=True, blank=True)
+	parse_college_score = models.IntegerField(null=True, blank=True, choices=SCORE_CHOICES)
 
-	parse_score = models.IntegerField(null=True, blank=True, choices=SCORE_CHOICES)
+	major = models.CharField(max_length=100, null=True, blank=True)
+	parse_major = models.CharField(max_length=100, null=True, blank=True)
+	parse_major_score = models.IntegerField(null=True, blank=True, choices=SCORE_CHOICES)
+
+	degree = models.CharField(max_length=100, null=True, blank=True, choices=DEGREE_CHOICES)
+	parse_degree = models.CharField(max_length=100, null=True, blank=True, choices=DEGREE_CHOICES)
+	parse_degree_score = models.IntegerField(null=True, blank=True, choices=SCORE_CHOICES)
+
+	date_from = models.CharField(max_length=100, null=True, blank=True)
+	parse_date_from = models.CharField(max_length=100, null=True, blank=True)
+	parse_date_from_score = models.IntegerField(null=True, blank=True, choices=SCORE_CHOICES)
+
+	date_to = models.CharField(max_length=100, null=True, blank=True)
+	parse_date_to = models.CharField(max_length=100, null=True, blank=True)
+	parse_date_to_score = models.IntegerField(null=True, blank=True, choices=SCORE_CHOICES)
+
+	# parse_score = models.IntegerField(null=True, blank=True, choices=SCORE_CHOICES)
 
 
 class EducationForm(ModelForm):
 	class Meta:
 		model = Education
-		fields = ['college', 'major', 'degree', 'date_from', 'date_to', 'parse_college', 'parse_major', 'parse_degree',
-		          'parse_date_from', 'parse_date_to', 'parse_score']
+		# fields = ['college', 'major', 'degree', 'date_from', 'date_to', 'parse_college', 'parse_major', 'parse_degree',
+		#           'parse_date_from', 'parse_date_to', 'parse_score']
 		exclude = ('answer')
 
 
 class Language(models.Model):
-	answer = models.ForeignKey(Answer)
+	answer = models.ForeignKey(Answer, null=True, blank=True, default=None, on_delete=models.SET_NULL)
+
 	language = models.CharField(max_length=100, null=True, blank=True)
 	parse_language = models.CharField(max_length=100, null=True, blank=True)
+	parse_language_score = models.IntegerField(null=True, blank=True, choices=SCORE_CHOICES)
 
 
 class LanguageForm(ModelForm):
 	class Meta:
 		model = Language
-		fields = ['language']
+		# fields = ['language']
 		exclude = ('answer')
 
 
@@ -240,29 +257,14 @@ class Skill(models.Model):
 	answer = models.ForeignKey(Answer)
 	skill = models.CharField(max_length=100, null=True, blank=True)
 	parse_skill = models.CharField(max_length=100, null=True, blank=True)
+	parse_skill_score = models.IntegerField(null=True, blank=True, choices=SCORE_CHOICES)
 
 
 class SkillForm(ModelForm):
 	class Meta:
 		model = Skill
-		fields = ['skill']
+		# fields = ['skill']
 		exclude = ('answer')
-
-# class Triple(models.Model):
-# 	subject = models.CharField(max_length=100, null=True, blank=True)
-# 	predicate = models.CharField(max_length=30, null=True, blank=True)
-# 	object = models.CharField(max_length=100, null=True, blank=True)
-#
-# 	parse_subject = models.CharField(max_length=100, null=True, blank=True)
-# 	parse_predicate = models.CharField(max_length=30, null=True, blank=True)
-# 	parse_object = models.CharField(max_length=100, null=True, blank=True)
-#
-# 	score = models.IntegerField(null=True, blank=True)
-#
-# 	answer = models.ForeignKey(Answer)
-#
-# 	def __unicode__(self):
-# 		return 'answer: ' + str(self.answer.id) + ', triple: ' + str(self.id)
 
 
 class Data(models.Model):

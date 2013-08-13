@@ -1,0 +1,32 @@
+
+{{ experience_formset.management_form }}
+
+{% for form in experience_formset %}
+{{ form.id }}
+<table>
+	<tr>
+		<th>Your answer</th>
+		<th>Our answer</th>
+	</tr>
+	<tr>
+		<td>Company: {{ form.company }}</td>
+		<td>Company: {{ form.parse_company }}</td>
+		<td>score: {{ form.parse_company_score }}</td>
+	</tr>
+	<tr>
+		<td>Job Title: {{ form.job_title }}</td>
+		<td>Job Title: {{ form.parse_job_title }}</td>
+		<td>score: {{ form.parse_job_title_score }}</td>
+	</tr>
+	<tr>
+		<td>From: {{ form.date_from }}</td>
+		<td>From: {{ form.parse_date_from }}</td>
+		<td>score: {{ form.parse_date_from_score }}</td>
+	</tr>
+	<tr>
+		<td>To: {{ form.date_to }}</td>
+		<td>To: {{ form.parse_date_to }}</td>
+		<td>score: {{ form.parse_date_to_score }}</td>
+	</tr>
+</table>
+{% endfor %}
