@@ -2,5 +2,6 @@
 {{language_formset.management_form}}
 	{% for form in language_formset %}
 		{{ form.id }}
+		{{ form.answer_id }}
 		{{ form.language }}
 	{% endfor %}

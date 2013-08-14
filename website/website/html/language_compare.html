@@ -5,7 +5,8 @@
 		<th>Our result</th>
 	</tr>
 	{% for form in language_formset %}
-	{{ form.id }}
+		{{ form.id }}
+		{{ form.answer_id }}
 	<tr>
 		<td>Language: {{ form.language }}</td>
 		<td>Language: {{ form.parse_language }}</td>

@@ -193,15 +193,13 @@ class Experience(models.Model):
 	parse_date_to = models.CharField(max_length=100, null=True, blank=True)
 	parse_date_to_score = models.IntegerField(null=True, blank=True, choices=SCORE_CHOICES)
 
-	# parse_score = models.IntegerField(null=True, blank=True, choices=SCORE_CHOICES)
-
 
 class ExperienceForm(ModelForm):
 	class Meta:
 		model = Experience
 		# fields = ['company', 'job_title', 'date_from', 'date_to', 'parse_company', 'parse_job_title', 'parse_date_from',
 		#           'parse_date_to', 'parse_score']
-		exclude=('answer')
+		# exclude=('answer')
 
 
 class Education(models.Model):
@@ -250,7 +248,7 @@ class LanguageForm(ModelForm):
 	class Meta:
 		model = Language
 		# fields = ['language']
-		exclude = ('answer')
+		# exclude = ('answer')
 
 
 class Skill(models.Model):
@@ -264,7 +262,7 @@ class SkillForm(ModelForm):
 	class Meta:
 		model = Skill
 		# fields = ['skill']
-		exclude = ('answer')
+		# exclude = ('answer')
 
 
 class Data(models.Model):

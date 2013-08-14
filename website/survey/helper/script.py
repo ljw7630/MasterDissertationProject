@@ -65,12 +65,16 @@ def generate_data():
 def fill_experience(answer, experience_list):
 	for experience in experience_list:
 		exp = Experience(answer=answer)
+		exp.company = ''
 		if 'company' in experience:
 			exp.parse_company = experience['company']
+		exp.job_title = ''
 		if 'job_title' in experience:
 			exp.parse_job_title = experience['job_title']
+		exp.date_from = ''
 		if 'from' in experience:
 			exp.parse_date_from = experience['from']
+		exp.date_to = ''
 		if 'to' in experience:
 			exp.parse_date_to = experience['to']
 		exp.answer = answer
@@ -82,14 +86,19 @@ def fill_experience(answer, experience_list):
 def fill_education(answer, education_list):
 	for education in education_list:
 		edu = Education(answer=answer)
+		edu.college = ''
 		if 'college' in education:
 			edu.parse_college = education['college']
+		edu.major = ''
 		if 'major' in education:
 			edu.parse_major = education['major']
+		edu.degree = ''
 		if 'degree' in education:
 			edu.parse_degree = education['degree']
+		edu.date_from = ''
 		if 'from' in education:
 			edu.parse_date_from = education['from']
+		edu.date_to = ''
 		if 'to' in education:
 			edu.parse_date_to = education['to']
 		edu.answer = answer

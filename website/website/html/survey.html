@@ -13,7 +13,7 @@
 
 					<form action="./survey/print_form/" class="form-horizontal" method="POST">
 
-						{% include "city.html" %}
+						City: {{ answer_form.city }} </br>
 
 						<legend>Work Experiences:</legend>
 						{% include "experience.html" with experience_formset=experience_formset %}

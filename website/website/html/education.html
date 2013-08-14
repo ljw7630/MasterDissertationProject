@@ -3,6 +3,7 @@
 {{ education_formset.management_form }}
 {% for form in education_formset %}
 	{{ form.id }}
+	{{ form.answer_id }}
 	College: {{ form.college }} </br>
 	Major: {{ form.major }} </br>
 	Degree: {{ form.degree }} </br>
