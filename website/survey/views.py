@@ -97,7 +97,7 @@ def print_form(request):
 				for form in language_formset:
 					item = lans[idx]
 					if form['parse_language_score'].data:
-						item.parse_language_score = int(form['parse_language_score'])
+						item.parse_language_score = int(form['parse_language_score'].data)
 
 					item.save()
 					idx += 1
