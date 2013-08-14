@@ -6,9 +6,9 @@ PORT = 12345
 
 
 class SocketHandler:
-	def __init__(self):
+	def __init__(self, port=PORT):
 		self.s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-		self.s.connect((HOST, PORT))
+		self.s.connect((HOST, port))
 		self.fid = self.s.makefile()
 
 	def send_index_command(self):

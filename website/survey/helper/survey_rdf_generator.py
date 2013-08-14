@@ -34,11 +34,7 @@ class SurveyRDFGenerator:
 
 	def __init__(self):
 		self.schema = SG()
-		# if os.path.exists(file_name):
-		# 	self.graph = Graph()
-		# 	self.graph.parse(file_name, format='xml')
-		# 	print 'load % lines of triples' % len(self.graph)
-		# elif os.path.exists(RESOURCES_ONTOLOGY_OWL):
+		
 		print RESOURCES_ONTOLOGY_OWL
 		if os.path.exists(RESOURCES_ONTOLOGY_OWL):
 			self.graph = Graph()
@@ -51,15 +47,15 @@ class SurveyRDFGenerator:
 
 		# self.loadPickles()
 
-		self.course_socket_handler = CourseSocketHandler()
+		self.course_socket_handler = CourseSocketHandler(port=23456)
 		self.course_socket_handler.send_query_command()
-		self.degree_socket_handler = DegreeSocketHandler()
+		self.degree_socket_handler = DegreeSocketHandler(port=23456)
 		self.degree_socket_handler.send_query_command()
-		self.language_socket_handler = LanguageSocketHandler()
+		self.language_socket_handler = LanguageSocketHandler(port=23456)
 		self.language_socket_handler.send_query_command()
-		self.university_location_socket_handler = UniversityLocationSocketHandler()
+		self.university_location_socket_handler = UniversityLocationSocketHandler(port=23456)
 		self.university_location_socket_handler.send_query_command()
-		self.university_socket_handler = UniversitySocketHandler()
+		self.university_socket_handler = UniversitySocketHandler(port=23456)
 		self.university_socket_handler.send_query_command()
 
 	# def loadPickles(self):
