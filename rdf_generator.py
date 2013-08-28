@@ -213,6 +213,7 @@ class RDFGenerator:
 					self.graph_add(education, self.schema.degree, term)
 
 			self.graph_add(person, self.schema.education, education)
+			self.graph_add(education, RDF.type, self.schema.Education)
 
 	def add_experience_triple(self, profile, person):
 		for experience in profile.experience_list:

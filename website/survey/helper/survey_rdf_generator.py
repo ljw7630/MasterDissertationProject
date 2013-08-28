@@ -34,7 +34,7 @@ class SurveyRDFGenerator:
 
 	def __init__(self):
 		self.schema = SG()
-		
+
 		print RESOURCES_ONTOLOGY_OWL
 		if os.path.exists(RESOURCES_ONTOLOGY_OWL):
 			self.graph = Graph()
